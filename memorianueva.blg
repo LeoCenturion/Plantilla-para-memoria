@@ -1,0 +1,73 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: memorianueva.aux
+The style file: biblatex.bst
+A level-1 auxiliary file: portada.aux
+A level-1 auxiliary file: Chapters/Chapter1.aux
+A level-1 auxiliary file: Chapters/Chapter2.aux
+A level-1 auxiliary file: Chapters/Chapter3.aux
+A level-1 auxiliary file: Chapters/Chapter4.aux
+A level-1 auxiliary file: Chapters/Chapter5.aux
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: memorianueva-blx.bib
+Database file #2: references.bib
+Warning--I didn't find a database entry for "Vaswani:2017"
+Biblatex version: 3.20
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 8 entries,
+            6402 wiz_defined-function locations,
+            1256 strings with 10244 characters,
+and the built_in function-call counts, 36655 in all, are:
+= -- 2617
+> -- 638
+< -- 155
++ -- 801
+- -- 192
+* -- 2371
+:= -- 3824
+add.period$ -- 0
+call.type$ -- 8
+change.case$ -- 77
+chr.to.int$ -- 47
+cite$ -- 14
+duplicate$ -- 3673
+empty$ -- 3546
+format.name$ -- 329
+if$ -- 7726
+int.to.chr$ -- 0
+int.to.str$ -- 16
+missing$ -- 0
+newline$ -- 168
+num.names$ -- 298
+pop$ -- 2410
+preamble$ -- 1
+purify$ -- 101
+quote$ -- 0
+skip$ -- 1194
+stack$ -- 0
+substring$ -- 4630
+swap$ -- 789
+text.length$ -- 151
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 260
+warning$ -- 0
+while$ -- 457
+width$ -- 0
+write$ -- 161
+(There was 1 warning)
