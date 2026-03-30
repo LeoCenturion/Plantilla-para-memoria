@@ -18,12 +18,15 @@ Reglas de Estilo y Gramática
         Elimine frases comunes de inicio/cierre generadas por IA como "En resumen" o "En conclusión".
         Evite el uso incorrecto de gerundios y la redacción personal en exceso.
     Unificación de Criterios: Mantenga un formato uniforme para cifras (letras vs. números) y el uso de puntuación, como los puntos finales en listados.
+    Capitalización después de dos puntos: Después de dos puntos, el texto debe comenzar en minúscula.
+    Títulos en formato oración: Los títulos de capítulos y secciones deben seguir el formato de 'oración' (solo la primera palabra en mayúscula, salvo nombres propios).
+    Referencia a figuras: La palabra 'figura' debe escribirse en minúscula en el cuerpo del texto cuando se hace referencia a una imagen (ejemplo: 'como se muestra en la figura 1').
 
 Reglas de Formato (Plantilla LaTeX)
 
 El formato de la memoria es obligatorio en LaTeX, y no se debe modificar el estilo de la plantilla.Tipografía y Énfasis
 
-    Negritas y Subrayado: Está estrictamente prohibido utilizar negritas o texto subrayado para resaltar términos dentro de los párrafos.
+    Negritas y Subrayado: Las negritas están reservadas estrictamente para títulos. Está estrictamente prohibido utilizar negritas o texto subrayado para resaltar términos dentro de los párrafos o elementos de lista.
     Itálicas: Su uso se limita estrictamente a la definición de acrónimos o términos en inglés (por ejemplo, en el desglose de una sigla).
     Letra Monoespaciada: Se puede utilizar para resaltar nombres propios de implementaciones (como nombres de funciones o bibliotecas), siendo una alternativa permitida a las negritas o itálicas para este fin.
 
@@ -57,3 +60,10 @@ El comité emitió un comunicado que causó un gran revuelo en la prensa. / El c
 
 Explicación del Error
 El gerundio solo debe expresar simultaneidad (al mismo tiempo) o anterioridad (inmediatamente antes), no un resultado o consecuencia posterior al verbo principal.
+
+## Estructura de los capitulos
+
+* Capítulo 1 y 2: límite de 5 páginas cada uno.
+* Capítulo 3 (Diseño): 15 a 20 páginas.
+* Capítulo 4 (Ensayos): 10 a 15 páginas.
+* Capítulo 5 (Conclusiones): 2 páginas de texto, sin imágenes ni tablas.
