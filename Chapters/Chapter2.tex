@@ -2,21 +2,21 @@
 
 \label{Chapter2}
 
-En este capítulo se introducen temas con mayor profundidad que en el capítulo previo y se cubren aspectos fundamentales de \textit{trading}, análisis técnico y conceptos clave de aprendizaje automático, indispensables para comprender el desarrollo y los resultados del trabajo.
+En este capítulo se introducen temas con mayor profundidad que en el capítulo previo y se cubren aspectos fundamentales de trading, análisis técnico y conceptos clave de aprendizaje automático, indispensables para comprender el desarrollo y los resultados del trabajo.
 
 \section{Trading}
 
-El \textit{trading} es la actividad de comprar y vender activos en mercados financieros con el objetivo de obtener ganancias a corto plazo, diferenciándose de la inversión tradicional por la duración de las posiciones. Mientras que un inversor mantiene posiciones a largo plazo, un \textit{trader} busca aprovechar tendencias de menor duración [\cite{Chen:2023}].
+El trading es la actividad de comprar y vender activos en mercados financieros con el objetivo de obtener ganancias a corto plazo, diferenciándose de la inversión tradicional por la duración de las posiciones. Mientras que un inversor mantiene posiciones a largo plazo, un trader busca aprovechar tendencias de menor duración [\cite{Chen:2023}].
 
-El objetivo principal de un \textit{trader} es generar ganancias comprando a precios bajos y vendiendo a precios más altos. Los activos comercializados pueden ser acciones, bonos, divisas, \textit{commodities} (como oro o petróleo) y derivados (como futuros u opciones) [\cite{Zucchi:2022}].
+El objetivo principal de un trader es generar ganancias comprando a precios bajos y vendiendo a precios más altos. Los activos comercializados pueden ser acciones, bonos, divisas, commodities (como oro o petróleo) y derivados (como futuros u opciones) [\cite{Zucchi:2022}].
 
-Los \textit{traders} se pueden clasificar según el tipo de estrategia que emplean:
+Los traders se pueden clasificar según el tipo de estrategia que emplean:
 
 \begin{itemize}
-    \item \textit{Scalping}: Implica la compra y venta de instrumentos financieros en lapsos muy breves (segundos a minutos) para generar pequeñas ganancias en cada operación.
-    \item \textit{Trading} diario: La duración de las posiciones va desde minutos a horas, con múltiples operaciones abiertas simultáneamente.
-    \item \textit{Swing trading}: Las operaciones pueden durar días o semanas. Se considera menos riesgosa que las anteriores debido a la mayor disponibilidad de tiempo para tomar decisiones.
-    \item \textit{Trading} de eventos: Busca beneficiarse de movimientos rápidos de precio causados por eventos económicos o financieros específicos (adquisiciones de empresas, publicaciones de ganancias, decisiones regulatorias, etc.).
+    \item Scalping: implica la compra y venta de instrumentos financieros en lapsos muy breves (segundos a minutos) para generar pequeñas ganancias en cada operación.
+    \item trading diario: la duración de las posiciones va desde minutos a horas, con múltiples operaciones abiertas simultáneamente.
+    \item Swing trading: las operaciones pueden durar días o semanas. Se considera menos riesgosa que las anteriores debido a la mayor disponibilidad de tiempo para tomar decisiones.
+    \item trading de eventos: busca beneficiarse de movimientos rápidos de precio causados por eventos económicos o financieros específicos (adquisiciones de empresas, publicaciones de ganancias, decisiones regulatorias, etc.).
 \end{itemize}
 
 Otra clasificación se basa en el tipo de información utilizada, diferenciando a los analistas fundamentales y a los analistas técnicos, ya introducidos en la sección 1.2.
@@ -30,17 +30,17 @@ Esta metodología fue formalizada por Charles Dow a fines del siglo XIX y ha sid
 La teoría de Dow establece seis puntos principales [\cite{Lopez:2018}]:
 
 \begin{itemize}
-    \item \textbf{El precio lo descuenta todo:} Toda la información disponible sobre un activo ya se encuentra incorporada en su cotización bursátil.
-    \item \textbf{Las tres tendencias del mercado:} El mercado se mueve en tendencias alcistas o bajistas. Se distinguen tres tipos de tendencias:
+    \item El precio lo descuenta todo: Toda la información disponible sobre un activo ya se encuentra incorporada en su cotización bursátil.
+    \item Las tres tendencias del mercado: el mercado se mueve en tendencias alcistas o bajistas. Se distinguen tres tipos de tendencias:
     \begin{itemize}
-        \item Tendencias primarias: Son las principales y duran de uno a tres años.
-        \item Tendencias secundarias o intermedias: Van en dirección contraria a las primarias, pero son de menor tamaño (``correcciones'').
-        \item Tendencias terciarias o menores: Van en dirección contraria a las secundarias y son de menor duración.
+        \item Tendencias primarias: son las principales y duran de uno a tres años.
+        \item Tendencias secundarias o intermedias: van en dirección contraria a las primarias, pero son de menor tamaño (``correcciones'').
+        \item Tendencias terciarias o menores: van en dirección contraria a las secundarias y son de menor duración.
     \end{itemize}
-    \item \textbf{Las tres fases de las tendencias primarias:} Las tendencias alcistas tienen fases de ``acumulación'', ``participación pública'' y ``euforia''; las bajistas tienen fases de ``distribución'', ``participación pública'' y ``pánico''.
-    \item \textbf{Principio de confirmación:} Para confirmar una tendencia del mercado (alcista o bajista), los índices de industrias y de transportes deben tener la misma tendencia.
-    \item \textbf{El volumen bursátil debe confirmar la tendencia:} Si la tendencia es al alza, el volumen debe aumentar con el precio y disminuir cuando baja. Si la tendencia es a la baja, el volumen debe aumentar cuando el precio baja y disminuir cuando sube.
-    \item \textbf{La tendencia se mantiene vigente hasta que se demuestre lo contrario:} Una tendencia se considera válida hasta que se confirma una tendencia opuesta.
+    \item Las tres fases de las tendencias primarias: las tendencias alcistas tienen fases de ``acumulación'', ``participación pública'' y ``euforia''; las bajistas tienen fases de ``distribución'', ``participación pública'' y ``pánico''.
+    \item Principio de confirmación: para confirmar una tendencia del mercado (alcista o bajista), los índices de industrias y de transportes deben tener la misma tendencia.
+    \item El volumen bursátil debe confirmar la tendencia: si la tendencia es al alza, el volumen debe aumentar con el precio y disminuir cuando baja. Si la tendencia es a la baja, el volumen debe aumentar cuando el precio baja y disminuir cuando sube.
+    \item La tendencia se mantiene vigente hasta que se demuestre lo contrario: una tendencia se considera válida hasta que se confirma una tendencia opuesta.
 \end{itemize}
 
 %% \begin{figure}[ht]
@@ -52,84 +52,76 @@ La teoría de Dow establece seis puntos principales [\cite{Lopez:2018}]:
 
 \section{Aprendizaje supervisado}
 
-El aprendizaje automático (\textit{machine learning}) se clasifica comúnmente en aprendizaje supervisado, no supervisado y por refuerzo. El aprendizaje supervisado se basa en el uso de datos etiquetados para entrenar un modelo que aprenda a predecir una salida a partir de una entrada [\cite{Jansen:2020}].
+El aprendizaje automático (machine learning) se clasifica comúnmente en aprendizaje supervisado, no supervisado y por refuerzo. El aprendizaje supervisado se basa en el uso de datos etiquetados para entrenar un modelo que aprenda a predecir una salida a partir de una entrada [\cite{Jansen:2020}].
 
 Esta técnica se divide en dos categorías principales:
 
 \begin{itemize}
-    \item \textbf{Clasificación:} El modelo predice una categoría discreta o una etiqueta. Por ejemplo, predecir si un activo subira o bajara en el periodo siguiente.
-    \item \textbf{Regresión:} El modelo predice un valor numérico continuo. Por ejemplo, predecir el precio futuro de un activo financiero .
+    \item Clasificación: el modelo predice una categoría discreta o una etiqueta. Por ejemplo, predecir si un activo subira o bajara en el periodo siguiente.
+    \item Regresión: el modelo predice un valor numérico continuo. Por ejemplo, predecir el precio futuro de un activo financiero .
 \end{itemize}
 
 Para este trabajo, se optó por un enfoque de clasificación, donde el modelo predice la dirección del movimiento del precio (subida o bajada) en lugar de la magnitud exacta.
 
 \section{Optimización de hiperparámetros}
 
-Es fundamental distinguir entre los \textit{parámetros} de un modelo y sus \textit{hiperparámetros}. Los parámetros son valores aprendidos por el modelo durante el entrenamiento a partir de los datos (por ejemplo, los pesos en una red neuronal o la pendiente en una regresión lineal). Los hiperparámetros, en cambio, son configuraciones que se definen antes del entrenamiento y no se modifican durante este proceso (por ejemplo, la tasa de aprendizaje o la profundidad de un árbol de decisión) [\cite{Jansen:2020}].
+Es fundamental distinguir entre los parámetros de un modelo y sus hiperparámetros. Los parámetros son valores aprendidos por el modelo durante el entrenamiento a partir de los datos (por ejemplo, los pesos en una red neuronal o la pendiente en una regresión lineal). Los hiperparámetros, en cambio, son configuraciones que se definen antes del entrenamiento y no se modifican durante este proceso (por ejemplo, la tasa de aprendizaje o la profundidad de un árbol de decisión) [\cite{Jansen:2020}].
 
 El rendimiento de un modelo depende tanto de sus parámetros como de sus hiperparámetros. La optimización de hiperparámetros es el proceso de buscar la combinación de valores de hiperparámetros que resulta en el mejor desempeño del modelo. Esto a menudo implica entrenar múltiples modelos con diferentes combinaciones y seleccionar el que ofrezca los mejores resultados en un conjunto de validación [\cite{Jansen:2020}]. Aunque la optimización de hiperparámetros es conveniente, puede ser computacionalmente intensiva para modelos complejos, como las redes neuronales profundas o los modelos basados en aprendizaje por refuerzo.
 
 \section{Ensambles}
 
-En el ámbito del aprendizaje automático, los ensambles son el resultado de combinar múltiples modelos entrenados individualmente para obtener un desempeño general superior al que se lograría con un solo modelo [\cite{Singhal:2020}]. La idea es que los puntos débiles de un modelo puedan ser compensados por los puntos fuertes de otros, mejorando la robustez y la precisión de las predicciones. Existen diferentes técnicas de ensamble, como \textit{bagging} y \textit{boosting}, que combinan los modelos de distintas maneras [\cite{Singhal:2020}].
+En el ámbito del aprendizaje automático, los ensambles son el resultado de combinar múltiples modelos entrenados individualmente para obtener un desempeño general superior al que se lograría con un solo modelo [\cite{Singhal:2020}]. La idea es que los puntos débiles de un modelo puedan ser compensados por los puntos fuertes de otros, mejorando la robustez y la precisión de las predicciones. Existen diferentes técnicas de ensamble, como bagging y boosting, que combinan los modelos de distintas maneras [\cite{Singhal:2020}].
 
 \section{Transformers}
 
-La arquitectura \textit{Transformer}, introducida por Vaswani et al. [\cite{Vaswani:2017}], revolucionó el procesamiento de secuencias, especialmente en el ámbito del procesamiento del lenguaje natural (PLN), y ha demostrado ser altamente efectiva también en el análisis de series de tiempo. A diferencia de los modelos recurrentes o convolucionales tradicionales, los \textit{Transformers} se basan completamente en mecanismos de auto-atención (\textit{self-attention}), lo que les permite modelar dependencias de largo alcance en las secuencias de entrada de manera más eficiente y paralelizable.
+La arquitectura Transformer, introducida por Vaswani et al. [\cite{Vaswani:2017}], revolucionó el procesamiento de secuencias, especialmente en el ámbito del procesamiento del lenguaje natural (PLN), y ha demostrado ser altamente efectiva también en el análisis de series de tiempo. A diferencia de los modelos recurrentes o convolucionales tradicionales, los Transformers se basan completamente en mecanismos de auto-atención (self-attention), lo que les permite modelar dependencias de largo alcance en las secuencias de entrada de manera más eficiente y paralelizable.
 
-Los componentes clave de un \textit{Transformer} incluyen:
+Los componentes clave de un Transformer incluyen:
 \begin{itemize}
-    \item \textbf{Mecanismo de Auto-atención (Self-Attention):} Permite al modelo ponderar la importancia de diferentes partes de la secuencia de entrada al procesar cada elemento. Cada token (o punto en la serie de tiempo) interactúa con todos los demás tokens, calculando una puntuación de atención que determina cuánto debe enfocarse en cada uno.
-    \item \textbf{Codificación Posicional (Positional Encoding):} Dado que el mecanismo de atención no es sensible al orden de los elementos en una secuencia, se añade una codificación posicional a las incrustaciones de entrada para inyectar información sobre la posición relativa de cada elemento.
-    \item \textbf{Bloques Encoder-Decoder:} La arquitectura original consiste en un \textit{encoder} y un \textit{decoder}. El \textit{encoder} procesa la secuencia de entrada para crear una representación contextualizada, y el \textit{decoder} utiliza esta representación para generar la secuencia de salida. En aplicaciones de series de tiempo predictivas, a menudo se utiliza solo la parte del \textit{encoder} o variaciones específicas para la tarea.
+    \item Mecanismo de Auto-atención (Self-Attention): permite al modelo ponderar la importancia de diferentes partes de la secuencia de entrada al procesar cada elemento. Cada token (o punto en la serie de tiempo) interactúa con todos los demás tokens, calculando una puntuación de atención que determina cuánto debe enfocarse en cada uno.
+    \item Codificación Posicional (Positional Encoding): dado que el mecanismo de atención no es sensible al orden de los elementos en una secuencia, se añade una codificación posicional a las incrustaciones de entrada para inyectar información sobre la posición relativa de cada elemento.
+    \item Bloques Encoder-Decoder: la arquitectura original consiste en un encoder y un decoder. El encoder procesa la secuencia de entrada para crear una representación contextualizada, y el decoder utiliza esta representación para generar la secuencia de salida. En aplicaciones de series de tiempo predictivas, a menudo se utiliza solo la parte del encoder o variaciones específicas para la tarea.
 \end{itemize}
 
-La capacidad de los \textit{Transformers} para capturar relaciones complejas y no lineales entre puntos distantes en el tiempo los convierte en una herramienta potente para la predicción de series de tiempo financieras, donde los eventos pasados pueden tener un impacto significativo y no trivial en los movimientos futuros del mercado.
+La capacidad de los Transformers para capturar relaciones complejas y no lineales entre puntos distantes en el tiempo los convierte en una herramienta potente para la predicción de series de tiempo financieras, donde los eventos pasados pueden tener un impacto significativo y no trivial en los movimientos futuros del mercado.
 
 \section{Metodologías de Evaluación y Gestión de Riesgo}
 
 \subsection{Backtesting}
-El \textit{backtesting} es el pilar fundamental para evaluar una estrategia de \textit{trading}. Consiste en simular el comportamiento de la estrategia utilizando datos históricos para estimar cómo se habría desempeñado en el pasado. Un \textit{backtesting} riguroso debe evitar el sesgo de retrospección (\textit{look-ahead bias}), asegurando que las decisiones del modelo en un punto del tiempo se basen únicamente en información disponible hasta ese momento.
+El backtesting es el pilar fundamental para evaluar una estrategia de trading. Consiste en simular el comportamiento de la estrategia utilizando datos históricos para estimar cómo se habría desempeñado en el pasado. Un backtesting riguroso debe evitar el sesgo de retrospección (look-ahead bias), asegurando que las decisiones del modelo en un punto del tiempo se basen únicamente en información disponible hasta ese momento.
 
 \subsection{Validación Cruzada (Cross-Validation)}
 La validación cruzada es una técnica para evaluar la capacidad de generalización de un modelo y prevenir el sobreajuste. Sin embargo, la validación cruzada estándar (como K-Fold) no es adecuada para series de tiempo debido a la dependencia temporal de los datos. En su lugar, se utilizan métodos especializados:
 \begin{itemize}
-    \item \textbf{Purged K-Fold Cross-Validation:} Esta técnica introduce dos modificaciones clave. Primero, se inserta un "embargo" o período de exclusión después de cada conjunto de validación para evitar que la información futura "se filtre" al conjunto de entrenamiento. Segundo, se "purgan" del conjunto de entrenamiento aquellas observaciones cuya etiqueta podría estar influenciada por datos del conjunto de validación.
+    \item Purged K-Fold Cross-Validation: esta técnica introduce dos modificaciones clave. Primero, se inserta un "embargo" o período de exclusión después de cada conjunto de validación para evitar que la información futura "se filtre" al conjunto de entrenamiento. Segundo, se "purgan" del conjunto de entrenamiento aquellas observaciones cuya etiqueta podría estar influenciada por datos del conjunto de validación.
 \end{itemize}
 
 \subsection{Dimensionamiento de la Apuesta (Bet Sizing)}
-El dimensionamiento de la apuesta se refiere al proceso de determinar la cantidad de capital que se arriesgará en una operación. Un modelo puede predecir la dirección del precio (clasificación) o la probabilidad de un movimiento (regresión), pero el \textit{bet sizing} traduce esa predicción en una decisión de inversión concreta. El objetivo es maximizar los rendimientos ajustados por riesgo. Un método común es utilizar una función sigmoidea para convertir las probabilidades de predicción del modelo en un tamaño de apuesta, permitiendo al sistema invertir con más confianza cuando el modelo está más seguro.
+El dimensionamiento de la apuesta se refiere al proceso de determinar la cantidad de capital que se arriesgará en una operación. Un modelo puede predecir la dirección del precio (clasificación) o la probabilidad de un movimiento (regresión), pero el bet sizing traduce esa predicción en una decisión de inversión concreta. El objetivo es maximizar los rendimientos ajustados por riesgo. Un método común es utilizar una función sigmoidea para convertir las probabilidades de predicción del modelo en un tamaño de apuesta, permitiendo al sistema invertir con más confianza cuando el modelo está más seguro.
 
 \subsection{Ratio de Sharpe y sus Variantes}
-El \textit{Sharpe Ratio} es una métrica clave utilizada para evaluar el rendimiento de una inversión ajustado por el riesgo. Este ratio ayuda a determinar la rentabilidad de una inversión en exceso de la tasa libre de riesgo, por unidad de desviación estándar del rendimiento. Cuanto mayor sea el \textit{Sharpe Ratio}, más atractivo es el rendimiento ajustado por riesgo de la estrategia. La fórmula general es:
+El \textit{Sharpe Ratio} es una métrica clave utilizada para evaluar el rendimiento de una inversión ajustado por el riesgo. Este ratio ayuda a determinar la rentabilidad de una inversión en exceso de la tasa libre de riesgo, por unidad de desviación estándar del rendimiento. Cuanto mayor sea el Sharpe Ratio, más atractivo es el rendimiento ajustado por riesgo de la estrategia. La fórmula general es:
 
 $$S = \frac{R_p - R_f}{\sigma_p}$$
 
 Donde:
 \begin{itemize}
-    \item $R_p$: Es el rendimiento de la cartera.
-    \item $R_f$: Es la tasa de rendimiento de un activo libre de riesgo.
-    \item $\sigma_p$: Es la desviación estándar de la rentabilidad de la cartera (medida del riesgo).
+    \item $R_p$: es el rendimiento de la cartera.
+    \item $R_f$: es la tasa de rendimiento de un activo libre de riesgo.
+    \item $\sigma_p$: es la desviación estándar de la rentabilidad de la cartera (medida del riesgo).
 \end{itemize}
 
 Es importante destacar que el Ratio de Sharpe tradicional asume que los retornos se distribuyen normalmente (siguiendo una campana de Gauss), una premisa que rara vez se cumple en los mercados financieros, donde los retornos suelen presentar asimetría y colas pesadas. Para una evaluación más realista del riesgo, López de Prado introduce métricas ajustadas que abordan estas limitaciones.
 
-Existen variantes de este ratio que abordan ciertas limitaciones, como el \textit{Sortino Ratio}, que solo considera la volatilidad a la baja (riesgo de cola), o el \textit{Calmar Ratio}, que utiliza la máxima caída (\textit{max drawdown}) como medida de riesgo en lugar de la desviación estándar. Estas variantes son útiles para obtener una perspectiva más completa del perfil de riesgo-rendimiento de una estrategia de \textit{trading}, especialmente en mercados volátiles como el de las criptomonedas.
+Existen variantes de este ratio que abordan ciertas limitaciones, como el Sortino Ratio, que solo considera la volatilidad a la baja (riesgo de cola), o el Calmar Ratio, que utiliza la máxima caída (max drawdown) como medida de riesgo en lugar de la desviación estándar. Estas variantes son útiles para obtener una perspectiva más completa del perfil de riesgo-rendimiento de una estrategia de trading, especialmente en mercados volátiles como el de las criptomonedas.
 
-Para una evaluación aún más rigurosa y para combatir el riesgo de sobreajuste en el \textit{backtesting}, se pueden considerar las siguientes métricas avanzadas propuestas por López de Prado:
+Para una evaluación aún más rigurosa y para combatir el riesgo de sobreajuste en el backtesting, se pueden considerar las siguientes métricas avanzadas propuestas por López de Prado:
 \begin{itemize}
-    \item \textbf{Probabilidad de Sobreajuste de Backtest (PBO):} Mide la probabilidad de que la estrategia seleccionada como 'la mejor' dentro de la muestra de entrenamiento termine rindiendo por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
-    \item \textbf{Probabilistic Sharpe Ratio (PSR):} Corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (\textit{skewness}), colas pesadas (\textit{kurtosis}) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (\textit{benchmark}).
-    \item \textbf{Deflated Sharpe Ratio (DSR):} Va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (\textit{trials}) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
+    \item Probabilidad de Sobreajuste de Backtest (PBO): mide la probabilidad de que la estrategia seleccionada como 'la mejor' dentro de la muestra de entrenamiento termine rindiendo por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
+    \item Probabilistic Sharpe Ratio (PSR): corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (\textit{skewness}), colas pesadas (\textit{kurtosis}) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (\textit{benchmark}).
+    \item Deflated Sharpe Ratio (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (\textit{trials}) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
 \end{itemize}
 
-
-
-
-
-temize}
-
-
-temize}
 
 
