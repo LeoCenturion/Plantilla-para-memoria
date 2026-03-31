@@ -30,7 +30,7 @@ Esta metodología fue formalizada por Charles Dow a fines del siglo XIX y ha sid
 La teoría de Dow establece seis puntos principales [\cite{Lopez:2018}]:
 
 \begin{itemize}
-    \item El precio lo descuenta todo: Toda la información disponible sobre un activo ya se encuentra incorporada en su cotización bursátil.
+    \item El precio lo descuenta todo: La información disponible sobre un activo ya se encuentra incorporada en su cotización bursátil.
     \item Las tres tendencias del mercado: el mercado se mueve en tendencias alcistas o bajistas. Se distinguen tres tipos de tendencias:
     \begin{itemize}
         \item Tendencias primarias: son las principales y duran de uno a tres años.
@@ -57,7 +57,7 @@ El aprendizaje automático (machine learning) se clasifica comúnmente en aprend
 Esta técnica se divide en dos categorías principales:
 
 \begin{itemize}
-    \item Clasificación: el modelo predice una categoría discreta o una etiqueta. Por ejemplo, predecir si un activo subira o bajara en el periodo siguiente.
+    \item Clasificación: el modelo predice una categoría discreta o una etiqueta. Por ejemplo, predecir si un activo subirá o bajara en el periodo siguiente.
     \item Regresión: el modelo predice un valor numérico continuo. Por ejemplo, predecir el precio futuro de un activo financiero .
 \end{itemize}
 
@@ -75,13 +75,13 @@ En el ámbito del aprendizaje automático, los ensambles son el resultado de com
 
 \section{Transformers}
 
-La arquitectura Transformer, introducida por Vaswani et al. [\cite{Vaswani:2017}], revolucionó el procesamiento de secuencias, especialmente en el ámbito del procesamiento del lenguaje natural (PLN), y ha demostrado ser altamente efectiva también en el análisis de series de tiempo. A diferencia de los modelos recurrentes o convolucionales tradicionales, los Transformers se basan completamente en mecanismos de auto-atención (self-attention), lo que les permite modelar dependencias de largo alcance en las secuencias de entrada de manera más eficiente y paralelizable.
+La arquitectura Transformer, introducida por Vaswani et al. [\cite{Vaswani:2017}], revolucionó el procesamiento de secuencias, especialmente en el ámbito del procesamiento del lenguaje natural (PLN), y ha demostrado ser altamente efectiva también en el análisis de series de tiempo. A diferencia de los modelos recurrentes o convolucionales tradicionales, los Transformers se basan completamente en mecanismos de auto atención (self attention), lo que les permite modelar dependencias de largo alcance en las secuencias de entrada de manera más eficiente y paralelizable.
 
 Los componentes clave de un Transformer incluyen:
 \begin{itemize}
-    \item Mecanismo de Auto-atención (Self-Attention): permite al modelo ponderar la importancia de diferentes partes de la secuencia de entrada al procesar cada elemento. Cada token (o punto en la serie de tiempo) interactúa con todos los demás tokens y calcula una puntuación de atención que determina cuánto debe enfocarse en cada uno.
-    \item Codificación Posicional (Positional Encoding): dado que el mecanismo de atención no es sensible al orden de los elementos en una secuencia, se añade una codificación posicional a las incrustaciones de entrada para inyectar información sobre la posición relativa de cada elemento.
-    \item Bloques Encoder-Decoder: la arquitectura original consiste en un encoder y un decoder. El encoder procesa la secuencia de entrada para crear una representación contextualizada, y el decoder utiliza esta representación para generar la secuencia de salida. En aplicaciones de series de tiempo predictivas, a menudo se utiliza solo la parte del encoder o variaciones específicas para la tarea.
+    \item Mecanismo de auto atención (Self Attention): permite al modelo ponderar la importancia de diferentes partes de la secuencia de entrada al procesar cada elemento. Cada token (o punto en la serie de tiempo) interactúa con todos los demás tokens y calcula una puntuación de atención que determina cuánto debe enfocarse en cada uno.
+    \item Codificación posicional (Positional Encoding): dado que el mecanismo de atención no es sensible al orden de los elementos en una secuencia, se añade una codificación posicional a las incrustaciones de entrada para inyectar información sobre la posición relativa de cada elemento.
+    \item Bloques encoder decoder: la arquitectura original consiste en un encoder y un decoder. El encoder procesa la secuencia de entrada para crear una representación contextualizada, y el decoder utiliza esta representación para generar la secuencia de salida. En aplicaciones de series de tiempo predictivas, a menudo se utiliza solo la parte del encoder o variaciones específicas para la tarea.
 \end{itemize}
 
 La capacidad de los Transformers para capturar relaciones complejas y no lineales entre puntos distantes en el tiempo los convierte en una herramienta potente para la predicción de series de tiempo financieras, donde los eventos pasados pueden tener un impacto significativo y no trivial en los movimientos futuros del mercado.
@@ -89,9 +89,9 @@ La capacidad de los Transformers para capturar relaciones complejas y no lineale
 \section{Metodologías de evaluación y gestión de riesgo}
 
 \subsection{Backtesting}
-El backtesting es el pilar fundamental para evaluar una estrategia de trading. Consiste en simular el comportamiento de la estrategia al utilizar datos históricos para estimar cómo se habría desempeñado en el pasado. Un backtesting riguroso debe evitar el sesgo de retrospección (look-ahead bias) y asegurar que las decisiones del modelo en un punto del tiempo se basen únicamente en información disponible hasta ese momento.
+El backtesting es el pilar fundamental para evaluar una estrategia de trading. Consiste en simular el comportamiento de la estrategia al utilizar datos históricos para estimar cómo se habría desempeñado en el pasado. Un backtesting riguroso debe evitar el sesgo de retrospección (look ahead bias) y asegurar que las decisiones del modelo en un punto del tiempo se basen únicamente en información disponible hasta ese momento.
 
-\subsection{Validación cruzada (Cross-Validation)}
+\subsection{Validación cruzada (Cross Validation)}
 La validación cruzada es una técnica para evaluar la capacidad de generalización de un modelo y prevenir el sobreajuste. Sin embargo, la validación cruzada estándar (como K-Fold) no es adecuada para series de tiempo debido a la dependencia temporal de los datos. En su lugar, se utilizan métodos especializados:
 \begin{itemize}
     \item Purged K-Fold Cross-Validation: esta técnica introduce dos modificaciones clave. Primero, se inserta un embargo o período de exclusión después de cada conjunto de validación para evitar que la información futura se filtre al conjunto de entrenamiento. Segundo, purgan del conjunto de entrenamiento aquellas observaciones cuya etiqueta podría estar influenciada por datos del conjunto de validación.
@@ -114,13 +114,13 @@ Donde:
 
 Es importante destacar que el Ratio de Sharpe tradicional asume que los retornos se distribuyen normalmente (como una campana de Gauss), una premisa que rara vez se cumple en los mercados financieros, donde los retornos suelen presentar asimetría y colas pesadas. Para una evaluación más realista del riesgo, López de Prado introduce métricas ajustadas que abordan estas limitaciones.
 
-Existen variantes de este ratio que abordan ciertas limitaciones, como el Sortino Ratio, que solo considera la volatilidad a la baja (riesgo de cola), o el Calmar Ratio, que utiliza la máxima caída (max drawdown) como medida de riesgo en lugar de la desviación estándar. Estas variantes son útiles para obtener una perspectiva más completa del perfil de riesgo-rendimiento de una estrategia de trading, especialmente en mercados volátiles como el de las criptomonedas.
+Existen variantes de este ratio que abordan ciertas limitaciones, como el Sortino Ratio, que solo considera la volatilidad a la baja (riesgo de cola), o el Calmar Ratio, que utiliza la máxima caída (max drawdown) como medida de riesgo en lugar de la desviación estándar. Estas variantes son útiles para obtener una perspectiva más completa del perfil de riesgo rendimiento de una estrategia de trading, especialmente en mercados volátiles como el de las criptomonedas.
 
 Para una evaluación aún más rigurosa y para combatir el riesgo de sobreajuste en el backtesting, se pueden considerar las siguientes métricas avanzadas propuestas por López de Prado:
 \begin{itemize}
-    Probabilidad de Sobreajuste de Backtest (PBO): mide la probabilidad de que la estrategia seleccionada como 'la mejor' dentro de la muestra de entrenamiento rinda por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
-    \item Probabilistic Sharpe Ratio (PSR): corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (\textit{skewness}), colas pesadas (\textit{kurtosis}) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (\textit{benchmark}).
-    \item Deflated Sharpe Ratio (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (\textit{trials}) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
+    \item Probabilidad de sobreajuste de backtest (PBO): mide la probabilidad de que la estrategia seleccionada como 'la mejor' dentro de la muestra de entrenamiento rinda por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
+    \item Probabilistic sharpe ratio (PSR): corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (\textit{skewness}), colas pesadas (\textit{kurtosis}) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (\textit{benchmark}).
+    \item Deflated sharpe ratio (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (\textit{trials}) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
 \end{itemize}
 
 
