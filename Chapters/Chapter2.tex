@@ -94,7 +94,7 @@ El backtesting es el pilar fundamental para evaluar una estrategia de trading. C
 \subsection{Validación Cruzada (Cross-Validation)}
 La validación cruzada es una técnica para evaluar la capacidad de generalización de un modelo y prevenir el sobreajuste. Sin embargo, la validación cruzada estándar (como K-Fold) no es adecuada para series de tiempo debido a la dependencia temporal de los datos. En su lugar, se utilizan métodos especializados:
 \begin{itemize}
-    \item Purged K-Fold Cross-Validation: esta técnica introduce dos modificaciones clave. Primero, se inserta un "embargo" o período de exclusión después de cada conjunto de validación para evitar que la información futura "se filtre" al conjunto de entrenamiento. Segundo, se "purgan" del conjunto de entrenamiento aquellas observaciones cuya etiqueta podría estar influenciada por datos del conjunto de validación.
+    \item Purged K-Fold Cross-Validation: esta técnica introduce dos modificaciones clave. Primero, se inserta un embargo o período de exclusión después de cada conjunto de validación para evitar que la información futura se filtre al conjunto de entrenamiento. Segundo, purgan del conjunto de entrenamiento aquellas observaciones cuya etiqueta podría estar influenciada por datos del conjunto de validación.
 \end{itemize}
 
 \subsection{Dimensionamiento de la Apuesta (Bet Sizing)}
