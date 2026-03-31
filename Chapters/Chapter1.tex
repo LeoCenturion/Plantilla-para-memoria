@@ -1,67 +1,69 @@
 % Chapter 1
 
-\chapter{Introducción General}
+\chapter{Introducción general}
 \label{Chapter1}
 
-Este capítulo introduce el problema de la predicción de series de tiempo financieras y su aplicación en un sistema de 	\textit{trading} de criptomonedas. Se describe el contexto y la motivación para el uso de la arquitectura 	\textit{Transformer}, se presenta la problemática del 	\textit{trading} algorítmico, se revisa el estado del arte y, finalmente, se definen los objetivos y el alcance del trabajo.
+Este capítulo presenta una introducción al problema de la predicción de series de tiempo en el dominio financiero y su aplicación concreta en el desarrollo de un sistema de trading para el mercado de criptomonedas. Se describen el contexto y la motivación que impulsan la elección de la arquitectura Transformer como herramienta principal para el análisis. Además, se detalla la problemática del trading algorítmico, se revisa el estado del arte en la materia, se exponen los desafíos inherentes al manejo de datos financieros y, finalmente, se definen con claridad los objetivos, el alcance y los requerimientos que guiarán este trabajo.
 
 \section{Motivación}
 
-La elección de este trabajo se fundamenta en dos pilares: el problema a resolver y las herramientas seleccionadas para abordarlo. El 	\textit{trading} de activos financieros, una actividad que busca generar rentabilidad a partir de las fluctuaciones de precios, representa un desafío complejo y dinámico. Gran parte de las decisiones en este campo se basan en el "análisis técnico", que consiste en la interpretación de indicadores derivados de precios y volúmenes pasados. La combinación manual de estos indicadores para tomar decisiones fundamentadas requiere una experiencia considerable y es difícil de escalar para analizar múltiples indicadores simultáneamente. Esto hace atractiva la idea de desarrollar un modelo de 	\textit{machine learning} que pueda procesar una gran cantidad de indicadores técnicos para optimizar las decisiones de compra y venta en cada instante.
+La elección de este trabajo se fundamenta en la confluencia de dos pilares de gran relevancia actual: la complejidad del problema a resolver y la sofisticación de las herramientas seleccionadas para abordarlo. El trading de activos financieros es una actividad que busca generar rentabilidad a partir de las fluctuaciones de los precios en el mercado, lo que representa un desafío intelectual y técnico de alta complejidad debido a la naturaleza inherentemente ruidosa y dinámica de los mercados. Gran parte de las decisiones en este campo se apoyan en el análisis técnico, que consiste en la interpretación de un amplio abanico de indicadores derivados de la actividad histórica de precios y volúmenes. La combinación manual de estos indicadores para tomar decisiones de compra o venta requiere una experiencia considerable y una intuición desarrollada a lo largo de años. Además, este enfoque manual es difícil de escalar para analizar de manera simultánea la vasta cantidad de información disponible, lo que hace atractiva la idea de desarrollar un modelo de 	\textit{machine learning} que pueda procesar y ponderar un gran número de indicadores técnicos para optimizar las decisiones de manera sistemática y objetiva.
 
-Por otro lado, la arquitectura 	\textit{Transformer}, gracias a su mecanismo de auto-atención, ha demostrado una capacidad excepcional para modelar dependencias a largo plazo en secuencias, consolidándose como el estado del arte en el procesamiento de lenguaje natural. Esta cualidad la convierte en una candidata ideal para el análisis de series de tiempo financieras, donde eventos pasados pueden tener una influencia significativa en el futuro. A diferencia de los modelos recurrentes, el 	\textit{Transformer} puede teóricamente capturar relaciones entre puntos distantes en el tiempo, permitiendo evitar operaciones rentables pero de alto riesgo o, por el contrario, aprovechar oportunidades de baja rentabilidad con un riesgo despreciable.
+Por otro lado, la arquitectura Transformer, gracias a su innovador mecanismo de auto-atención, ha demostrado una capacidad excepcional para modelar dependencias a largo plazo en datos secuenciales, consolidándose como el estado del arte en campos como el procesamiento de lenguaje natural. Esta cualidad la convierte en una candidata ideal para el análisis de series de tiempo financieras, donde eventos pasados, incluso lejanos en el tiempo, pueden tener una influencia significativa en el comportamiento futuro de los precios. A diferencia de los modelos recurrentes tradicionales, como las redes LSTM, que pueden tener dificultades para mantener información a través de secuencias muy largas, el Transformer puede teóricamente capturar relaciones entre puntos distantes en el tiempo de manera más efectiva. Esto permitiría, por ejemplo, identificar patrones complejos que ayuden a evitar operaciones que parecen rentables a corto plazo pero que conllevan un alto riesgo, o, por el contrario, aprovechar oportunidades de baja rentabilidad pero con un riesgo casi nulo.
 
-\section{Descripción de la Problemática}
+\section{Descripción de la problemática}
 
-En la comercialización de activos financieros, el objetivo es generar una ganancia comprando a un precio bajo y vendiendo a un precio más alto. Esto sería trivial si se pudiera predecir el futuro de los precios con certeza, pero la realidad de los mercados es inherentemente estocástica, como se puede apreciar en la Figura \ref{fig:btc_price_chart}. Quienes se dedican a esta actividad pueden clasificarse a grandes rasgos en dos categorías: analistas fundamentales, que basan sus decisiones en el valor intrínseco de los activos, y analistas técnicos, que se centran en el estudio de patrones históricos de precios y volúmenes.
+En la comercialización de activos financieros, el objetivo fundamental es generar una ganancia comprando a un precio bajo y vendiendo a un precio más alto. Este principio, aunque simple en apariencia, sería trivial si se pudiera predecir el futuro de los precios con certeza. Sin embargo, la realidad de los mercados es que son sistemas inherentemente estocásticos y no lineales, como se puede apreciar en la volatilidad del precio de Bitcoin en la figura \ref{fig:btc_price_chart}. Las personas que operan en estos mercados pueden clasificarse a grandes rasgos en dos categorías: los analistas fundamentales, que basan sus decisiones en el valor intrínseco de los activos y factores macroeconómicos, y los analistas técnicos, que se centran en el estudio de patrones históricos de precios y volúmenes para predecir movimientos futuros.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{"Figures/Screenshot From 2026-03-17 21-57-54.png"}
+    \includegraphics[width=	\textwidth]{"Figures/Screenshot From 2026-03-17 21-57-54.png"}
     \caption{Evolución del precio del par BTC/USDT en el período analizado.\protect\footnotemark}
     \label{fig:btc_price_chart}
 \end{figure}
 \footnotetext{Gráfico obtenido de la plataforma de trading Binance.}
 
-Este trabajo se enmarca en el análisis técnico, buscando desarrollar un sistema de 	\textit{trading} algorítmico para operar de manera autónoma en el mercado 	\textit{spot} de criptomonedas. Específicamente, se trabajará con el par BTC/USDT, donde el objetivo es decidir en momentos discretos si es conveniente mantener la posición en Bitcoin (esperando que su valor aumente respecto al Tether) o en USDT (protegiéndose de una posible caída del Bitcoin).
+Este trabajo se enmarca estrictamente en el dominio del análisis técnico, con el propósito de desarrollar un sistema de trading algorítmico diseñado para operar de manera autónoma en el mercado 	\textit{spot} de criptomonedas. Específicamente, se trabajará con el par BTC/USDT, uno de los más líquidos y volátiles del mercado. El objetivo del sistema es decidir, en intervalos de tiempo discretos, si es más conveniente mantener la posición en Bitcoin (BTC), con la expectativa de que su valor aumente con respecto al Tether (USDT), o si es preferible mantener la posición en USDT, un 	\textit{stablecoin} anclado al valor del dólar estadounidense, como una forma de protegerse ante una posible caída en el precio del Bitcoin. Esta decisión binaria representa un problema de clasificación que es ideal para ser abordado con técnicas de 	\textit{deep learning}.
 
-\section{Estado del Arte}
+\section{Estado del arte}
 
-El uso de inteligencia artificial para el 	\textit{trading} ha ganado un protagonismo creciente en las últimas dos décadas, tanto en el ámbito comercial como en el académico. Empresas como 	\textit{AutoTrade.AI} o 	\textit{Finbrain Technologies} ya ofrecen servicios de 	\textit{trading} automático basados en señales predictivas generadas por modelos de IA.
+El uso de inteligencia artificial para el trading ha ganado un protagonismo creciente en las últimas dos décadas, evolucionando desde modelos estadísticos tradicionales hasta complejas arquitecturas de redes neuronales. Tanto en el ámbito comercial como en el académico, se ha reconocido el potencial de la IA para automatizar y mejorar la toma de decisiones. Empresas como 	exttt{AutoTrade.AI} o 	exttt{Finbrain Technologies} ya ofrecen servicios de trading automático basados en señales predictivas generadas por modelos de IA, dirigidos tanto a inversores minoristas como institucionales.
 
-El ámbito académico ha explorado extensamente el uso de 	\textit{machine learning} para la optimización de portafolios y la predicción de mercados. Estudios recientes han aplicado diversos modelos para predecir los movimientos a corto plazo de criptomonedas como Bitcoin, utilizando variables de análisis técnico, datos de la 	\textit{blockchain} y análisis de sentimiento del mercado. Sin embargo, muchos de estos enfoques se enfrentan a un obstáculo fundamental: la Hipótesis de los Mercados Eficientes (	\textit{EMH}). Esta hipótesis sugiere que toda la información disponible ya está reflejada en el precio de los activos, lo que haría inútil cualquier intento de obtener ganancias extraordinarias. Aunque la validez de la 	\textit{EMH} para el mercado de criptomonedas es un tema de debate, la eficiencia del mercado parece aumentar a medida que este madura, lo que representa un desafío constante para el desarrollo de modelos predictivos.
+En paralelo, el ámbito académico ha explorado extensamente el uso de 	\textit{machine learning} para la optimización de portafolios y la predicción de mercados. Los primeros enfoques se basaron en modelos como máquinas de soporte vectorial (SVM) y bosques aleatorios (	\textit{random forests}), que demostraron cierta capacidad predictiva. Con la llegada del 	\textit{deep learning}, las redes neuronales recurrentes (RNN) y, en particular, las redes con memoria a corto y largo plazo (LSTM), se convirtieron en el estándar para el análisis de series de tiempo. Sin embargo, en los últimos años, la arquitectura Transformer ha emergido como una alternativa superior en muchos dominios secuenciales.
 
-\section{El Desafío de los Datos Financieros}
+A pesar de los avances, muchos de estos enfoques se enfrentan a un obstáculo teórico fundamental: la Hipótesis de los Mercados Eficientes (	\textit{EMH}). Esta hipótesis, en su forma débil, sugiere que toda la información pasada ya está reflejada en el precio actual de los activos, lo que haría inútil cualquier intento de obtener ganancias extraordinarias basándose únicamente en el análisis técnico. Aunque la validez de la EMH para el mercado de criptomonedas es un tema de intenso debate, se observa que la eficiencia del mercado tiende a aumentar a medida que este madura, lo que representa un desafío constante para el desarrollo de nuevos modelos predictivos.
 
-La aplicación de 	\textit{machine learning} a los mercados financieros presenta desafíos únicos:
+\section{El desafío de los datos financieros}
+
+La aplicación de técnicas de 	\textit{machine learning} a los mercados financieros presenta un conjunto de desafíos únicos que no se encuentran comúnmente en otros dominios:
 
 \begin{itemize}
-    \item \textbf{Bajo ratio señal-ruido:} Los movimientos de precios son inherentemente ruidosos. La "señal" predictiva a menudo se encuentra oculta bajo una gran cantidad de fluctuaciones aleatorias o "ruido", lo que incrementa el riesgo de sobreajuste.
+    \item Bajo ratio señal-ruido: los movimientos de precios de los activos son inherentemente ruidosos. La "señal" predictiva, que representa la información útil para la predicción, a menudo se encuentra oculta bajo una gran cantidad de fluctuaciones aleatorias o "ruido". Esto incrementa significativamente el riesgo de sobreajuste (	\textit{overfitting}), donde el modelo aprende a memorizar el ruido de los datos de entrenamiento en lugar de la señal subyacente, resultando en un bajo rendimiento en datos no vistos.
 
-    \item \textbf{No estacionariedad:} Las propiedades estadísticas de las series de tiempo financieras cambian con el tiempo, haciendo que los patrones aprendidos en un período puedan no ser válidos en el futuro.
+    \item No estacionariedad: las propiedades estadísticas de las series de tiempo financieras, como la media y la varianza, cambian con el tiempo. Esto se debe a que los mercados están influenciados por factores externos cambiantes, como cambios en la regulación, crisis económicas o avances tecnológicos. Como resultado, los patrones aprendidos en un período de tiempo pueden no ser válidos en el futuro, lo que degrada el rendimiento del modelo a lo largo del tiempo.
 
-    \item \textbf{Costos de transacción:} Operar con alta frecuencia, aunque teóricamente podría capturar más oportunidades, puede llevar a que las ganancias sean consumidas por los costos transaccionales.
+    \item Costos de transacción: en un entorno de trading real, cada operación de compra o venta incurre en costos, como comisiones de la plataforma y deslizamientos (	\textit{slippage}). Operar con alta frecuencia, aunque teóricamente podría permitir capturar más oportunidades de mercado, puede llevar a que las ganancias generadas por el modelo sean completamente consumidas por los costos transaccionales, resultando en una pérdida neta.
 \end{itemize}
 
-Estos factores subrayan la necesidad de un diseño metodológico riguroso y específico para el dominio financiero.
+Estos factores subrayan la necesidad de un diseño metodológico riguroso y específico para el dominio financiero, que vaya más allá de la simple aplicación de algoritmos estándar y considere estas particularidades.
 
-\section{Objetivos, Alcance y Requerimientos}
+\section{Objetivos, alcance y requerimientos}
 
-El objetivo principal de este trabajo es estudiar y evaluar rigurosamente el desempeño de la arquitectura 	\textit{Transformer} en la predicción de series de tiempo para su aplicación en un sistema de 	\textit{trading} de criptomonedas en el mercado 	\textit{spot} de la plataforma 	\textit{Binance}.
+El objetivo principal de este trabajo es estudiar y evaluar rigurosamente el desempeño de la arquitectura Transformer en la predicción de series de tiempo para su aplicación en un sistema de trading de criptomonedas en el mercado 	\textit{spot} de la plataforma 	exttt{Binance}.
 
-Los objetivos específicos son:
+Para alcanzar este objetivo principal, se han definido los siguientes objetivos específicos:
 \begin{enumerate}
-    \item Realizar una revisión del estado del arte sobre la aplicación de modelos de 	\textit{deep learning}, y en particular 	\textit{Transformer}, a la predicción de series de tiempo.
-    \item Implementar un modelo 	\textit{Transformer} para estimar si es óptimo posicionarse en BTC o USDT en el par BTC/USDT.
-    \item Comparar el desempeño del modelo con una estrategia de referencia de "comprar y esperar" (	\textit{buy and hold}). El objetivo final no es la cantidad de USDT acumulado, sino la cantidad de BTC.
-    \item Probar distintas técnicas y comparar los resultados obtenidos para decidir el modelo final.
+    \item Realizar una revisión exhaustiva del estado del arte sobre la aplicación de modelos de 	\textit{deep learning}, y en particular la arquitectura Transformer y sus variantes, a la predicción de series de tiempo financieras.
+    \item Implementar un modelo Transformer que utilice un conjunto de indicadores técnicos como datos de entrada para estimar si es óptimo posicionarse en BTC o en USDT en el par BTC/USDT durante el siguiente intervalo de tiempo.
+    \item Comparar el desempeño del modelo propuesto con una estrategia de referencia pasiva de "comprar y esperar" (	\textit{buy and hold}). El objetivo final no es maximizar la cantidad de USDT acumulado, sino la cantidad de BTC, lo que implica una estrategia de gestión de riesgo a largo plazo.
+    \item Probar distintas técnicas y configuraciones del modelo, como diferentes variantes de la arquitectura Transformer, distintos conjuntos de características de entrada y optimizaciones de hiperparámetros, para decidir el modelo final con el mejor desempeño.
 \end{enumerate}
 
-El alcance de este trabajo se centra en la implementación y evaluación de un sistema de \textit{trading} algorítmico, cuya arquitectura conceptual se ilustra en la Figura \ref{fig:trading_system_architecture}. Este sistema incluye su operación simulada en un entorno de \textit{backtesting} y la capacidad de operar en tiempo real. Adicionalmente, se buscará una frecuencia de operación que optimice el equilibrio entre la disponibilidad de datos para entrenamiento y el impacto de los costos transaccionales.
+El alcance de este trabajo se centra en la implementación y evaluación de un sistema de trading algorítmico, cuya arquitectura conceptual se ilustra en la figura \ref{fig:trading_system_architecture}. Este sistema incluye su operación simulada en un entorno de \textit{backtesting} robusto, que utiliza datos históricos fuera de la muestra para evitar el sesgo de anticipación (	\textit{lookahead bias}), así como la capacidad de operar en tiempo real a través de la API de 	exttt{Binance}. Adicionalmente, se buscará determinar una frecuencia de operación que optimice el equilibrio entre la disponibilidad de datos para el entrenamiento del modelo y el impacto de los costos transaccionales en la rentabilidad final.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.9\textwidth]{"Figures/bloques-tp-final.drawio.png"}
+    \includegraphics[width=0.9	\textwidth]{"Figures/bloques-tp-final.drawio.png"}
     \caption{Diagrama conceptual de la arquitectura del sistema de trading.}
     \label{fig:trading_system_architecture}
 \end{figure}

@@ -1,28 +1,28 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{Resumen}{\es@scroman {i}}{section*.1}%
-\contentsline {chapter}{\numberline {1}Introducción General}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {1}Introducción general}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivación}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Descripción de la Problemática}{1}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Estado del Arte}{2}{section.1.3}%
-\contentsline {section}{\numberline {1.4}El Desafío de los Datos Financieros}{3}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Objetivos, Alcance y Requerimientos}{3}{section.1.5}%
-\contentsline {chapter}{\numberline {2}Introducción específica}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Trading}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Análisis técnico}{6}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Aprendizaje supervisado}{6}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Optimización de hiperparámetros}{7}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Ensambles}{7}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Transformers}{7}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Metodologías de Evaluación y Gestión de Riesgo}{8}{section.2.7}%
-\contentsline {subsection}{\numberline {2.7.1}Backtesting}{8}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}Validación Cruzada (Cross-Validation)}{8}{subsection.2.7.2}%
-\contentsline {subsection}{\numberline {2.7.3}Dimensionamiento de la Apuesta (Bet Sizing)}{8}{subsection.2.7.3}%
-\contentsline {subsection}{\numberline {2.7.4}Ratio de Sharpe y sus Variantes}{9}{subsection.2.7.4}%
-\contentsline {chapter}{\numberline {3}Diseño e implementación}{11}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Análisis del software}{11}{section.3.1}%
-\contentsline {chapter}{\numberline {4}Ensayos y resultados}{13}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Pruebas funcionales del hardware}{13}{section.4.1}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{15}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones generales }{15}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Próximos pasos}{15}{section.5.2}%
-\contentsline {chapter}{Bibliografía}{17}{appendix*.8}%
+\contentsline {section}{\numberline {1.2}Descripción de la problemática}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Estado del arte}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}El desafío de los datos financieros}{3}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Objetivos, alcance y requerimientos}{4}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Introducción específica}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Trading}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Análisis técnico}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Aprendizaje supervisado}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Optimización de hiperparámetros}{9}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Ensambles}{9}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Transformers}{9}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Metodologías de Evaluación y Gestión de Riesgo}{10}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Backtesting}{10}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Validación Cruzada (Cross-Validation)}{10}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Dimensionamiento de la Apuesta (Bet Sizing)}{10}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4}Ratio de Sharpe y sus Variantes}{11}{subsection.2.7.4}%
+\contentsline {chapter}{\numberline {3}Diseño e implementación}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Análisis del software}{13}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Ensayos y resultados}{15}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Pruebas funcionales del hardware}{15}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones generales }{17}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Próximos pasos}{17}{section.5.2}%
+\contentsline {chapter}{Bibliografía}{19}{appendix*.8}%
