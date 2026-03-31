@@ -31,7 +31,7 @@ La teoría de Dow establece seis puntos principales [\cite{Lopez:2018}]:
 
 \begin{itemize}
     \item \textbf{El precio lo descuenta todo:} Toda la información disponible sobre un activo ya se encuentra incorporada en su cotización bursátil.
-    \item \textbf{Las tres tendencias del mercado:} El mercado se mueve en tendencias alcistas o bajistas. Se distinguen tres tipos de tendencias (ver figura \ref{fig:DowTrends}):
+    \item \textbf{Las tres tendencias del mercado:} El mercado se mueve en tendencias alcistas o bajistas. Se distinguen tres tipos de tendencias:
     \begin{itemize}
         \item Tendencias primarias: Son las principales y duran de uno a tres años.
         \item Tendencias secundarias o intermedias: Van en dirección contraria a las primarias, pero son de menor tamaño (``correcciones'').
@@ -119,8 +119,17 @@ Existen variantes de este ratio que abordan ciertas limitaciones, como el \texti
 Para una evaluación aún más rigurosa y para combatir el riesgo de sobreajuste en el \textit{backtesting}, se pueden considerar las siguientes métricas avanzadas propuestas por López de Prado:
 \begin{itemize}
     \item \textbf{Probabilidad de Sobreajuste de Backtest (PBO):} Mide la probabilidad de que la estrategia seleccionada como 'la mejor' dentro de la muestra de entrenamiento termine rindiendo por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
-    \item \textbf{Probabilistic Sharpe Ratio (PSR):} Corrige el Ratio de Sharpe tradicional penalizándolo si los retornos tienen sesgo negativo (\textit{skewness}), colas pesadas (\textit{kurtosis}) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (\textit{benchmark}).
-    \item \textbf{Deflated Sharpe Ratio (DSR):} Va un paso más allá del PSR y ajusta el umbral de aceptación basándose en el número de ensayos independientes (\textit{trials}) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
+    \item \textbf{Probabilistic Sharpe Ratio (PSR):} Corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (\textit{skewness}), colas pesadas (\textit{kurtosis}) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (\textit{benchmark}).
+    \item \textbf{Deflated Sharpe Ratio (DSR):} Va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (\textit{trials}) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
 \end{itemize}
+
+
+
+
+
+temize}
+
+
+temize}
 
 
