@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2025.12.15)  30 MAR 2026 21:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2025.12.15)  31 MAR 2026 21:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -809,8 +809,8 @@ Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
 \ESO@tempdima=\dimen190
 \ESO@tempdimb=\dimen191
 )
-Package hyperref Info: Option `unicode' set `true' on input line 39.
-Package hyperref Info: Option `colorlinks' set `true' on input line 39.
+Package hyperref Info: Option `unicode' set `true' on input line 42.
+Package hyperref Info: Option `colorlinks' set `true' on input line 42.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 
@@ -822,26 +822,26 @@ LaTeX Info: Redefining \% on input line 27.
 (./Chapters/Chapter5.aux))
 \openout1 = `memorianueva.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Info: Redefining \. on input line 64.
+LaTeX Info: Redefining \% on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -878,7 +878,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count451
-Package scrhack Info: undefining \float@addtolists on input line 61.
+Package scrhack Info: undefining \float@addtolists on input line 64.
 Package biblatex Info: Trying to load language 'spanish'...
 Package biblatex Info: ... file 'spanish.lbx' found.
 
@@ -923,46 +923,46 @@ Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                - Invalid format of field 'month'.
 
 )
-Package biblatex Info: Reference section=0 on input line 61.
-Package biblatex Info: Reference segment=0 on input line 61.
-Package hyperref Info: Link coloring ON on input line 61.
+Package biblatex Info: Reference section=0 on input line 64.
+Package biblatex Info: Reference segment=0 on input line 64.
+Package hyperref Info: Link coloring ON on input line 64.
  (./memorianueva.out) (./memorianueva.out)
 \@outlinefile=\write4
 \openout4 = `memorianueva.out'.
 
-Package scrbase Info: activating spanish \acknowledgementname on input line 61.
+Package scrbase Info: activating spanish \acknowledgementname on input line 64.
 
-LaTeX Info: Redefining \sptext on input line 61.
-LaTeX Info: Redefining \lsc on input line 61.
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
-LaTeX Info: Redefining \dotlessi on input line 61.
-Package scrbase Info: activating spanish \lstlistingname on input line 61.
-LaTeX Info: Redefining \sptext on input line 61.
-LaTeX Info: Redefining \lsc on input line 61.
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
-LaTeX Info: Redefining \dotlessi on input line 61.
-Package scrbase Info: activating spanish \acknowledgementname on input line 61.
+LaTeX Info: Redefining \sptext on input line 64.
+LaTeX Info: Redefining \lsc on input line 64.
+LaTeX Info: Redefining \. on input line 64.
+LaTeX Info: Redefining \% on input line 64.
+LaTeX Info: Redefining \dotlessi on input line 64.
+Package scrbase Info: activating spanish \lstlistingname on input line 64.
+LaTeX Info: Redefining \sptext on input line 64.
+LaTeX Info: Redefining \lsc on input line 64.
+LaTeX Info: Redefining \. on input line 64.
+LaTeX Info: Redefining \% on input line 64.
+LaTeX Info: Redefining \dotlessi on input line 64.
+Package scrbase Info: activating spanish \acknowledgementname on input line 64.
 
-LaTeX Info: Redefining \sptext on input line 61.
-LaTeX Info: Redefining \lsc on input line 61.
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
-LaTeX Info: Redefining \dotlessi on input line 61.
-Package scrbase Info: activating spanish \authorshipname on input line 61.
-LaTeX Info: Redefining \sptext on input line 61.
-LaTeX Info: Redefining \lsc on input line 61.
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
-LaTeX Info: Redefining \dotlessi on input line 61.
-Package scrbase Info: activating spanish \abbrevname on input line 61.
-LaTeX Info: Redefining \sptext on input line 61.
-LaTeX Info: Redefining \lsc on input line 61.
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
-LaTeX Info: Redefining \dotlessi on input line 61.
-Package scrbase Info: activating spanish \byname on input line 61.
+LaTeX Info: Redefining \sptext on input line 64.
+LaTeX Info: Redefining \lsc on input line 64.
+LaTeX Info: Redefining \. on input line 64.
+LaTeX Info: Redefining \% on input line 64.
+LaTeX Info: Redefining \dotlessi on input line 64.
+Package scrbase Info: activating spanish \authorshipname on input line 64.
+LaTeX Info: Redefining \sptext on input line 64.
+LaTeX Info: Redefining \lsc on input line 64.
+LaTeX Info: Redefining \. on input line 64.
+LaTeX Info: Redefining \% on input line 64.
+LaTeX Info: Redefining \dotlessi on input line 64.
+Package scrbase Info: activating spanish \abbrevname on input line 64.
+LaTeX Info: Redefining \sptext on input line 64.
+LaTeX Info: Redefining \lsc on input line 64.
+LaTeX Info: Redefining \. on input line 64.
+LaTeX Info: Redefining \% on input line 64.
+LaTeX Info: Redefining \dotlessi on input line 64.
+Package scrbase Info: activating spanish \byname on input line 64.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1149,11 +1149,11 @@ e 66.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 )
-LaTeX Info: Redefining \. on input line 107.
-LaTeX Info: Redefining \% on input line 107.
+LaTeX Info: Redefining \. on input line 110.
+LaTeX Info: Redefining \% on input line 110.
  [4]
-LaTeX Info: Redefining \. on input line 107.
-LaTeX Info: Redefining \% on input line 107.
+LaTeX Info: Redefining \. on input line 110.
+LaTeX Info: Redefining \% on input line 110.
  [5 <./Figures/bloques-tp-final.drawio.png>]
 \openout2 = `Chapters/Chapter2.aux'.
 
@@ -1167,44 +1167,47 @@ LaTeX Info: Redefining \% on input line 107.
 Cap\'{\i }tulo 2.
 1: section
 [7]
-
-LaTeX Warning: Reference `fig:DowTrends' on page 8 undefined on input line 34.
-
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 3
 6.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ppl.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
-Overfull \hbox (8.70993pt too wide) in paragraph at lines 41--42
-[]\T1/ppl/b/n/10.95 Principio de con-fir-ma-ción: \T1/ppl/m/n/10.95 Para con-fi
-r-mar una ten-den-cia del mer-ca-do (alcista
- []
-
-
-Overfull \hbox (0.57251pt too wide) in paragraph at lines 64--65
-[]\T1/ppl/m/n/10.95 Para este tra-ba-jo, se op-tó por un en-foque de clasi-fi-c
-ación, donde el mod-e-lo predice
+Overfull \hbox (5.13971pt too wide) in paragraph at lines 41--42
+[]\T1/ppl/m/n/10.95 Principio de con-fir-ma-ción: para con-fir-mar una ten-den-
+cia del mer-ca-do (alcista
  []
 
 LaTeX Info: Redefining \. on input line 65.
 LaTeX Info: Redefining \% on input line 65.
 [8]
+Overfull \hbox (1.35954pt too wide) in paragraph at lines 68--69
+[]\T1/ppl/m/n/10.95 Es fun-da-men-tal dis-tin-guir en-tre los parámet-ros de un
+ mod-e-lo y sus hiper-parámet-
+ []
+
+
+Overfull \hbox (3.10493pt too wide) in paragraph at lines 68--69
+\T1/ppl/m/n/10.95 ros. Los parámet-ros son val-ores apren-di-dos por el mod-e-l
+o du-rante el en-tre-namien-
+ []
+
 
 LaTeX Warning: Citation 'Vaswani:2017' on page 9 undefined on input line 78.
+
+
+Overfull \hbox (1.95093pt too wide) in paragraph at lines 78--79
+\T1/ppl/m/n/10.95 rev-olu-cionó el proce-samien-to de se-cuen-cias, es-pe-cial-
+mente en el ám-bito del proce-
+ []
 
 LaTeX Info: Redefining \. on input line 84.
 LaTeX Info: Redefining \% on input line 84.
 [9]
-Overfull \hbox (14.23058pt too wide) in paragraph at lines 97--98
-\T1/ppl/m/n/10.95 con-jun-to de en-tre-namien-to. Se-gun-do, se "pur-gan"del co
-n-jun-to de en-tre-namien-
- []
-
 LaTeX Info: Redefining \. on input line 105.
 LaTeX Info: Redefining \% on input line 105.
-[10])
-LaTeX Info: Redefining \. on input line 108.
-LaTeX Info: Redefining \% on input line 108.
+ [10])
+LaTeX Info: Redefining \. on input line 111.
+LaTeX Info: Redefining \% on input line 111.
  [11]
 \openout2 = `Chapters/Chapter3.aux'.
 
@@ -1232,8 +1235,8 @@ nput line 62.
 
 1: section
 [13])
-LaTeX Info: Redefining \. on input line 109.
-LaTeX Info: Redefining \% on input line 109.
+LaTeX Info: Redefining \. on input line 112.
+LaTeX Info: Redefining \% on input line 112.
  [14]
 \openout2 = `Chapters/Chapter4.aux'.
 
@@ -1269,13 +1272,13 @@ Overfull \hbox (5.06136pt too wide) in paragraph at lines 27--28
 
 
 ]
-Overfull \hbox (22.38379pt too wide) in paragraph at lines 129--129
+Overfull \hbox (22.38379pt too wide) in paragraph at lines 132--132
 []\T1/ppl/m/n/10.95 James Chen. \T1/ppl/m/it/10.95 What Is a Trad-er, and What 
 Do Traders Do? [][]$\T1/ppl/m/n/10.95 https : / / www . investopedia .
  []
 
 
-Overfull \hbox (9.07605pt too wide) in paragraph at lines 129--129
+Overfull \hbox (9.07605pt too wide) in paragraph at lines 132--132
 []\T1/ppl/m/n/10.95 José Fran-cis-co López. \T1/ppl/m/it/10.95 Teoría de Dow\T1
 /ppl/m/n/10.95 . [][]$https : / / economipedia . com / de^^\niciones /
  []
@@ -1292,7 +1295,7 @@ LaTeX Info: Redefining \% on input line 27.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `memorianueva.out' has not changed.
-(rerunfilecheck)             Checksum: D30B5077C07F655A6A5B82144D5B52B3;4639.
+(rerunfilecheck)             Checksum: 4F96BCC639702D79A39C2EAD363B6251;4642.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                memorianueva
@@ -1303,10 +1306,10 @@ Package logreq Info: Writing requests to 'memorianueva.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30574 strings out of 477985
- 644874 string characters out of 5839379
+ 30578 strings out of 477985
+ 645147 string characters out of 5839379
  1944388 words of memory out of 6000000
- 50262 multiletter control sequences out of 15000+600000
+ 50264 multiletter control sequences out of 15000+600000
  571277 words of font info for 101 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  95i,20n,92p,1969b,1991s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1325,10 +1328,10 @@ etic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a
 hare/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on memorianueva.pdf (29 pages, 393950 bytes).
+Output written on memorianueva.pdf (29 pages, 390285 bytes).
 PDF statistics:
- 436 PDF objects out of 1000 (max. 8388607)
- 369 compressed objects within 4 object streams
- 103 named destinations out of 1000 (max. 500000)
+ 440 PDF objects out of 1000 (max. 8388607)
+ 373 compressed objects within 4 object streams
+ 105 named destinations out of 1000 (max. 500000)
  232 words of extra memory for PDF output out of 10000 (max. 10000000)
 

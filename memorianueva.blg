@@ -29,45 +29,45 @@ Warning--I didn't find a database entry for "Vaswani:2017"
 Biblatex version: 3.20
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 8 entries,
+You've used 10 entries,
             6402 wiz_defined-function locations,
-            1256 strings with 10244 characters,
-and the built_in function-call counts, 36655 in all, are:
-= -- 2617
-> -- 638
-< -- 155
-+ -- 801
-- -- 192
-* -- 2371
-:= -- 3824
+            1269 strings with 10409 characters,
+and the built_in function-call counts, 47851 in all, are:
+= -- 3480
+> -- 822
+< -- 227
++ -- 1059
+- -- 234
+* -- 3030
+:= -- 4874
 add.period$ -- 0
-call.type$ -- 8
-change.case$ -- 77
+call.type$ -- 10
+change.case$ -- 133
 chr.to.int$ -- 47
-cite$ -- 14
-duplicate$ -- 3673
-empty$ -- 3546
-format.name$ -- 329
-if$ -- 7726
+cite$ -- 18
+duplicate$ -- 4866
+empty$ -- 4593
+format.name$ -- 422
+if$ -- 10123
 int.to.chr$ -- 0
-int.to.str$ -- 16
+int.to.str$ -- 24
 missing$ -- 0
-newline$ -- 168
-num.names$ -- 298
-pop$ -- 2410
+newline$ -- 216
+num.names$ -- 424
+pop$ -- 3086
 preamble$ -- 1
-purify$ -- 101
+purify$ -- 163
 quote$ -- 0
-skip$ -- 1194
+skip$ -- 1609
 stack$ -- 0
-substring$ -- 4630
-swap$ -- 789
-text.length$ -- 151
+substring$ -- 6051
+swap$ -- 1037
+text.length$ -- 187
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 260
+type$ -- 328
 warning$ -- 0
-while$ -- 457
+while$ -- 579
 width$ -- 0
-write$ -- 161
+write$ -- 207
 (There was 1 warning)

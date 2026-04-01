@@ -13,11 +13,11 @@
 \contentsline {section}{\numberline {2.4}Optimización de hiperparámetros}{9}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Ensambles}{9}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Transformers}{9}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Metodologías de Evaluación y Gestión de Riesgo}{10}{section.2.7}%
+\contentsline {section}{\numberline {2.7}Metodologías de evaluación y gestión de riesgo}{10}{section.2.7}%
 \contentsline {subsection}{\numberline {2.7.1}Backtesting}{10}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}Validación Cruzada (Cross-Validation)}{10}{subsection.2.7.2}%
-\contentsline {subsection}{\numberline {2.7.3}Dimensionamiento de la Apuesta (Bet Sizing)}{10}{subsection.2.7.3}%
-\contentsline {subsection}{\numberline {2.7.4}Ratio de Sharpe y sus Variantes}{11}{subsection.2.7.4}%
+\contentsline {subsection}{\numberline {2.7.2}Validación cruzada (Cross Validation)}{10}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Dimensionamiento de la apuesta (Bet sizing)}{10}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4}Ratio de sharpe y sus variantes}{11}{subsection.2.7.4}%
 \contentsline {chapter}{\numberline {3}Diseño e implementación}{13}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Análisis del software}{13}{section.3.1}%
 \contentsline {chapter}{\numberline {4}Ensayos y resultados}{15}{chapter.4}%

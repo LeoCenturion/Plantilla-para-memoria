@@ -25,7 +25,7 @@ Otra clasificación se basa en el tipo de información utilizada y diferencia a 
 
 El análisis técnico es una metodología para pronosticar las direcciones futuras de los precios mediante el estudio de datos históricos del mercado, principalmente el precio y el volumen operado [\cite{Kirkpatrick:2006}].
 
-Esta metodología fue formalizada por Charles Dow a fines del siglo XIX y ha sido enriquecida por numerosos investigadores. Actualmente, el análisis técnico incluye cientos de patrones y señales [\cite{Hayes:2022}].
+Esta metodología fue formalizada por Charles Dow a fines del siglo XIX [\cite{Rhea:1932}] y ha sido enriquecida por numerosos investigadores. Actualmente, el análisis técnico incluye cientos de patrones y señales [\cite{Hayes:2022}].
 
 La teoría de Dow establece seis puntos principales [\cite{Lopez:2018}]:
 
@@ -57,11 +57,11 @@ El aprendizaje automático (machine learning) se clasifica comúnmente en aprend
 Esta técnica se divide en dos categorías principales:
 
 \begin{itemize}
-    \item Clasificación: el modelo predice una categoría discreta o una etiqueta. Por ejemplo, predecir si un activo subirá o bajara en el periodo siguiente.
-    \item Regresión: el modelo predice un valor numérico continuo. Por ejemplo, predecir el precio futuro de un activo financiero .
+\item Clasificación: el modelo predice una categoría discreta o una etiqueta. Por ejemplo, predecir si un activo subirá o bajará en el periodo siguiente.
+\item Regresión: el modelo predice un valor numérico continuo. Por ejemplo, predecir el precio futuro de un activo financiero .
 \end{itemize}
 
-Para este trabajo, se optó por un enfoque de clasificación, donde el modelo predice la dirección del movimiento del precio (subida o bajada) en lugar de la magnitud exacta.
+Para este trabajo, se optó por un enfoque de clasificación, en el que el modelo predice la dirección del movimiento del precio (subida o bajada) en lugar de la magnitud exacta.
 
 \section{Optimización de hiperparámetros}
 
@@ -84,7 +84,7 @@ Los componentes clave de un Transformer incluyen:
     \item Bloques encoder decoder: la arquitectura original consiste en un encoder y un decoder. El encoder procesa la secuencia de entrada para crear una representación contextualizada, y el decoder utiliza esta representación para generar la secuencia de salida. En aplicaciones de series de tiempo predictivas, a menudo se utiliza solo la parte del encoder o variaciones específicas para la tarea.
 \end{itemize}
 
-La capacidad de los Transformers para capturar relaciones complejas y no lineales entre puntos distantes en el tiempo los convierte en una herramienta potente para la predicción de series de tiempo financieras, donde los eventos pasados pueden tener un impacto significativo y no trivial en los movimientos futuros del mercado.
+La capacidad de los Transformers para capturar relaciones complejas y no lineales entre puntos distantes en el tiempo los convierte en una herramienta potente para la predicción de series de tiempo financieras, en le que los eventos pasados pueden tener un impacto significativo y no trivial en los movimientos futuros del mercado.
 
 \section{Metodologías de evaluación y gestión de riesgo}
 
@@ -112,7 +112,7 @@ Donde:
     \item $\sigma_p$: es la desviación estándar de la rentabilidad de la cartera (medida del riesgo).
 \end{itemize}
 
-Es importante destacar que el Ratio de Sharpe tradicional asume que los retornos se distribuyen normalmente (como una campana de Gauss), una premisa que rara vez se cumple en los mercados financieros, donde los retornos suelen presentar asimetría y colas pesadas. Para una evaluación más realista del riesgo, López de Prado introduce métricas ajustadas que abordan estas limitaciones.
+Es importante destacar que el Ratio de Sharpe tradicional asume que los retornos se distribuyen normalmente (como una campana de Gauss), una premisa que rara vez se cumple en los mercados financieros, en los que los retornos suelen presentar asimetría y colas pesadas. Para una evaluación más realista del riesgo, López de Prado introduce métricas ajustadas que abordan estas limitaciones [\cite{LoP:2018}].
 
 Existen variantes de este ratio que abordan ciertas limitaciones, como el Sortino Ratio, que solo considera la volatilidad a la baja (riesgo de cola), o el Calmar Ratio, que utiliza la máxima caída (max drawdown) como medida de riesgo en lugar de la desviación estándar. Estas variantes son útiles para obtener una perspectiva más completa del perfil de riesgo rendimiento de una estrategia de trading, especialmente en mercados volátiles como el de las criptomonedas.
 

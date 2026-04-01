@@ -86,6 +86,29 @@
     \field{year}{2006}
   \endentry
 
+  \entry{Rhea:1932}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=RR}{%
+         family={Rhea},
+         familyi={R\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Barron's}%
+    }
+    \strng{namehash}{RR1}
+    \strng{fullhash}{RR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{The Dow Theory}
+    \list{location}{1}{%
+      {New York}%
+    }
+    \field{year}{1932}
+  \endentry
+
   \entry{Hayes:2022}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=HA}{%
@@ -167,6 +190,31 @@
   Boosting}
     \field{year}{2020}
     \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{LoP:2018}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=LdPM}{%
+         prefix={López\bibnamedelima de},
+         prefixi={L\bibinitperiod\bibinitdelim d\bibinitperiod},
+         family={Prado},
+         familyi={P\bibinitperiod},
+         given={Marcos},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley}%
+    }
+    \strng{namehash}{PMLd1}
+    \strng{fullhash}{PMLd1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Advances in Financial Machine Learning}
+    \list{location}{1}{%
+      {Hoboken, New Jersey}%
+    }
+    \field{year}{2018}
   \endentry
 \enddatalist
 \endinput
