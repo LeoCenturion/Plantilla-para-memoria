@@ -2,7 +2,7 @@
 
 \label{Chapter3} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-Todos los capítulos deben comenzar con un breve párrafo introductorio que indique cuál es el contenido que se encontrará al leerlo.  La redacción sobre el contenido de la memoria debe hacerse en presente y todo lo referido al proyecto en pasado, siempre de modo impersonal.
+En este capítulo se desarrollara la solucion alcanzada. Se describen los datos que se procesaron, las estrategias que se probaron, asi como el criterio que se uso para compararlas. Tambien se agregan detalles sobre el diseño de la implementación del bot de trading.
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -41,11 +41,46 @@ Todos los capítulos deben comenzar con un breve párrafo introductorio que indi
 }
 
 
+\section{Conjunto de Datos y Preprocesamiento}
+
+Como conjunto de datos se probaron los datos del mercado spot de Bitcoin, esto significa que es el mercado donde se compra y vende Bitcoin para su liquidación y entrega inmediata. Las variables disponibles para este mercado son, entre otras, precio de apertura, cierre, valor minimo, valor maximo, volumen comercializado en unidades de Bitcoin y en USDT, hora exacta donde se tomo la medicion. Estos datos estan disponibles a diferentes frequencias, de las cuales se probaron dos. Primero se comenzó con frequencia de una hora, la cual presento las desventajas de acotar el conjunto de datos disponibles para entrenamiento y de presentar peores resultados en las estrategias probadas. Posiblemente debido a que se disponian de menor cantidad de datos. Debido a lo mencionado anteriormente se intento usar la frecuencia de un minuto con la cual se vio una mejora en el desempeño de las estrategias estudiadas.
+En todos los casos se conto con mediciones desde el primero de enero de 2020 a travez de la plataforma de Binance
+
+Se aplicaron estrategias de preprocesamiento como:
+pasar de BTC a uBTC lo cual es algo estandar
+Se probaron formas de agrupar por volumen en unidades fijas de BTC y  de USDT. Se probo utilizar volume imbalance bars y tick imbalance bars. Con investigacion de la literatura y pruebas propias se opto por continuar agrupando barras por volumen ya que aportan una mejora en las propiedades estadisticas de la distribución del precio de Bitcoin. Se adopto un limite de volumen de 50000 uBTC ya que aportaba un balance satisfactorio entre cantidad de puntos obtenidos y reduccion de la varianza correspondiente a cada barra.
+
+Se exploraron diversas tecnicas de etiquetado como
+etiquetado por horizonte fijo, la cual se descarta por ser invariante a la volatilidad
+etiquetado dynamico, el cual tiene en cuenta la volatilidad pero mantiene horizonte fijo.
+etiquetado con barrera triple, la mas recomendada segun la literatura inspeccionada y la que varia el sampling dinamicamente segun volatilidad.
+
+
+Para ingenieria de features se utilizo una extensa lista de indicadores tecnicos, los tambien se hizo uso de tecnicas de reduccion de dimensionalidad como PCA. Para el analicis de caracteristicas se usaron
+
+Disminución media de impureza (Mean Decrease Impurity): Mide cuánto disminuye cada característica la impureza de las divisiones en los árboles de decisión (a partir de un clasificador Random Forest).
+
+Disminución media de exactitud (Mean Decrease Accuracy): cuantifica la importancia de una característica midiendo la caída en el rendimiento del modelo (puntuación F1 o F1-score, derivada de la pérdida logarítmica invertida) cuando se permutan los valores de esa característica.
+
+Importancia de característica individual (Single Feature Importance): evalúa una característica entrenando un modelo únicamente con esa variable y evaluando su rendimiento.
+
+Análisis de componentes principales (PCA): utilizado para la reducción de dimensionalidad y para analizar la importancia de las características ortogonales (derivadas de PCA), comparando sus puntuaciones MDI, MDA y SFI frente a la varianza explicada por PCA.
+
+Correlación tau de Kendall ponderada: empleada para medir la correlación de rangos entre diferentes métricas de importancia de características (MDI, MDA, SFI y la Varianza Explicada por PCA), visualizada a través de mapas de calor (heatmaps).
+
+Función de autocorrelación (ACF) y función de autocorrelación parcial (PACF): aplicadas a las características principales para analizar su correlación serial, lo cual es relevante para los datos de series temporales.
+
+Estas técnicas se aplican a las características originales", características PCA y características chronos, y los resultados se visualizan utilizando gráficos de barras y mapas de calor de correlación.
+
+Con esto se determino las caracteristicas mas importantes a tener en cuenta.
+
+
+
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 \section{Análisis del software}
- 
+
 La idea de esta sección es resaltar los problemas encontrados, los criterios utilizados y la justificación de las decisiones que se hayan tomado.
 
 Se puede agregar código o pseudocódigo dentro de un entorno lstlisting con el siguiente código:
