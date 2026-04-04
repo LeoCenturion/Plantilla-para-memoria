@@ -25,16 +25,10 @@
 \contentsline {subsection}{\numberline {3.1.3}Ingeniería de características y análisis de importancia}{14}{subsection.3.1.3}%
 \contentsline {subsection}{\numberline {3.1.4}Arquitectura del modelo}{15}{subsection.3.1.4}%
 \contentsline {section}{\numberline {3.2}Estrategias de referencia (Baselines)}{15}{section.3.2}%
-\contentsline {subsubsection}{Resultados Preliminares}{17}{section*.7}%
-\contentsline {paragraph}{Estrategias de trading estáticas}{17}{section*.8}%
-\contentsline {paragraph}{Estrategias de métodos estadísticos}{17}{section*.9}%
-\contentsline {paragraph}{Estrategias de Machine Learning}{17}{section*.10}%
-\contentsline {paragraph}{Transformers}{17}{section*.11}%
-\contentsline {paragraph}{Conclusión}{17}{section*.12}%
-\contentsline {subsection}{\numberline {3.2.1}Técnicas de etiquetado}{18}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.1}Técnicas de etiquetado}{17}{subsection.3.2.1}%
 \contentsline {chapter}{\numberline {4}Ensayos y resultados}{19}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Pruebas funcionales del hardware}{19}{section.4.1}%
 \contentsline {chapter}{\numberline {5}Conclusiones}{21}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Conclusiones generales }{21}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Próximos pasos}{21}{section.5.2}%
-\contentsline {chapter}{Bibliografía}{23}{appendix*.14}%
+\contentsline {chapter}{Bibliografía}{23}{appendix*.8}%
