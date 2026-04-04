@@ -81,66 +81,28 @@ En esta sección se detalla la arquitectura de Transformers utilizada para la pr
 
 \section{Estrategias de referencia (Baselines)}
 
-El trabajo de Guilherme Palazzo, titulado "Predicting BTC cryptocurrency price movement in a pre-defined trading volume window using Machine Learning models", se centra en predecir la dirección del movimiento del precio de Bitcoin (BTC) formulando el problema como una tarea de clasificación en lugar de intentar pronosticar el precio exacto.
+El trabajo de Guilherme Palazzo, titulado ``Predicting BTC cryptocurrency price movement in a pre-defined trading volume window using Machine Learning models'', se centra en predecir la dirección del movimiento del precio de Bitcoin (BTC) formulando el problema como una tarea de clasificación en lugar de intentar pronosticar el precio exacto.
 
 Principales componentes del trabajo de Palazzo:
 
     \begin{itemize}
-        \item \textbf{Muestreo basado en volumen (Volume bars)}: Argumentando que los mercados no procesan la información en intervalos de tiempo constantes (lo que genera submuestreo en alta actividad y sobremuestreo en baja actividad), Palazzo rechaza las barras de tiempo tradicionales. En su lugar, agrupa los datos en barras de volumen (específicamente ventanas de 50,000 unidades de BTC).
-        \item \textbf{Etiquetado Dinámico}: Inspirándose directamente en las metodologías de Marcos López de Prado (como el enfoque de la triple barrera), no asume un marco de tiempo fijo ni distribuciones predefinidas. Etiqueta los datos evaluando si el retorno futuro supera un umbral dinámico dictado por la desviación estándar local (volatilidad, $\sigma$) multiplicada por una constante predefinida ($\tau$). Para corregir el desbalance natural de las clases resultantes, utiliza el algoritmo K-Nearest Neighbors (KNN) para hacer undersampling en los datos de entrenamiento.
-        \item \textbf{Ingeniería y selección de características}: En lugar de operar con precios crudos, utiliza retornos logarítmicos, calcula z-scores y genera múltiples indicadores de análisis técnico (tendencia, volumen y momentum). Tras escalar estas características, emplea el Criterio de Información Mutua (MIC) para seleccionar las 40 variables con mayor poder predictivo. En el caso de la Regresión Logística, aplica previamente el Factor de Inflación de la Varianza (VIF) para eliminar la multicolinealidad.
-        \item \textbf{Modelado riguroso y resultados}: Entrenó y evaluó tres modelos predictivos: Regresión Logística, Long-Short Term Memory (LSTM) y eXtreme Gradient Boosting (XGBoost). El XGBoost fue el mejor algoritmo, logrando un Área Bajo la Curva (AUC) de 0.66 y un Ratio de Sharpe (anualizado) de 6.27 en el conjunto de prueba, y un Sharpe de 1.08 en la validación estrictamente fuera de muestra, superando con creces a la estrategia benchmark. Para optimizar hiperparámetros sin contaminar los datos (look-ahead bias), usó TimeSeriesSplit de scikit-learn manteniendo la integridad cronológica del conjunto.
+        \item Muestreo basado en volumen (Volume bars): argumentando que los mercados no procesan la información en intervalos de tiempo constantes (lo que genera submuestreo en alta actividad y sobremuestreo en baja actividad), Palazzo rechaza las barras de tiempo tradicionales. En su lugar, agrupa los datos en barras de volumen (específicamente ventanas de 50,000 unidades de BTC).
+        \item Etiquetado dinámico: inspirándose directamente en las metodologías de Marcos López de Prado (como el enfoque de la triple barrera), no asume un marco de tiempo fijo ni distribuciones predefinidas. Etiqueta los datos evaluando si el retorno futuro supera un umbral dinámico dictado por la desviación estándar local (volatilidad, $\sigma$) multiplicada por una constante predefinida ($\tau$). Para corregir el desbalance natural de las clases resultantes, utiliza el algoritmo K-Nearest Neighbors (KNN) para hacer undersampling en los datos de entrenamiento.
+        \item Ingeniería y selección de características: en lugar de operar con precios crudos, utiliza retornos logarítmicos, calcula z-scores y genera múltiples indicadores de análisis técnico (tendencia, volumen y momentum). Tras escalar estas características, emplea el Criterio de Información Mutua (MIC) para seleccionar las 40 variables con mayor poder predictivo. En el caso de la Regresión Logística, aplica previamente el Factor de Inflación de la Varianza (VIF) para eliminar la multicolinealidad.
+        \item Modelado riguroso y resultados: entrenó y evaluó tres modelos predictivos: Regresión Logística, Long-Short Term Memory (LSTM) y eXtreme Gradient Boosting (XGBoost). El XGBoost fue el mejor algoritmo, logrando un Área Bajo la Curva (AUC) de 0.66 y un Ratio de Sharpe (anualizado) de 6.27 en el conjunto de prueba, y un Sharpe de 1.08 en la validación estrictamente fuera de muestra, superando con creces a la estrategia benchmark. Para optimizar hiperparámetros sin contaminar los datos (look-ahead bias), usó TimeSeriesSplit de scikit-learn manteniendo la integridad cronológica del conjunto.
     \end{itemize}
 
 Justificación de por qué usar el trabajo de Palazzo como baseline (punto de referencia) para tu investigación:
 
     \begin{itemize}
-        \item Es la aplicación empírica ideal de la teoría de López de Prado: Durante tu investigación, has profundizado en las arquitecturas y recomendaciones de López de Prado. El trabajo de Palazzo es un ejemplo perfecto de cómo aterrizar esas ideas teóricas (como el reloj de volumen para evitar distribuciones no IID y los umbrales dinámicos de etiquetado) a un caso de uso real en un mercado de altísima volatilidad como el de las criptomonedas.
-        \item Aísla el efecto del ruido del mercado: Al reformular el problema de una regresión de precios exactos a una clasificación direccional usando barras de volumen, Palazzo mitiga la naturaleza no estacionaria y ruidosa del criptomercado. Usar su estructura de datos y pipeline te permitirá comparar si tu nuevo enfoque añade valor genuino, sabiendo que la base de datos subyacente ya está óptimamente estructurada.
-        \item Rigurosidad metodológica contra el sobreajuste: Su metodología implementa defensas estrictas contra el sobreajuste y la fuga de información (data leakage). Al utilizar TimeSeriesSplit para la validación cruzada y calcular métricas como z-scores estrictamente con información retrospectiva, establece un marco de prueba que es estadísticamente honesto. Superar este baseline requerirá que tus modelos sean verdaderamente robustos y no el resultado de haber simulado el pasado (backtest overfitting).
+        \item Es la aplicación empírica ideal de la teoría de López de Prado: durante tu investigación, has profundizado en las arquitecturas y recomendaciones de López de Prado. El trabajo de Palazzo es un ejemplo perfecto de cómo aterrizar esas ideas teóricas (como el reloj de volumen para evitar distribuciones no IID y los umbrales dinámicos de etiquetado) a un caso de uso real en un mercado de altísima volatilidad como el de las criptomonedas.
+        \item Aísla el efecto del ruido del mercado: al reformular el problema de una regresión de precios exactos a una clasificación direccional usando barras de volumen, Palazzo mitiga la naturaleza no estacionaria y ruidosa del criptomercado. Usar su estructura de datos y pipeline te permitirá comparar si tu nuevo enfoque añade valor genuino, sabiendo que la base de datos subyacente ya está óptimamente estructurada.
+        \item Rigurosidad metodológica contra el sobreajuste: su metodología implementa defensas estrictas contra el sobreajuste y la fuga de información (data leakage). Al utilizar TimeSeriesSplit para la validación cruzada y calcular métricas como z-scores estrictamente con información retrospectiva, establece un marco de prueba que es estadísticamente honesto. Superar este baseline requerirá que tus modelos sean verdaderamente robustos y no el resultado de haber simulado el pasado (backtest overfitting).
         \item Métricas claras del ``estado del arte'' tradicional: Palazzo ofrece métricas específicas, evaluando desde la precisión pura (AUC = 0.66) hasta el desempeño real del portafolio (Sharpe ratio = 6.27, drawdowns, factor de ganancia) con modelos muy maduros como XGBoost y LSTM. Si estás desarrollando modelos más avanzados (por ejemplo, arquitecturas basadas en Transformers para series de tiempo financieras como PatchTST o Chronos, discutidas en la literatura reciente), el trabajo de Palazzo representa el límite superior de rendimiento de los algoritmos de la generación anterior, dándote una barrera medible que debes derribar.
             \end{itemize}
 
-        \subsubsection{Resultados Preliminares}
 
-        Se realizó un backtesting de varias estrategias de trading utilizando datos horarios de BTC/USDT de Binance desde el 1 de enero de 2020 hasta el 7 de noviembre de 2025. La tasa libre de riesgo se asumió en 0\% y se aplicó una comisión del 0.001\% por operación. El ratio de Sharpe para una estrategia de "comprar y mantener" (Buy \& Hold) en este período fue de 1.16.
-
-        \paragraph{Estrategias de trading estáticas}
-        \begin{itemize}
-            \item \textbf{Cruce de medias móviles}: Se obtuvo un ratio de Sharpe máximo de 0.82, pero con una alta variabilidad, lo que sugiere un posible sobreajuste.
-            \item \textbf{Bandas de Bollinger}: Esta estrategia de reversión a la media arrojó resultados mayormente negativos.
-            \item \textbf{MACD}: El ratio de Sharpe máximo alcanzado fue de 0.2.
-            \item \textbf{Divergencia RSI}: No se obtuvieron ratios de Sharpe positivos.
-            \item \textbf{Estrategia de Múltiples Indicadores}: Combinando Bandas de Bollinger y medias móviles, se obtuvo un ratio de Sharpe máximo de 1.0, con resultados consistentes por encima de 0.75.
-            \item \textbf{Swing Trading}: Esta estrategia, basada en la Teoría de Dow, obtuvo un ratio de Sharpe estable en torno a 0.5.
-        \end{itemize}
-
-        \paragraph{Estrategias de métodos estadísticos}
-        Se reentrenaron los modelos cada 24 horas.
-        \begin{itemize}
-            \item \textbf{ARIMA}: No se obtuvieron resultados positivos.
-            \item \textbf{ARIMA con filtro de Kalman}: No se obtuvieron resultados positivos.
-            \item \textbf{ARIMAX + GARCH}: No se obtuvieron resultados positivos.
-            \item \textbf{Prophet}: No se obtuvieron resultados positivos.
-        \end{itemize}
-
-        \paragraph{Estrategias de Machine Learning}
-        Se utilizaron modelos para predecir la dirección del precio en el siguiente período.
-        \begin{itemize}
-            \item \textbf{Random Forest}: Se obtuvo un F1-score máximo de 0.48.
-            \item \textbf{XGBoost}: Se obtuvo un F1-score máximo de 0.57.
-            \item XGBoost (Palazzo et al.): Se obtuvo un F1-score máximo de 0.637.
-        \end{itemize}
-
-        \paragraph{Transformers}
-        \begin{itemize}
-            \item Chronos: El desempeño fue inferior al de modelos más simples como XGBoost, sin superar un baseline aleatorio.
-        \end{itemize}
-
-        \paragraph{Conclusión}
-        Ninguna de las estrategias probadas logró superar el ratio de Sharpe de la estrategia de "comprar y mantener". Los modelos tuvieron dificultades para predecir la dirección del precio en el siguiente período.
-
-        \subsection{Técnicas de etiquetado}
+    \subsection{Técnicas de etiquetado}
 
 Se exploraron diversas técnicas de etiquetado para definir los objetivos de predicción del modelo:
 
