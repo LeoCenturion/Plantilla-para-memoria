@@ -41,89 +41,71 @@ En este capítulo se desarrollara la solucion alcanzada. Se describen los datos 
 }
 
 
-\section{Conjunto de Datos y Preprocesamiento}
+\section{Conjunto de datos y preprocesamiento}
 
-Como conjunto de datos se probaron los datos del mercado spot de Bitcoin, esto significa que es el mercado donde se compra y vende Bitcoin para su liquidación y entrega inmediata. Las variables disponibles para este mercado son, entre otras, precio de apertura, cierre, valor minimo, valor maximo, volumen comercializado en unidades de Bitcoin y en USDT, hora exacta donde se tomo la medicion. Estos datos estan disponibles a diferentes frequencias, de las cuales se probaron dos. Primero se comenzó con frequencia de una hora, la cual presento las desventajas de acotar el conjunto de datos disponibles para entrenamiento y de presentar peores resultados en las estrategias probadas. Posiblemente debido a que se disponian de menor cantidad de datos. Debido a lo mencionado anteriormente se intento usar la frecuencia de un minuto con la cual se vio una mejora en el desempeño de las estrategias estudiadas.
-En todos los casos se conto con mediciones desde el primero de enero de 2020 a travez de la plataforma de Binance
+Esta sección describe el conjunto de datos utilizado y las estrategias de preprocesamiento aplicadas para el desarrollo del trabajo. Se detallan las consideraciones sobre la frecuencia de los datos, las técnicas de construcción de barras, los métodos de etiquetado y el análisis de la importancia de las características.
 
-Se aplicaron estrategias de preprocesamiento como:
-pasar de BTC a uBTC lo cual es algo estandar
-Se probaron formas de agrupar por volumen en unidades fijas de BTC y  de USDT. Se probo utilizar volume imbalance bars y tick imbalance bars. Con investigacion de la literatura y pruebas propias se opto por continuar agrupando barras por volumen ya que aportan una mejora en las propiedades estadisticas de la distribución del precio de Bitcoin. Se adopto un limite de volumen de 50000 uBTC ya que aportaba un balance satisfactorio entre cantidad de puntos obtenidos y reduccion de la varianza correspondiente a cada barra.
+\subsection{Conjunto de datos}
 
-Se exploraron diversas tecnicas de etiquetado como
-etiquetado por horizonte fijo, la cual se descarta por ser invariante a la volatilidad
-etiquetado dynamico, el cual tiene en cuenta la volatilidad pero mantiene horizonte fijo.
-etiquetado con barrera triple, la mas recomendada segun la literatura inspeccionada y la que varia el sampling dinamicamente segun volatilidad.
+El trabajo se basó en el análisis de datos del mercado spot de Bitcoin. El mercado spot se define como aquel en el que los activos financieros, en este caso Bitcoin (BTC) frente al Tether (USDT), se compran y venden para su liquidación y entrega inmediata. Las variables disponibles para este mercado incluyen el precio de apertura, el precio de cierre, el valor mínimo y máximo alcanzado, el volumen comercializado en unidades de Bitcoin y en USDT, y la hora exacta en la que se tomó cada medición.
 
+Estos datos se recopilaron desde el 1 de enero de 2020 a través de la plataforma de Binance. Inicialmente, se experimentó con una frecuencia de una hora, la cual presentó la desventaja de acotar el volumen de datos disponibles para el entrenamiento del modelo. Además, se observó que las estrategias probadas con esta frecuencia arrojaban peores resultados. Se infirió que esto se debía, posiblemente, a la menor cantidad de datos disponibles, lo que limitó la capacidad del modelo para aprender patrones robustos. Por lo anterior, se optó por utilizar una frecuencia de un minuto, lo que generó una mejora significativa en el desempeño de las estrategias estudiadas al proporcionar un conjunto de datos más denso y amplio.
 
-Para ingenieria de features se utilizo una extensa lista de indicadores tecnicos, los tambien se hizo uso de tecnicas de reduccion de dimensionalidad como PCA. Para el analicis de caracteristicas se usaron
+\subsection{Estrategias de preprocesamiento}
 
-Disminución media de impureza (Mean Decrease Impurity): Mide cuánto disminuye cada característica la impureza de las divisiones en los árboles de decisión (a partir de un clasificador Random Forest).
+Para el preprocesamiento de los datos, se aplicaron diversas estrategias con el fin de optimizar su calidad y relevancia para el modelo:
 
-Disminución media de exactitud (Mean Decrease Accuracy): cuantifica la importancia de una característica midiendo la caída en el rendimiento del modelo (puntuación F1 o F1-score, derivada de la pérdida logarítmica invertida) cuando se permutan los valores de esa característica.
+\begin{itemize}
+    \item Conversión a micro-Bitcoins (\textit{uBTC}): se realizó una conversión de BTC a \textit{uBTC}, una práctica estándar en el análisis de criptomonedas para manejar unidades más pequeñas y facilitar los cálculos.
+    \item Agrupación por Volumen (\textit{Volume Bars}): se exploraron formas de agrupar los datos no por intervalos de tiempo fijos, sino por volumen en unidades constantes tanto de BTC como de USDT. Adicionalmente, se probaron las \textit{volume imbalance bars} y las \textit{tick imbalance bars}. Las \textit{volume imbalance bars} se construyen cuando se alcanza un volumen neto desequilibrado entre compras y ventas, mientras que las \textit{tick imbalance bars} se forman con un desequilibrio neto en el número de \textit{ticks} (cambios de precio). Tras una investigación exhaustiva de la literatura y pruebas empíricas, se decidió continuar con la agrupación de barras por volumen fijo. Esta elección se fundamentó en que las barras de volumen aportan una mejora notable en las propiedades estadísticas de la distribución del precio de Bitcoin, ya que reducen la autocorrelación y la heterocedasticidad, lo que las hace más adecuadas para el entrenamiento de modelos de \textit{machine learning}. Se adoptó un límite de volumen de 50.000 \textit{uBTC}, el cual proporcionó un equilibrio satisfactorio entre la cantidad de puntos de datos obtenidos y la reducción de la varianza correspondiente a cada barra.
+\end{itemize}
 
-Importancia de característica individual (Single Feature Importance): evalúa una característica entrenando un modelo únicamente con esa variable y evaluando su rendimiento.
+\subsubsection{Estrategias de Referencia (Baselines)}
 
-Análisis de componentes principales (PCA): utilizado para la reducción de dimensionalidad y para analizar la importancia de las características ortogonales (derivadas de PCA), comparando sus puntuaciones MDI, MDA y SFI frente a la varianza explicada por PCA.
+El trabajo de Guilherme Palazzo, titulado "Predicting BTC cryptocurrency price movement in a pre-defined trading volume window using Machine Learning models", se centra en predecir la dirección del movimiento del precio de Bitcoin (BTC) formulando el problema como una tarea de clasificación en lugar de intentar pronosticar el precio exacto.
 
-Correlación tau de Kendall ponderada: empleada para medir la correlación de rangos entre diferentes métricas de importancia de características (MDI, MDA, SFI y la Varianza Explicada por PCA), visualizada a través de mapas de calor (heatmaps).
+Principales componentes del trabajo de Palazzo:
 
-Función de autocorrelación (ACF) y función de autocorrelación parcial (PACF): aplicadas a las características principales para analizar su correlación serial, lo cual es relevante para los datos de series temporales.
+    \begin{itemize}
+        \item \textbf{Muestreo basado en Volumen (Volume Bars)}: Argumentando que los mercados no procesan la información en intervalos de tiempo constantes (lo que genera submuestreo en alta actividad y sobremuestreo en baja actividad), Palazzo rechaza las barras de tiempo tradicionales. En su lugar, agrupa los datos en barras de volumen (específicamente ventanas de 50,000 unidades de BTC).
+        \item \textbf{Etiquetado Dinámico}: Inspirándose directamente en las metodologías de Marcos López de Prado (como el enfoque de la triple barrera), no asume un marco de tiempo fijo ni distribuciones predefinidas. Etiqueta los datos evaluando si el retorno futuro supera un umbral dinámico dictado por la desviación estándar local (volatilidad, $\sigma$) multiplicada por una constante predefinida ($\tau$). Para corregir el desbalance natural de las clases resultantes, utiliza el algoritmo K-Nearest Neighbors (KNN) para hacer undersampling en los datos de entrenamiento.
+        \item \textbf{Ingeniería y Selección de Características}: En lugar de operar con precios crudos, utiliza retornos logarítmicos, calcula z-scores y genera múltiples indicadores de análisis técnico (tendencia, volumen y momentum). Tras escalar estas características, emplea el Criterio de Información Mutua (MIC) para seleccionar las 40 variables con mayor poder predictivo. En el caso de la Regresión Logística, aplica previamente el Factor de Inflación de la Varianza (VIF) para eliminar la multicolinealidad.
+        \item \textbf{Modelado Riguroso y Resultados}: Entrenó y evaluó tres modelos predictivos: Regresión Logística, Long-Short Term Memory (LSTM) y eXtreme Gradient Boosting (XGBoost). El XGBoost fue el mejor algoritmo, logrando un Área Bajo la Curva (AUC) de 0.66 y un Ratio de Sharpe (anualizado) de 6.27 en el conjunto de prueba, y un Sharpe de 1.08 en la validación estrictamente fuera de muestra, superando con creces a la estrategia benchmark. Para optimizar hiperparámetros sin contaminar los datos (look-ahead bias), usó TimeSeriesSplit de scikit-learn manteniendo la integridad cronológica del conjunto.
+    \end{itemize}
 
-Estas técnicas se aplican a las características originales", características PCA y características chronos, y los resultados se visualizan utilizando gráficos de barras y mapas de calor de correlación.
+Justificación de por qué usar el trabajo de Palazzo como baseline (punto de referencia) para tu investigación:
 
-Con esto se determino las caracteristicas mas importantes a tener en cuenta.
+    \begin{itemize}
+        \item \textbf{Es la aplicación empírica ideal de la teoría de López de Prado}: Durante tu investigación, has profundizado en las arquitecturas y recomendaciones de López de Prado. El trabajo de Palazzo es un ejemplo perfecto de cómo aterrizar esas ideas teóricas (como el reloj de volumen para evitar distribuciones no IID y los umbrales dinámicos de etiquetado) a un caso de uso real en un mercado de altísima volatilidad como el de las criptomonedas.
+        \item \textbf{Aísla el efecto del ruido del mercado}: Al reformular el problema de una regresión de precios exactos a una clasificación direccional usando barras de volumen, Palazzo mitiga la naturaleza no estacionaria y ruidosa del criptomercado. Usar su estructura de datos y pipeline te permitirá comparar si tu nuevo enfoque añade valor genuino, sabiendo que la base de datos subyacente ya está óptimamente estructurada.
+        \item \textbf{Rigurosidad metodológica contra el sobreajuste}: Su metodología implementa defensas estrictas contra el sobreajuste y la fuga de información (data leakage). Al utilizar TimeSeriesSplit para la validación cruzada y calcular métricas como z-scores estrictamente con información retrospectiva, establece un marco de prueba que es estadísticamente honesto. Superar este baseline requerirá que tus modelos sean verdaderamente robustos y no el resultado de haber simulado el pasado (backtest overfitting).
+        \item \textbf{Métricas claras del "estado del arte" tradicional}: Palazzo ofrece métricas específicas, evaluando desde la precisión pura (AUC = 0.66) hasta el desempeño real del portafolio (Sharpe ratio = 6.27, drawdowns, factor de ganancia) con modelos muy maduros como XGBoost y LSTM. Si estás desarrollando modelos más avanzados (por ejemplo, arquitecturas basadas en Transformers para series de tiempo financieras como PatchTST o Chronos, discutidas en la literatura reciente), el trabajo de Palazzo representa el límite superior de rendimiento de los algoritmos de la generación anterior, dándote una barrera medible que debes derribar.
+    \end{itemize}
+\subsection{Técnicas de etiquetado}
 
+Se exploraron diversas técnicas de etiquetado para definir los objetivos de predicción del modelo:
 
+\begin{itemize}
+    \item Etiquetado por horizonte fijo: este método asigna etiquetas de acuerdo con el movimiento del precio después de un período de tiempo predefinido, sin considerar la volatilidad del mercado. Se descartó esta técnica al ser invariante a la volatilidad, lo que la hace menos efectiva en mercados financieros dinámicos.
+    \item Etiquetado dinámico: esta técnica también considera un horizonte de tiempo fijo, pero ajusta los umbrales de etiquetado en función de la volatilidad observada en el mercado. Si bien mejora el etiquetado en comparación con el horizonte fijo, aún mantiene una dependencia temporal que puede ser subóptima.
+    \item Etiquetado con barrera triple (\textit{Triple-Barrier Method}): esta fue la técnica más recomendada según la literatura inspeccionada y la que se adoptó. El método de barrera triple varía el muestreo de forma dinámica según la volatilidad del activo. Para ello, se definen tres barreras: una barrera superior para las ganancias, una barrera inferior para las pérdidas y una barrera de tiempo para la salida. La primera barrera que se cruza determina la etiqueta de la observación, lo que permite un etiquetado más adaptativo y robusto.
+\end{itemize}
 
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
-\section{Análisis del software}
+\subsection{Ingeniería de características y análisis de importancia}
 
-La idea de esta sección es resaltar los problemas encontrados, los criterios utilizados y la justificación de las decisiones que se hayan tomado.
+Para la ingeniería de características, se generó una extensa lista de indicadores técnicos, los cuales se consideran fundamentales en el análisis de mercados financieros. Adicionalmente, se hizo uso de técnicas de reducción de dimensionalidad como el \textit{Análisis de Componentes Principales} (\textit{PCA}). El análisis de características se llevó a cabo utilizando las siguientes métricas:
 
-Se puede agregar código o pseudocódigo dentro de un entorno lstlisting con el siguiente código:
+\begin{itemize}
+    \item Disminución media de impureza (\textit{Mean Decrease Impurity}, MDI): esta métrica cuantifica la importancia de una característica al medir la reducción promedio de la impureza (por ejemplo, Gini impurity o entropía) que cada característica aporta a las divisiones en los árboles de decisión de un modelo de tipo \textit{Random Forest}. Un valor más alto indica una mayor importancia.
+    \item Disminución media de exactitud (\textit{Mean Decrease Accuracy}, MDA): esta técnica evalúa la importancia de una característica cuantificando la caída en el rendimiento del modelo (medido con la puntuación F1 o \textit{F1-score}, derivada de la pérdida logarítmica invertida) cuando los valores de esa característica se permutan aleatoriamente. Una mayor disminución en la exactitud indica una característica más importante.
+    \item Importancia de característica individual (\textit{Single Feature Importance}, SFI): este método evalúa la importancia de cada característica de forma aislada. Para ello, se entrena un modelo únicamente con esa variable y se evalúa su rendimiento. Permite identificar la contribución individual de cada característica sin la influencia de otras.
+    \item Análisis de componentes principales (\textit{Principal Component Analysis}, PCA): se utilizó PCA para la reducción de dimensionalidad, lo que transformó un conjunto de características correlacionadas en un conjunto de características ortogonales denominadas componentes principales. Esto permitió analizar la importancia de estas características ortogonales al comparar sus puntuaciones MDI, MDA, SFI y la Varianza Explicada por PCA, lo que ofrece una perspectiva de la importancia intrínseca y la capacidad de representación de las características originales.
+    \item Correlación tau de Kendall ponderada (\textit{Weighted Kendall's Tau Correlation}): esta métrica se empleó para medir la correlación de rangos entre las diferentes métricas de importancia de características (MDI, MDA, SFI y la Varianza Explicada por PCA). La visualización de esta correlación se realizó a través de mapas de calor (\textit{heatmaps}), lo que facilitó la identificación de consistencias y divergencias en la valoración de la importancia de las características entre los distintos métodos.
+    \item Función de autocorrelación (ACF) y función de autocorrelación parcial (PACF): estas funciones se aplicaron a las características principales (componentes de \textit{PCA}) para analizar su correlación serial. Esto es particularmente relevante en el contexto de series temporales, ya que permite identificar la dependencia de una observación con respecto a observaciones pasadas, lo que influye en la capacidad predictiva del modelo.
+\end{itemize}
 
-\begin{verbatim}
-\begin{lstlisting}[caption= "un epígrafe descriptivo"]
-	las líneas de código irían aquí...
-\end{lstlisting}
-\end{verbatim}
+Estas técnicas se aplicaron a las características originales, a las características derivadas de \textit{PCA} y a las características temporales (\textit{chronos features}), y los resultados se visualizaron mediante gráficos de barras y mapas de calor de correlación. Con base en este análisis exhaustivo, se determinaron las características más importantes a considerar en el modelo final.
 
-A modo de ejemplo, se muestra el fragmento de código \ref{cod:vControl}:
+\subsection{Arquitectura del modelo}
 
-\begin{lstlisting}[label=cod:vControl,caption=Pseudocódigo del lazo principal de control.]  % Start your code-block
-
-#define MAX_SENSOR_NUMBER 3
-#define MAX_ALARM_NUMBER  6
-#define MAX_ACTUATOR_NUMBER 6
-
-uint32_t sensorValue[MAX_SENSOR_NUMBER];		
-FunctionalState alarmControl[MAX_ALARM_NUMBER];	//ENABLE or DISABLE
-state_t alarmState[MAX_ALARM_NUMBER];						//ON or OFF
-state_t actuatorState[MAX_ACTUATOR_NUMBER];			//ON or OFF
-
-void vControl() {
-
-	initGlobalVariables();
-	
-	period = 500 ms;
-		
-	while(1) {
-
-		ticks = xTaskGetTickCount();
-		
-		updateSensors();
-		
-		updateAlarms();
-		
-		controlActuators();
-		
-		vTaskDelayUntil(&ticks, period);
-	}
-}
-\end{lstlisting}
-
-
-
+En esta sección se detalla la arquitectura de Transformers utilizada para la predicción de series de tiempo. Los Transformers, introducidos por \cite{Vaswani:2017}, son una arquitectura de red neuronal basada en mecanismos de autoatención que han demostrado un rendimiento excepcional en tareas de procesamiento de lenguaje natural y, más recientemente, en series de tiempo.

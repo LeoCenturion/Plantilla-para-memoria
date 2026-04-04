@@ -37,26 +37,6 @@
     \warn{\item Invalid format of field 'month'}
   \endentry
 
-  \entry{Zucchi:2022}{misc}{}{}
-    \name{author}{1}{}{%
-      {{hash=ZK}{%
-         family={Zucchi},
-         familyi={Z\bibinitperiod},
-         given={Kristina},
-         giveni={K\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{ZK1}
-    \strng{fullhash}{ZK1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-  \field{howpublished}{\url{https://www.investopedia.com/articles/optioninvestor/10/derivatives-101.asp}}
-    \field{note}{Visitado el 23-09-2023}
-    \field{title}{Derivatives 101}
-    \field{year}{2022}
-    \warn{\item Invalid format of field 'month'}
-  \endentry
-
   \entry{Kirkpatrick:2006}{book}{}{}
     \name{author}{2}{}{%
       {{hash=ICDK}{%
@@ -84,6 +64,256 @@
     \field{title}{Technical Analysis: The Complete Resource for Financial
   Market Technicians}
     \field{year}{2006}
+  \endentry
+
+  \entry{wen2023transformers}{inproceedings}{}{}
+    \name{author}{7}{}{%
+      {{hash=WQ}{%
+         family={Wen},
+         familyi={W\bibinitperiod},
+         given={Qingsong},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=ZT}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Tian},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=ZC}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Chaoli},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=CW}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Weiqi},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=MZ}{%
+         family={Ma},
+         familyi={M\bibinitperiod},
+         given={Ziqing},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=YJ}{%
+         family={Yan},
+         familyi={Y\bibinitperiod},
+         given={Jingshuai},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SL}{%
+         family={Sun},
+         familyi={S\bibinitperiod},
+         given={Liang},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WQ+1}
+    \strng{fullhash}{WQZTZCCWMZYJSL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Proceedings of the Thirty-Second International Joint
+  Conference on Artificial Intelligence (IJCAI-23)}
+    \verb{doi}
+    \verb 10.24963/ijcai.2023/759
+    \endverb
+    \field{pages}{6778\bibrangedash 6786}
+    \field{title}{Transformers in Time Series: A Survey}
+    \verb{url}
+    \verb https://doi.org/10.24963/ijcai.2023/759
+    \endverb
+    \field{year}{2023}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{halperin2025nonlinear}{misc}{}{}
+    \name{author}{1}{}{%
+      {{hash=HI}{%
+         family={Halperin},
+         familyi={H\bibinitperiod},
+         given={Igor},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HI1}
+    \strng{fullhash}{HI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 2509.02941
+    \endverb
+    \field{title}{Non-Linear and Meta-Stable Dynamics in Financial Markets:
+  Evidence from High Frequency Crypto Currency Market Makers}
+    \verb{url}
+    \verb https://arxiv.org/abs/2509.02941
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{q-fin.ST}
+    \field{year}{2025}
+  \endentry
+
+  \entry{Fama:1970}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=FEF}{%
+         family={Fama},
+         familyi={F\bibinitperiod},
+         given={Eugene\bibnamedelima F.},
+         giveni={E\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FEF1}
+    \strng{fullhash}{FEF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{2}
+    \field{pages}{383\bibrangedash 417}
+    \field{title}{Efficient Capital Markets: A Review of Theory and Empirical
+  Work}
+    \field{volume}{25}
+    \field{journaltitle}{The Journal of Finance}
+    \field{year}{1970}
+  \endentry
+
+  \entry{coelho2024transformers}{inproceedings}{}{}
+    \name{author}{3}{}{%
+      {{hash=CeSL}{%
+         prefix={Coelho\bibnamedelima e},
+         prefixi={C\bibinitperiod\bibinitdelim e\bibinitperiod},
+         family={Silva},
+         familyi={S\bibinitperiod},
+         given={Lucas},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=dFFG}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Freitas\bibnamedelima Fonseca},
+         familyi={F\bibinitperiod\bibinitdelim F\bibinitperiod},
+         given={Gustavo},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=CPAL}{%
+         family={Castro},
+         familyi={C\bibinitperiod},
+         given={Paulo Andre\bibnamedelima L.},
+         giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim
+  L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{SLCeFFGdCPAL1}
+    \strng{fullhash}{SLCeFFGdCPAL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Proceedings of the 5th ACM International Conference on AI
+  in Finance}
+    \verb{doi}
+    \verb 10.1145/3677052.3698684
+    \endverb
+    \field{pages}{822\bibrangedash 830}
+    \field{series}{ICAIF '24}
+    \field{title}{Transformers and attention-based networks in quantitative
+  trading: a comprehensive survey}
+    \verb{url}
+    \verb https://doi.org/10.1145/3677052.3698684
+    \endverb
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{year}{2024}
+  \endentry
+
+  \entry{paul2024financial}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=PJ}{%
+         family={Paul},
+         familyi={P\bibinitperiod},
+         given={Joel},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PJ1}
+    \strng{fullhash}{PJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Financial Time Series Analysis with Transformer Models}
+    \verb{url}
+    \verb https://www.researchgate.net/publication/387524930_Financial_Time_Ser
+    \verb ies_Analysis_with_Transformer_Models
+    \endverb
+    \field{journaltitle}{ResearchGate}
+    \field{year}{2024}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{LoP:2018}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=LdPM}{%
+         prefix={López\bibnamedelima de},
+         prefixi={L\bibinitperiod\bibinitdelim d\bibinitperiod},
+         family={Prado},
+         familyi={P\bibinitperiod},
+         given={Marcos},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley}%
+    }
+    \strng{namehash}{PMLd1}
+    \strng{fullhash}{PMLd1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Advances in Financial Machine Learning}
+    \list{location}{1}{%
+      {Hoboken, New Jersey}%
+    }
+    \field{year}{2018}
+  \endentry
+
+  \entry{Zucchi:2022}{misc}{}{}
+    \name{author}{1}{}{%
+      {{hash=ZK}{%
+         family={Zucchi},
+         familyi={Z\bibinitperiod},
+         given={Kristina},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZK1}
+    \strng{fullhash}{ZK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{howpublished}{\url{https://www.investopedia.com/articles/optioninvestor/10/derivatives-101.asp}}
+    \field{note}{Visitado el 23-09-2023}
+    \field{title}{Derivatives 101}
+    \field{year}{2022}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{Chan:2013}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=CEP}{%
+         family={Chan},
+         familyi={C\bibinitperiod},
+         given={Ernest\bibnamedelima P.},
+         giveni={E\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {John Wiley \& Sons}%
+    }
+    \strng{namehash}{CEP1}
+    \strng{fullhash}{CEP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Algorithmic Trading: Winning Strategies and Their Rationale}
+    \field{year}{2013}
   \endentry
 
   \entry{Rhea:1932}{book}{}{}
@@ -192,29 +422,142 @@
     \warn{\item Invalid format of field 'month'}
   \endentry
 
-  \entry{LoP:2018}{book}{}{}
-    \name{author}{1}{}{%
-      {{hash=LdPM}{%
-         prefix={López\bibnamedelima de},
-         prefixi={L\bibinitperiod\bibinitdelim d\bibinitperiod},
-         family={Prado},
+  \entry{Vaswani:2017}{article}{}{}
+    \name{author}{8}{}{%
+      {{hash=VA}{%
+         family={Vaswani},
+         familyi={V\bibinitperiod},
+         given={Ashish},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Shazeer},
+         familyi={S\bibinitperiod},
+         given={Noam},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=PN}{%
+         family={Parmar},
          familyi={P\bibinitperiod},
-         given={Marcos},
-         giveni={M\bibinitperiod},
+         given={Niki},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=UJ}{%
+         family={Uszkoreit},
+         familyi={U\bibinitperiod},
+         given={Jakob},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=JL}{%
+         family={Jones},
+         familyi={J\bibinitperiod},
+         given={Llion},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=GAN}{%
+         family={Gomez},
+         familyi={G\bibinitperiod},
+         given={Aidan\bibnamedelima N.},
+         giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=KL}{%
+         family={Kaiser},
+         familyi={K\bibinitperiod},
+         given={\Lukas},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=PI}{%
+         family={Polosukhin},
+         familyi={P\bibinitperiod},
+         given={Illia},
+         giveni={I\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {Wiley}%
-    }
-    \strng{namehash}{PMLd1}
-    \strng{fullhash}{PMLd1}
+    \strng{namehash}{VA+1}
+    \strng{fullhash}{VASNPNUJJLGANKLPI1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Advances in Financial Machine Learning}
-    \list{location}{1}{%
-      {Hoboken, New Jersey}%
+    \verb{eprint}
+    \verb 1706.03762
+    \endverb
+    \field{title}{Attention Is All You Need}
+    \verb{url}
+    \verb http://arxiv.org/abs/1706.03762
+    \endverb
+    \field{volume}{abs/1706.03762}
+    \field{journaltitle}{CoRR}
+    \field{eprinttype}{arXiv}
+    \field{year}{2017}
+  \endentry
+
+  \entry{Sharpe:1966}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=SWF}{%
+         family={Sharpe},
+         familyi={S\bibinitperiod},
+         given={William\bibnamedelima F.},
+         giveni={W\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
     }
-    \field{year}{2018}
+    \strng{namehash}{SWF1}
+    \strng{fullhash}{SWF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{1}
+    \field{pages}{119\bibrangedash 138}
+    \field{title}{Mutual Fund Performance}
+    \field{volume}{39}
+    \field{journaltitle}{The Journal of Business}
+    \field{year}{1966}
+  \endentry
+
+  \entry{Sortino:1991}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=SFA}{%
+         family={Sortino},
+         familyi={S\bibinitperiod},
+         given={Frank\bibnamedelima A.},
+         giveni={F\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=vdMR}{%
+         prefix={van\bibnamedelima der},
+         prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod},
+         family={Meer},
+         familyi={M\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SFAMRvd1}
+    \strng{fullhash}{SFAMRvd1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{4}
+    \field{pages}{27\bibrangedash 31}
+    \field{title}{Downside Risk}
+    \field{volume}{17}
+    \field{journaltitle}{Journal of Portfolio Management}
+    \field{year}{1991}
+  \endentry
+
+  \entry{Young:1991}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=YTW}{%
+         family={Young},
+         familyi={Y\bibinitperiod},
+         given={Terry\bibnamedelima W.},
+         giveni={T\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{YTW1}
+    \strng{fullhash}{YTW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{11}
+    \field{title}{Calmar Ratio: A Smoother Tool}
+    \field{volume}{20}
+    \field{journaltitle}{Futures}
+    \field{year}{1991}
   \endentry
 \enddatalist
 \endinput

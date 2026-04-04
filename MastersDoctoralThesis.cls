@@ -179,7 +179,7 @@
 %	REQUIRED PACKAGES
 %----------------------------------------------------------------------------------------
 
-\RequirePackage{babel} % Required for automatically changing names of document elements to languages besides english
+\RequirePackage[spanish]{babel} % Required for automatically changing names of document elements to languages besides english
 
 \RequirePackage{scrbase} % Required for handling language-dependent names of sections/document elements
 

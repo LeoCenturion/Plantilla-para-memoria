@@ -1,0 +1,23 @@
+Escritura Impersonal: La redacción de todo el documento debe ser impersonal, utilizando siempre la tercera persona (ejemplos: "se hizo," "se realizó," "se desarrolló").
+Coherencia en Terminología: Evite mezclar las palabras "proyecto" y "trabajo"; use "trabajo" cuando se refiera al desarrollo ya implementado.
+Evitar Errores de IA: Elimine frases comunes de inicio/cierre generadas por IA como "En resumen" o "En conclusión".
+Evitar Errores de IA: Evite el uso incorrecto de gerundios y la redacción personal en exceso.
+Unificación de Criterios: Mantenga un formato uniforme para cifras (letras vs. números) y el uso de puntuación, como los puntos finales en listados.
+Capitalización después de dos puntos: Después de dos puntos, el texto debe comenzar en minúscula.
+Títulos en formato oración: Los títulos de capítulos y secciones deben seguir el formato de 'oración' (solo la primera palabra en mayúscula, salvo nombres propios).
+Referencia a figuras: La palabra 'figura' debe escribirse en minúscula en el cuerpo del texto cuando se hace referencia a una imagen (ejemplo: 'como se muestra en la figura 1').
+Negritas y Subrayado: Las negritas están reservadas estrictamente para títulos. Está estrictamente prohibido utilizar negritas o texto subrayado para resaltar términos dentro de los párrafos o elementos de lista.
+Itálicas: Su uso se limita estrictamente a la definición de acrónimos o términos en inglés (por ejemplo, en el desglose de una sigla).
+Letra Monoespaciada: Se puede utilizar para resaltar nombres propios de implementaciones (como nombres de funciones o bibliotecas), siendo una alternativa permitida a las negritas o itálicas para este fin.
+Calidad de Imágenes: Se exige alta resolución y texto legible.
+Formato Obligatorio: Las referencias bibliográficas deben seguir el formato de corchetes generado por el código LaTeX de la plantilla, siendo inaceptable cualquier otro tipo.
+Referenciación Consistente: Es fundamental que el documento sea referenciado en todos los capítulos.
+Notas al Pie: Se usan exclusivamente para referenciar imágenes (indicando si fueron tomadas o adaptadas de alguna fuente). Si la imagen fue generada por IA, debe incluir una nota al pie que lo indique.
+Resumen Introductorio de Capítulos: Después del título de cada capítulo, debe incluir un resumen introductorio muy breve (de dos a tres líneas) que describa el contenido del capítulo.
+Explicación de Elementos: No es suficiente incluir imágenes, tablas o código. Cada elemento debe ser introducido y explicado detalladamente en el texto para contextualizar su contenido para el lector (ejemplo: describir lo que muestran las columnas de una tabla o los pasos de un diagrama).
+Requerimientos: Se recomienda quitar los requerimientos del cuerpo principal de la memoria y enviarlos a los anexos, ya que consumen mucho espacio y ya se encuentran en la planificación.
+Uso Incorrecto (Gerundio de Posterioridad) El gerundio solo debe expresar simultaneidad (al mismo tiempo) o anterioridad (inmediatamente antes), no un resultado o consecuencia posterior al verbo principal.
+Capítulo 1 y 2: límite de 5 páginas cada uno.
+Capítulo 3 (Diseño): 15 a 20 páginas.
+Capítulo 4 (Ensayos): 10 a 15 páginas.
+Capítulo 5 (Conclusiones): 2 páginas de texto, sin imágenes ni tablas.

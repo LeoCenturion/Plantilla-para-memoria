@@ -6,11 +6,11 @@ En este capítulo se introducen temas con mayor profundidad que en el capítulo 
 
 \section{Trading}
 
-El trading es la actividad de comprar y vender activos en mercados financieros con el objetivo de obtener ganancias a corto plazo, y se diferencia de la inversión tradicional por la duración de las posiciones. Mientras que un inversor mantiene posiciones a largo plazo, un trader busca aprovechar tendencias de menor duración [\cite{Chen:2023}].
+El trading es la actividad de comprar y vender activos en mercados financieros con el objetivo de obtener ganancias a corto plazo, y se diferencia de la inversión tradicional por la duración de las posiciones. Mientras que un inversor mantiene posiciones a largo plazo, un trader busca aprovechar tendencias de menor duración \cite{Chen:2023}.
 
-El objetivo principal de un trader es generar ganancias al comprar a precios bajos y vender a precios más altos. Los activos comercializados pueden ser acciones, bonos, divisas, commodities (como oro o petróleo) y derivados (como futuros u opciones) [\cite{Zucchi:2022}].
+El objetivo principal de un trader es generar ganancias al comprar a precios bajos y vender a precios más altos. Los activos comercializados pueden ser acciones, bonos, divisas, commodities (como oro o petróleo) y derivados (como futuros u opciones) \cite{Zucchi:2022}.
 
-Los traders se pueden clasificar según el tipo de estrategia que emplean:
+Los traders se pueden clasificar según el tipo de estrategia que emplean \cite{Chan:2013}:
 
 \begin{itemize}
     \item Scalping: implica la compra y venta de instrumentos financieros en lapsos muy breves (segundos a minutos) para generar pequeñas ganancias en cada operación.
@@ -23,14 +23,14 @@ Otra clasificación se basa en el tipo de información utilizada y diferencia a 
 
 \section{Análisis técnico}
 
-El análisis técnico es una metodología para pronosticar las direcciones futuras de los precios mediante el estudio de datos históricos del mercado, principalmente el precio y el volumen operado [\cite{Kirkpatrick:2006}].
+El análisis técnico es una metodología para pronosticar las direcciones futuras de los precios mediante el estudio de datos históricos del mercado, principalmente el precio y el volumen operado \cite{Kirkpatrick:2006}.
 
-Esta metodología fue formalizada por Charles Dow a fines del siglo XIX [\cite{Rhea:1932}] y ha sido enriquecida por numerosos investigadores. Actualmente, el análisis técnico incluye cientos de patrones y señales [\cite{Hayes:2022}].
+Esta metodología fue formalizada por Charles Dow a fines del siglo XIX \cite{Rhea:1932} y ha sido enriquecida por numerosos investigadores. Actualmente, el análisis técnico incluye cientos de patrones y señales \cite{Hayes:2022}.
 
-La teoría de Dow establece seis puntos principales [\cite{Lopez:2018}]:
+La teoría de Dow establece seis puntos principales \cite{Lopez:2018}:
 
 \begin{itemize}
-    \item El precio lo descuenta todo: La información disponible sobre un activo ya se encuentra incorporada en su cotización bursátil.
+    \item El precio lo descuenta todo: la información disponible sobre un activo ya se encuentra incorporada en su cotización bursátil.
     \item Las tres tendencias del mercado: el mercado se mueve en tendencias alcistas o bajistas. Se distinguen tres tipos de tendencias:
     \begin{itemize}
         \item Tendencias primarias: son las principales y duran de uno a tres años.
@@ -46,13 +46,13 @@ La teoría de Dow establece seis puntos principales [\cite{Lopez:2018}]:
 %% \begin{figure}[ht]
 %% \centering
 %% \includegraphics[width=0.8\textwidth]{./Figures/questionMark.png}\\
-%% \caption{Ejemplo de las tres tendencias de Dow: en rojo se marca la tendencia principal, en verde las secundarias y en amarillo las terciarias. Adaptada de [\cite{Kirkpatrick:2006}]}.
+%% \caption{Ejemplo de las tres tendencias de Dow: en rojo se marca la tendencia principal, en verde las secundarias y en amarillo las terciarias. Adaptada de \cite{Kirkpatrick:2006}].
 %% \label{fig:DowTrends}
 %% \end{figure}
 
 \section{Aprendizaje supervisado}
 
-El aprendizaje automático (machine learning) se clasifica comúnmente en aprendizaje supervisado, no supervisado y por refuerzo. El aprendizaje supervisado se basa en el uso de datos etiquetados para entrenar un modelo que aprenda a predecir una salida a partir de una entrada [\cite{Jansen:2020}].
+El aprendizaje automático (machine learning) se clasifica comúnmente en aprendizaje supervisado, no supervisado y por refuerzo. El aprendizaje supervisado se basa en el uso de datos etiquetados para entrenar un modelo que aprenda a predecir una salida a partir de una entrada \cite{Jansen:2020}.
 
 Esta técnica se divide en dos categorías principales:
 
@@ -65,17 +65,17 @@ Para este trabajo, se optó por un enfoque de clasificación, en el que el model
 
 \section{Optimización de hiperparámetros}
 
-Es fundamental distinguir entre los parámetros de un modelo y sus hiperparámetros. Los parámetros son valores aprendidos por el modelo durante el entrenamiento a partir de los datos (por ejemplo, los pesos en una red neuronal o la pendiente en una regresión lineal). Los hiperparámetros, en cambio, son configuraciones que se definen antes del entrenamiento y no se modifican durante este proceso (por ejemplo, la tasa de aprendizaje o la profundidad de un árbol de decisión) [\cite{Jansen:2020}].
+Es fundamental distinguir entre los parámetros de un modelo y sus hiperparámetros. Los parámetros son valores aprendidos por el modelo durante el entrenamiento a partir de los datos (por ejemplo, los pesos en una red neuronal o la pendiente en una regresión lineal). Los hiperparámetros, en cambio, son configuraciones que se definen antes del entrenamiento y no se modifican durante este proceso (por ejemplo, la tasa de aprendizaje o la profundidad de un árbol de decisión) \cite{Jansen:2020}.
 
-El rendimiento de un modelo depende tanto de sus parámetros como de sus hiperparámetros. La optimización de hiperparámetros es el proceso de buscar la combinación de valores de hiperparámetros que resulta en el mejor desempeño del modelo. Esto a menudo implica entrenar múltiples modelos con diferentes combinaciones y seleccionar el que ofrezca los mejores resultados en un conjunto de validación [\cite{Jansen:2020}]. Aunque la optimización de hiperparámetros es conveniente, puede ser computacionalmente intensiva para modelos complejos, como las redes neuronales profundas o los modelos basados en aprendizaje por refuerzo.
+El rendimiento de un modelo depende tanto de sus parámetros como de sus hiperparámetros. La optimización de hiperparámetros es el proceso de buscar la combinación de valores de hiperparámetros que resulta en el mejor desempeño del modelo. Esto a menudo implica entrenar múltiples modelos con diferentes combinaciones y seleccionar el que ofrezca los mejores resultados en un conjunto de validación \cite{Jansen:2020}. Aunque la optimización de hiperparámetros es conveniente, puede ser computacionalmente intensiva para modelos complejos, como las redes neuronales profundas o los modelos basados en aprendizaje por refuerzo.
 
 \section{Ensambles}
 
-En el ámbito del aprendizaje automático, los ensambles son el resultado de combinar múltiples modelos entrenados individualmente para obtener un desempeño general superior al que se lograría con un solo modelo [\cite{Singhal:2020}]. La idea es que los puntos débiles de un modelo puedan ser compensados por los puntos fuertes de otros, lo que mejora la robustez y la precisión de las predicciones. Existen diferentes técnicas de ensamble, como bagging y boosting, que combinan los modelos de distintas maneras [\cite{Singhal:2020}].
+En el ámbito del aprendizaje automático, los ensambles son el resultado de combinar múltiples modelos entrenados individualmente para obtener un desempeño general superior al que se lograría con un solo modelo \cite{Singhal:2020}. La idea es que los puntos débiles de un modelo puedan ser compensados por los puntos fuertes de otros, lo que mejora la robustez y la precisión de las predicciones. Existen diferentes técnicas de ensamble, como bagging y boosting, que combinan los modelos de distintas maneras \cite{Singhal:2020}.
 
 \section{Transformers}
 
-La arquitectura Transformer, introducida por Vaswani et al. [\cite{Vaswani:2017}], revolucionó el procesamiento de secuencias, especialmente en el ámbito del procesamiento del lenguaje natural (PLN), y ha demostrado ser altamente efectiva también en el análisis de series de tiempo. A diferencia de los modelos recurrentes o convolucionales tradicionales, los Transformers se basan completamente en mecanismos de auto atención (self attention), lo que les permite modelar dependencias de largo alcance en las secuencias de entrada de manera más eficiente y paralelizable.
+La arquitectura Transformer, introducida por Vaswani et al. \cite{Vaswani:2017}, revolucionó el procesamiento de secuencias, especialmente en el ámbito del procesamiento del lenguaje natural (PLN), y ha demostrado ser altamente efectiva también en el análisis de series de tiempo. A diferencia de los modelos recurrentes o convolucionales tradicionales, los Transformers se basan completamente en mecanismos de auto atención (self attention), lo que les permite modelar dependencias de largo alcance en las secuencias de entrada de manera más eficiente y paralelizable.
 
 Los componentes clave de un Transformer incluyen:
 \begin{itemize}
@@ -84,26 +84,30 @@ Los componentes clave de un Transformer incluyen:
     \item Bloques encoder decoder: la arquitectura original consiste en un encoder y un decoder. El encoder procesa la secuencia de entrada para crear una representación contextualizada, y el decoder utiliza esta representación para generar la secuencia de salida. En aplicaciones de series de tiempo predictivas, a menudo se utiliza solo la parte del encoder o variaciones específicas para la tarea.
 \end{itemize}
 
-La capacidad de los Transformers para capturar relaciones complejas y no lineales entre puntos distantes en el tiempo los convierte en una herramienta potente para la predicción de series de tiempo financieras, en le que los eventos pasados pueden tener un impacto significativo y no trivial en los movimientos futuros del mercado.
+La capacidad de los Transformers para capturar relaciones complejas y no lineales entre puntos distantes en el tiempo los convierte en una herramienta potente para la predicción de series de tiempo financieras, en el que los eventos pasados pueden tener un impacto significativo y no trivial en los movimientos futuros del mercado.
 
 \section{Metodologías de evaluación y gestión de riesgo}
 
 \subsection{Backtesting}
-El backtesting es el pilar fundamental para evaluar una estrategia de trading. Consiste en simular el comportamiento de la estrategia al utilizar datos históricos para estimar cómo se habría desempeñado en el pasado. Un backtesting riguroso debe evitar el sesgo de retrospección (look ahead bias) y asegurar que las decisiones del modelo en un punto del tiempo se basen únicamente en información disponible hasta ese momento.
+El backtesting es el pilar fundamental para evaluar una estrategia de trading. Consiste en simular el comportamiento de la estrategia al utilizar datos históricos para estimar cómo se habría desempeñado en el pasado. Un backtesting riguroso debe evitar el sesgo de retrospección (look ahead bias) y asegurar que las decisiones del modelo en un punto del tiempo se basen únicamente en información disponible hasta ese momento \cite{LoP:2018}.
 
 \subsection{Validación cruzada (Cross Validation)}
 La validación cruzada es una técnica para evaluar la capacidad de generalización de un modelo y prevenir el sobreajuste. Sin embargo, la validación cruzada estándar (como K-Fold) no es adecuada para series de tiempo debido a la dependencia temporal de los datos. En su lugar, se utilizan métodos especializados:
 \begin{itemize}
-    \item Purged K-Fold Cross-Validation: esta técnica introduce dos modificaciones clave. Primero, se inserta un embargo o período de exclusión después de cada conjunto de validación para evitar que la información futura se filtre al conjunto de entrenamiento. Segundo, purgan del conjunto de entrenamiento aquellas observaciones cuya etiqueta podría estar influenciada por datos del conjunto de validación.
+    \item Purged K-Fold Cross-Validation: esta técnica introduce dos modificaciones clave. Primero, se inserta un embargo o período de exclusión después de cada conjunto de validación para evitar que la información futura se filtre al conjunto de entrenamiento. Segundo, purgan del conjunto de entrenamiento aquellas observaciones cuya etiqueta podría estar influenciada por datos del conjunto de validación \cite{LoP:2018}.
 \end{itemize}
 
 \subsection{Dimensionamiento de la apuesta (Bet sizing)}
-El dimensionamiento de la apuesta se refiere al proceso de determinar la cantidad de capital que se arriesgará en una operación. Un modelo puede predecir la dirección del precio (clasificación) o la probabilidad de un movimiento (regresión), pero el bet sizing traduce esa predicción en una decisión de inversión concreta. El objetivo es maximizar los rendimientos ajustados por riesgo. Un método común es utilizar una función sigmoidea para convertir las probabilidades de predicción del modelo en un tamaño de apuesta, lo que permite al sistema invertir con más confianza cuando el modelo está más seguro.
+El dimensionamiento de la apuesta se refiere al proceso de determinar la cantidad de capital que se arriesgará en una operación \cite{LoP:2018}. Un modelo puede predecir la dirección del precio (clasificación) o la probabilidad de un movimiento (regresión), pero el bet sizing traduce esa predicción en una decisión de inversión concreta. El objetivo es maximizar los rendimientos ajustados por riesgo. Un método común es utilizar una función sigmoidea para convertir las probabilidades de predicción del modelo en un tamaño de apuesta, lo que permite al sistema invertir con más confianza cuando el modelo está más seguro.
 
 \subsection{Ratio de sharpe y sus variantes}
-El \textit{Sharpe Ratio} es una métrica clave utilizada para evaluar el rendimiento de una inversión ajustado por el riesgo. Este ratio ayuda a determinar la rentabilidad de una inversión en exceso de la tasa libre de riesgo, por unidad de desviación estándar del rendimiento. Cuanto mayor sea el Sharpe Ratio, más atractivo es el rendimiento ajustado por riesgo de la estrategia. La fórmula general es:
+El \textit{Sharpe Ratio} \cite{Sharpe:1966} es una métrica clave utilizada para evaluar el rendimiento de una inversión ajustado por el riesgo. Este ratio ayuda a determinar la rentabilidad de una inversión en exceso de la tasa libre de riesgo, por unidad de desviación estándar del rendimiento. Cuanto mayor sea el Sharpe Ratio, más atractivo es el rendimiento ajustado por riesgo de la estrategia. La fórmula general se ve en \ref{eq:metric}.
 
-$$S = \frac{R_p - R_f}{\sigma_p}$$
+\begin{equation}
+	\label{eq:metric}
+	S = \frac{R_p - R_f}{\sigma_p}
+\end{equation}
+
 
 Donde:
 \begin{itemize}
@@ -112,16 +116,19 @@ Donde:
     \item $\sigma_p$: es la desviación estándar de la rentabilidad de la cartera (medida del riesgo).
 \end{itemize}
 
-Es importante destacar que el Ratio de Sharpe tradicional asume que los retornos se distribuyen normalmente (como una campana de Gauss), una premisa que rara vez se cumple en los mercados financieros, en los que los retornos suelen presentar asimetría y colas pesadas. Para una evaluación más realista del riesgo, López de Prado introduce métricas ajustadas que abordan estas limitaciones [\cite{LoP:2018}].
+Es importante destacar que el Ratio de Sharpe tradicional asume que los retornos se distribuyen normalmente (como una campana de Gauss), una premisa que rara vez se cumple en los mercados financieros, en los que los retornos suelen presentar asimetría y colas pesadas. Para una evaluación más realista del riesgo, López de Prado introduce métricas ajustadas que abordan estas limitaciones \cite{LoP:2018}.
 
-Existen variantes de este ratio que abordan ciertas limitaciones, como el Sortino Ratio, que solo considera la volatilidad a la baja (riesgo de cola), o el Calmar Ratio, que utiliza la máxima caída (max drawdown) como medida de riesgo en lugar de la desviación estándar. Estas variantes son útiles para obtener una perspectiva más completa del perfil de riesgo rendimiento de una estrategia de trading, especialmente en mercados volátiles como el de las criptomonedas.
+Existen variantes de este ratio que abordan ciertas limitaciones, como el Sortino Ratio \cite{Sortino:1991}, que solo considera la volatilidad a la baja (riesgo de cola), o el Calmar Ratio \cite{Young:1991}, que utiliza la máxima caída (max drawdown) como medida de riesgo en lugar de la desviación estándar. Estas variantes son útiles para obtener una perspectiva más completa del perfil de riesgo rendimiento de una estrategia de trading, especialmente en mercados volátiles como el de las criptomonedas.
 
-Para una evaluación aún más rigurosa y para combatir el riesgo de sobreajuste en el backtesting, se pueden considerar las siguientes métricas avanzadas propuestas por López de Prado:
+Para una evaluación aún más rigurosa y para combatir el riesgo de sobreajuste en el backtesting, se pueden considerar las siguientes métricas avanzadas propuestas por López de Prado \cite{LoP:2018}:
 \begin{itemize}
-    \item Probabilidad de sobreajuste de backtest (PBO): mide la probabilidad de que la estrategia seleccionada como 'la mejor' dentro de la muestra de entrenamiento rinda por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
+    \item Probabilidad de sobreajuste de backtest (PBO): mide la probabilidad de que la estrategia seleccionada como ``la mejor'' dentro de la muestra de entrenamiento rinda por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
     \item Probabilistic sharpe ratio (PSR): corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (\textit{skewness}), colas pesadas (\textit{kurtosis}) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (\textit{benchmark}).
     \item Deflated sharpe ratio (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (\textit{trials}) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
 \end{itemize}
+
+
+
 
 
 

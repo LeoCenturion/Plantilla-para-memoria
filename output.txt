@@ -1,0 +1,246 @@
+==================================================
+Evaluating Rule 1/23
+Rule: Escritura Impersonal: La redacción de todo el documento debe ser impersonal, utilizando siempre la tercera persona (ejemplos: "se hizo," "se realizó," "se desarrolló").
+--------------------------------------------------
+Gemini Output:
+El documento cumple con la regla.
+
+**Justificación:** La redacción de todo el documento es consistentemente impersonal, utilizando la tercera persona y construcciones con "se" (ejemplos: "se desarrollará", "se describen", "se procesaron", "se experimentó", "se optó", "se aplicaron", "se decidió", "se generó", "se utilizó", "se determinaron") a lo largo de todo el texto, sin ninguna aparición de la primera persona.
+==================================================
+
+==================================================
+Evaluating Rule 2/23
+Rule: Coherencia en Terminología: Evite mezclar las palabras "proyecto" y "trabajo"; use "trabajo" cuando se refiera al desarrollo ya implementado.
+--------------------------------------------------
+Gemini Output:
+El documento cumple con la regla.
+
+**Justificación:** El documento utiliza consistentemente la palabra "trabajo" para referirse al desarrollo implementado y no mezcla esta terminología con la palabra "proyecto". De hecho, la palabra "proyecto" no aparece en el texto proporcionado.
+==================================================
+
+==================================================
+Evaluating Rule 3/23
+Rule: Evitar Errores de IA: Elimine frases comunes de inicio/cierre generadas por IA como "En resumen" o "En conclusión".
+--------------------------------------------------
+Gemini Output:
+El documento cumple con la regla.
+
+Justificación: No se encontraron frases comunes de inicio/cierre generadas por IA como "En resumen" o "En conclusión" en el texto proporcionado.
+==================================================
+
+==================================================
+Evaluating Rule 4/23
+Rule: Evitar Errores de IA: Evite el uso incorrecto de gerundios y la redacción personal en exceso.
+--------------------------------------------------
+Gemini Output:
+El documento cumple con la regla.
+
+**Justificación:**
+El texto utiliza consistentemente construcciones impersonales (ej. "se desarrollará", "se describen", "se exploraron", "se adoptó") y la tercera persona, lo cual evita la redacción personal excesiva. Además, los gerundios presentes (ej. "utilizando", "cuantificando") están empleados correctamente para indicar el modo o la manera en que se realiza una acción, sin incurrir en los errores comunes de uso de gerundios.
+==================================================
+
+==================================================
+Evaluating Rule 5/23
+Rule: Unificación de Criterios: Mantenga un formato uniforme para cifras (letras vs. números) y el uso de puntuación, como los puntos finales en listados.
+--------------------------------------------------
+Gemini Output:
+No, el documento no cumple completamente con la regla.
+
+**Justificación:**
+
+1.  **Formato uniforme para cifras (letras vs. números):** Existe inconsistencia en la forma de presentar los números. Por ejemplo, se utiliza "1 de enero de 2020" (dígito), pero luego "una hora" y "un minuto" (letras). También se usa "tres barreras" (letras) y "50.000 uBTC" (dígitos). Para cumplir con la regla, se debería adoptar un criterio único, como escribir los números del uno al nueve con letras y los demás con dígitos, o viceversa, y aplicarlo de manera consistente en todo el texto.
+2.  **Uso de puntuación, como los puntos finales en listados:** Este aspecto sí se cumple. Todos los elementos de las listas (`itemize`) terminan consistentemente con un punto final.
+==================================================
+
+==================================================
+Evaluating Rule 6/23
+Rule: Capitalización después de dos puntos: Después de dos puntos, el texto debe comenzar en minúscula.
+--------------------------------------------------
+Gemini Output:
+The document complies with the rule.
+
+Justification: In all instances where a colon is used, the text immediately following it begins with a lowercase letter, or it is followed by a list environment where the list items themselves begin with a lowercase letter, which is consistent with the rule.
+==================================================
+
+==================================================
+Evaluating Rule 7/23
+Rule: Títulos en formato oración: Los títulos de capítulos y secciones deben seguir el formato de 'oración' (solo la primera palabra en mayúscula, salvo nombres propios).
+--------------------------------------------------
+Gemini Output:
+El documento **cumple** con la regla.
+
+**Justificación:** Todos los títulos de capítulo y sección (`\chapter`, `\section`, `\subsection`) tienen solo la primera palabra capitalizada, mientras que el resto de las palabras (excepto nombres propios, de los cuales no hay en los títulos proporcionados) están en minúscula, siguiendo el formato de "oración".
+==================================================
+
+==================================================
+Evaluating Rule 8/23
+Rule: Referencia a figuras: La palabra 'figura' debe escribirse en minúscula en el cuerpo del texto cuando se hace referencia a una imagen (ejemplo: 'como se muestra en la figura 1').
+--------------------------------------------------
+Gemini Output:
+El documento **cumple** con la regla.
+
+**Justificación:** No hay ninguna referencia a figuras (ej. "figura 1", "Figura X") en el texto proporcionado, por lo que no hay oportunidad de incumplir la regla.
+==================================================
+
+==================================================
+Evaluating Rule 9/23
+Rule: Negritas y Subrayado: Las negritas están reservadas estrictamente para títulos. Está estrictamente prohibido utilizar negritas o texto subrayado para resaltar términos dentro de los párrafos o elementos de lista.
+--------------------------------------------------
+Gemini Output:
+El documento cumple con la regla.
+
+**Justificación:**
+Las negritas se utilizan exclusivamente para los títulos de capítulo, sección y subsección, lo cual es permitido por la regla. No se observa el uso de negritas ni de texto subrayado para resaltar términos dentro de los párrafos o elementos de lista. Se utiliza cursiva (`\textit{}`) para algunos términos, lo cual no está prohibido por la regla.
+==================================================
+
+==================================================
+Evaluating Rule 10/23
+Rule: Itálicas: Su uso se limita estrictamente a la definición de acrónimos o términos en inglés (por ejemplo, en el desglose de una sigla).
+--------------------------------------------------
+Gemini Output:
+El documento cumple con la regla.
+
+**Justificación:**
+La regla establece que el uso de itálicas se limita estrictamente a la "definición de acrónimos o términos en inglés".
+
+Se han revisado todas las instancias de texto en itálicas en el documento:
+1.  `\textit{uBTC}`: Es una abreviatura de una unidad ("micro-Bitcoins") que se considera un término técnico en inglés o derivado de él.
+2.  `\textit{Volume Bars}`, `\textit{volume imbalance bars}`, `\textit{tick imbalance bars}`, `\textit{machine learning}`, `\textit{Triple-Barrier Method}`, `\textit{Mean Decrease Impurity}`, `\textit{Random Forest}`, `\textit{Mean Decrease Accuracy}`, `\textit{F1-score}`, `\textit{Single Feature Importance}`, `\textit{Principal Component Analysis}`, `\textit{Weighted Kendall's Tau Correlation}`, `\textit{heatmaps}`, `\textit{chronos features}`: Todos estos son términos en inglés.
+3.  `\textit{Análisis de Componentes Principales}`: Esta es la definición del acrónimo PCA. La regla permite el uso de itálicas para la "definición de acrónimos", sin especificar que la definición deba ser en inglés.
+4.  `\textit{PCA}`, `\textit{MDI}`, `\textit{MDA}`, `\textit{SFI}`: Estos son acrónimos ampliamente utilizados como términos en inglés.
+
+Todas las instancias de itálicas se ajustan a una de las dos categorías permitidas por la regla ("definición de acrónimos" o "términos en inglés").
+==================================================
+
+==================================================
+Evaluating Rule 11/23
+Rule: Letra Monoespaciada: Se puede utilizar para resaltar nombres propios de implementaciones (como nombres de funciones o bibliotecas), siendo una alternativa permitida a las negritas o itálicas para este fin.
+--------------------------------------------------
+Gemini Output:
+El documento **cumple** con la regla.
+
+**Justificación:** La regla establece que la letra monoespaciada "se puede utilizar" para resaltar nombres propios de implementaciones, siendo una "alternativa permitida a las negritas o itálicas". El documento no utiliza letra monoespaciada para este fin en el texto principal, pero sí utiliza consistentemente la letra itálica (`\textit{...}`) para resaltar estos términos (ej., \textit{uBTC}, \textit{Volume Bars}, \textit{Triple-Barrier Method}, \textit{PCA}, \textit{F1-score}, \textit{heatmaps}, etc.). Dado que las itálicas son explícitamente mencionadas como una alternativa permitida, el documento se adhiere a las opciones de formato que la regla permite.
+==================================================
+
+==================================================
+Evaluating Rule 12/23
+Rule: Calidad de Imágenes: Se exige alta resolución y texto legible.
+--------------------------------------------------
+Gemini Output:
+El documento no contiene ninguna imagen. Por lo tanto, la regla de "Calidad de Imágenes" no es aplicable en este caso.
+==================================================
+
+==================================================
+Evaluating Rule 13/23
+Rule: Formato Obligatorio: Las referencias bibliográficas deben seguir el formato de corchetes generado por el código LaTeX de la plantilla, siendo inaceptable cualquier otro tipo.
+--------------------------------------------------
+Gemini Output:
+El documento proporcionado no contiene ninguna referencia bibliográfica, por lo que no es posible evaluar si cumple con el formato de corchetes especificado en la regla.
+==================================================
+
+==================================================
+Evaluating Rule 14/23
+Rule: Referenciación Consistente: Es fundamental que el documento sea referenciado en todos los capítulos.
+--------------------------------------------------
+Gemini Output:
+No, el documento no cumple con la regla.
+
+**Justificación:**
+Aunque el capítulo define una etiqueta (`\label{Chapter3}`) que permite que sea referenciado desde otras partes del documento, el contenido del capítulo en sí mismo no incluye ninguna referencia interna (`\ref{}`) a otras secciones o capítulos del documento, ni tampoco incluye citas externas (`\cite{}`) a la literatura. La regla "Es fundamental que el documento sea referenciado en todos los capítulos" implica que cada capítulo debe contener activamente referencias, ya sean internas (a otras partes del mismo documento) o externas (a fuentes bibliográficas), lo cual no se observa en el texto proporcionado.
+==================================================
+
+==================================================
+Evaluating Rule 15/23
+Rule: Notas al Pie: Se usan exclusivamente para referenciar imágenes (indicando si fueron tomadas o adaptadas de alguna fuente). Si la imagen fue generada por IA, debe incluir una nota al pie que lo indique.
+--------------------------------------------------
+Gemini Output:
+El documento proporcionado **cumple** con la regla.
+
+**Justificación:** La regla establece que las notas al pie se usan exclusivamente para referenciar imágenes. Dado que el fragmento de LaTeX no contiene ninguna imagen ni ninguna nota al pie (`\footnote`), no hay incumplimiento de la regla.
+==================================================
+
+==================================================
+Evaluating Rule 16/23
+Rule: Resumen Introductorio de Capítulos: Después del título de cada capítulo, debe incluir un resumen introductorio muy breve (de dos a tres líneas) que describa el contenido del capítulo.
+--------------------------------------------------
+Gemini Output:
+Sí, el documento cumple con la regla.
+
+Justificación: Después del título del capítulo "Diseño e implementación", se incluye un párrafo introductorio de tres líneas que describe de manera concisa el contenido del capítulo, mencionando la solución, los datos, las estrategias, los criterios de comparación y el diseño del bot de trading.
+==================================================
+
+==================================================
+Evaluating Rule 17/23
+Rule: Explicación de Elementos: No es suficiente incluir imágenes, tablas o código. Cada elemento debe ser introducido y explicado detalladamente en el texto para contextualizar su contenido para el lector (ejemplo: describir lo que muestran las columnas de una tabla o los pasos de un diagrama).
+--------------------------------------------------
+Gemini Output:
+El documento **cumple** con la regla.
+
+**Justificación:** El texto proporcionado configura el entorno `lstset` para el formato de código, lo que sugiere que se incluirán bloques de código más adelante. Sin embargo, en el fragmento actual, **no se presenta ninguna imagen, tabla o bloque de código real** que requiera una introducción o explicación detallada en el texto. Por lo tanto, no hay elementos que puedan incumplir la regla en este extracto.
+==================================================
+
+==================================================
+Evaluating Rule 18/23
+Rule: Requerimientos: Se recomienda quitar los requerimientos del cuerpo principal de la memoria y enviarlos a los anexos, ya que consumen mucho espacio y ya se encuentran en la planificación.
+--------------------------------------------------
+Gemini Output:
+El documento **cumple** con la regla.
+
+**Justificación:** El texto proporcionado en el capítulo "Diseño e implementación" no contiene ninguna sección o mención de "Requerimientos". Se enfoca en la descripción de los datos, las estrategias de preprocesamiento, las técnicas de etiquetado y la ingeniería de características, sin incluir una sección dedicada a los requerimientos del sistema o del proyecto.
+==================================================
+
+==================================================
+Evaluating Rule 19/23
+Rule: Uso Incorrecto (Gerundio de Posterioridad) El gerundio solo debe expresar simultaneidad (al mismo tiempo) o anterioridad (inmediatamente antes), no un resultado o consecuencia posterior al verbo principal.
+--------------------------------------------------
+Gemini Output:
+El documento **cumple** con la regla.
+
+**Justificación:**
+Se ha revisado el texto en busca de gerundios que expresen una acción posterior o una consecuencia del verbo principal. El único gerundio encontrado es "cuantificando" en la oración: "Esta técnica evalúa la importancia de una característica **cuantificando** la caída en el rendimiento del modelo...". En este caso, "cuantificando" describe la *manera* en que se realiza la evaluación, es decir, ocurre de forma simultánea o como parte integral de la acción principal ("evalúa"). No expresa un resultado o consecuencia que ocurra *después* de la evaluación, por lo que su uso es correcto según la regla establecida.
+==================================================
+
+==================================================
+Evaluating Rule 20/23
+Rule: Capítulo 1 y 2: límite de 5 páginas cada uno.
+--------------------------------------------------
+Gemini Output:
+El documento proporcionado corresponde al Capítulo 3 (`\chapter{Diseño e implementación}` con `\label{Chapter3}`).
+
+La regla establece un límite de 5 páginas para el Capítulo 1 y el Capítulo 2.
+
+Dado que el contenido proporcionado es para el Capítulo 3, **la regla no aplica** a este capítulo. Por lo tanto, no es necesario evaluar el número de páginas para este capítulo en relación con la regla establecida.
+==================================================
+
+==================================================
+Evaluating Rule 21/23
+Rule: Capítulo 3 (Diseño): 15 a 20 páginas.
+--------------------------------------------------
+Gemini Output:
+El documento proporcionado es solo el inicio del Capítulo 3. Para determinar si cumple con la regla de tener entre 15 y 20 páginas, necesitaría el contenido completo del capítulo.
+
+**No se puede determinar si el documento cumple con la regla.**
+==================================================
+
+==================================================
+Evaluating Rule 22/23
+Rule: Capítulo 4 (Ensayos): 10 a 15 páginas.
+--------------------------------------------------
+Gemini Output:
+El documento proporcionado es el Capítulo 3 ("Diseño e implementación"), no el Capítulo 4 ("Ensayos").
+
+Por lo tanto, la regla "Capítulo 4 (Ensayos): 10 a 15 páginas" no es aplicable a este documento.
+==================================================
+
+==================================================
+Evaluating Rule 23/23
+Rule: Capítulo 5 (Conclusiones): 2 páginas de texto, sin imágenes ni tablas.
+--------------------------------------------------
+Gemini Output:
+El documento proporcionado corresponde al "Capítulo 3: Diseño e implementación", no al "Capítulo 5: Conclusiones".
+
+Por lo tanto, no puedo determinar si cumple con la regla establecida para el Capítulo 5.
+==================================================
+
+Cleaning up resources...
+Cleanup complete.
