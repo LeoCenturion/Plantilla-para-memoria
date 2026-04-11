@@ -94,19 +94,19 @@ Para garantizar la robustez y viabilidad de una estrategia de trading, es fundam
 
 La selección de características es un paso crucial para reducir la dimensionalidad, mejorar el rendimiento del modelo y evitar el sobreajuste. Se utilizaron diversas métricas para evaluar la importancia de las características generadas:
 \begin{itemize}
-    \item 	extbf{Disminución Media de Impureza (MDI):} Específica de modelos basados en árboles como Random Forest, esta métrica mide la importancia de una característica por cuánto reduce la impureza (por ejemplo, impureza de Gini) en los nodos del árbol.
-    \item 	extbf{Disminución Media de Exactitud (MDA):} Evalúa la importancia de una característica permutando aleatoriamente sus valores y midiendo la caída resultante en el rendimiento del modelo. Una caída significativa indica que la característica es importante.
-    \item 	extbf{Importancia de Característica Individual (SFI):} Entrena y evalúa un modelo utilizando una sola característica a la vez para medir su poder predictivo de forma aislada.
-    \item 	extbf{Análisis de Componentes Principales (PCA):} Aunque es una técnica de reducción de dimensionalidad, se utilizó para transformar características correlacionadas en un conjunto de componentes ortogonales, cuya importancia se evaluó posteriormente con las métricas mencionadas.
+    \item 	Disminución Media de Impureza (MDI):  específica de modelos basados en árboles como Random Forest, esta métrica mide la importancia de una característica por cuánto reduce la impureza (por ejemplo, impureza de Gini) en los nodos del árbol.
+    \item Disminución Media de Exactitud (MDA): evalúa la importancia de una característica permutando aleatoriamente sus valores y midiendo la caída resultante en el rendimiento del modelo. Una caída significativa indica que la característica es importante.
+    \item 	Importancia de Característica Individual (SFI): entrena y evalúa un modelo utilizando una sola característica a la vez para medir su poder predictivo de forma aislada.
+    \item 	Análisis de Componentes Principales (PCA): aunque es una técnica de reducción de dimensionalidad, se utilizó para transformar características correlacionadas en un conjunto de componentes ortogonales, cuya importancia se evaluó posteriormente con las métricas mencionadas.
 \end{itemize}
 
 \subsection{Técnicas de etiquetado}
 
 El etiquetado define el objetivo que el modelo de aprendizaje supervisado debe predecir. Se exploraron las siguientes técnicas:
 \begin{itemize}
-    \item 	extbf{Etiquetado por horizonte fijo:} Asigna etiquetas (por ejemplo, "sube" o "baja") según el movimiento del precio después de un intervalo de tiempo fijo. Su principal desventaja es que no se adapta a la volatilidad del mercado.
-    \item 	extbf{Etiquetado dinámico:} Similar al anterior, pero los umbrales para definir las etiquetas se ajustan en función de la volatilidad reciente del mercado.
-    \item 	extbf{Etiquetado con barrera triple (Triple-Barrier Method):} Este método, popularizado por López de Prado \cite{LoP:2018}, establece tres barreras para cada observación: una barrera superior (objetivo de ganancia), una inferior (límite de pérdida) y una barrera de tiempo vertical (expiración de la operación). La primera barrera que el precio toca determina la etiqueta. Este enfoque es más robusto porque se adapta dinámicamente a la volatilidad del mercado.
+    \item 	Etiquetado por horizonte fijo: asigna etiquetas (por ejemplo, "sube" o "baja") según el movimiento del precio después de un intervalo de tiempo fijo. Su principal desventaja es que no se adapta a la volatilidad del mercado.
+    \item 	Etiquetado dinámico: imilar al anterior, pero los umbrales para definir las etiquetas se ajustan en función de la volatilidad reciente del mercado.
+    \item 	Etiquetado con barrera triple (Triple-Barrier Method): este método, popularizado por López de Prado \cite{LoP:2018}, establece tres barreras para cada observación: una barrera superior (objetivo de ganancia), una inferior (límite de pérdida) y una barrera de tiempo vertical (expiración de la operación). La primera barrera que el precio toca determina la etiqueta. Este enfoque es más robusto porque se adapta dinámicamente a la volatilidad del mercado.
 \end{itemize}
 
 

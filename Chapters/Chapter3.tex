@@ -1,6 +1,6 @@
 \chapter{Diseño e implementación} % Main chapter title
 
-\label{Chapter3} % Change X to a consecutive number; for referencing this chapter elsewhere, use ef{ChapterX}
+\label{Chapter3} 
 
 En este capítulo se desarrollara la solucion alcanzada. Se describen los datos que se procesaron, las estrategias que se probaron, asi como el criterio que se uso para compararlas. Tambien se agregan detalles sobre el diseño de la implementación del bot de trading.
 
@@ -103,7 +103,7 @@ El núcleo de Chronos es su proceso de tokenización, que convierte una serie te
 
 Una vez tokenizada la serie, se utiliza una arquitectura Transformer estándar, como la familia T5 (un modelo codificador-decodificador), sin necesidad de añadir capas de descomposición de tendencia o estacionalidad. El único ajuste requerido es adaptar el tamaño del vocabulario del modelo al número de tokens de la cuantización. El modelo se entrena desde cero utilizando una función de pérdida de entropía cruzada categórica, el estándar para modelos de lenguaje, con el objetivo de predecir el siguiente token en la secuencia. Este enfoque se conoce como "regresión por clasificación", ya que el modelo aprende a predecir un valor numérico tratándolo como un problema de clasificación sobre los tokens discretos. Es importante destacar que el modelo ignora deliberadamente información externa como marcas de tiempo (timestamps), tratando la serie simplemente como una secuencia ordenada.
 
-Para mejorar la generalización y el rendimiento en tareas de pronóstico sobre datos no vistos (zero-shot), los modelos Chronos se pre-entrenan en un corpus masivo y diverso de series temporales. Este entrenamiento se enriquece con técnicas de aumento de datos como 	\textit{TSMixup}, que crea nuevas series combinando linealmente series existentes, y 	\textit{KernelSynth}, que genera datos sintéticos realistas utilizando Procesos Gaussianos.
+Para mejorar la generalización y el rendimiento en tareas de pronóstico sobre datos no vistos (zero-shot), los modelos Chronos se pre-entrenan en un corpus masivo y diverso de series temporales. Este entrenamiento se enriquece con técnicas de aumento de datos como 	TSMixup, que crea nuevas series combinando linealmente series existentes, y 	KernelSynth, que genera datos sintéticos realistas utilizando Procesos Gaussianos.
 
 En este trabajo, en lugar de utilizar el modelo para pronóstico directo, se aprovecha su capacidad para generar representaciones ricas. Se extraen los embeddings de las capas ocultas del codificador, que son vectores de alta dimensionalidad que encapsulan la información contextual y los patrones temporales aprendidos. Estos embeddings se utilizan luego como características de entrada para un modelo tabular más tradicional y eficiente, como XGBoost, para realizar la tarea de clasificación final.
 
@@ -120,10 +120,34 @@ Para etiquetar un punto se puede elegir una etiqueta independiente para la barre
 %% \footnotetext{}
 
 \section{Framework de Backtesting y Evaluación}
-% Contenido de la sección de Framework de Backtesting y Evaluación
+
+Para asegurar una evaluación rigurosa y libre de sesgos, se implementó un motor de backtesting a medida en Python. Esta decisión se tomó debido a la necesidad de utilizar metodologías avanzadas como la validación cruzada combinatoria con purga y embargo (\texttt{Combinatorially Purged Cross-Validation}), una técnica no disponible en las bibliotecas estándar de machine learning. Este método es esencial para prevenir la fuga de información y el sobreajuste al evaluar modelos en series de tiempo financieras, garantizando que el rendimiento medido sea una estimación realista del comportamiento del modelo en datos futuros.
+
+La evaluación de los modelos se centró exclusivamente en su rendimiento en el backtest, separando estrictamente esta fase de la optimización de hiperparámetros. Dicha búsqueda se realizó una única vez durante la etapa de investigación y validación del modelo, utilizando un conjunto de datos distinto al de la evaluación final.
+
+Al tratarse de un problema de clasificación, y considerando el desbalance de clases inherente a las señales de trading (donde la clase "mantener" es a menudo mayoritaria), se utilizó la métrica F1 ponderada por clase para evaluar el desempeño. Esta métrica proporciona una medida balanceada entre la precisión y la exhaustividad del modelo, ajustada a la frecuencia de cada clase, lo que la hace más representativa que la exactitud simple.
 
 \section{Modelos explorados}
-% Contenido de la sección de Modelos explorados
+
+Durante la fase de investigación, se exploró un amplio espectro de modelos para establecer un punto de referencia y comprender la complejidad del problema.
+
+Inicialmente, se evaluaron estrategias de trading clásicas basadas en indicadores técnicos, como el cruce de medias móviles, las bandas de Bollinger, el MACD y las divergencias en el RSI. Si bien estos métodos son populares, demostraron ser demasiado rígidos y poco adaptativos para la alta volatilidad del mercado de criptomonedas.
+
+Posteriormente, se probaron modelos estadísticos tradicionales para series temporales, incluyendo ARIMA, SARIMA, y variantes más complejas como ARIMAX con GARCH como variable exógena y Prophet de Facebook. Estos modelos, aunque más sofisticados, lucharon por capturar las dinámicas no lineales y no estacionarias del precio de Bitcoin.
+
+Siguiendo la recomendación de López de Prado sobre la idoneidad de los modelos basados en árboles para datos financieros, se exploraron alternativas a XGBoost. Se utilizó la biblioteca \texttt{AutoGluon}, que permite entrenar y comparar de forma automática un conjunto de modelos tabulares de última generación, incluyendo diferentes configuraciones de redes neuronales y ensambles, para encontrar un posible reemplazo al modelo de Palazzo.
+
+Finalmente, en cuanto a la arquitectura principal de Chronos, se experimentó con diferentes tamaños del modelo T5 (small, base y large) para analizar el compromiso entre el rendimiento predictivo y el costo computacional, buscando el equilibrio óptimo para una implementación práctica.
 
 \section{Diseño del bot}
-% Contenido de la sección de Diseño del bot
+
+El bot de trading se diseñó con una arquitectura modular para facilitar su configuración, mantenimiento y extensibilidad. Se divide en cuatro componentes principales que operan de forma desacoplada:
+
+\begin{enumerate}
+    \item Orquestador: es el punto de entrada de la aplicación. Su función es instanciar, configurar y conectar los demás componentes, iniciando el ciclo de operación del bot.
+    \item Motor del Bot: contiene el bucle principal de ejecución. En cada iteración, orquesta el flujo de trabajo: solicita los datos más recientes del mercado al módulo de intercambio, pasa estos datos al módulo de estrategia para obtener una señal de trading y, si la señal lo indica, instruye al módulo de intercambio para que ejecute la orden correspondiente.
+    \item Módulo de Exchange: abstrae toda la comunicación con la API del exchange de criptomonedas. Es responsable de obtener datos de mercado (precios, volúmenes) y de ejecutar órdenes (compra, venta). Su diseño intercambiable permite adaptar el bot a diferentes plataformas (por ejemplo, Binance, KuCoin) con mínimas modificaciones.
+    \item Módulo de Estrategia: carga el modelo de machine learning pre-entrenado (en este caso, el ensamble de Chronos y XGBoost) y lo utiliza para procesar los datos de mercado y generar una señal de trading: comprar, vender o mantener.
+\end{enumerate}
+
+En esencia, el bot opera en un ciclo continuo: recolecta datos, predice una señal con el modelo y actúa sobre esa predicción. Esta separación de responsabilidades garantiza que la lógica de la estrategia de trading esté completamente aislada de los detalles de implementación de la comunicación con el mercado.

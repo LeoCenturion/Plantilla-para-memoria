@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2025.12.15)  11 APR 2026 12:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  11 APR 2026 17:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -60,7 +60,7 @@ Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 Package: babel 2023/02/13 3.86 The Babel package
 \babel@savecnt=\count196
 \U@D=\dimen141
-\l@unhyphenated=\language3
+\l@unhyphenated=\language4
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
@@ -68,26 +68,18 @@ Package: babel 2023/02/13 3.86 The Babel package
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel-spanish/spanish.ldf
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
-
-
-Package babel Warning: No hyphenation patterns were preloaded for
-(babel)                the language 'Spanish' into the format.
-(babel)                Please, configure your TeX system to add them and
-(babel)                rebuild the format. Now I will use the patterns
-(babel)                preloaded for \language=0 instead on input line 51.
-
-Package babel Info: Hyphen rules for 'spanish' set to \l@english
-(babel)             (\language0). Reported on input line 52.
 \es@quottoks=\toks17
 \es@quotdepth=\count198
 Package babel Info: Making " an active character on input line 570.
 Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
 Package babel Info: Making > an active character on input line 722.
-)) (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex
+))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex
 Package babel Info: Importing font and identification data for spanish
 (babel)             from babel-es.ini. Reported on input line 11.
-) (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrbase.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrbase.sty
 Package: scrbase 2022/10/12 v3.38 KOMA-Script package (KOMA-Script-independent 
 basics and keyval usage)
 
@@ -397,7 +389,7 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \bibhang=\skip64
 \blx@bcfin=\read3
 \blx@bcfout=\write3
-\blx@langwohyphens=\language4
+\blx@langwohyphens=\language5
 \c@mincomprange=\count341
 \c@maxcomprange=\count342
 \c@mincompwidth=\count343
@@ -940,8 +932,6 @@ Package hyperref Info: Link coloring ON on input line 64.
 \@outlinefile=\write4
 \openout4 = `memorianueva.out'.
 
-Package scrbase Info: activating spanish \acknowledgementname on input line 64.
-
 LaTeX Info: Redefining \sptext on input line 64.
 LaTeX Info: Redefining \lsc on input line 64.
 LaTeX Info: Redefining \. on input line 64.
@@ -1069,12 +1059,6 @@ LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-
-Overfull \hbox (38.01064pt too wide) in paragraph at lines 7--7
- \T1/ppl/m/n/10.95 en un mod-e-lo de lengua-je, ya sea de ar-qui-tec-tura codif
-icador-decodificador 
- []
-
 )
 \tf@lof=\write6
 \openout6 = `memorianueva.lof'.
@@ -1136,42 +1120,24 @@ been already used, duplicate ignored
                    \relax 
 l.33 
       [2 <./Figures/Screenshot From 2026-03-17 21-57-54.png>]
-Overfull \hbox (8.87242pt too wide) in paragraph at lines 47--48
-\T1/ppl/m/n/10.95 com-pra o ven-ta in-curre en cos-tos, co-mo comi-siones de la
- platafor-ma y desliza-
- []
-
 LaTeX Info: Redefining \. on input line 48.
 LaTeX Info: Redefining \% on input line 48.
-[3]
+ [3]
 <Figures/bloques-tp-final.drawio.png, id=320, 507.8975pt x 392.46625pt>
 File: Figures/bloques-tp-final.drawio.png Graphic file (type png)
 <use Figures/bloques-tp-final.drawio.png>
 Package pdftex.def Info: Figures/bloques-tp-final.drawio.png  used on input lin
 e 57.
 (pdftex.def)             Requested size: 194.90134pt x 150.60591pt.
-
-Overfull \hbox (0.26483pt too wide) in paragraph at lines 64--65
-[]\T1/ppl/m/n/10.95 Implementar un mod-e-lo Trans-former que util-ice un con-ju
-n-to de in-di-cadores
- []
-
-
-Overfull \hbox (3.01385pt too wide) in paragraph at lines 66--67
-[]\T1/ppl/m/n/10.95 Probar dis-tin-tas téc-ni-cas y con-fig-u-ra-ciones del mod
--e-lo, co-mo difer-entes vari-
- []
-
 LaTeX Info: Redefining \. on input line 70.
 LaTeX Info: Redefining \% on input line 70.
-[4 <./Figures/bloques-tp-final.drawio.png>])
+ [4 <./Figures/bloques-tp-final.drawio.png>])
 LaTeX Info: Redefining \. on input line 110.
 LaTeX Info: Redefining \% on input line 110.
  [5]
 \openout2 = `Chapters/Chapter2.aux'.
 
- (./Chapters/Chapter2.tex
-[6
+ (./Chapters/Chapter2.tex [6
 
 
 
@@ -1185,44 +1151,18 @@ LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 3
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
-Overfull \hbox (5.13971pt too wide) in paragraph at lines 41--42
-[]\T1/ppl/m/n/10.95 Principio de con-fir-ma-ción: para con-fir-mar una ten-den-
-cia del mer-ca-do (alcista
- []
-
 LaTeX Info: Redefining \. on input line 65.
 LaTeX Info: Redefining \% on input line 65.
-[8]
-Overfull \hbox (1.35954pt too wide) in paragraph at lines 68--69
-[]\T1/ppl/m/n/10.95 Es fun-da-men-tal dis-tin-guir en-tre los parámet-ros de un
- mod-e-lo y sus hiper-parámet-
- []
-
-
-Overfull \hbox (3.10493pt too wide) in paragraph at lines 68--69
-\T1/ppl/m/n/10.95 ros. Los parámet-ros son val-ores apren-di-dos por el mod-e-l
-o du-rante el en-tre-namien-
- []
-
+ [8]
 LaTeX Info: Redefining \. on input line 84.
 LaTeX Info: Redefining \% on input line 84.
-[9]
+ [9]
 LaTeX Info: Redefining \. on input line 107.
 LaTeX Info: Redefining \% on input line 107.
  [10]
-Overfull \hbox (0.84761pt too wide) in paragraph at lines 108--109
-[]\T1/ppl/m/n/10.95 extbfEtiquetado dinámi-co: Sim-i-lar al an-te-ri-or, pero l
-os um-brales para definir
- []
-
-
-Overfull \hbox (0.74731pt too wide) in paragraph at lines 126--128
-\T1/ppl/m/n/10.95 dad de una in-ver-sión en ex-ce-so de la tasa li-bre de ries-
-go, por unidad de desviación
- []
-
 LaTeX Info: Redefining \. on input line 128.
 LaTeX Info: Redefining \% on input line 128.
+
 [11])
 LaTeX Info: Redefining \. on input line 111.
 LaTeX Info: Redefining \% on input line 111.
@@ -1244,50 +1184,53 @@ File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 
 
 ]
-LaTeX Info: Redefining \. on input line 76.
-LaTeX Info: Redefining \% on input line 76.
+LaTeX Info: Redefining \. on input line 75.
+LaTeX Info: Redefining \% on input line 75.
  [14]
-LaTeX Info: Redefining \. on input line 87.
-LaTeX Info: Redefining \% on input line 87.
- [15]
-
-LaTeX Warning: Citation 'Zeng:2023' on page 16 undefined on input line 88.
-
-<Figures/chronos.png, id=417, 3165.8275pt x 1316.92pt>
+<Figures/chronos.png, id=412, 3165.8275pt x 1316.92pt>
 File: Figures/chronos.png Graphic file (type png)
 <use Figures/chronos.png>
-Package pdftex.def Info: Figures/chronos.png  used on input line 91.
+Package pdftex.def Info: Figures/chronos.png  used on input line 90.
 (pdftex.def)             Requested size: 389.80269pt x 162.14296pt.
-LaTeX Info: Redefining \. on input line 102.
-LaTeX Info: Redefining \% on input line 102.
-[16 <./Figures/chronos.png>]
-Overfull \hbox (4.32814pt too wide) in paragraph at lines 109--110
-[]\T1/ppl/m/n/10.95 En este tra-ba-jo, en lu-gar de uti-lizar el mod-e-lo para 
-pronós-ti-co di-rec-to, se aprovecha
- []
-
-<Figures/triple-barrier.png, id=424, 2274.4975pt x 1895.08pt>
+LaTeX Info: Redefining \. on input line 95.
+LaTeX Info: Redefining \% on input line 95.
+ [15]
+LaTeX Info: Redefining \. on input line 101.
+LaTeX Info: Redefining \% on input line 101.
+ [16 <./Figures/chronos.png>]
+<Figures/triple-barrier.png, id=426, 2274.4975pt x 1895.08pt>
 File: Figures/triple-barrier.png Graphic file (type png)
 <use Figures/triple-barrier.png>
-Package pdftex.def Info: Figures/triple-barrier.png  used on input line 117.
+Package pdftex.def Info: Figures/triple-barrier.png  used on input line 116.
 (pdftex.def)             Requested size: 389.80269pt x 324.76183pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 12
+4.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-LaTeX Info: Redefining \. on input line 112.
-LaTeX Info: Redefining \% on input line 112.
+LaTeX Info: Redefining \. on input line 125.
+LaTeX Info: Redefining \% on input line 125.
  [17]
+LaTeX Info: Redefining \. on input line 129.
+LaTeX Info: Redefining \% on input line 129.
+ [18 <./Figures/triple-barrier.png>]
+LaTeX Info: Redefining \. on input line 150.
+LaTeX Info: Redefining \% on input line 150.
+ [19])
 LaTeX Info: Redefining \. on input line 112.
 LaTeX Info: Redefining \% on input line 112.
- [18 <./Figures/triple-barrier.png>]
+ [20]
 \openout2 = `Chapters/Chapter4.aux'.
 
  (./Chapters/Chapter4.tex
 Cap\'{\i }tulo 4.
 )
 1: section
-[19
+[21
 
 
 
@@ -1295,59 +1238,54 @@ Cap\'{\i }tulo 4.
 ]
 \openout2 = `Chapters/Chapter5.aux'.
 
- (./Chapters/Chapter5.tex [20
+ (./Chapters/Chapter5.tex [22
 
 
 
 
 ]
 Cap\'{\i }tulo 5.
-
-Overfull \hbox (5.06136pt too wide) in paragraph at lines 27--28
-[]\T1/ppl/m/n/10.95 Si se de-bieron hac-er mod-i-fi-ca-ciones a lo plan-i-fi-ca
--do ¾Cuáles fueron las causas
- []
-
 )
 1: section
-[21] [22
+[23] [24
 
 
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 13
-2.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Overfull \hbox (14.46628pt too wide) in paragraph at lines 132--132
-\T1/ppl/m/it/10.95 ence on AI in Fi-nance\T1/ppl/m/n/10.95 . ICAIF '24. New Yor
-k, NY, USA: ACM, 2024, págs. 822[]830.
+Overfull \hbox (18.52867pt too wide) in paragraph at lines 132--132
+\T1/ppl/m/it/10.95 ren-ce on AI in Fi-nan-ce\T1/ppl/m/n/10.95 . ICAIF '24. New 
+York, NY, USA: ACM, 2024, págs. 822[]830.
  []
 
 
 Overfull \hbox (14.55104pt too wide) in paragraph at lines 132--132
-[]\T1/ppl/m/n/10.95 José Fran-cis-co López. \T1/ppl/m/it/10.95 Teoría de Dow\T1
-/ppl/m/n/10.95 . [][]$https : / / economipedia . com / de^^\niciones /
+[]\T1/ppl/m/n/10.95 José Fran-cis-co Ló-pez. \T1/ppl/m/it/10.95 Teo-ría de Dow\
+T1/ppl/m/n/10.95 . [][]$https : / / economipedia . com / de^^\niciones /
  []
 
 
 Overfull \hbox (3.81999pt too wide) in paragraph at lines 132--132
-[]\T1/ppl/m/n/10.95 Stefan Jansen. \T1/ppl/m/it/10.95 Ma-chine Learn-ing for Al
--go-rith-mic Trad-ing - Sec-ond Edi-tion\T1/ppl/m/n/10.95 . Packt,
+[]\T1/ppl/m/n/10.95 Stefan Jan-sen. \T1/ppl/m/it/10.95 Ma-chi-ne Lear-ning for 
+Al-go-rith-mic Tra-ding - Se-cond Edi-tion\T1/ppl/m/n/10.95 . Packt,
+ []
+
+
+Overfull \hbox (1.03105pt too wide) in paragraph at lines 132--132
+\T1/ppl/m/it/10.95 ting\T1/ppl/m/n/10.95 . [][]$https : / / www . pluralsight .
+ com / guides / ensemble -[] methods -[]:-[] bagging -[]
  []
 
 
 Overfull \hbox (3.26604pt too wide) in paragraph at lines 132--132
-[]\T1/ppl/m/n/10.95 Ashish Vaswani et al. ^^S  At-ten-tion Is All You Need^^T. 
-En: \T1/ppl/m/it/10.95 CoRR \T1/ppl/m/n/10.95 ab-s/1706.03762
+[]\T1/ppl/m/n/10.95 Ashish Vas-wa-ni et al. ^^S  At-ten-tion Is All You Need^^T
+. En: \T1/ppl/m/it/10.95 CoRR \T1/ppl/m/n/10.95 ab-s/1706.03762
  []
 
 1: section
-[23]
+[25]
 LaTeX Info: Redefining \. on input line 134.
 LaTeX Info: Redefining \% on input line 134.
- [24] (./memorianueva.aux (./portada.aux)
+ [26] (./memorianueva.aux (./portada.aux)
 LaTeX Info: Redefining \sptext on input line 27.
 LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
@@ -1369,10 +1307,10 @@ Package logreq Info: Writing requests to 'memorianueva.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30298 strings out of 477985
- 644691 string characters out of 5839379
- 1871388 words of memory out of 6000000
- 49982 multiletter control sequences out of 15000+600000
+ 30309 strings out of 477967
+ 644901 string characters out of 5838625
+ 1872388 words of memory out of 6000000
+ 49992 multiletter control sequences out of 15000+600000
  571277 words of font info for 101 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  95i,20n,92p,1969b,2827s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1392,10 +1330,10 @@ sr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/palatino/uplri8a.pfb>
-Output written on memorianueva.pdf (34 pages, 6194411 bytes).
+Output written on memorianueva.pdf (36 pages, 6201780 bytes).
 PDF statistics:
- 565 PDF objects out of 1000 (max. 8388607)
- 486 compressed objects within 5 object streams
- 105 named destinations out of 1000 (max. 500000)
+ 580 PDF objects out of 1000 (max. 8388607)
+ 499 compressed objects within 5 object streams
+ 112 named destinations out of 1000 (max. 500000)
  330 words of extra memory for PDF output out of 10000 (max. 10000000)
 

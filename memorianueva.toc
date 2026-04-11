@@ -29,11 +29,11 @@
 \contentsline {section}{\numberline {3.3}Arquitectura Transformer Propuesta}{15}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Estrategia de Etiquetado para Modelos ML}{17}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Framework de Backtesting y Evaluación}{18}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Modelos explorados}{18}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Diseño del bot}{18}{section.3.7}%
-\contentsline {chapter}{\numberline {4}Ensayos y resultados}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Pruebas funcionales del hardware}{19}{section.4.1}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{21}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones generales }{21}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Próximos pasos}{21}{section.5.2}%
-\contentsline {chapter}{Bibliografía}{23}{appendix*.10}%
+\contentsline {section}{\numberline {3.6}Modelos explorados}{19}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Diseño del bot}{19}{section.3.7}%
+\contentsline {chapter}{\numberline {4}Ensayos y resultados}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Pruebas funcionales del hardware}{21}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{23}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones generales }{23}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Próximos pasos}{23}{section.5.2}%
+\contentsline {chapter}{Bibliografía}{25}{appendix*.10}%
