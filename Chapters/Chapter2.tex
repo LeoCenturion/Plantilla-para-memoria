@@ -45,7 +45,7 @@ La teoría de Dow establece seis puntos principales \cite{Lopez:2018}:
 
 %% \begin{figure}[ht]
 %% \centering
-%% \includegraphics[width=0.8\textwidth]{./Figures/questionMark.png}\\
+%% \includegraphics[width=0.8	extwidth]{./Figures/questionMark.png}
 %% \caption{Ejemplo de las tres tendencias de Dow: en rojo se marca la tendencia principal, en verde las secundarias y en amarillo las terciarias. Adaptada de \cite{Kirkpatrick:2006}].
 %% \label{fig:DowTrends}
 %% \end{figure}
@@ -88,6 +88,28 @@ La capacidad de los Transformers para capturar relaciones complejas y no lineale
 
 \section{Metodologías de evaluación y gestión de riesgo}
 
+Para garantizar la robustez y viabilidad de una estrategia de trading, es fundamental contar con un marco sólido de evaluación y herramientas para la gestión del riesgo. En esta sección se detallan las metodologías y métricas clave que se utilizarán para validar el desempeño de los modelos y para tomar decisiones informadas sobre la asignación de capital.
+
+\subsection{Técnicas de selección de características}
+
+La selección de características es un paso crucial para reducir la dimensionalidad, mejorar el rendimiento del modelo y evitar el sobreajuste. Se utilizaron diversas métricas para evaluar la importancia de las características generadas:
+\begin{itemize}
+    \item 	extbf{Disminución Media de Impureza (MDI):} Específica de modelos basados en árboles como Random Forest, esta métrica mide la importancia de una característica por cuánto reduce la impureza (por ejemplo, impureza de Gini) en los nodos del árbol.
+    \item 	extbf{Disminución Media de Exactitud (MDA):} Evalúa la importancia de una característica permutando aleatoriamente sus valores y midiendo la caída resultante en el rendimiento del modelo. Una caída significativa indica que la característica es importante.
+    \item 	extbf{Importancia de Característica Individual (SFI):} Entrena y evalúa un modelo utilizando una sola característica a la vez para medir su poder predictivo de forma aislada.
+    \item 	extbf{Análisis de Componentes Principales (PCA):} Aunque es una técnica de reducción de dimensionalidad, se utilizó para transformar características correlacionadas en un conjunto de componentes ortogonales, cuya importancia se evaluó posteriormente con las métricas mencionadas.
+\end{itemize}
+
+\subsection{Técnicas de etiquetado}
+
+El etiquetado define el objetivo que el modelo de aprendizaje supervisado debe predecir. Se exploraron las siguientes técnicas:
+\begin{itemize}
+    \item 	extbf{Etiquetado por horizonte fijo:} Asigna etiquetas (por ejemplo, "sube" o "baja") según el movimiento del precio después de un intervalo de tiempo fijo. Su principal desventaja es que no se adapta a la volatilidad del mercado.
+    \item 	extbf{Etiquetado dinámico:} Similar al anterior, pero los umbrales para definir las etiquetas se ajustan en función de la volatilidad reciente del mercado.
+    \item 	extbf{Etiquetado con barrera triple (Triple-Barrier Method):} Este método, popularizado por López de Prado \cite{LoP:2018}, establece tres barreras para cada observación: una barrera superior (objetivo de ganancia), una inferior (límite de pérdida) y una barrera de tiempo vertical (expiración de la operación). La primera barrera que el precio toca determina la etiqueta. Este enfoque es más robusto porque se adapta dinámicamente a la volatilidad del mercado.
+\end{itemize}
+
+
 \subsection{Backtesting}
 El backtesting es el pilar fundamental para evaluar una estrategia de trading. Consiste en simular el comportamiento de la estrategia al utilizar datos históricos para estimar cómo se habría desempeñado en el pasado. Un backtesting riguroso debe evitar el sesgo de retrospección (look ahead bias) y asegurar que las decisiones del modelo en un punto del tiempo se basen únicamente en información disponible hasta ese momento \cite{LoP:2018}.
 
@@ -101,7 +123,7 @@ La validación cruzada es una técnica para evaluar la capacidad de generalizaci
 El dimensionamiento de la apuesta se refiere al proceso de determinar la cantidad de capital que se arriesgará en una operación \cite{LoP:2018}. Un modelo puede predecir la dirección del precio (clasificación) o la probabilidad de un movimiento (regresión), pero el bet sizing traduce esa predicción en una decisión de inversión concreta. El objetivo es maximizar los rendimientos ajustados por riesgo. Un método común es utilizar una función sigmoidea para convertir las probabilidades de predicción del modelo en un tamaño de apuesta, lo que permite al sistema invertir con más confianza cuando el modelo está más seguro.
 
 \subsection{Ratio de sharpe y sus variantes}
-El \textit{Sharpe Ratio} \cite{Sharpe:1966} es una métrica clave utilizada para evaluar el rendimiento de una inversión ajustado por el riesgo. Este ratio ayuda a determinar la rentabilidad de una inversión en exceso de la tasa libre de riesgo, por unidad de desviación estándar del rendimiento. Cuanto mayor sea el Sharpe Ratio, más atractivo es el rendimiento ajustado por riesgo de la estrategia. La fórmula general se ve en \ref{eq:metric}.
+El Ratio de Sharpe \cite{Sharpe:1966} es una métrica clave utilizada para evaluar el rendimiento de una inversión ajustado por el riesgo. Este ratio ayuda a determinar la rentabilidad de una inversión en exceso de la tasa libre de riesgo, por unidad de desviación estándar del rendimiento. Cuanto mayor sea el Ratio de Sharpe, más atractivo es el rendimiento ajustado por riesgo de la estrategia. La fórmula general se ve en ef{eq:metric}.
 
 \begin{equation}
 	\label{eq:metric}
@@ -123,24 +145,6 @@ Existen variantes de este ratio que abordan ciertas limitaciones, como el Sortin
 Para una evaluación aún más rigurosa y para combatir el riesgo de sobreajuste en el backtesting, se pueden considerar las siguientes métricas avanzadas propuestas por López de Prado \cite{LoP:2018}:
 \begin{itemize}
     \item Probabilidad de sobreajuste de backtest (PBO): mide la probabilidad de que la estrategia seleccionada como ``la mejor'' dentro de la muestra de entrenamiento rinda por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
-    \item Probabilistic sharpe ratio (PSR): corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (\textit{skewness}), colas pesadas (\textit{kurtosis}) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (\textit{benchmark}).
-    \item Deflated sharpe ratio (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (\textit{trials}) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
+    \item 	extit{Probabilistic Sharpe Ratio} (PSR): corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (skewness), colas pesadas (kurtosis) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (benchmark).
+    \item 	extit{Deflated Sharpe Ratio} (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (trials) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
 \end{itemize}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

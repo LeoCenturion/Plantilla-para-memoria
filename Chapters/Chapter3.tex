@@ -1,6 +1,6 @@
 \chapter{Diseño e implementación} % Main chapter title
 
-\label{Chapter3} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+\label{Chapter3} % Change X to a consecutive number; for referencing this chapter elsewhere, use ef{ChapterX}
 
 En este capítulo se desarrollara la solucion alcanzada. Se describen los datos que se procesaron, las estrategias que se probaron, asi como el criterio que se uso para compararlas. Tambien se agregan detalles sobre el diseño de la implementación del bot de trading.
 
@@ -28,7 +28,7 @@ En este capítulo se desarrollara la solucion alcanzada. Se describen los datos 
   %otherkeywords={*,...},           % if you want to add more keywords to the set
   numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
   numbersep=5pt,                   % how far the line-numbers are from the code
-  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  numberstyle=	iny\color{mygray}, % the style that is used for the line-numbers
   rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
   showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
   showstringspaces=false,          % underline spaces within strings only
@@ -40,10 +40,9 @@ En este capítulo se desarrollara la solucion alcanzada. Se describen los datos 
   morecomment=[s]{/*}{*/}
 }
 
+\section{Conjunto de Datos y Preprocesamiento}
 
-\section{Conjunto de datos y preprocesamiento}
-
-Esta sección describe el conjunto de datos utilizado y las estrategias de preprocesamiento aplicadas para el desarrollo del trabajo. Se detallan las consideraciones sobre la frecuencia de los datos, las técnicas de construcción de barras, los métodos de etiquetado y el análisis de la importancia de las características.
+Esta sección describe el conjunto de datos utilizado y las estrategias de preprocesamiento aplicadas para el desarrollo del trabajo. Se detallan las consideraciones sobre la frecuencia de los datos, las técnicas de construcción de barras y el análisis de la importancia de las características.
 
 \subsection{Conjunto de datos}
 
@@ -62,33 +61,7 @@ Para el preprocesamiento de los datos, se aplicaron diversas estrategias con el 
 
 \subsection{Ingeniería de características y análisis de importancia}
 
-Para la ingeniería de características, se generó una extensa lista de indicadores técnicos, los cuales se consideran fundamentales en el análisis de mercados financieros. Adicionalmente, se hizo uso de técnicas de reducción de dimensionalidad como el Análisis de componentes principales (PCA). El análisis de características se llevó a cabo mediante las siguientes métricas:
-
-\begin{itemize}
-    \item Disminución media de impureza (Mean Decrease Impurity, MDI): esta métrica cuantifica la importancia de una característica al medir la reducción promedio de la impureza (por ejemplo, Gini impurity o entropía) que cada característica aporta a las divisiones en los árboles de decisión de un modelo de tipo Random Forest. Un valor más alto indica una mayor importancia.
-    \item Disminución media de exactitud (Mean Decrease Accuracy, MDA): esta técnica evalúa la importancia de una característica al cuantificar la caída en el rendimiento del modelo (medido con la puntuación F1 o F1-score, derivada de la pérdida logarítmica invertida) cuando los valores de esa característica se permutan aleatoriamente. Una mayor disminución en la exactitud indica una característica más importante.
-    \item Importancia de característica individual (Single Feature Importance, SFI): este método evalúa la importancia de cada característica de forma aislada. Para ello, se entrena un modelo únicamente con esa variable y se evalúa su rendimiento. Permite identificar la contribución individual de cada característica sin la influencia de otras.
-    \item Análisis de componentes principales (Principal Component Analysis, PCA): se utilizó PCA para la reducción de dimensionalidad, lo que transformó un conjunto de características correlacionadas en un conjunto de características ortogonales denominadas componentes principales. Esto permitió analizar la importancia de estas características ortogonales al comparar sus puntuaciones MDI, MDA, SFI y la Varianza Explicada por PCA, lo que ofrece una perspectiva de la importancia intrínseca y la capacidad de representación de las características originales.
-    \item Correlación tau de Kendall ponderada (Weighted Kendall's Tau Correlation): esta métrica se empleó para medir la correlación de rangos entre las diferentes métricas de importancia de características (MDI, MDA, SFI y la Varianza Explicada por PCA). La visualización de esta correlación se realizó a través de mapas de calor (heatmaps), lo que facilitó la identificación de consistencias y divergencias en la valoración de la importancia de las características entre los distintos métodos.
-    \item Función de autocorrelación (ACF) y función de autocorrelación parcial (PACF): estas funciones se aplicaron a las características principales (componentes de PCA) para analizar su correlación serial. Esto es particularmente relevante en el contexto de series temporales, ya que permite identificar la dependencia de una observación con respecto a observaciones pasadas, lo que influye en la capacidad predictiva del modelo.
-\end{itemize}
-
-Estas técnicas se aplicaron a las características originales, a las características derivadas de PCA y a las características temporales (chronos features), y los resultados se visualizaron mediante gráficos de barras y mapas de calor de correlación. Con base en este análisis exhaustivo, se determinaron las características más importantes a considerar en el modelo final.
-
-    \subsection{Técnicas de etiquetado}
-
-Se exploraron diversas técnicas de etiquetado para definir los objetivos de predicción del modelo:
-
-\begin{itemize}
-    \item Etiquetado por horizonte fijo: este método asigna etiquetas de acuerdo con el movimiento del precio después de un período de tiempo predefinido, sin considerar la volatilidad del mercado. Se descartó esta técnica al ser invariante a la volatilidad, lo que la hace menos efectiva en mercados financieros dinámicos.
-    \item Etiquetado dinámico: esta técnica también considera un horizonte de tiempo fijo, pero ajusta los umbrales de etiquetado en función de la volatilidad observada en el mercado. Si bien mejora el etiquetado en comparación con el horizonte fijo, aún mantiene una dependencia temporal que puede ser subóptima.
-    \item Etiquetado con barrera triple (Triple-Barrier Method): esta fue la técnica más recomendada según la literatura inspeccionada y la que se adoptó. El método de barrera triple varía el muestreo de forma dinámica según la volatilidad del activo. Para ello, se definen tres barreras: una barrera superior para las ganancias, una barrera inferior para las pérdidas y una barrera de tiempo para la salida. La primera barrera que se cruza determina la etiqueta de la observación, lo que permite un etiquetado más adaptativo y robusto.
-\end{itemize}
-
-
-\subsection{Arquitectura del modelo}
-
-En esta sección se detalla la arquitectura de Transformers utilizada para la predicción de series de tiempo. Los Transformers, introducidos por \cite{Vaswani:2017}, son una arquitectura de red neuronal basada en mecanismos de autoatención que han demostrado un rendimiento excepcional en tareas de procesamiento de lenguaje natural y, más recientemente, en series de tiempo.
+Para la ingeniería de características, se generó una extensa lista de indicadores técnicos. Adicionalmente, se hizo uso de técnicas de reducción de dimensionalidad como el Análisis de Componentes Principales (PCA). Para determinar las características más relevantes para el modelo final, se realizó un análisis de importancia utilizando un conjunto de métricas, entre ellas: la Disminución Media de Impureza (MDI), la Disminución Media de Exactitud (MDA) y la Importancia de Característica Individual (SFI). También se analizaron las funciones de autocorrelación (ACF) y autocorrelación parcial (PACF) de los componentes principales para identificar dependencias temporales.
 
 \section{Estrategias de referencia (Baselines)}
 
@@ -96,19 +69,61 @@ El trabajo de Guilherme Palazzo, titulado ``Predicting BTC cryptocurrency price 
 
 Principales componentes del trabajo de Palazzo:
 
-    \begin{itemize}
+\begin{itemize}
         \item Muestreo basado en volumen (Volume bars): se argumenta que los mercados no procesan la información en intervalos de tiempo constantes (lo que causa submuestreo en alta actividad y sobremuestreo en baja actividad), Palazzo rechaza las barras de tiempo tradicionales. En su lugar, agrupa los datos en barras de volumen (específicamente ventanas de 50,000 unidades de BTC).
-        \item Etiquetado dinámico: se inspira directamente en las metodologías de Marcos López de Prado (como el enfoque de la triple barrera) y no asume un marco de tiempo fijo ni distribuciones predefinidas. Se etiquetan los datos al evaluar si el retorno futuro supera un umbral dinámico dictado por la desviación estándar local (volatilidad, $\sigma$) multiplicada por una constante predefinida ($\tau$). Para la corrección del desbalance natural de las clases resultantes, se utiliza el algoritmo K-Nearest Neighbors (KNN) para hacer undersampling en los datos de entrenamiento.
+        \item Etiquetado dinámico: se inspira directamente en las metodologías de Marcos López de Prado (como el enfoque de la triple barrera) y no asume un marco de tiempo fijo ni distribuciones predefinidas. Se etiquetan los datos al evaluar si el retorno futuro supera un umbral dinámico dictado por la desviación estándar local (volatilidad, $\sigma$) multiplicada por una constante predefinida ($	au$). Para la corrección del desbalance natural de las clases resultantes, se utiliza el algoritmo K-Nearest Neighbors (KNN) para hacer undersampling en los datos de entrenamiento.
         \item Ingeniería y selección de características: En lugar de operar con precios crudos, se utilizan retornos logarítmicos, se calculan z-scores y se generan múltiples indicadores de análisis técnico (tendencia, volumen y momentum). Después de escalar estas características, se emplea el Criterio de Información Mutua (MIC) para seleccionar las 40 variables con mayor poder predictivo. En el caso de la Regresión Logística, se aplica previamente el Factor de Inflación de la Varianza (VIF) para eliminar la multicolinealidad.
         \item Modelado riguroso y resultados: entrenó y evaluó tres modelos predictivos: Regresión Logística, Long-Short Term Memory (LSTM) y eXtreme Gradient Boosting (XGBoost). El XGBoost fue el mejor algoritmo, el cual logró un Área Bajo la Curva (AUC) de 0.66 y un Ratio de Sharpe (anualizado) de 6.27 en el conjunto de prueba, y un Sharpe de 1.08 en la validación estrictamente fuera de muestra, superó con creces a la estrategia benchmark. Para la optimización de los hiperparámetros sin contaminar los datos (look-ahead bias), se usó TimeSeriesSplit de scikit-learn y se mantuvo la integridad cronológica del conjunto.
     \end{itemize}
 
-Justificación de por qué usar el trabajo de Palazzo como baseline (punto de referencia) para tu investigación:
+Se seleccionó el trabajo de Guilherme Palazzo como punto de referencia (baseline) para esta investigación por varias razones fundamentales que garantizan una comparación rigurosa. En primer lugar, su metodología representa una aplicación empírica ideal de las teorías de López de Prado, utilizando conceptos como los relojes de volumen para mitigar la naturaleza no estacionaria del mercado y el etiquetado dinámico. Al reformular el problema como una tarea de clasificación direccional en lugar de una regresión de precios, su enfoque aísla eficazmente el ruido del mercado, proporcionando una base de datos óptimamente estructurada contra la cual medir el valor añadido de nuevas arquitecturas.
 
-    \begin{itemize}
-        \item Es la aplicación empírica ideal de la teoría de López de Prado: durante la investigación, se han profundizado en las arquitecturas y recomendaciones de López de Prado. El trabajo de Palazzo es un ejemplo perfecto de cómo se pueden aplicar esas ideas teóricas (como el reloj de volumen para evitar distribuciones no IID y los umbrales dinámicos de etiquetado) a un caso de uso real en un mercado de altísima volatilidad como el de las criptomonedas.
-        \item Aísla el efecto del ruido del mercado: Al reformular el problema de una regresión de precios exactos a una clasificación direccional mediante el uso de barras de volumen, Palazzo mitiga la naturaleza no estacionaria y ruidosa del criptomercado. Usar su estructura de datos y pipeline permitirá comparar si el nuevo enfoque añade valor genuino, ya que la base de datos subyacente ya está óptimamente estructurada.
-        \item Rigurosidad metodológica contra el sobreajuste: su metodología implementa defensas estrictas contra el sobreajuste y la fuga de información (data leakage). Al utilizar TimeSeriesSplit para la validación cruzada y al calcular métricas como z-scores estrictamente con información retrospectiva, se establece un marco de prueba que es estadísticamente honesto. Superar este baseline requerirá que los modelos sean verdaderamente robustos y no el resultado de una simulación del pasado (backtest overfitting).
-        \item Métricas claras del ``estado del arte'' tradicional: Palazzo ofrece métricas específicas, Se evalúa desde la precisión pura (AUC = 0.66) hasta el desempeño real del portafolio (Sharpe ratio = 6.27, drawdowns, factor de ganancia) con modelos muy maduros como XGBoost y LSTM. Si se desarrollan modelos más avanzados (por ejemplo, arquitecturas basadas en Transformers para series de tiempo financieras como PatchTST o Chronos, discutidas en la literatura reciente), el trabajo de Palazzo representa el límite superior de rendimiento de los algoritmos de la generación anterior, y proporciona una barrera medible que debe ser superada.
-            \end{itemize}
+Además, su marco de prueba es estadísticamente robusto, implementando defensas estrictas contra el sobreajuste mediante el uso de validación cruzada temporalmente consciente. Finalmente, el trabajo de Palazzo ofrece un conjunto claro de métricas de rendimiento (como un AUC de 0.66 y un Ratio de Sharpe de 6.27) para modelos maduros como XGBoost y LSTM. Esto establece un límite superior de rendimiento bien definido para los algoritmos de la generación anterior, proporcionando una barrera medible que los modelos más avanzados propuestos en esta memoria debían superar.
 
+\section{Arquitectura Transformer Propuesta}
+
+La aplicación de la arquitectura Transformer, originalmente concebida para el Procesamiento del Lenguaje Natural (NLP), a las series temporales no fue directa. Los primeros modelos, como Informer y Autoformer, se centraron en superar la complejidad computacional cuadrática ($O(L^2)$) del mecanismo de autoatención para poder procesar secuencias largas. Informer introdujo una atención dispersa (	exttt{ProbSparse Attention}), mientras que Autoformer reemplazó la autoatención con un mecanismo de autocorrelación inspirado en el análisis clásico de series temporales.
+
+Sin embargo, un influyente estudio \cite{Zeng:2023} demostró que modelos lineales simples podían superar a estas complejas arquitecturas en benchmarks estándar, generando un debate sobre si los Transformers eran fundamentalmente adecuados para datos temporales. La respuesta llegó con modelos como PatchTST, que revolucionaron el campo al cambiar el enfoque desde la modificación del mecanismo de atención hacia la representación de la entrada. Al segmentar la serie temporal en "parches" (subseries) que actúan como tokens, PatchTST demostró que un Transformer estándar podía superar a sus predecesores más complejos. Este avance consolidó la idea de que, con la representación de datos adecuada, los Transformers son herramientas extremadamente poderosas y sentó las bases para el desarrollo de modelos fundacionales pre-entrenados.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=	\textwidth]{"Figures/chronos.png"}
+  \caption{Representación de alto nivel de Chronos: en la fase de tokenización (izquierda), la serie temporal de entrada se somete a un proceso de escalado y cuantización para transformarla en una secuencia de tokens. Durante el entrenamiento (centro), estos tokens se introducen en un modelo de lenguaje, ya sea de arquitectura codificador-decodificador o solo decodificador, el cual se optimiza mediante la pérdida de entropía cruzada. Finalmente, en la etapa de inferencia (derecha), se muestrean tokens de forma autorregresiva para volver a convertirlos en valores numéricos; este proceso se repite para generar múltiples trayectorias que permiten obtener una distribución predictiva completa.\protect}
+  \label{fig:chronos_arch}
+\end{figure}
+%% \footnotetext{}
+
+La elección de la arquitectura se centró en Chronos, un marco de trabajo que representa el estado del arte en modelos fundacionales pre-entrenados para series temporales. Este enfoque minimalista responde directamente al debate sobre la efectividad de los Transformers, demostrando que su poder puede ser desbloqueado al tratar las series temporales como un lenguaje. En lugar de diseñar componentes complejos y específicos para el dominio temporal, Chronos adapta las arquitecturas de modelos de lenguaje existentes con modificaciones mínimas. Dicha arquitectura se puede ver en \ref{fig:chronos_arch}.
+
+El núcleo de Chronos es su proceso de tokenización, que convierte una serie temporal de valores reales en una secuencia de tokens discretos, haciéndola legible para un modelo de lenguaje. Este proceso consta de dos pasos:
+\begin{itemize}
+    \item 	Escalado (Scaling): Se aplica un "escalado por media" (mean scaling), donde cada valor de la serie se divide por la media de los valores absolutos de la serie histórica. Este método simple normaliza la serie a un rango adecuado para la cuantización y preserva los ceros, que pueden tener un significado semántico (por ejemplo, cero ventas).
+    \item 	Cuantización (Quantization): La serie escalada, que sigue siendo de valor real, se convierte en tokens discretos mediante una "cuantización uniforme" (uniform binning). Los valores se asignan a uno de 	extit{B} contenedores (bins) predefinidos, cada uno representado por un token único de un vocabulario fijo. Este proceso transforma la serie de tiempo en una secuencia de "palabras", creando el "lenguaje de las series temporales".
+\end{itemize}
+
+Una vez tokenizada la serie, se utiliza una arquitectura Transformer estándar, como la familia T5 (un modelo codificador-decodificador), sin necesidad de añadir capas de descomposición de tendencia o estacionalidad. El único ajuste requerido es adaptar el tamaño del vocabulario del modelo al número de tokens de la cuantización. El modelo se entrena desde cero utilizando una función de pérdida de entropía cruzada categórica, el estándar para modelos de lenguaje, con el objetivo de predecir el siguiente token en la secuencia. Este enfoque se conoce como "regresión por clasificación", ya que el modelo aprende a predecir un valor numérico tratándolo como un problema de clasificación sobre los tokens discretos. Es importante destacar que el modelo ignora deliberadamente información externa como marcas de tiempo (timestamps), tratando la serie simplemente como una secuencia ordenada.
+
+Para mejorar la generalización y el rendimiento en tareas de pronóstico sobre datos no vistos (zero-shot), los modelos Chronos se pre-entrenan en un corpus masivo y diverso de series temporales. Este entrenamiento se enriquece con técnicas de aumento de datos como 	\textit{TSMixup}, que crea nuevas series combinando linealmente series existentes, y 	\textit{KernelSynth}, que genera datos sintéticos realistas utilizando Procesos Gaussianos.
+
+En este trabajo, en lugar de utilizar el modelo para pronóstico directo, se aprovecha su capacidad para generar representaciones ricas. Se extraen los embeddings de las capas ocultas del codificador, que son vectores de alta dimensionalidad que encapsulan la información contextual y los patrones temporales aprendidos. Estos embeddings se utilizan luego como características de entrada para un modelo tabular más tradicional y eficiente, como XGBoost, para realizar la tarea de clasificación final.
+
+\section{Estrategia de Etiquetado para Modelos ML}
+
+Para definir el objetivo de predicción del modelo, se evaluaron varias técnicas de etiquetado. Tras analizar los métodos de horizonte fijo y etiquetado dinámico, se adoptó el método de la barrera triple (\textit{Triple-Barrier Method}). Esta técnica, recomendada en la literatura para mercados financieros, ofrece un enfoque más adaptativo y robusto al definir las etiquetas en función de la volatilidad del activo, utilizando barreras para ganancias, pérdidas y tiempo de expiración.
+Para etiquetar un punto se puede elegir una etiqueta independiente para la barrera vertical o agruparla con las barreras horizontales segun si el punto final es mayor o menor que el inicial, si es menor se agrupa con la etiqueta correspondiente a la barrera inferior y, si es mayor, con la superior. Esta alternativa permite mantener las clases a predecir balanceadas con lo cual fue la elegida.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=	\textwidth]{"Figures/triple-barrier.png"}
+  \caption{Esta imagen ilustra la aplicación del método de etiquetado de triple barrera sobre un gráfico de precios. A partir de un punto de Incepción (inicio de la operación), se definen tres límites: una barrera de ganancia superior (púrpura) y una barrera de pérdida inferior (cian) que determinan si la operación se clasifica como positiva o negativa si el precio las toca, y una barrera de tiempo vertical (negra) que sirve de vencimiento, etiquetando la posición por su rendimiento hasta ese momento si ninguna barrera horizontal fue alcanzada previamente.\protect}
+  \label{fig:triple_barrier}
+\end{figure}
+%% \footnotetext{}
+
+\section{Framework de Backtesting y Evaluación}
+% Contenido de la sección de Framework de Backtesting y Evaluación
+
+\section{Modelos explorados}
+% Contenido de la sección de Modelos explorados
+
+\section{Diseño del bot}
+% Contenido de la sección de Diseño del bot
