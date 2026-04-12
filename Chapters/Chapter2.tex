@@ -6,49 +6,17 @@ En este capítulo se introducen temas con mayor profundidad que en el capítulo 
 
 \section{Trading}
 
-El trading es la actividad de comprar y vender activos en mercados financieros con el objetivo de obtener ganancias a corto plazo, y se diferencia de la inversión tradicional por la duración de las posiciones. Mientras que un inversor mantiene posiciones a largo plazo, un trader busca aprovechar tendencias de menor duración \cite{Chen:2023}.
-
-El objetivo principal de un trader es generar ganancias al comprar a precios bajos y vender a precios más altos. Los activos comercializados pueden ser acciones, bonos, divisas, commodities (como oro o petróleo) y derivados (como futuros u opciones) \cite{Zucchi:2022}.
-
-Los traders se pueden clasificar según el tipo de estrategia que emplean \cite{Chan:2013}:
-
-\begin{itemize}
-    \item Scalping: implica la compra y venta de instrumentos financieros en lapsos muy breves (segundos a minutos) para generar pequeñas ganancias en cada operación.
-    \item trading diario: la duración de las posiciones va desde minutos a horas, con múltiples operaciones abiertas simultáneamente.
-    \item Swing trading: las operaciones pueden durar días o semanas. Se considera menos riesgosa que las anteriores debido a la mayor disponibilidad de tiempo para tomar decisiones.
-    \item trading de eventos: busca beneficiarse de movimientos rápidos de precio causados por eventos económicos o financieros específicos (adquisiciones de empresas, publicaciones de ganancias, decisiones regulatorias, etc.).
-\end{itemize}
-
-Otra clasificación se basa en el tipo de información utilizada y diferencia a los analistas fundamentales y a los analistas técnicos, ya introducidos en la sección 1.2.
+El trading es la compra y venta de activos financieros a corto plazo para obtener ganancias, diferenciándose de la inversión a largo plazo. Los traders se clasifican por la duración de las operaciones (scalping, diario, swing, eventos) y por el tipo de análisis (fundamental o técnico) que emplean \cite{Chen:2023, Zucchi:2022, Chan:2013}.
 
 \section{Análisis técnico}
 
-El análisis técnico es una metodología para pronosticar las direcciones futuras de los precios mediante el estudio de datos históricos del mercado, principalmente el precio y el volumen operado \cite{Kirkpatrick:2006}.
-
-Esta metodología fue formalizada por Charles Dow a fines del siglo XIX \cite{Rhea:1932} y ha sido enriquecida por numerosos investigadores. Actualmente, el análisis técnico incluye cientos de patrones y señales \cite{Hayes:2022}.
-
-La teoría de Dow establece seis puntos principales \cite{Lopez:2018}:
-
+El análisis técnico pronostica movimientos de precios futuros a través del estudio de datos históricos del mercado, como precio y volumen \cite{Kirkpatrick:2006, Rhea:1932, Hayes:2022}. Se basa en la Teoría de Dow \cite{Lopez:2018}, que postula:
 \begin{itemize}
-    \item El precio lo descuenta todo: la información disponible sobre un activo ya se encuentra incorporada en su cotización bursátil.
-    \item Las tres tendencias del mercado: el mercado se mueve en tendencias alcistas o bajistas. Se distinguen tres tipos de tendencias:
-    \begin{itemize}
-        \item Tendencias primarias: son las principales y duran de uno a tres años.
-        \item Tendencias secundarias o intermedias: van en dirección contraria a las primarias, pero son de menor tamaño (``correcciones'').
-        \item Tendencias terciarias o menores: van en dirección contraria a las secundarias y son de menor duración.
-    \end{itemize}
-    \item Las tres fases de las tendencias primarias: las tendencias alcistas tienen fases de ``acumulación'', ``participación pública'' y ``euforia''; las bajistas tienen fases de ``distribución'', ``participación pública'' y ``pánico''.
-    \item Principio de confirmación: para confirmar una tendencia del mercado (alcista o bajista), los índices de industrias y de transportes deben tener la misma tendencia.
-    \item El volumen bursátil debe confirmar la tendencia: si la tendencia es al alza, el volumen debe aumentar con el precio y disminuir cuando baja. Si la tendencia es a la baja, el volumen debe aumentar cuando el precio baja y disminuir cuando sube.
-    \item La tendencia se mantiene vigente hasta que se demuestre lo contrario: una tendencia se considera válida hasta que se confirma una tendencia opuesta.
+    \item El precio lo descuenta todo.
+    \item Existen tres tipos de tendencias (primaria, secundaria y terciaria) con fases distintivas.
+    \item Las tendencias deben ser confirmadas por el volumen y la alineación de diferentes índices.
+    \item Las tendencias se mantienen vigentes hasta que haya una señal clara de reversión.
 \end{itemize}
-
-%% \begin{figure}[ht]
-%% \centering
-%% \includegraphics[width=0.8	extwidth]{./Figures/questionMark.png}
-%% \caption{Ejemplo de las tres tendencias de Dow: en rojo se marca la tendencia principal, en verde las secundarias y en amarillo las terciarias. Adaptada de \cite{Kirkpatrick:2006}].
-%% \label{fig:DowTrends}
-%% \end{figure}
 
 \section{Aprendizaje supervisado}
 
@@ -145,6 +113,6 @@ Existen variantes de este ratio que abordan ciertas limitaciones, como el Sortin
 Para una evaluación aún más rigurosa y para combatir el riesgo de sobreajuste en el backtesting, se pueden considerar las siguientes métricas avanzadas propuestas por López de Prado \cite{LoP:2018}:
 \begin{itemize}
     \item Probabilidad de sobreajuste de backtest (PBO): mide la probabilidad de que la estrategia seleccionada como ``la mejor'' dentro de la muestra de entrenamiento rinda por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
-    \item 	extit{Probabilistic Sharpe Ratio} (PSR): corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (skewness), colas pesadas (kurtosis) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (benchmark).
-    \item 	extit{Deflated Sharpe Ratio} (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (trials) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
+    \item 	Probabilistic Sharpe Ratio (PSR): corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (skewness), colas pesadas (kurtosis) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (benchmark).
+    \item 	Deflated Sharpe Ratio (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (trials) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
 \end{itemize}
