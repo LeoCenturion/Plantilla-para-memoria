@@ -228,13 +228,6 @@
     \field{year}{2024}
   \endentry
 
-  \entry{AutoTradeAI:url}{misc}{}{}
-    \field{labeltitlesource}{title}
-    \field{howpublished}{\url{https://mefai.io}}
-    \field{note}{Visitado el 11-04-2026}
-    \field{title}{AutoTrade AI - MEFAI}
-  \endentry
-
   \entry{Finbrain:url}{misc}{}{}
     \field{labeltitlesource}{title}
     \field{howpublished}{\url{https://finbrain.tech}}
@@ -600,46 +593,6 @@
       {Universidade Federal de S{\~a}o Paulo}%
     }
     \field{type}{Dissertation of Master of Science}
-    \field{year}{2023}
-  \endentry
-
-  \entry{Zeng:2023}{inproceedings}{}{}
-    \name{author}{4}{}{%
-      {{hash=ZA}{%
-         family={Zeng},
-         familyi={Z\bibinitperiod},
-         given={Ailing},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=CM}{%
-         family={Chen},
-         familyi={C\bibinitperiod},
-         given={Muxi},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=ZL}{%
-         family={Zhang},
-         familyi={Z\bibinitperiod},
-         given={Lei},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=XQ}{%
-         family={Xu},
-         familyi={X\bibinitperiod},
-         given={Qiang},
-         giveni={Q\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{ZA+1}
-    \strng{fullhash}{ZACMZLXQ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{booktitle}{Proceedings of the AAAI conference on artificial
-  intelligence}
-    \field{number}{9}
-    \field{pages}{11121\bibrangedash 11128}
-    \field{title}{Are transformers effective for time series forecasting?}
-    \field{volume}{37}
     \field{year}{2023}
   \endentry
 \enddatalist
