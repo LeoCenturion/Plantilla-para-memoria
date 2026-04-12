@@ -2,7 +2,7 @@
 
 \label{Chapter2}
 
-En este capítulo se introducen temas con mayor profundidad que en el capítulo previo y se cubren aspectos fundamentales de trading, análisis técnico y conceptos clave de aprendizaje automático, indispensables para comprender el desarrollo y los resultados del trabajo.
+En este capítulo se cubren aspectos fundamentales de trading, análisis técnico y conceptos clave de aprendizaje automático, indispensables para comprender el desarrollo y los resultados del trabajo.
 
 \section{Trading}
 
@@ -33,7 +33,7 @@ Para este trabajo, se optó por un enfoque de clasificación, en el que el model
 
 \section{Optimización de hiperparámetros}
 
-Es fundamental distinguir entre los parámetros de un modelo y sus hiperparámetros. Los parámetros son valores aprendidos por el modelo durante el entrenamiento a partir de los datos (por ejemplo, los pesos en una red neuronal o la pendiente en una regresión lineal). Los hiperparámetros, en cambio, son configuraciones que se definen antes del entrenamiento y no se modifican durante este proceso (por ejemplo, la tasa de aprendizaje o la profundidad de un árbol de decisión) \cite{Jansen:2020}.
+Es fundamental distinguir entre los parámetros de un modelo y sus hiperparámetros. Los parámetros son valores aprendidos por el modelo durante el entrenamiento a partir de los datos (por ejemplo, los pesos en una red neuronal o la pendiente en una regresión lineal). Los hiperparámetros, en cambio, son configuraciones que se definen antes del entrenamiento y no se modifican durante este proceso (por ejemplo, la tasa de aprendizaje o la profundidad de un árbol) \cite{Jansen:2020}.
 
 El rendimiento de un modelo depende tanto de sus parámetros como de sus hiperparámetros. La optimización de hiperparámetros es el proceso de buscar la combinación de valores de hiperparámetros que resulta en el mejor desempeño del modelo. Esto a menudo implica entrenar múltiples modelos con diferentes combinaciones y seleccionar el que ofrezca los mejores resultados en un conjunto de validación \cite{Jansen:2020}. Aunque la optimización de hiperparámetros es conveniente, puede ser computacionalmente intensiva para modelos complejos, como las redes neuronales profundas o los modelos basados en aprendizaje por refuerzo.
 
@@ -43,13 +43,13 @@ En el ámbito del aprendizaje automático, los ensambles son el resultado de com
 
 \section{Transformers}
 
-La arquitectura Transformer, introducida por Vaswani et al. \cite{Vaswani:2017}, revolucionó el procesamiento de secuencias, especialmente en el ámbito del procesamiento del lenguaje natural (PLN), y ha demostrado ser altamente efectiva también en el análisis de series de tiempo. A diferencia de los modelos recurrentes o convolucionales tradicionales, los Transformers se basan completamente en mecanismos de auto atención (self attention), lo que les permite modelar dependencias de largo alcance en las secuencias de entrada de manera más eficiente y paralelizable.
+La arquitectura Transformer, introducida por Vaswani et al. \cite{Vaswani:2017}, revolucionó el procesamiento de secuencias, especialmente en el ámbito del procesamiento del lenguaje natural (PLN), y ha demostrado ser altamente efectiva también en el análisis de series de tiempo. A diferencia de los modelos recurrentes o convolucionales tradicionales, los Transformers se basan completamente en mecanismos de autoatención (self attention), lo que les permite modelar dependencias de largo alcance en las secuencias de entrada de manera más eficiente y paralelizable.
 
 Los componentes clave de un Transformer incluyen:
 \begin{itemize}
-    \item Mecanismo de auto atención (Self Attention): permite al modelo ponderar la importancia de diferentes partes de la secuencia de entrada al procesar cada elemento. Cada token (o punto en la serie de tiempo) interactúa con todos los demás tokens y calcula una puntuación de atención que determina cuánto debe enfocarse en cada uno.
+    \item Mecanismo de autoatención (Self Attention): permite al modelo ponderar la importancia de diferentes partes de la secuencia de entrada al procesar cada elemento. Cada token (o punto en la serie de tiempo) interactúa con todos los demás tokens y calcula una puntuación de atención que determina cuánto debe enfocarse en cada uno.
     \item Codificación posicional (Positional Encoding): dado que el mecanismo de atención no es sensible al orden de los elementos en una secuencia, se añade una codificación posicional a las incrustaciones de entrada para inyectar información sobre la posición relativa de cada elemento.
-    \item Bloques encoder decoder: la arquitectura original consiste en un encoder y un decoder. El encoder procesa la secuencia de entrada para crear una representación contextualizada, y el decoder utiliza esta representación para generar la secuencia de salida. En aplicaciones de series de tiempo predictivas, a menudo se utiliza solo la parte del encoder o variaciones específicas para la tarea.
+    \item Bloques encoder-decoder: la arquitectura original consiste en un encoder y un decoder. El encoder procesa la secuencia de entrada para crear una representación contextualizada, y el decoder utiliza esta representación para generar la secuencia de salida. En aplicaciones de series de tiempo predictivas, a menudo se utiliza solo la parte del encoder o variaciones específicas para la tarea.
 \end{itemize}
 
 La capacidad de los Transformers para capturar relaciones complejas y no lineales entre puntos distantes en el tiempo los convierte en una herramienta potente para la predicción de series de tiempo financieras, en el que los eventos pasados pueden tener un impacto significativo y no trivial en los movimientos futuros del mercado.
@@ -63,8 +63,8 @@ Para garantizar la robustez y viabilidad de una estrategia de trading, es fundam
 La selección de características es un paso crucial para reducir la dimensionalidad, mejorar el rendimiento del modelo y evitar el sobreajuste. Se utilizaron diversas métricas para evaluar la importancia de las características generadas:
 \begin{itemize}
     \item 	Disminución Media de Impureza (MDI):  específica de modelos basados en árboles como Random Forest, esta métrica mide la importancia de una característica por cuánto reduce la impureza (por ejemplo, impureza de Gini) en los nodos del árbol.
-    \item Disminución Media de Exactitud (MDA): evalúa la importancia de una característica permutando aleatoriamente sus valores y midiendo la caída resultante en el rendimiento del modelo. Una caída significativa indica que la característica es importante.
-    \item 	Importancia de Característica Individual (SFI): entrena y evalúa un modelo utilizando una sola característica a la vez para medir su poder predictivo de forma aislada.
+    \item Disminución Media de Exactitud (MDA): se evalúa la importancia de una característica con una permuta aleatoria de sus valores y se mide la caída resultante en el rendimiento del modelo. Una caída significativa indica que la característica es importante.
+    \item 	Importancia de Característica Individual (SFI): entrena y evalúa un modelo con una sola característica a la vez para medir su poder predictivo de forma aislada.
     \item 	Análisis de Componentes Principales (PCA): aunque es una técnica de reducción de dimensionalidad, se utilizó para transformar características correlacionadas en un conjunto de componentes ortogonales, cuya importancia se evaluó posteriormente con las métricas mencionadas.
 \end{itemize}
 
@@ -73,7 +73,7 @@ La selección de características es un paso crucial para reducir la dimensional
 El etiquetado define el objetivo que el modelo de aprendizaje supervisado debe predecir. Se exploraron las siguientes técnicas:
 \begin{itemize}
     \item 	Etiquetado por horizonte fijo: asigna etiquetas (por ejemplo, "sube" o "baja") según el movimiento del precio después de un intervalo de tiempo fijo. Su principal desventaja es que no se adapta a la volatilidad del mercado.
-    \item 	Etiquetado dinámico: imilar al anterior, pero los umbrales para definir las etiquetas se ajustan en función de la volatilidad reciente del mercado.
+    \item 	Etiquetado dinámico: similar al anterior, pero los umbrales para definir las etiquetas se ajustan en función de la volatilidad reciente del mercado.
     \item 	Etiquetado con barrera triple (Triple-Barrier Method): este método, popularizado por López de Prado \cite{LoP:2018}, establece tres barreras para cada observación: una barrera superior (objetivo de ganancia), una inferior (límite de pérdida) y una barrera de tiempo vertical (expiración de la operación). La primera barrera que el precio toca determina la etiqueta. Este enfoque es más robusto porque se adapta dinámicamente a la volatilidad del mercado.
 \end{itemize}
 
@@ -81,14 +81,14 @@ El etiquetado define el objetivo que el modelo de aprendizaje supervisado debe p
 \subsection{Backtesting}
 El backtesting es el pilar fundamental para evaluar una estrategia de trading. Consiste en simular el comportamiento de la estrategia al utilizar datos históricos para estimar cómo se habría desempeñado en el pasado. Un backtesting riguroso debe evitar el sesgo de retrospección (look ahead bias) y asegurar que las decisiones del modelo en un punto del tiempo se basen únicamente en información disponible hasta ese momento \cite{LoP:2018}.
 
-\subsection{Validación cruzada (Cross Validation)}
-La validación cruzada es una técnica para evaluar la capacidad de generalización de un modelo y prevenir el sobreajuste. Sin embargo, la validación cruzada estándar (como K-Fold) no es adecuada para series de tiempo debido a la dependencia temporal de los datos. En su lugar, se utilizan métodos especializados:
+\subsection{Validación cruzada }
+La validación cruzada (Cross Validation) es una técnica para evaluar la capacidad de generalización de un modelo y prevenir el sobreajuste. Sin embargo, la validación cruzada estándar (como K-Fold) no es adecuada para series de tiempo debido a la dependencia temporal de los datos. En su lugar, se utilizan métodos especializados:
 \begin{itemize}
     \item Purged K-Fold Cross-Validation: esta técnica introduce dos modificaciones clave. Primero, se inserta un embargo o período de exclusión después de cada conjunto de validación para evitar que la información futura se filtre al conjunto de entrenamiento. Segundo, purgan del conjunto de entrenamiento aquellas observaciones cuya etiqueta podría estar influenciada por datos del conjunto de validación \cite{LoP:2018}.
 \end{itemize}
 
-\subsection{Dimensionamiento de la apuesta (Bet sizing)}
-El dimensionamiento de la apuesta se refiere al proceso de determinar la cantidad de capital que se arriesgará en una operación \cite{LoP:2018}. Un modelo puede predecir la dirección del precio (clasificación) o la probabilidad de un movimiento (regresión), pero el bet sizing traduce esa predicción en una decisión de inversión concreta. El objetivo es maximizar los rendimientos ajustados por riesgo. Un método común es utilizar una función sigmoidea para convertir las probabilidades de predicción del modelo en un tamaño de apuesta, lo que permite al sistema invertir con más confianza cuando el modelo está más seguro.
+\subsection{Dimensionamiento de la apuesta }
+El dimensionamiento de la apuesta (Bet sizing) se refiere al proceso de determinar la cantidad de capital que se arriesgará en una operación \cite{LoP:2018}. Un modelo puede predecir la dirección del precio (clasificación) o la probabilidad de un movimiento (regresión), pero el bet sizing traduce esa predicción en una decisión de inversión concreta. El objetivo es maximizar los rendimientos ajustados por riesgo. Un método común es utilizar una función sigmoidea para convertir las probabilidades de predicción del modelo en un tamaño de apuesta, lo que permite al sistema invertir con más confianza cuando el modelo está más seguro.
 
 \subsection{Ratio de sharpe y sus variantes}
 El Ratio de Sharpe \cite{Sharpe:1966} es una métrica clave utilizada para evaluar el rendimiento de una inversión ajustado por el riesgo. Este ratio ayuda a determinar la rentabilidad de una inversión en exceso de la tasa libre de riesgo, por unidad de desviación estándar del rendimiento. Cuanto mayor sea el Ratio de Sharpe, más atractivo es el rendimiento ajustado por riesgo de la estrategia. La fórmula general se ve en ef{eq:metric}.
@@ -99,7 +99,7 @@ El Ratio de Sharpe \cite{Sharpe:1966} es una métrica clave utilizada para evalu
 \end{equation}
 
 
-Donde:
+donde:
 \begin{itemize}
     \item $R_p$: es el rendimiento de la cartera.
     \item $R_f$: es la tasa de rendimiento de un activo libre de riesgo.
@@ -110,9 +110,9 @@ Es importante destacar que el Ratio de Sharpe tradicional asume que los retornos
 
 Existen variantes de este ratio que abordan ciertas limitaciones, como el Sortino Ratio \cite{Sortino:1991}, que solo considera la volatilidad a la baja (riesgo de cola), o el Calmar Ratio \cite{Young:1991}, que utiliza la máxima caída (max drawdown) como medida de riesgo en lugar de la desviación estándar. Estas variantes son útiles para obtener una perspectiva más completa del perfil de riesgo rendimiento de una estrategia de trading, especialmente en mercados volátiles como el de las criptomonedas.
 
-Para una evaluación aún más rigurosa y para combatir el riesgo de sobreajuste en el backtesting, se pueden considerar las siguientes métricas avanzadas propuestas por López de Prado \cite{LoP:2018}:
+Para una evaluación aún más rigurosa y para combatir el riesgo de sobreajuste en el backtesting, se pueden considerar las siguientes métricas avanzadas propuestas por López de Prado:
 \begin{itemize}
-    \item Probabilidad de sobreajuste de backtest (PBO): mide la probabilidad de que la estrategia seleccionada como ``la mejor'' dentro de la muestra de entrenamiento rinda por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
-    \item 	Probabilistic Sharpe Ratio (PSR): corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (skewness), colas pesadas (kurtosis) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (benchmark).
-    \item 	Deflated Sharpe Ratio (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (trials) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
+    \item \textit{Probabilidad de sobreajuste de backtest} (PBO): mide la probabilidad de que la estrategia seleccionada como ``la mejor'' dentro de la muestra de entrenamiento rinda por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
+    \item 	\textit{Probabilistic Sharpe Ratio} (PSR): corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (skewness), colas pesadas (kurtosis) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (benchmark).
+    \item 	\textit{Deflated Sharpe Ratio} (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (trials) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
 \end{itemize}

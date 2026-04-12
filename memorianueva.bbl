@@ -228,6 +228,20 @@
     \field{year}{2024}
   \endentry
 
+  \entry{AutoTradeAI:url}{misc}{}{}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://mefai.io}}
+    \field{note}{Visitado el 11-04-2026}
+    \field{title}{AutoTrade AI - MEFAI}
+  \endentry
+
+  \entry{Finbrain:url}{misc}{}{}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://finbrain.tech}}
+    \field{note}{Visitado el 11-04-2026}
+    \field{title}{Finbrain Technologies}
+  \endentry
+
   \entry{paul2024financial}{article}{}{}
     \name{author}{1}{}{%
       {{hash=PJ}{%
@@ -558,6 +572,35 @@
     \field{volume}{20}
     \field{journaltitle}{Futures}
     \field{year}{1991}
+  \endentry
+
+  \entry{Palazzo:2023}{thesis}{}{}
+    \name{author}{1}{}{%
+      {{hash=PG}{%
+         family={Palazzo},
+         familyi={P\bibinitperiod},
+         given={Guilherme},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PG1}
+    \strng{fullhash}{PG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Advisor: Prof. PhD. Elton Felipe Sbruzzi. Co-advisor: Prof.
+  PhD. Michel Carlo Rodrigues Leles.}
+    \field{pages}{73f.}
+    \field{title}{Predicting BTC cryptocurrency price movement in a pre-defined
+  trading volume window using Machine Learning models}
+    \list{location}{1}{%
+      {S{\~a}o Jos{'e} dos Campos}%
+    }
+    \list{institution}{2}{%
+      {Instituto Tecnol{'o}gico de Aeron{'a}utica}%
+      {Universidade Federal de S{\~a}o Paulo}%
+    }
+    \field{type}{Dissertation of Master of Science}
+    \field{year}{2023}
   \endentry
 
   \entry{Zeng:2023}{inproceedings}{}{}
