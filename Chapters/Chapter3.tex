@@ -2,7 +2,7 @@
 
 \label{Chapter3} 
 
-En este capítulo se desarrollara la solución alcanzada. Se describen los datos que se procesaron, las estrategias que se probaron, así como el criterio que se uso para compararlas. También se agregan detalles sobre el diseño de la implementación del bot de trading.
+En este capítulo se desarrolla la solución alcanzada. Se describen los datos que se procesaron, las estrategias que se probaron, así como el criterio que se uso para compararlas. También se agregan detalles sobre el diseño de la implementación del bot de trading.
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -72,32 +72,24 @@ Los elementos metodológicos que se incorporaron de dicho trabajo son los siguie
     \item Muestreo basado en volumen (Volume bars): Se adoptó la técnica de agrupar los datos en barras de volumen constante en lugar de intervalos de tiempo fijos. Este enfoque mitiga problemas comunes en las series de tiempo financieras, como la heterocedasticidad, y mejora la calidad de los datos para el entrenamiento de modelos.
     \item Formulación como clasificación: Al igual que en el trabajo de referencia, el problema se formuló como una tarea de clasificación para predecir la dirección del movimiento del precio (alza o baja), en lugar de intentar predecir el valor exacto del precio.
     \item Inspiración en el etiquetado dinámico: La estrategia de etiquetado se inspiró en el enfoque de Palazzo de no utilizar horizontes de tiempo fijos. En este trabajo, dicha idea se implementó a través del método de la barrera triple, que se adapta dinámicamente a la volatilidad del mercado.
-    \item Validación de modelos basados en árboles: El éxito de XGBoost en el trabajo de referencia sirvió como validación para su uso como un componente eficaz en nuestra arquitectura final, en conjunto con los embeddings generados por Chronos.
+    \item Validación de modelos basados en árboles: El éxito de XGBoost en el trabajo de referencia sirvió como validación para su uso como un componente eficaz en nuestra arquitectura final, en conjunto con los \textit{embeddings} generados por Chronos.
 \end{itemize}
 
 Al integrar estos componentes, se asegura que la evaluación del rendimiento del modelo Transformer se realice contra una estrategia de referencia competitiva y bien fundamentada en el estado del arte.
 
-\section{Arquitectura Transformer Propuesta}
+\section{Implementación de la Arquitectura Propuesta}
 
-La elección de la arquitectura se centró en Chronos, un marco de trabajo que representa el estado del arte en modelos fundacionales pre-entrenados para series temporales. Este enfoque minimalista demostró que el poder de los Transformers puede ser desbloqueado al tratar las series temporales como un lenguaje. En lugar de diseñar componentes complejos y específicos para el dominio temporal, Chronos adapta las arquitecturas de modelos de lenguaje existentes con modificaciones mínimas. Dicha arquitectura se puede ver en \ref{fig:chronos_arch}.
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=	\textwidth]{"Figures/chronos.png"}
-  \caption{Representación de alto nivel de Chronos: en la fase de tokenización (izquierda), la serie temporal de entrada se somete a un proceso de escalado y cuantización para transformarla en una secuencia de tokens. Durante el entrenamiento (centro), estos tokens se introducen en un modelo de lenguaje, ya sea de arquitectura codificador-decodificador o solo decodificador, el cual se optimiza mediante la pérdida de entropía cruzada. Finalmente, en la etapa de inferencia (derecha), se muestrean tokens de forma autorregresiva para volver a convertirlos en valores numéricos; este proceso se repite para generar múltiples trayectorias que permiten obtener una distribución predictiva completa.\protect}
-  \label{fig:chronos_arch}
-\end{figure}
+Para la arquitectura principal de este trabajo, se utilizó el modelo fundacional Chronos, cuya conceptualización fue detallada en el Capítulo 2. En lugar de utilizar el modelo para pronóstico directo, se aprovechó su capacidad para generar representaciones ricas de las series de tiempo.
 
-El núcleo de Chronos es su proceso de tokenización, que convierte una serie temporal de valores reales en una secuencia de tokens discretos, haciéndola legible para un modelo de lenguaje. Este proceso consta de dos pasos:
-\begin{itemize}
-    \item 	Escalado (Scaling): se aplica un escalado por media (mean scaling), donde cada valor de la serie se divide por la media de los valores absolutos de la serie histórica. Este método simple normaliza la serie a un rango adecuado para la cuantización y preserva los ceros, que pueden tener un significado semántico (por ejemplo, cero ventas).
-    \item 	Cuantización (Quantization): la serie escalada, que sigue siendo de valor real, se convierte en tokens discretos mediante una cuantización uniforme (uniform binning). Los valores se asignan a uno de 	B contenedores (bins) predefinidos, cada uno representado por un token único de un vocabulario fijo. Este proceso transforma la serie de tiempo en una secuencia de palabras, lo que crea el lenguaje de las series temporales.
-\end{itemize}
+El enfoque implementado fue el siguiente:
+\begin{enumerate}
+    \item Se tomaron las series de tiempo de los indicadores técnicos seleccionados.
+    \item Cada serie se procesó con un modelo Chronos pre-entrenado para extraer los \textit{embeddings} de sus capas ocultas. Estos \textit{embeddings} son vectores de alta dimensionalidad que encapsulan la información contextual y los patrones temporales aprendidos por el Transformer.
+    \item Los \textit{embeddings} resultantes de todos los indicadores se concatenaron para formar un único vector de características.
+    \item Este vector de características se utilizó como entrada para un modelo tabular más tradicional y computacionalmente eficiente, en este caso, XGBoost o LightGBM, que fue el encargado de realizar la tarea de clasificación final (predecir si el precio subirá o bajará).
+\end{enumerate}
 
-Una vez tokenizada la serie, se utiliza una arquitectura Transformer estándar, como la familia T5 (un modelo codificador-decodificador), sin necesidad de añadir capas de descomposición de tendencia o estacionalidad. El único ajuste requerido es adaptar el tamaño del vocabulario del modelo al número de tokens de la cuantización. El modelo se entrena desde cero con  una función de pérdida de entropía cruzada categórica, el estándar para modelos de lenguaje, con el objetivo de predecir el siguiente token en la secuencia. Este enfoque se conoce como regresión por clasificación, ya que el modelo aprende a predecir un valor numérico tratándolo como un problema de clasificación sobre los tokens discretos. Es importante destacar que el modelo ignora deliberadamente información externa como marcas de tiempo (timestamps), y trata la serie simplemente como una secuencia ordenada.
-
-Para mejorar la generalización y el rendimiento en tareas de pronóstico sobre datos no vistos (zero-shot), los modelos Chronos se pre-entrenan en un corpus masivo y diverso de series temporales. Este entrenamiento se enriquece con técnicas de aumento de datos como 	TSMixup, que crea nuevas series con una combinación lineal de series existentes, y 	KernelSynth, que genera datos sintéticos realistas con procesos Gaussianos.
-
-En este trabajo, en lugar de utilizar el modelo para pronóstico directo, se aprovecha su capacidad para generar representaciones ricas. Se extraen los embeddings de las capas ocultas del codificador, que son vectores de alta dimensionalidad que encapsulan la información contextual y los patrones temporales aprendidos. Estos embeddings se utilizan luego como características de entrada para un modelo tabular más tradicional y eficiente, como XGBoost, para realizar la tarea de clasificación final.
+Esta estrategia de dos pasos permite combinar el poder de los modelos fundacionales para la extracción de características complejas con la eficiencia y robustez de los modelos basados en árboles para la clasificación en datos tabulares. Finalmente, se experimentó con diferentes tamaños del modelo Chronos (small, base y large) para analizar el compromiso entre el rendimiento predictivo y el costo computacional.
 
 \section{Estrategia de Etiquetado para Modelos ML}
 
@@ -143,3 +135,4 @@ El bot de trading se diseñó con una arquitectura modular para facilitar su con
 \end{enumerate}
 
 En esencia, el bot opera en un ciclo continuo: recolecta datos, predice una señal con el modelo y actúa sobre esa predicción. Esta separación de responsabilidades garantiza que la lógica de la estrategia de trading esté completamente aislada de los detalles de implementación de la comunicación con el mercado.
+de la comunicación con el mercado.

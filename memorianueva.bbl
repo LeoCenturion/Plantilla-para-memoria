@@ -497,6 +497,70 @@
     \field{year}{2017}
   \endentry
 
+  \entry{Chronos:2024}{misc}{}{}
+    \name{author}{8}{}{%
+      {{hash=AAF}{%
+         family={Ansari},
+         familyi={A\bibinitperiod},
+         given={Abdul\bibnamedelima Fatir},
+         giveni={A\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=SL}{%
+         family={Stella},
+         familyi={S\bibinitperiod},
+         given={Lorenzo},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=TC}{%
+         family={Turkmen},
+         familyi={T\bibinitperiod},
+         given={Caner},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=CX}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Xiyuan},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=WF}{%
+         family={Wenzel},
+         familyi={W\bibinitperiod},
+         given={Florian},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=KS}{%
+         family={Kumar},
+         familyi={K\bibinitperiod},
+         given={Shubham},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=ASO}{%
+         family={Arik},
+         familyi={A\bibinitperiod},
+         given={Sercan\bibnamedelima O.},
+         giveni={S\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Snoek},
+         familyi={S\bibinitperiod},
+         given={Jasper},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AAF+1}
+    \strng{fullhash}{AAFSLTCCXWFKSASOSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 2403.07815
+    \endverb
+    \field{title}{Chronos: Learning the Language of Time Series}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.LG}
+    \field{year}{2024}
+  \endentry
+
   \entry{Sharpe:1966}{article}{}{}
     \name{author}{1}{}{%
       {{hash=SWF}{%

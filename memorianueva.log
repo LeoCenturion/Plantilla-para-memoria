@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  12 APR 2026 14:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  13 APR 2026 22:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1098,7 +1098,7 @@ l.15
 
 
 ]
-<Figures/Screenshot From 2026-03-17 21-57-54.png, id=294, 2044.63875pt x 789.95
+<Figures/Screenshot From 2026-03-17 21-57-54.png, id=282, 2044.63875pt x 789.95
 125pt>
 File: Figures/Screenshot From 2026-03-17 21-57-54.png Graphic file (type png)
 <use Figures/Screenshot From 2026-03-17 21-57-54.png>
@@ -1123,7 +1123,7 @@ l.33
 LaTeX Info: Redefining \. on input line 48.
 LaTeX Info: Redefining \% on input line 48.
  [3]
-<Figures/bloques-tp-final.drawio.png, id=324, 507.8975pt x 392.46625pt>
+<Figures/bloques-tp-final.drawio.png, id=311, 507.8975pt x 392.46625pt>
 File: Figures/bloques-tp-final.drawio.png Graphic file (type png)
 <use Figures/bloques-tp-final.drawio.png>
 Package pdftex.def Info: Figures/bloques-tp-final.drawio.png  used on input lin
@@ -1147,14 +1147,14 @@ LaTeX Info: Redefining \% on input line 110.
 Cap\'{\i }tulo 2.
 1: section
 [7]
-LaTeX Info: Redefining \. on input line 51.
-LaTeX Info: Redefining \% on input line 51.
+LaTeX Info: Redefining \. on input line 52.
+LaTeX Info: Redefining \% on input line 52.
  [8]
-LaTeX Info: Redefining \. on input line 75.
-LaTeX Info: Redefining \% on input line 75.
+LaTeX Info: Redefining \. on input line 76.
+LaTeX Info: Redefining \% on input line 76.
  [9]
-LaTeX Info: Redefining \. on input line 96.
-LaTeX Info: Redefining \% on input line 96.
+LaTeX Info: Redefining \. on input line 98.
+LaTeX Info: Redefining \% on input line 98.
  [10])
 LaTeX Info: Redefining \. on input line 111.
 LaTeX Info: Redefining \% on input line 111.
@@ -1179,46 +1179,39 @@ File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 LaTeX Info: Redefining \. on input line 75.
 LaTeX Info: Redefining \% on input line 75.
  [14]
-<Figures/chronos.png, id=415, 3165.8275pt x 1316.92pt>
-File: Figures/chronos.png Graphic file (type png)
-<use Figures/chronos.png>
-Package pdftex.def Info: Figures/chronos.png  used on input line 85.
-(pdftex.def)             Requested size: 389.80269pt x 162.14296pt.
-LaTeX Info: Redefining \. on input line 93.
-LaTeX Info: Redefining \% on input line 93.
- [15 <./Figures/chronos.png>]
-<Figures/triple-barrier.png, id=422, 2274.4975pt x 1895.08pt>
+<Figures/triple-barrier.png, id=406, 2274.4975pt x 1895.08pt>
 File: Figures/triple-barrier.png Graphic file (type png)
 <use Figures/triple-barrier.png>
-Package pdftex.def Info: Figures/triple-barrier.png  used on input line 108.
+Package pdftex.def Info: Figures/triple-barrier.png  used on input line 100.
 (pdftex.def)             Requested size: 389.80269pt x 324.76183pt.
-LaTeX Info: Redefining \. on input line 113.
-LaTeX Info: Redefining \% on input line 113.
- [16]
-LaTeX Info: Redefining \. on input line 120.
-LaTeX Info: Redefining \% on input line 120.
- [17 <./Figures/triple-barrier.png>]
-LaTeX Info: Redefining \. on input line 142.
-LaTeX Info: Redefining \% on input line 142.
-[18])
+LaTeX Info: Redefining \. on input line 105.
+LaTeX Info: Redefining \% on input line 105.
+ [15]
+LaTeX Info: Redefining \. on input line 111.
+LaTeX Info: Redefining \% on input line 111.
+ [16 <./Figures/triple-barrier.png>]
+LaTeX Info: Redefining \. on input line 133.
+LaTeX Info: Redefining \% on input line 133.
+ [17])
 LaTeX Info: Redefining \. on input line 112.
 LaTeX Info: Redefining \% on input line 112.
- [19]
+ [18]
 \openout2 = `Chapters/Chapter4.aux'.
 
- (./Chapters/Chapter4.tex [20
+
+(./Chapters/Chapter4.tex
+Cap\'{\i }tulo 4.
+)
+1: section
+[19
 
 
 
 
 ]
-Cap\'{\i }tulo 4.
-)
-1: section
-[21]
 \openout2 = `Chapters/Chapter5.aux'.
 
- (./Chapters/Chapter5.tex [22
+ (./Chapters/Chapter5.tex [20
 
 
 
@@ -1227,7 +1220,7 @@ Cap\'{\i }tulo 4.
 Cap\'{\i }tulo 5.
 )
 1: section
-[23] [24
+[21] [22
 
 
 
@@ -1267,7 +1260,7 @@ Overfull \hbox (3.26604pt too wide) in paragraph at lines 132--132
  []
 
 1: section
-[25]
+[23]
 Overfull \hbox (0.25111pt too wide) in paragraph at lines 132--132
 \T1/ppl/m/n/10.95 Car-lo Ro-dri-gues Le-les. Dis-ser-ta-tion of Mas-ter of Scie
 n-ce. São Jos'e dos Cam-
@@ -1275,7 +1268,7 @@ n-ce. São Jos'e dos Cam-
 
 LaTeX Info: Redefining \. on input line 134.
 LaTeX Info: Redefining \% on input line 134.
-[26] (./memorianueva.aux (./portada.aux)
+[24] (./memorianueva.aux (./portada.aux)
 LaTeX Info: Redefining \sptext on input line 27.
 LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
@@ -1286,7 +1279,7 @@ LaTeX Info: Redefining \% on input line 27.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `memorianueva.out' has not changed.
-(rerunfilecheck)             Checksum: AF38C494E0DC5E8024D5197D85DC3CD0;6898.
+(rerunfilecheck)             Checksum: 68A07BB395BC58A1A2B493E5B0397516;6951.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                memorianueva
@@ -1297,10 +1290,10 @@ Package logreq Info: Writing requests to 'memorianueva.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30281 strings out of 477967
- 644643 string characters out of 5838625
- 1872388 words of memory out of 6000000
- 49968 multiletter control sequences out of 15000+600000
+ 30278 strings out of 477967
+ 644629 string characters out of 5838625
+ 1871388 words of memory out of 6000000
+ 49964 multiletter control sequences out of 15000+600000
  570723 words of font info for 99 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  95i,20n,92p,1969b,2827s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1319,10 +1312,10 @@ etic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a
 hare/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on memorianueva.pdf (36 pages, 6183496 bytes).
+Output written on memorianueva.pdf (34 pages, 2736235 bytes).
 PDF statistics:
- 578 PDF objects out of 1000 (max. 8388607)
- 499 compressed objects within 5 object streams
- 113 named destinations out of 1000 (max. 500000)
- 330 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 565 PDF objects out of 1000 (max. 8388607)
+ 490 compressed objects within 5 object streams
+ 115 named destinations out of 1000 (max. 500000)
+ 325 words of extra memory for PDF output out of 10000 (max. 10000000)
 

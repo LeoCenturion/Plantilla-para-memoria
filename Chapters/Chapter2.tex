@@ -43,16 +43,15 @@ En el ámbito del aprendizaje automático, los ensambles son el resultado de com
 
 \section{Transformers}
 
-La arquitectura Transformer, introducida por Vaswani et al. \cite{Vaswani:2017}, revolucionó el procesamiento de secuencias, especialmente en el ámbito del procesamiento del lenguaje natural (PLN), y ha demostrado ser altamente efectiva también en el análisis de series de tiempo. A diferencia de los modelos recurrentes o convolucionales tradicionales, los Transformers se basan completamente en mecanismos de autoatención (self attention), lo que les permite modelar dependencias de largo alcance en las secuencias de entrada de manera más eficiente y paralelizable.
+La arquitectura Transformer, introducida por \cite{Vaswani:2017}, revolucionó el procesamiento de secuencias y ha demostrado ser altamente efectiva en el análisis de series de tiempo. A diferencia de los modelos recurrentes, los Transformers se basan en mecanismos de autoatención (\textit{self-attention}) para modelar dependencias de largo alcance de manera eficiente.
 
-Los componentes clave de un Transformer incluyen:
+Recientemente, han surgido modelos fundacionales pre-entrenados que adaptan arquitecturas de lenguaje para el pronóstico de series temporales. Entre ellos destaca Chronos \cite{Chronos:2024}, un marco de trabajo que trata las series temporales como un lenguaje. El núcleo de Chronos es su proceso de \textit{tokenización}, que convierte una serie de valores reales en una secuencia de \textit{tokens} discretos mediante dos pasos:
 \begin{itemize}
-    \item Mecanismo de autoatención (Self Attention): permite al modelo ponderar la importancia de diferentes partes de la secuencia de entrada al procesar cada elemento. Cada token (o punto en la serie de tiempo) interactúa con todos los demás tokens y calcula una puntuación de atención que determina cuánto debe enfocarse en cada uno.
-    \item Codificación posicional (Positional Encoding): dado que el mecanismo de atención no es sensible al orden de los elementos en una secuencia, se añade una codificación posicional a las incrustaciones de entrada para inyectar información sobre la posición relativa de cada elemento.
-    \item Bloques encoder-decoder: la arquitectura original consiste en un encoder y un decoder. El encoder procesa la secuencia de entrada para crear una representación contextualizada, y el decoder utiliza esta representación para generar la secuencia de salida. En aplicaciones de series de tiempo predictivas, a menudo se utiliza solo la parte del encoder o variaciones específicas para la tarea.
+    \item 	Escalado (\textit{Scaling}): se normaliza la serie para adecuarla a un rango apropiado para la cuantización.
+    \item 	Cuantización (\textit{Quantization}): la serie escalada se convierte en \textit{tokens} discretos mediante una cuantización uniforme (\textit{uniform binning}), donde los valores se asignan a uno de \textit{B} contenedores (\textit{bins}) predefinidos.
 \end{itemize}
 
-La capacidad de los Transformers para capturar relaciones complejas y no lineales entre puntos distantes en el tiempo los convierte en una herramienta potente para la predicción de series de tiempo financieras, en el que los eventos pasados pueden tener un impacto significativo y no trivial en los movimientos futuros del mercado.
+Una vez tokenizada la serie, se utiliza una arquitectura Transformer estándar (por ejemplo, T5) que se entrena con un objetivo de lenguaje, como predecir el siguiente \textit{token}, usando una función de pérdida de entropía cruzada. Este enfoque, conocido como regresión por clasificación, permite al modelo aprender patrones temporales complejos sin necesidad de componentes específicos para series de tiempo, como capas de descomposición de tendencia o estacionalidad \cite{Chronos:2024}.
 
 \section{Metodologías de evaluación y gestión de riesgo}
 
@@ -91,7 +90,7 @@ La validación cruzada (Cross Validation) es una técnica para evaluar la capaci
 El dimensionamiento de la apuesta (Bet sizing) se refiere al proceso de determinar la cantidad de capital que se arriesgará en una operación \cite{LoP:2018}. Un modelo puede predecir la dirección del precio (clasificación) o la probabilidad de un movimiento (regresión), pero el bet sizing traduce esa predicción en una decisión de inversión concreta. El objetivo es maximizar los rendimientos ajustados por riesgo. Un método común es utilizar una función sigmoidea para convertir las probabilidades de predicción del modelo en un tamaño de apuesta, lo que permite al sistema invertir con más confianza cuando el modelo está más seguro.
 
 \subsection{Ratio de sharpe y sus variantes}
-El Ratio de Sharpe \cite{Sharpe:1966} es una métrica clave utilizada para evaluar el rendimiento de una inversión ajustado por el riesgo. Este ratio ayuda a determinar la rentabilidad de una inversión en exceso de la tasa libre de riesgo, por unidad de desviación estándar del rendimiento. Cuanto mayor sea el Ratio de Sharpe, más atractivo es el rendimiento ajustado por riesgo de la estrategia. La fórmula general se ve en ef{eq:metric}.
+El Ratio de Sharpe \cite{Sharpe:1966} es una métrica clave utilizada para evaluar el rendimiento de una inversión ajustado por el riesgo. Este ratio ayuda a determinar la rentabilidad de una inversión en exceso de la tasa libre de riesgo, por unidad de desviación estándar del rendimiento. Cuanto mayor sea el Ratio de Sharpe, más atractivo es el rendimiento ajustado por riesgo de la estrategia. La fórmula general se ve en \ref{eq:metric}.
 
 \begin{equation}
 	\label{eq:metric}
@@ -108,7 +107,7 @@ donde:
 
 Es importante destacar que el Ratio de Sharpe tradicional asume que los retornos se distribuyen normalmente (como una campana de Gauss), una premisa que rara vez se cumple en los mercados financieros, en los que los retornos suelen presentar asimetría y colas pesadas. Para una evaluación más realista del riesgo, López de Prado introduce métricas ajustadas que abordan estas limitaciones \cite{LoP:2018}.
 
-Existen variantes de este ratio que abordan ciertas limitaciones, como el Sortino Ratio \cite{Sortino:1991}, que solo considera la volatilidad a la baja (riesgo de cola), o el Calmar Ratio \cite{Young:1991}, que utiliza la máxima caída (max drawdown) como medida de riesgo en lugar de la desviación estándar. Estas variantes son útiles para obtener una perspectiva más completa del perfil de riesgo rendimiento de una estrategia de trading, especialmente en mercados volátiles como el de las criptomonedas.
+Existen variantes de este ratio que abordan ciertas limitaciones, como el Sortino Ratio \cite{Sortino:1991}, que solo considera la volatilidad a la baja (riesgo de cola), o el Calmar Ratio \cite{Young:1991}, que utiliza la máxima caída (\textit{max drawdown}) como medida de riesgo en lugar de la desviación estándar. Estas variantes son útiles para obtener una perspectiva más completa del perfil de riesgo rendimiento de una estrategia de trading, especialmente en mercados volátiles como el de las criptomonedas.
 
 Para una evaluación aún más rigurosa y para combatir el riesgo de sobreajuste en el backtesting, se pueden considerar las siguientes métricas avanzadas propuestas por López de Prado:
 \begin{itemize}
