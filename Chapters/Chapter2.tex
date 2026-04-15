@@ -66,10 +66,10 @@ Para garantizar la robustez y viabilidad de una estrategia de trading, es fundam
 
 La selección de características es un paso crucial para reducir la dimensionalidad, mejorar el rendimiento del modelo y evitar el sobreajuste. Se utilizaron diversas métricas para evaluar la importancia de las características generadas:
 \begin{itemize}
-    \item 	Disminución Media de Impureza (MDI):  específica de modelos basados en árboles como Random Forest, esta métrica mide la importancia de una característica por cuánto reduce la impureza (por ejemplo, impureza de Gini) en los nodos del árbol.
-    \item Disminución Media de Exactitud (MDA): se evalúa la importancia de una característica con una permuta aleatoria de sus valores y se mide la caída resultante en el rendimiento del modelo. Una caída significativa indica que la característica es importante.
-    \item 	Importancia de Característica Individual (SFI): entrena y evalúa un modelo con una sola característica a la vez para medir su poder predictivo de forma aislada.
-    \item 	Análisis de Componentes Principales (PCA): aunque es una técnica de reducción de dimensionalidad, se utilizó para transformar características correlacionadas en un conjunto de componentes ortogonales, cuya importancia se evaluó posteriormente con las métricas mencionadas.
+    \item 	Disminución media de impureza (MDI):  específica de modelos basados en árboles como Random Forest, esta métrica mide la importancia de una característica por cuánto reduce la impureza (por ejemplo, impureza de Gini) en los nodos del árbol.
+    \item Disminución media de exactitud (MDA): se evalúa la importancia de una característica con una permuta aleatoria de sus valores y se mide la caída resultante en el rendimiento del modelo. Una caída significativa indica que la característica es importante.
+    \item 	Importancia de característica individual (SFI): entrena y evalúa un modelo con una sola característica a la vez para medir su poder predictivo de forma aislada.
+    \item 	Análisis de componentes principales (PCA): aunque es una técnica de reducción de dimensionalidad, se utilizó para transformar características correlacionadas en un conjunto de componentes ortogonales, cuya importancia se evaluó posteriormente con las métricas mencionadas.
 \end{itemize}
 
 \subsection{Técnicas de etiquetado}
@@ -78,7 +78,7 @@ El etiquetado define el objetivo que el modelo de aprendizaje supervisado debe p
 \begin{itemize}
     \item 	Etiquetado por horizonte fijo: asigna etiquetas (por ejemplo, ``sube'' o ``baja'') según el movimiento del precio después de un intervalo de tiempo fijo. Su principal desventaja es que no se adapta a la volatilidad del mercado.
     \item 	Etiquetado dinámico: similar al anterior, pero los umbrales para definir las etiquetas se ajustan en función de la volatilidad reciente del mercado.
-    \item 	Etiquetado con barrera triple (Triple-Barrier Method): este método, popularizado por López de Prado \cite{LoP:2018}, establece tres barreras para cada observación: una barrera superior (objetivo de ganancia), una inferior (límite de pérdida) y una barrera de tiempo vertical (expiración de la operación). La primera barrera que el precio toca determina la etiqueta. Este enfoque es más robusto porque se adapta dinámicamente a la volatilidad del mercado.
+    \item 	Etiquetado con barrera triple (triple-barrier method): este método, popularizado por López de Prado \cite{LoP:2018}, establece tres barreras para cada observación: una barrera superior (objetivo de ganancia), una inferior (límite de pérdida) y una barrera de tiempo vertical (expiración de la operación). La primera barrera que el precio toca determina la etiqueta. Este enfoque es más robusto porque se adapta dinámicamente a la volatilidad del mercado.
 \end{itemize}
 
 
@@ -88,7 +88,7 @@ El backtesting es el pilar fundamental para evaluar una estrategia de trading. C
 \subsection{Validación cruzada }
 La validación cruzada (Cross Validation) es una técnica para evaluar la capacidad de generalización de un modelo y prevenir el sobreajuste. Sin embargo, la validación cruzada estándar (como K-Fold) no es adecuada para series de tiempo debido a la dependencia temporal de los datos. En su lugar, se utilizan métodos especializados:
 \begin{itemize}
-    \item Purged K-Fold Cross-Validation: esta técnica introduce dos modificaciones clave. Primero, se inserta un embargo o período de exclusión después de cada conjunto de validación para evitar que la información futura se filtre al conjunto de entrenamiento. Segundo, purgan del conjunto de entrenamiento aquellas observaciones cuya etiqueta podría estar influenciada por datos del conjunto de validación \cite{LoP:2018}.
+    \item Purged K-Fold cross-validation: esta técnica introduce dos modificaciones clave. Primero, se inserta un embargo o período de exclusión después de cada conjunto de validación para evitar que la información futura se filtre al conjunto de entrenamiento. Segundo, purgan del conjunto de entrenamiento aquellas observaciones cuya etiqueta podría estar influenciada por datos del conjunto de validación \cite{LoP:2018}.
 \end{itemize}
 
 \subsection{Dimensionamiento de la apuesta }
@@ -118,5 +118,6 @@ Para una evaluación aún más rigurosa y para combatir el riesgo de sobreajuste
 \begin{itemize}
     \item Probabilidad de sobreajuste de backtest (PBO): mide la probabilidad de que la estrategia seleccionada como ``la mejor'' dentro de la muestra de entrenamiento rinda por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
     \item 	\textit{Probabilistic sharpe ratio} (PSR): corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (skewness), colas pesadas (kurtosis) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (benchmark).
-    \item 	\textit{Deflated Sharpe Ratio} (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (trials) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
+    \item 	\textit{Deflated sharpe ratio} (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (trials) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
 \end{itemize}
+

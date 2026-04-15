@@ -1,6 +1,6 @@
 \chapter{Diseño e implementación} % Main chapter title
 
-\label{Chapter3} 
+\label{Chapter3}
 
 En este capítulo se explica el desarrollo de la solución alcanzada. Se describen los datos que se procesaron, las estrategias que se probaron, así como el criterio que se usó para compararlas. También se agregan detalles sobre el diseño de la implementación del bot de trading.
 
@@ -40,7 +40,7 @@ En este capítulo se explica el desarrollo de la solución alcanzada. Se describ
   morecomment=[s]{/*}{*/}
 }
 
-\section{Conjunto de Datos y Preprocesamiento}
+\section{Conjunto de datos y preprocesamiento}
 
 Esta sección describe el conjunto de datos utilizado y las estrategias de preprocesamiento aplicadas para el desarrollo del trabajo. Se detallan las consideraciones sobre la frecuencia de los datos, las técnicas de construcción de barras y el análisis de la importancia de las características.
 
@@ -56,7 +56,7 @@ Para el preprocesamiento de los datos, se aplicaron diversas estrategias con el 
 
 \begin{itemize}
     \item Conversión a micro-Bitcoins (uBTC): se realizó una conversión de BTC a uBTC, una práctica estándar en el análisis de criptomonedas para manejar unidades más pequeñas y facilitar los cálculos.
-    \item Agrupación por Volumen (Volume Bars): se exploraron formas de agrupar los datos no por intervalos de tiempo fijos, sino por volumen en unidades constantes tanto de BTC como de USDT. Adicionalmente, se probaron las volume imbalance bars y las tick imbalance bars. Las volume imbalance bars se construyen cuando se alcanza un volumen neto desequilibrado entre compras y ventas, y las tick imbalance bars se forman con un desequilibrio neto en el número de ticks (cambios de precio). Después de una investigación exhaustiva de la literatura y pruebas empíricas, se decidió continuar con la agrupación de barras por volumen fijo. Esta elección se fundamentó en que las barras de volumen aportan una mejora notable en las propiedades estadísticas de la distribución del precio de Bitcoin, ya que reducen la autocorrelación y la heterocedasticidad, lo que las hace más adecuadas para el entrenamiento de modelos de machine learning. Se adoptó un límite de volumen de 50.000 uBTC, el cual proporcionó un equilibrio satisfactorio entre la cantidad de puntos de datos obtenidos y la reducción de la varianza correspondiente a cada barra.
+    \item Agrupación por volumen (Volume Bars): se exploraron formas de agrupar los datos no por intervalos de tiempo fijos, sino por volumen en unidades constantes tanto de BTC como de USDT. Adicionalmente, se probaron las volume imbalance bars y las tick imbalance bars. Las volume imbalance bars se construyen cuando se alcanza un volumen neto desequilibrado entre compras y ventas, y las tick imbalance bars se forman con un desequilibrio neto en el número de ticks (cambios de precio). Después de una investigación exhaustiva de la literatura y pruebas empíricas, se decidió continuar con la agrupación de barras por volumen fijo. Esta elección se fundamentó en que las barras de volumen aportan una mejora notable en las propiedades estadísticas de la distribución del precio de Bitcoin, ya que reducen la autocorrelación y la heterocedasticidad, lo que las hace más adecuadas para el entrenamiento de modelos de machine learning. Se adoptó un límite de volumen de 50.000 uBTC, el cual proporcionó un equilibrio satisfactorio entre la cantidad de puntos de datos obtenidos y la reducción de la varianza correspondiente a cada barra.
 \end{itemize}
 
 \subsection{Ingeniería de características y análisis de importancia}
@@ -77,7 +77,7 @@ Los elementos metodológicos que se incorporaron de dicho trabajo son los siguie
 
 Al integrar estos componentes, se asegura que la evaluación del rendimiento del modelo Transformer se realice contra una estrategia de referencia competitiva y bien fundamentada en el estado del arte.
 
-\section{Arquitectura Transformer Propuesta}
+\section{Arquitectura transformer propuesta}
 
 Para la arquitectura principal de este trabajo, se utilizó el modelo fundacional Chronos, cuya conceptualización fue detallada en el Capítulo 2. En lugar de utilizar el modelo para pronóstico directo, se aprovechó su capacidad para generar representaciones ricas de las series de tiempo.
 
@@ -104,7 +104,8 @@ Para etiquetar un punto se puede elegir una etiqueta independiente para la barre
 %% \footnotetext{}
 
 En la figura \ref{fig:triple_barrier}  se ve como a partir de un punto de Incepción (inicio de la operación), se definen tres límites: una barrera de ganancia superior (púrpura) y una barrera de pérdida inferior (cian) que determinan si la operación se clasifica como positiva o negativa si el precio las toca, y una barrera de tiempo vertical (negra) que sirve de vencimiento, etiqueta la posición por su rendimiento hasta ese momento si ninguna barrera horizontal fue alcanzada previamente
-\section{Framework de Backtesting y Evaluación}
+
+\section{Framework de backtesting y evaluación}
 
 Para asegurar una evaluación rigurosa y libre de sesgos, se implementó un motor de backtesting a medida en Python. Esta decisión se tomó debido a la necesidad de utilizar metodologías avanzadas como la validación cruzada combinatoria con purga y embargo (Combinatorially Purged Cross-Validation). Este método es esencial para prevenir la fuga de información y el sobreajuste al evaluar modelos en series de tiempo financieras, lo que garantiza que el rendimiento medido sea una estimación realista del comportamiento del modelo en datos futuros.
 
@@ -130,9 +131,9 @@ El bot de trading se diseñó con una arquitectura modular para facilitar su con
 
 \begin{enumerate}
     \item Orquestador: es el punto de entrada de la aplicación. Su función es instanciar, configurar y conectar los demás componentes. Inicia el ciclo de operación del bot.
-    \item Motor del Bot: contiene el bucle principal de ejecución. En cada iteración, orquesta el flujo de trabajo: solicita los datos más recientes del mercado al módulo de intercambio, pasa estos datos al módulo de estrategia para obtener una señal de trading y, si la señal lo indica, instruye al módulo de intercambio para que ejecute la orden correspondiente.
-    \item Módulo de Exchange: abstrae toda la comunicación con la API del exchange de criptomonedas. Es responsable de obtener datos de mercado (precios, volúmenes) y de ejecutar órdenes (compra, venta). Su diseño intercambiable permite adaptar el bot a diferentes plataformas (por ejemplo, Binance, KuCoin) con mínimas modificaciones.
-    \item Módulo de Estrategia: carga el modelo de machine learning pre-entrenado (en este caso, el ensamble de Chronos y XGBoost) y lo utiliza para procesar los datos de mercado y generar una señal de trading: comprar, vender o mantener.
+    \item Motor del bot: contiene el bucle principal de ejecución. En cada iteración, orquesta el flujo de trabajo: solicita los datos más recientes del mercado al módulo de intercambio, pasa estos datos al módulo de estrategia para obtener una señal de trading y, si la señal lo indica, instruye al módulo de intercambio para que ejecute la orden correspondiente.
+    \item Módulo de exchange: abstrae toda la comunicación con la API del exchange de criptomonedas. Es responsable de obtener datos de mercado (precios, volúmenes) y de ejecutar órdenes (compra, venta). Su diseño intercambiable permite adaptar el bot a diferentes plataformas (por ejemplo, Binance, KuCoin) con mínimas modificaciones.
+    \item Módulo de estrategia: carga el modelo de machine learning pre-entrenado (en este caso, el ensamble de Chronos y XGBoost) y lo utiliza para procesar los datos de mercado y generar una señal de trading: comprar, vender o mantener.
 \end{enumerate}
 
 En esencia, el bot opera en un ciclo continuo: recolecta datos, predice una señal con el modelo y actúa sobre esa predicción. Esta separación de responsabilidades garantiza que la lógica de la estrategia de trading esté completamente aislada de los detalles de implementación de la comunicación con el mercado.
