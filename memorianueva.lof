@@ -3,7 +3,8 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Evolución del precio del par BTC/USDT en el período analizado.\footnotemark \relax }}{2}{figure.caption.5}%
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Diagrama conceptual de la arquitectura del sistema de trading.\relax }}{5}{figure.caption.6}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Representación de alto nivel de Chronos. Fase de tokenización (izquierda), entrenamiento (centro), e infrencia (derecha).\relax }}{9}{figure.caption.7}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Esta imagen ilustra la aplicación del método de etiquetado de triple barrera sobre un gráfico de precios. A partir de un punto de Incepción (inicio de la operación), se definen tres límites: una barrera de ganancia superior (púrpura) y una barrera de pérdida inferior (cian) que determinan si la operación se clasifica como positiva o negativa si el precio las toca, y una barrera de tiempo vertical (negra) que sirve de vencimiento, etiqueta la posición por su rendimiento hasta ese momento si ninguna barrera horizontal fue alcanzada previamente.\relax }}{16}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Esta imagen ilustra la aplicación del método de etiquetado de triple barrera sobre un gráfico de precios.\relax }}{16}{figure.caption.8}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

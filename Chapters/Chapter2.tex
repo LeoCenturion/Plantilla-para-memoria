@@ -4,11 +4,9 @@
 
 En este capítulo se cubren aspectos fundamentales de trading, análisis técnico y conceptos clave de aprendizaje automático, indispensables para comprender el desarrollo y los resultados del trabajo.
 
-\section{Trading}
+\section{Trading y análisis técnico}
 
 El trading es la compra y venta de activos financieros a corto plazo para obtener ganancias, diferenciándose de la inversión a largo plazo. Los traders se clasifican por la duración de las operaciones (scalping, diario, swing, eventos) y por el tipo de análisis (fundamental o técnico) que emplean \cite{Chen:2023, Zucchi:2022, Chan:2013}.
-
-\section{Análisis técnico}
 
 El análisis técnico pronostica movimientos de precios futuros a través del estudio de datos históricos del mercado, como precio y volumen \cite{Kirkpatrick:2006, Rhea:1932, Hayes:2022}. Se basa en la Teoría de Dow \cite{Lopez:2018}, que postula:
 \begin{itemize}
@@ -31,15 +29,14 @@ Esta técnica se divide en dos categorías principales:
 
 Para este trabajo, se optó por un enfoque de clasificación, en el que el modelo predice la dirección del movimiento del precio (subida o bajada) en lugar de la magnitud exacta.
 
+En el ámbito del aprendizaje automático, los ensambles son el resultado de combinar múltiples modelos entrenados individualmente para obtener un desempeño general superior al que se lograría con un solo modelo \cite{Singhal:2020}. La idea es que los puntos débiles de un modelo puedan ser compensados por los puntos fuertes de otros, lo que mejora la robustez y la precisión de las predicciones. Existen diferentes técnicas de ensamble, como bagging y boosting, que combinan los modelos de distintas maneras \cite{Singhal:2020}.
+
 \section{Optimización de hiperparámetros}
 
 Es fundamental distinguir entre los parámetros de un modelo y sus hiperparámetros. Los parámetros son valores aprendidos por el modelo durante el entrenamiento a partir de los datos (por ejemplo, los pesos en una red neuronal o la pendiente en una regresión lineal). Los hiperparámetros, en cambio, son configuraciones que se definen antes del entrenamiento y no se modifican durante este proceso (por ejemplo, la tasa de aprendizaje o la profundidad de un árbol) \cite{Jansen:2020}.
 
 El rendimiento de un modelo depende tanto de sus parámetros como de sus hiperparámetros. La optimización de hiperparámetros es el proceso de buscar la combinación de valores de hiperparámetros que resulta en el mejor desempeño del modelo. Esto a menudo implica entrenar múltiples modelos con diferentes combinaciones y seleccionar el que ofrezca los mejores resultados en un conjunto de validación \cite{Jansen:2020}. Aunque la optimización de hiperparámetros es conveniente, puede ser computacionalmente intensiva para modelos complejos, como las redes neuronales profundas o los modelos basados en aprendizaje por refuerzo.
 
-\section{Ensambles}
-
-En el ámbito del aprendizaje automático, los ensambles son el resultado de combinar múltiples modelos entrenados individualmente para obtener un desempeño general superior al que se lograría con un solo modelo \cite{Singhal:2020}. La idea es que los puntos débiles de un modelo puedan ser compensados por los puntos fuertes de otros, lo que mejora la robustez y la precisión de las predicciones. Existen diferentes técnicas de ensamble, como bagging y boosting, que combinan los modelos de distintas maneras \cite{Singhal:2020}.
 
 \section{Transformers}
 
@@ -53,6 +50,14 @@ Recientemente, han surgido modelos fundacionales pre-entrenados que adaptan arqu
 
 Una vez tokenizada la serie, se utiliza una arquitectura Transformer estándar (por ejemplo, T5) que se entrena con un objetivo de lenguaje, como predecir el siguiente \textit{token}, usando una función de pérdida de entropía cruzada. Este enfoque, conocido como regresión por clasificación, permite al modelo aprender patrones temporales complejos sin necesidad de componentes específicos para series de tiempo, como capas de descomposición de tendencia o estacionalidad \cite{Chronos:2024}.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=	\textwidth]{"Figures/chronos.png"}
+  \caption{Representación de alto nivel de Chronos. Fase de tokenización (izquierda), entrenamiento (centro), e infrencia (derecha).\protect}
+  \label{fig:chronos_arch}
+\end{figure}
+
+ Siguiendo la figura \ref{fig:chronos_arch} se ve la fase de tokenización (izquierda), la serie temporal de entrada se somete a un proceso de escalado y cuantización para transformarla en una secuencia de tokens. Durante el entrenamiento (centro), estos tokens se introducen en un modelo de lenguaje, ya sea de arquitectura codificador-decodificador o solo decodificador, el cual se optimiza mediante la pérdida de entropía cruzada. Finalmente, en la etapa de inferencia (derecha), se muestrean tokens de forma autorregresiva para volver a convertirlos en valores numéricos; este proceso se repite para generar múltiples trayectorias que permiten obtener una distribución predictiva completa.
 \section{Metodologías de evaluación y gestión de riesgo}
 
 Para garantizar la robustez y viabilidad de una estrategia de trading, es fundamental contar con un marco sólido de evaluación y herramientas para la gestión del riesgo. En esta sección se detallan las metodologías y métricas clave que se utilizarán para validar el desempeño de los modelos y para tomar decisiones informadas sobre la asignación de capital.
@@ -71,7 +76,7 @@ La selección de características es un paso crucial para reducir la dimensional
 
 El etiquetado define el objetivo que el modelo de aprendizaje supervisado debe predecir. Se exploraron las siguientes técnicas:
 \begin{itemize}
-    \item 	Etiquetado por horizonte fijo: asigna etiquetas (por ejemplo, "sube" o "baja") según el movimiento del precio después de un intervalo de tiempo fijo. Su principal desventaja es que no se adapta a la volatilidad del mercado.
+    \item 	Etiquetado por horizonte fijo: asigna etiquetas (por ejemplo, ``sube'' o ``baja'') según el movimiento del precio después de un intervalo de tiempo fijo. Su principal desventaja es que no se adapta a la volatilidad del mercado.
     \item 	Etiquetado dinámico: similar al anterior, pero los umbrales para definir las etiquetas se ajustan en función de la volatilidad reciente del mercado.
     \item 	Etiquetado con barrera triple (Triple-Barrier Method): este método, popularizado por López de Prado \cite{LoP:2018}, establece tres barreras para cada observación: una barrera superior (objetivo de ganancia), una inferior (límite de pérdida) y una barrera de tiempo vertical (expiración de la operación). La primera barrera que el precio toca determina la etiqueta. Este enfoque es más robusto porque se adapta dinámicamente a la volatilidad del mercado.
 \end{itemize}
@@ -111,7 +116,7 @@ Existen variantes de este ratio que abordan ciertas limitaciones, como el Sortin
 
 Para una evaluación aún más rigurosa y para combatir el riesgo de sobreajuste en el backtesting, se pueden considerar las siguientes métricas avanzadas propuestas por López de Prado:
 \begin{itemize}
-    \item \textit{Probabilidad de sobreajuste de backtest} (PBO): mide la probabilidad de que la estrategia seleccionada como ``la mejor'' dentro de la muestra de entrenamiento rinda por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
-    \item 	\textit{Probabilistic Sharpe Ratio} (PSR): corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (skewness), colas pesadas (kurtosis) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (benchmark).
+    \item Probabilidad de sobreajuste de backtest (PBO): mide la probabilidad de que la estrategia seleccionada como ``la mejor'' dentro de la muestra de entrenamiento rinda por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
+    \item 	\textit{Probabilistic sharpe ratio} (PSR): corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (skewness), colas pesadas (kurtosis) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (benchmark).
     \item 	\textit{Deflated Sharpe Ratio} (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (trials) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
 \end{itemize}

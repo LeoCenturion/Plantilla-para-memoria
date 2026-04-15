@@ -2,7 +2,7 @@
 
 \label{Chapter3} 
 
-En este capítulo se desarrolla la solución alcanzada. Se describen los datos que se procesaron, las estrategias que se probaron, así como el criterio que se uso para compararlas. También se agregan detalles sobre el diseño de la implementación del bot de trading.
+En este capítulo se explica el desarrollo de la solución alcanzada. Se describen los datos que se procesaron, las estrategias que se probaron, así como el criterio que se usó para compararlas. También se agregan detalles sobre el diseño de la implementación del bot de trading.
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -69,15 +69,15 @@ Para establecer un punto de comparación robusto, se tomó como principal refere
 
 Los elementos metodológicos que se incorporaron de dicho trabajo son los siguientes:
 \begin{itemize}
-    \item Muestreo basado en volumen (Volume bars): Se adoptó la técnica de agrupar los datos en barras de volumen constante en lugar de intervalos de tiempo fijos. Este enfoque mitiga problemas comunes en las series de tiempo financieras, como la heterocedasticidad, y mejora la calidad de los datos para el entrenamiento de modelos.
-    \item Formulación como clasificación: Al igual que en el trabajo de referencia, el problema se formuló como una tarea de clasificación para predecir la dirección del movimiento del precio (alza o baja), en lugar de intentar predecir el valor exacto del precio.
-    \item Inspiración en el etiquetado dinámico: La estrategia de etiquetado se inspiró en el enfoque de Palazzo de no utilizar horizontes de tiempo fijos. En este trabajo, dicha idea se implementó a través del método de la barrera triple, que se adapta dinámicamente a la volatilidad del mercado.
-    \item Validación de modelos basados en árboles: El éxito de XGBoost en el trabajo de referencia sirvió como validación para su uso como un componente eficaz en nuestra arquitectura final, en conjunto con los \textit{embeddings} generados por Chronos.
+    \item Muestreo basado en volumen (Volume bars): se adoptó la técnica de agrupar los datos en barras de volumen constante en lugar de intervalos de tiempo fijos. Este enfoque mitiga problemas comunes en las series de tiempo financieras, como la heterocedasticidad, y mejora la calidad de los datos para el entrenamiento de modelos.
+    \item Formulación como clasificación: al igual que en el trabajo de referencia, el problema se formuló como una tarea de clasificación para predecir la dirección del movimiento del precio (alza o baja), en lugar de intentar predecir el valor exacto del precio.
+    \item Inspiración en el etiquetado dinámico: la estrategia de etiquetado se inspiró en el enfoque de Palazzo de no utilizar horizontes de tiempo fijos. En este trabajo, dicha idea se implementó a través del método de la barrera triple, que se adapta dinámicamente a la volatilidad del mercado.
+    \item Validación de modelos basados en árboles: el éxito de XGBoost en el trabajo de referencia sirvió como validación para su uso como un componente eficaz en nuestra arquitectura final, en conjunto con los \textit{embeddings} generados por Chronos.
 \end{itemize}
 
 Al integrar estos componentes, se asegura que la evaluación del rendimiento del modelo Transformer se realice contra una estrategia de referencia competitiva y bien fundamentada en el estado del arte.
 
-\section{Implementación de la Arquitectura Propuesta}
+\section{Arquitectura Transformer Propuesta}
 
 Para la arquitectura principal de este trabajo, se utilizó el modelo fundacional Chronos, cuya conceptualización fue detallada en el Capítulo 2. En lugar de utilizar el modelo para pronóstico directo, se aprovechó su capacidad para generar representaciones ricas de las series de tiempo.
 
@@ -91,18 +91,19 @@ El enfoque implementado fue el siguiente:
 
 Esta estrategia de dos pasos permite combinar el poder de los modelos fundacionales para la extracción de características complejas con la eficiencia y robustez de los modelos basados en árboles para la clasificación en datos tabulares. Finalmente, se experimentó con diferentes tamaños del modelo Chronos (small, base y large) para analizar el compromiso entre el rendimiento predictivo y el costo computacional.
 
-\section{Estrategia de Etiquetado para Modelos ML}
+\section{Estrategia de etiquetado para modelos ml}
 
 Para definir el objetivo de predicción del modelo, se evaluaron varias técnicas de etiquetado. Tras analizar los métodos de horizonte fijo y etiquetado dinámico, se adoptó el método de la barrera triple (Triple-Barrier Method). Esta técnica, recomendada en la literatura para mercados financieros, ofrece un enfoque más adaptativo y robusto al definir las etiquetas en función de la volatilidad del activo, con barreras para ganancias, pérdidas y tiempo de expiración.
 Para etiquetar un punto se puede elegir una etiqueta independiente para la barrera vertical o agruparla con las barreras horizontales según si el punto final es mayor o menor que el inicial, si es menor se agrupa con la etiqueta correspondiente a la barrera inferior y, si es mayor, con la superior. Esta alternativa permite mantener las clases a predecir balanceadas con lo cual fue la elegida.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=	\textwidth]{"Figures/triple-barrier.png"}
-  \caption{Esta imagen ilustra la aplicación del método de etiquetado de triple barrera sobre un gráfico de precios. A partir de un punto de Incepción (inicio de la operación), se definen tres límites: una barrera de ganancia superior (púrpura) y una barrera de pérdida inferior (cian) que determinan si la operación se clasifica como positiva o negativa si el precio las toca, y una barrera de tiempo vertical (negra) que sirve de vencimiento, etiqueta la posición por su rendimiento hasta ese momento si ninguna barrera horizontal fue alcanzada previamente.\protect}
+  \caption{Esta imagen ilustra la aplicación del método de etiquetado de triple barrera sobre un gráfico de precios.\protect}
   \label{fig:triple_barrier}
 \end{figure}
 %% \footnotetext{}
 
+En la figura \ref{fig:triple_barrier}  se ve como a partir de un punto de Incepción (inicio de la operación), se definen tres límites: una barrera de ganancia superior (púrpura) y una barrera de pérdida inferior (cian) que determinan si la operación se clasifica como positiva o negativa si el precio las toca, y una barrera de tiempo vertical (negra) que sirve de vencimiento, etiqueta la posición por su rendimiento hasta ese momento si ninguna barrera horizontal fue alcanzada previamente
 \section{Framework de Backtesting y Evaluación}
 
 Para asegurar una evaluación rigurosa y libre de sesgos, se implementó un motor de backtesting a medida en Python. Esta decisión se tomó debido a la necesidad de utilizar metodologías avanzadas como la validación cruzada combinatoria con purga y embargo (Combinatorially Purged Cross-Validation). Este método es esencial para prevenir la fuga de información y el sobreajuste al evaluar modelos en series de tiempo financieras, lo que garantiza que el rendimiento medido sea una estimación realista del comportamiento del modelo en datos futuros.
