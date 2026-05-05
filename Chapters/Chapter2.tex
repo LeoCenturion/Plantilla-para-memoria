@@ -24,7 +24,7 @@ Esta técnica se divide en dos categorías principales:
 
 \begin{itemize}
 \item Clasificación: el modelo predice una categoría discreta o una etiqueta. Por ejemplo, predecir si un activo subirá o bajará en el periodo siguiente.
-\item Regresión: el modelo predice un valor numérico continuo. Por ejemplo, predecir el precio futuro de un activo financiero .
+\item Regresión: el modelo predice un valor numérico continuo. Por ejemplo, predecir el precio futuro de un activo financiero.
 \end{itemize}
 
 Para este trabajo, se optó por un enfoque de clasificación, en el que el modelo predice la dirección del movimiento del precio (subida o bajada) en lugar de la magnitud exacta.
@@ -40,24 +40,25 @@ El rendimiento de un modelo depende tanto de sus parámetros como de sus hiperpa
 
 \section{Transformers}
 
-La arquitectura Transformer, introducida por \cite{Vaswani:2017}, revolucionó el procesamiento de secuencias y ha demostrado ser altamente efectiva en el análisis de series de tiempo. A diferencia de los modelos recurrentes, los Transformers se basan en mecanismos de autoatención (\textit{self-attention}) para modelar dependencias de largo alcance de manera eficiente.
+La arquitectura Transformer, introducida por \cite{Vaswani:2017}, revolucionó el procesamiento de secuencias y ha demostrado ser altamente efectiva en el análisis de series de tiempo. A diferencia de los modelos recurrentes, los Transformers se basan en mecanismos de autoatención (self-attention) para modelar dependencias de largo alcance de manera eficiente.
 
-Recientemente, han surgido modelos fundacionales pre-entrenados que adaptan arquitecturas de lenguaje para el pronóstico de series temporales. Entre ellos destaca Chronos \cite{Chronos:2024}, un marco de trabajo que trata las series temporales como un lenguaje. El núcleo de Chronos es su proceso de \textit{tokenización}, que convierte una serie de valores reales en una secuencia de \textit{tokens} discretos mediante dos pasos:
+Recientemente, han surgido modelos fundacionales preentrenados que adaptan arquitecturas de lenguaje para el pronóstico de series temporales. Entre ellos destaca Chronos \cite{Chronos:2024}, un marco de trabajo que trata las series temporales como un lenguaje. El núcleo de Chronos es su proceso de tokenización, que convierte una serie de valores reales en una secuencia de tokens discretos mediante dos pasos:
 \begin{itemize}
-    \item 	Escalado (\textit{Scaling}): se normaliza la serie para adecuarla a un rango apropiado para la cuantización.
-    \item 	Cuantización (\textit{Quantization}): la serie escalada se convierte en \textit{tokens} discretos mediante una cuantización uniforme (\textit{uniform binning}), donde los valores se asignan a uno de \textit{B} contenedores (\textit{bins}) predefinidos.
+    \item 	Escalado (Scaling): se normaliza la serie para adecuarla a un rango apropiado para la cuantización.
+    \item 	Cuantización (Quantization): la serie escalada se convierte en tokens discretos mediante una cuantización uniforme (uniform binning), donde los valores se asignan a uno de B contenedores (bins) predefinidos.
 \end{itemize}
 
-Una vez tokenizada la serie, se utiliza una arquitectura Transformer estándar (por ejemplo, T5) que se entrena con un objetivo de lenguaje, como predecir el siguiente \textit{token}, usando una función de pérdida de entropía cruzada. Este enfoque, conocido como regresión por clasificación, permite al modelo aprender patrones temporales complejos sin necesidad de componentes específicos para series de tiempo, como capas de descomposición de tendencia o estacionalidad \cite{Chronos:2024}.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=	\textwidth]{"Figures/chronos.png"}
-  \caption{Representación de alto nivel de Chronos. Fase de tokenización (izquierda), entrenamiento (centro), e infrencia (derecha).\protect}
-  \label{fig:chronos_arch}
-\end{figure}
+Una vez tokenizada la serie, se utiliza una arquitectura Transformer estándar (por ejemplo, T5) que se entrena con un objetivo de lenguaje, como predecir el siguiente token, usando una función de pérdida de entropía cruzada. Este enfoque, conocido como regresión por clasificación, permite al modelo aprender patrones temporales complejos sin necesidad de componentes específicos para series de tiempo, como capas de descomposición de tendencia o estacionalidad \cite{Chronos:2024}.
 
  Siguiendo la figura \ref{fig:chronos_arch} se ve la fase de tokenización (izquierda), la serie temporal de entrada se somete a un proceso de escalado y cuantización para transformarla en una secuencia de tokens. Durante el entrenamiento (centro), estos tokens se introducen en un modelo de lenguaje, ya sea de arquitectura codificador-decodificador o solo decodificador, el cual se optimiza mediante la pérdida de entropía cruzada. Finalmente, en la etapa de inferencia (derecha), se muestrean tokens de forma autorregresiva para volver a convertirlos en valores numéricos; este proceso se repite para generar múltiples trayectorias que permiten obtener una distribución predictiva completa.
+
+ \begin{figure}[ht]
+   \centering
+   \includegraphics[width=	\textwidth]{"Figures/chronos.png"}
+   \caption{Representación de alto nivel de Chronos. Fase de tokenización (izquierda), entrenamiento (centro), e infrencia (derecha).\protect}
+   \label{fig:chronos_arch}
+ \end{figure}
+
 \section{Metodologías de evaluación y gestión de riesgo}
 
 Para garantizar la robustez y viabilidad de una estrategia de trading, es fundamental contar con un marco sólido de evaluación y herramientas para la gestión del riesgo. En esta sección se detallan las metodologías y métricas clave que se utilizarán para validar el desempeño de los modelos y para tomar decisiones informadas sobre la asignación de capital.
@@ -86,16 +87,14 @@ El etiquetado define el objetivo que el modelo de aprendizaje supervisado debe p
 El backtesting es el pilar fundamental para evaluar una estrategia de trading. Consiste en simular el comportamiento de la estrategia al utilizar datos históricos para estimar cómo se habría desempeñado en el pasado. Un backtesting riguroso debe evitar el sesgo de retrospección (look ahead bias) y asegurar que las decisiones del modelo en un punto del tiempo se basen únicamente en información disponible hasta ese momento \cite{LoP:2018}.
 
 \subsection{Validación cruzada }
-La validación cruzada (Cross Validation) es una técnica para evaluar la capacidad de generalización de un modelo y prevenir el sobreajuste. Sin embargo, la validación cruzada estándar (como K-Fold) no es adecuada para series de tiempo debido a la dependencia temporal de los datos. En su lugar, se utilizan métodos especializados:
-\begin{itemize}
-    \item Purged K-Fold cross-validation: esta técnica introduce dos modificaciones clave. Primero, se inserta un embargo o período de exclusión después de cada conjunto de validación para evitar que la información futura se filtre al conjunto de entrenamiento. Segundo, purgan del conjunto de entrenamiento aquellas observaciones cuya etiqueta podría estar influenciada por datos del conjunto de validación \cite{LoP:2018}.
-\end{itemize}
+La validación cruzada (Cross Validation) es una técnica para evaluar la capacidad de generalización de un modelo y prevenir el sobreajuste. Sin embargo, la validación cruzada estándar (como K-Fold) no es adecuada para series de tiempo debido a la dependencia temporal de los datos. En su lugar, se utilizan métodos especializados. Uno de ellos es el Purged K-Fold cross-validation. Esta técnica introduce dos modificaciones clave. Primero, se inserta un embargo o período de exclusión después de cada conjunto de validación para evitar que la información futura se filtre al conjunto de entrenamiento. Segundo, purgan del conjunto de entrenamiento aquellas observaciones cuya etiqueta podría estar influenciada por datos del conjunto de validación \cite{LoP:2018}.
+
 
 \subsection{Dimensionamiento de la apuesta }
 El dimensionamiento de la apuesta (Bet sizing) se refiere al proceso de determinar la cantidad de capital que se arriesgará en una operación \cite{LoP:2018}. Un modelo puede predecir la dirección del precio (clasificación) o la probabilidad de un movimiento (regresión), pero el bet sizing traduce esa predicción en una decisión de inversión concreta. El objetivo es maximizar los rendimientos ajustados por riesgo. Un método común es utilizar una función sigmoidea para convertir las probabilidades de predicción del modelo en un tamaño de apuesta, lo que permite al sistema invertir con más confianza cuando el modelo está más seguro.
 
-\subsection{Ratio de sharpe y sus variantes}
-El Ratio de Sharpe \cite{Sharpe:1966} es una métrica clave utilizada para evaluar el rendimiento de una inversión ajustado por el riesgo. Este ratio ayuda a determinar la rentabilidad de una inversión en exceso de la tasa libre de riesgo, por unidad de desviación estándar del rendimiento. Cuanto mayor sea el Ratio de Sharpe, más atractivo es el rendimiento ajustado por riesgo de la estrategia. La fórmula general se ve en \ref{eq:metric}.
+\subsection{Ratio de Sharpe y sus variantes}
+El ratio de Sharpe \cite{Sharpe:1966} es una métrica clave utilizada para evaluar el rendimiento de una inversión ajustado por el riesgo. Este ratio ayuda a determinar la rentabilidad de una inversión en exceso de la tasa libre de riesgo, por unidad de desviación estándar del rendimiento. Cuanto mayor sea el ratio de Sharpe, más atractivo es el rendimiento ajustado por riesgo de la estrategia. La fórmula general se ve en \ref{eq:metric}.
 
 \begin{equation}
 	\label{eq:metric}
@@ -110,14 +109,14 @@ donde:
     \item $\sigma_p$: es la desviación estándar de la rentabilidad de la cartera (medida del riesgo).
 \end{itemize}
 
-Es importante destacar que el Ratio de Sharpe tradicional asume que los retornos se distribuyen normalmente (como una campana de Gauss), una premisa que rara vez se cumple en los mercados financieros, en los que los retornos suelen presentar asimetría y colas pesadas. Para una evaluación más realista del riesgo, López de Prado introduce métricas ajustadas que abordan estas limitaciones \cite{LoP:2018}.
+Es importante destacar que el ratio de Sharpe tradicional asume que los retornos se distribuyen normalmente (como una campana de Gauss), una premisa que rara vez se cumple en los mercados financieros, en los que los retornos suelen presentar asimetría y colas pesadas. Para una evaluación más realista del riesgo, López de Prado introduce métricas ajustadas que abordan estas limitaciones \cite{LoP:2018}.
 
-Existen variantes de este ratio que abordan ciertas limitaciones, como el Sortino Ratio \cite{Sortino:1991}, que solo considera la volatilidad a la baja (riesgo de cola), o el Calmar Ratio \cite{Young:1991}, que utiliza la máxima caída (\textit{max drawdown}) como medida de riesgo en lugar de la desviación estándar. Estas variantes son útiles para obtener una perspectiva más completa del perfil de riesgo rendimiento de una estrategia de trading, especialmente en mercados volátiles como el de las criptomonedas.
+Existen variantes de este ratio que abordan ciertas limitaciones, como el Sortino ratio \cite{Sortino:1991}, que solo considera la volatilidad a la baja (riesgo de cola), o el Calmar ratio \cite{Young:1991}, que utiliza la máxima caída (max drawdown) como medida de riesgo en lugar de la desviación estándar. Estas variantes son útiles para obtener una perspectiva más completa del perfil de riesgo rendimiento de una estrategia de trading, especialmente en mercados volátiles como el de las criptomonedas.
 
 Para una evaluación aún más rigurosa y para combatir el riesgo de sobreajuste en el backtesting, se pueden considerar las siguientes métricas avanzadas propuestas por López de Prado:
 \begin{itemize}
     \item Probabilidad de sobreajuste de backtest (PBO): mide la probabilidad de que la estrategia seleccionada como ``la mejor'' dentro de la muestra de entrenamiento rinda por debajo de la mediana en datos fuera de la muestra, simplemente debido al sesgo de selección.
-    \item 	\textit{Probabilistic sharpe ratio} (PSR): corrige el Ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (skewness), colas pesadas (kurtosis) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (benchmark).
-    \item 	\textit{Deflated sharpe ratio} (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (trials) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un Ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
+    \item 	\textit{Probabilistic sharpe ratio} (PSR): corrige el ratio de Sharpe tradicional y lo penaliza si los retornos tienen sesgo negativo (skewness), colas pesadas (kurtosis) o si el historial de datos es demasiado corto. Proporciona la probabilidad real de que el Sharpe de la estrategia sea mayor que un valor de referencia (benchmark).
+    \item 	\textit{Deflated sharpe ratio} (DSR): va un paso más allá del PSR y ajusta el umbral de aceptación a partir del número de ensayos independientes (trials) y la varianza de esos ensayos. Si se probaron numerosas variaciones de una estrategia, el DSR exigirá un ratio de Sharpe significativamente más alto para considerar que la estrategia es estadísticamente significativa.
 \end{itemize}
 

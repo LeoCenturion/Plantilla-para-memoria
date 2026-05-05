@@ -17,21 +17,29 @@
 \contentsline {subsection}{\numberline {2.5.3}Backtesting}{10}{subsection.2.5.3}%
 \contentsline {subsection}{\numberline {2.5.4}Validación cruzada }{10}{subsection.2.5.4}%
 \contentsline {subsection}{\numberline {2.5.5}Dimensionamiento de la apuesta }{11}{subsection.2.5.5}%
-\contentsline {subsection}{\numberline {2.5.6}Ratio de sharpe y sus variantes}{11}{subsection.2.5.6}%
+\contentsline {subsection}{\numberline {2.5.6}Ratio de Sharpe y sus variantes}{11}{subsection.2.5.6}%
 \contentsline {chapter}{\numberline {3}Diseño e implementación}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Conjunto de Datos y Preprocesamiento}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.1}Conjunto de datos y preprocesamiento}{13}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Conjunto de datos}{13}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}Estrategias de preprocesamiento}{13}{subsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.1.3}Ingeniería de características y análisis de importancia}{14}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Estrategias de referencia}{14}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Arquitectura Transformer Propuesta}{15}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Estrategia de etiquetado para modelos ml}{15}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Framework de Backtesting y Evaluación}{16}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Modelos explorados}{17}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Diseño del bot}{17}{section.3.7}%
-\contentsline {chapter}{\numberline {4}Ensayos y resultados}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Pruebas funcionales del hardware}{19}{section.4.1}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{21}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones generales }{21}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Próximos pasos}{21}{section.5.2}%
-\contentsline {chapter}{Bibliografía}{23}{appendix*.10}%
+\contentsline {section}{\numberline {3.2}Estrategias de referencia}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Arquitectura transformer propuesta}{16}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Estrategia de etiquetado}{17}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Framework de backtesting y evaluación}{18}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Optimización de hiperparámetros: búsqueda bayesiana con Optuna}{18}{subsection.3.5.1}%
+\contentsline {section}{\numberline {3.6}Modelos explorados}{19}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Diseño del bot}{20}{section.3.7}%
+\contentsline {subsubsection}{Fase de inicio y orquestación}{21}{section*.11}%
+\contentsline {subsubsection}{Fase de ejecución continua}{22}{section*.13}%
+\contentsline {subsubsection}{Fase de monitoreo remoto}{23}{section*.15}%
+\contentsline {subsubsection}{Fase de apagado}{23}{section*.17}%
+\contentsline {section}{\numberline {3.8}Diseño del sistema}{23}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Pipeline de modelos}{26}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Estructura de pruebas realizadas con Chronos}{27}{section.3.10}%
+\contentsline {chapter}{\numberline {4}Ensayos y resultados}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Pruebas funcionales del hardware}{29}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones generales }{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Próximos pasos}{31}{section.5.2}%
+\contentsline {chapter}{Bibliografía}{33}{appendix*.23}%
