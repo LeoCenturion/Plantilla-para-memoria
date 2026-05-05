@@ -195,7 +195,7 @@ El bot de trading se diseñó con una arquitectura modular para facilitar su con
 
 En esencia, el bot opera en un ciclo continuo: recolecta datos, predice una señal con el modelo y actúa sobre esa predicción. Esta separación de responsabilidades garantiza que la lógica de la estrategia de trading esté completamente aislada de los detalles de implementación de la comunicación con el mercado.
 de la comunicación con el mercado.
-En el diagrama de secuencia \ref{fig:bot-sequence} se proporciona una vista técnica y exhaustiva de cómo interactúan los cuatro componentes desacoplados (orquestador, motor, exchange y estrategia) a lo largo del ciclo de vida de la aplicación. A continuación, se detalla en profundidad cada una de las fases operativas representadas en el diagrama:
+A continuación se proporciona una descripción y vista técnica y exhaustiva de cómo interactúan los cuatro componentes desacoplados (orquestador, motor, exchange y estrategia) a lo largo del ciclo de vida de la aplicación.
 
 \subsubsection{Fase de inicio y orquestación}
 
@@ -226,7 +226,7 @@ Arranque del motor del bot: finalmente, el botthread inyecta la configuración, 
 
 \subsubsection{Fase de ejecución continua}
 
-Esta es la fase central operada por el motor del bot, caracterizada por un bucle principal que se repite periódicamente cada tick\_interval segundos mientras el flag bot.running sea verdadera. Refleja el ciclo de "recolectar, predecir y actuar" ilustrado en la figura \ref{fig:bot-seq-loop}.
+Esta es la fase central operada por el motor del bot, caracterizada por un bucle principal que se repite periódicamente cada tick\_interval segundos mientras el flag bot.running sea verdadera. Refleja el ciclo de ``recolectar, predecir y actuar'' ilustrado en la figura \ref{fig:bot-seq-loop}.
 
 Recolección de datos: en cada iteración, el bot solicita al exchange los datos históricos del mercado con una invocación a \texttt{get\_historical\_klines} con parámetros de símbolo, marco temporal límite (timeframe). El exchange devuelve una lista de velas (klines).
 
@@ -240,9 +240,9 @@ Predicción de señal: si el stop-loss no se activa, el bot pasa el dataframe pr
 
 Ejecución de órdenes de mercado: el bot evalúa la señal de la estrategia cruzada con su estado actual:
 
-Flujo de compra: si la señal es "buy" y no hay ninguna posición abierta, el bot le consulta a la estrategia el tamaño de la orden (\texttt{get\_order\_size()}). Tras recibir la cantidad, ejecuta la orden de compra (\texttt{execute\_buy(latest\_price)}) a través del módulo de exchange y actualiza sus balances y estado de posición internamente.
+Flujo de compra: si la señal es ``buy'' y no hay ninguna posición abierta, el bot le consulta a la estrategia el tamaño de la orden (\texttt{get\_order\_size()}). Tras recibir la cantidad, ejecuta la orden de compra (\texttt{execute\_buy(latest\_price)}) a través del módulo de exchange y actualiza sus balances y estado de posición internamente.
 
-Flujo de venta: si la señal es "sell" y el bot ya posee una posición abierta, procede a ejecutar la venta (\texttt{execute\_sell()}) e igualmente actualiza el balance de la cuenta y su estado de posición.
+Flujo de venta: si la señal es ``sell'' y el bot ya posee una posición abierta, procede a ejecutar la venta (\texttt{execute\_sell()}) e igualmente actualiza el balance de la cuenta y su estado de posición.
 
 Pausa táctica: al finalizar la lógica operativa, el bot suspende su ejecución mediante \texttt{sleep(tick\_interval)} para evitar saturar las apis del exchange y esperar a la formación de nuevos datos de mercado antes de reiniciar el bucle.
 
@@ -303,7 +303,7 @@ El sistema esta estructurado siguiendo las tematica de pipeline de investigació
 
 
 \section{Pipeline de modelos}
-\label{subsec:ml-pipline}
+\label{subsec:ml-pipeline}
 La abstracción central utilizada en el desarrollo de las pruebas para la optimización fue el concepto de pipeline. Como ya se dijo, este fue con el objetivo de centralizar la coordinación de las áreas principales que componen la investigación de estrategias de inversión según López de Prado. En la figura \ref{fig:ml-pipeline-flow-abstract} se ve conceptualmente el flujo de datos pasar a través del pipeline.
 Describe dos fases. La fase inicial transforma datos crudos en un formato tabular. El proceso comienza con el estructurado de datos, que genera barras de información. Estas barras alimentan dos procesos paralelos: la ingeniería de características, que crea variables predictivas, y el etiquetado y ponderación, que define las variables objetivo. Luego, ambas ramas convergen en el paso de alineamiento: lo que garantiza que todas las matrices compartan los mismos índices temporales para formar el dataset final.
 
@@ -319,7 +319,7 @@ La segunda fase utiliza este dataset para modelar y validar la estrategia. Los d
 Con esta estructura de base se pudo evaluar los distintos modelos y estrategias de forma consistente mediante el uso de herencia como se ve en la figura \ref{fig:ml-pipeline-flow-abstract}. 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=1.0 \textwidth]{"Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png"}
+  \includegraphics[width=1.0\textwidth]{"Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png"}
   \caption{Estructura jerárquica de herencia de clase para AbstractMLPipeline.}
   \label{fig:ml-pipeline-flow-abstract}
 \end{figure}
