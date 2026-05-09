@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  4 MAY 2026 21:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  9 MAY 2026 20:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -801,6 +801,23 @@ Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
 \ESO@tempdima=\dimen190
 \ESO@tempdimb=\dimen191
 )
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count445
+\float@exts=\toks26
+\float@box=\box70
+\@float@everytoks=\toks27
+\@floatcapt=\box71
+)
+Package scrhack Info: loading float hack on input line 32.
+
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/float.hak
+File: float.hak 2022/10/12 v3.38 KOMA-Script scrhack part (hacking package floa
+t)
+Package scrhack Info: redefining \newfloat on input line 163.
+Package scrhack Info: redefining \listof on input line 163.
+Package scrhack Info: undefining \float@addtolists on input line 163.
+)
 Package hyperref Info: Option `unicode' set `true' on input line 42.
 Package hyperref Info: Option `colorlinks' set `true' on input line 42.
 Package csquotes Info: Checking for multilingual support...
@@ -810,8 +827,14 @@ Package csquotes Info: ... found 'babel' package.
 LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
  (./Chapters/Chapter1.aux)
-(./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux)
-(./Chapters/Chapter5.aux))
+(./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux
+
+LaTeX Warning: Label `fig:hyperparameter_pipeline' multiply defined.
+
+
+LaTeX Warning: Label `fig:hyperparameter_pipeline' multiply defined.
+
+) (./Chapters/Chapter5.aux))
 \openout1 = `memorianueva.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
@@ -837,39 +860,32 @@ LaTeX Info: Redefining \% on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count445
+\scratchcounter=\count446
 \scratchdimen=\dimen192
-\scratchbox=\box70
-\nofMPsegments=\count446
-\nofMParguments=\count447
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count448
+\scratchbox=\box72
+\nofMPsegments=\count447
+\nofMParguments=\count448
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count449
 \MPscratchDim=\dimen193
-\MPnumerator=\count449
-\makeMPintoPDFobject=\count450
-\everyMPtoPDFconversion=\toks27
+\MPnumerator=\count450
+\makeMPintoPDFobject=\count451
+\everyMPtoPDFconversion=\toks29
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-
-(/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count451
+\c@lstlisting=\count452
 Package scrhack Info: undefining \float@addtolists on input line 64.
 Package biblatex Info: Trying to load language 'spanish'...
 Package biblatex Info: ... file 'spanish.lbx' found.
@@ -1002,23 +1018,23 @@ Package scrbase Info: activating spanish \byname on input line 64.
 \openout2 = `portada.aux'.
 
 (./portada.tex
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 6.
-
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 16
+.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 6.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 49.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 6.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 49.
 
 
 pdfTeX warning: pdflatex (file ./Figures/fondo.pdf): PDF inclusion: found PDF v
 ersion <1.6>, but at most version <1.5> allowed
-<Figures/fondo.pdf, id=180, 597.55246pt x 845.07718pt>
+<Figures/fondo.pdf, id=192, 597.55246pt x 845.07718pt>
 File: Figures/fondo.pdf Graphic file (type pdf)
 <use Figures/fondo.pdf>
-Package pdftex.def Info: Figures/fondo.pdf  used on input line 52.
+Package pdftex.def Info: Figures/fondo.pdf  used on input line 53.
 (pdftex.def)             Requested size: 597.551pt x 845.04932pt.
 [1
 
@@ -1104,7 +1120,7 @@ l.15
 
 
 ]
-<Figures/Screenshot From 2026-03-17 21-57-54.png, id=329, 2044.63875pt x 789.95
+<Figures/Screenshot From 2026-03-17 21-57-54.png, id=367, 2044.63875pt x 789.95
 125pt>
 File: Figures/Screenshot From 2026-03-17 21-57-54.png Graphic file (type png)
 <use Figures/Screenshot From 2026-03-17 21-57-54.png>
@@ -1129,7 +1145,7 @@ l.33
 LaTeX Info: Redefining \. on input line 48.
 LaTeX Info: Redefining \% on input line 48.
  [3]
-<Figures/bloques-tp-final.drawio.png, id=359, 507.8975pt x 392.46625pt>
+<Figures/bloques-tp-final.drawio.png, id=396, 507.8975pt x 392.46625pt>
 File: Figures/bloques-tp-final.drawio.png Graphic file (type png)
 <use Figures/bloques-tp-final.drawio.png>
 Package pdftex.def Info: Figures/bloques-tp-final.drawio.png  used on input lin
@@ -1156,7 +1172,7 @@ Cap\'{\i }tulo 2.
 LaTeX Info: Redefining \. on input line 52.
 LaTeX Info: Redefining \% on input line 52.
  [8]
-<Figures/chronos.png, id=410, 3165.8275pt x 1316.92pt>
+<Figures/chronos.png, id=447, 3165.8275pt x 1316.92pt>
 File: Figures/chronos.png Graphic file (type png)
 <use Figures/chronos.png>
 Package pdftex.def Info: Figures/chronos.png  used on input line 57.
@@ -1190,91 +1206,59 @@ File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 67
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 68
 .
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-<Figures/preprocessing_pipeline.png, id=452, 571.13374pt x 357.335pt>
+<Figures/preprocessing_pipeline.png, id=489, 571.13374pt x 357.335pt>
 File: Figures/preprocessing_pipeline.png Graphic file (type png)
 <use Figures/preprocessing_pipeline.png>
 Package pdftex.def Info: Figures/preprocessing_pipeline.png  used on input line
- 73.
+ 74.
 (pdftex.def)             Requested size: 389.80269pt x 243.88423pt.
-LaTeX Info: Redefining \. on input line 83.
-LaTeX Info: Redefining \% on input line 83.
+LaTeX Info: Redefining \. on input line 78.
+LaTeX Info: Redefining \% on input line 78.
  [14]
-LaTeX Info: Redefining \. on input line 91.
-LaTeX Info: Redefining \% on input line 91.
+LaTeX Info: Redefining \. on input line 90.
+LaTeX Info: Redefining \% on input line 90.
  [15 <./Figures/preprocessing_pipeline.png>]
-<Figures/triple-barrier.png, id=465, 2274.4975pt x 1895.08pt>
+LaTeX Info: Redefining \. on input line 113.
+LaTeX Info: Redefining \% on input line 113.
+ [16]
+<Figures/triple-barrier.png, id=511, 2274.4975pt x 1327.96124pt>
 File: Figures/triple-barrier.png Graphic file (type png)
 <use Figures/triple-barrier.png>
-Package pdftex.def Info: Figures/triple-barrier.png  used on input line 118.
-(pdftex.def)             Requested size: 389.80269pt x 324.76183pt.
-LaTeX Info: Redefining \. on input line 123.
-LaTeX Info: Redefining \% on input line 123.
- [16]
-LaTeX Info: Redefining \. on input line 129.
-LaTeX Info: Redefining \% on input line 129.
+Package pdftex.def Info: Figures/triple-barrier.png  used on input line 123.
+(pdftex.def)             Requested size: 389.80269pt x 227.5741pt.
+LaTeX Info: Redefining \. on input line 132.
+LaTeX Info: Redefining \% on input line 132.
  [17 <./Figures/triple-barrier.png>]
-Overfull \hbox (30.73639pt too wide) in paragraph at lines 143--144
-\T1/ppl/m/n/10.95 de hi-per-pa-rá-me-tros (ej. \T1/pcr/m/n/10.95 volume_thresho
-ld\T1/ppl/m/n/10.95 , \T1/pcr/m/n/10.95 tau\T1/ppl/m/n/10.95 , \T1/pcr/m/n/10.9
-5 n_estimators\T1/ppl/m/n/10.95 , \T1/pcr/m/n/10.95 max_depth\T1/ppl/m/n/10.95 
-,
- []
-
-<Figures/hyperparameter_pipeline.png, id=481, 705.63625pt x 691.58376pt>
+<Figures/hyperparameter_pipeline.png, id=519, 705.63625pt x 691.58376pt>
 File: Figures/hyperparameter_pipeline.png Graphic file (type png)
 <use Figures/hyperparameter_pipeline.png>
 Package pdftex.def Info: Figures/hyperparameter_pipeline.png  used on input lin
-e 158.
+e 161.
 (pdftex.def)             Requested size: 311.84334pt x 305.62743pt.
-LaTeX Info: Redefining \. on input line 161.
-LaTeX Info: Redefining \% on input line 161.
+LaTeX Info: Redefining \. on input line 164.
+LaTeX Info: Redefining \% on input line 164.
+
 [18]
-LaTeX Info: Redefining \. on input line 178.
-LaTeX Info: Redefining \% on input line 178.
+LaTeX Info: Redefining \. on input line 181.
+LaTeX Info: Redefining \% on input line 181.
  [19 <./Figures/hyperparameter_pipeline.png>]
-LaTeX Info: Redefining \. on input line 199.
-LaTeX Info: Redefining \% on input line 199.
+LaTeX Info: Redefining \. on input line 202.
+LaTeX Info: Redefining \% on input line 202.
  [20]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 200.
+(hyperref)                than one, level fixed on input line 203.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--210
-
- []
-
-
-Overfull \hbox (11.59071pt too wide) in paragraph at lines 211--213
-\T1/ppl/m/n/10.95 Carga de con-fi-gu-ra-cio-nes: el botth-read in-vo-ca a \T1/p
-cr/m/n/10.95 load_config(``config.yaml'')\T1/ppl/m/n/10.95 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 211--213
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 214--215
-
- []
-
+<Figures/seq_1_startup.png, id=547, 1433.355pt x 783.92876pt>
+File: Figures/seq_1_startup.png Graphic file (type png)
+<use Figures/seq_1_startup.png>
+Package pdftex.def Info: Figures/seq_1_startup.png  used on input line 209.
+(pdftex.def)             Requested size: 389.80269pt x 213.18274pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 216--217
 
@@ -1285,97 +1269,179 @@ Underfull \hbox (badness 10000) in paragraph at lines 218--219
 
  []
 
-<Figures/seq_1_startup.png, id=508, 1433.355pt x 783.92876pt>
-File: Figures/seq_1_startup.png Graphic file (type png)
-<use Figures/seq_1_startup.png>
-Package pdftex.def Info: Figures/seq_1_startup.png  used on input line 222.
-(pdftex.def)             Requested size: 389.80269pt x 213.18274pt.
-LaTeX Info: Redefining \. on input line 225.
-LaTeX Info: Redefining \% on input line 225.
-[21]
-LaTeX Info: Redefining \. on input line 244.
-LaTeX Info: Redefining \% on input line 244.
- [22 <./Figures/seq_1_startup.png (PNG copy)>]
-<Figures/seq_2_trading_loop.png, id=519, 528.97626pt x 792.9625pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--224
+
+ []
+
+LaTeX Info: Redefining \. on input line 224.
+LaTeX Info: Redefining \% on input line 224.
+[21 <./Figures/seq_1_startup.png (PNG copy)>]
+Overfull \hbox (17.30756pt too wide) in paragraph at lines 225--226
+\T1/ppl/m/n/10.95 eva-lúa la con-fi-gu-ra-ción re-cién car-ga-da. Si exis-te un
+ ar-chi-vo mock (\T1/pcr/m/n/10.95 mock_file\T1/ppl/m/n/10.95 ),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--226
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 227--228
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
+
+ []
+
+<Figures/seq_2_trading_loop.png, id=554, 528.97626pt x 792.9625pt>
 File: Figures/seq_2_trading_loop.png Graphic file (type png)
 <use Figures/seq_2_trading_loop.png>
-Package pdftex.def Info: Figures/seq_2_trading_loop.png  used on input line 251
+Package pdftex.def Info: Figures/seq_2_trading_loop.png  used on input line 240
 .
 (pdftex.def)             Requested size: 389.80269pt x 584.33894pt.
-
-
-LaTeX Warning: Reference `fig:seq-3-monitoring' on page 23 undefined on input l
-ine 258.
-
-<Figures/seq_3_monitoring.png, id=520, 720.6925pt x 377.41pt>
+LaTeX Info: Redefining \. on input line 244.
+LaTeX Info: Redefining \% on input line 244.
+[22]
+LaTeX Info: Redefining \. on input line 249.
+LaTeX Info: Redefining \% on input line 249.
+ [23 <./Figures/seq_2_trading_loop.png (PNG copy)>]
+<Figures/seq_3_monitoring.png, id=564, 720.6925pt x 377.41pt>
 File: Figures/seq_3_monitoring.png Graphic file (type png)
 <use Figures/seq_3_monitoring.png>
-Package pdftex.def Info: Figures/seq_3_monitoring.png  used on input line 270.
+Package pdftex.def Info: Figures/seq_3_monitoring.png  used on input line 273.
 (pdftex.def)             Requested size: 389.80269pt x 204.1266pt.
-<Figures/seq_4_shutdown.png, id=522, 994.71625pt x 591.20876pt>
+LaTeX Info: Redefining \. on input line 277.
+LaTeX Info: Redefining \% on input line 277.
+ [24]
+<Figures/seq_4_shutdown.png, id=570, 994.71625pt x 591.20876pt>
 File: Figures/seq_4_shutdown.png Graphic file (type png)
 <use Figures/seq_4_shutdown.png>
-Package pdftex.def Info: Figures/seq_4_shutdown.png  used on input line 285.
+Package pdftex.def Info: Figures/seq_4_shutdown.png  used on input line 295.
 (pdftex.def)             Requested size: 389.80269pt x 231.68008pt.
-LaTeX Info: Redefining \. on input line 295.
-LaTeX Info: Redefining \% on input line 295.
-[23]
-LaTeX Info: Redefining \. on input line 295.
-LaTeX Info: Redefining \% on input line 295.
- [24 <./Figures/seq_2_trading_loop.png (PNG copy)>]
 LaTeX Info: Redefining \. on input line 299.
 LaTeX Info: Redefining \% on input line 299.
- [25 <./Figures/seq_3_monitoring.png (PNG copy)> <./Figures/seq_4_shutdown.png 
-(PNG copy)>]
+ [25 <./Figures/seq_3_monitoring.png (PNG copy)>]
 LaTeX Info: Redefining \. on input line 311.
 LaTeX Info: Redefining \% on input line 311.
- [26]
-<Figures/ml-pipeline-flow.drawio.png, id=545, 774.895pt x 305.14pt>
+ [26 <./Figures/seq_4_shutdown.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 325.
+LaTeX Info: Redefining \% on input line 325.
+
+[27]
+<Figures/ml-pipeline-flow.drawio.png, id=591, 774.895pt x 305.14pt>
 File: Figures/ml-pipeline-flow.drawio.png Graphic file (type png)
 <use Figures/ml-pipeline-flow.drawio.png>
 Package pdftex.def Info: Figures/ml-pipeline-flow.drawio.png  used on input lin
-e 314.
+e 330.
 (pdftex.def)             Requested size: 389.80269pt x 153.50082pt.
-<Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png, id=547, 733.74126pt x
+<Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png, id=593, 733.74126pt x
  421.575pt>
 File: Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png Graphic file (typ
 e png)
 <use Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png>
 Package pdftex.def Info: Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.pn
-g  used on input line 322.
+g  used on input line 338.
 (pdftex.def)             Requested size: 389.80269pt x 223.96759pt.
-LaTeX Info: Redefining \. on input line 331.
-LaTeX Info: Redefining \% on input line 331.
-
-[27 <./Figures/ml-pipeline-flow.drawio.png> <./Figures/ml-pipeline-flow-abstrac
-t-mlpipeline.drawio.png>]
-<Figures/ml-pipeline-flow-chronos-pipeline.drawio.png, id=557, 1120.185pt x 620
+LaTeX Info: Redefining \. on input line 347.
+LaTeX Info: Redefining \% on input line 347.
+ [28 <./Figures/ml-pipeline-flow.drawio.png> <./Figures/ml-pipeline-flow-abstra
+ct-mlpipeline.drawio.png>]
+<Figures/ml-pipeline-flow-chronos-pipeline.drawio.png, id=602, 1120.185pt x 620
 .3175pt>
 File: Figures/ml-pipeline-flow-chronos-pipeline.drawio.png Graphic file (type p
 ng)
 <use Figures/ml-pipeline-flow-chronos-pipeline.drawio.png>
 Package pdftex.def Info: Figures/ml-pipeline-flow-chronos-pipeline.drawio.png  
-used on input line 339.
+used on input line 350.
 (pdftex.def)             Requested size: 389.80269pt x 215.8555pt.
 )
 LaTeX Info: Redefining \. on input line 112.
 LaTeX Info: Redefining \% on input line 112.
- [28 <./Figures/ml-pipeline-flow-chronos-pipeline.drawio.png>]
+ [29 <./Figures/ml-pipeline-flow-chronos-pipeline.drawio.png>]
 \openout2 = `Chapters/Chapter4.aux'.
 
- (./Chapters/Chapter4.tex
-Cap\'{\i }tulo 4.
-)
-1: section
-[29
+ (./Chapters/Chapter4.tex [30
 
 
 
 
 ]
+Cap\'{\i }tulo 4.
+<Figures/bars-volume-1m.png, id=612, 1564.84625pt x 782.925pt>
+File: Figures/bars-volume-1m.png Graphic file (type png)
+<use Figures/bars-volume-1m.png>
+Package pdftex.def Info: Figures/bars-volume-1m.png  used on input line 30.
+(pdftex.def)             Requested size: 311.84334pt x 156.02074pt.
+<Figures/bars-vs-1m.png, id=613, 2104.86375pt x 834.11626pt>
+File: Figures/bars-vs-1m.png Graphic file (type png)
+<use Figures/bars-vs-1m.png>
+Package pdftex.def Info: Figures/bars-vs-1m.png  used on input line 37.
+(pdftex.def)             Requested size: 311.84334pt x 123.572pt.
+1: section
+[31 <./Figures/bars-volume-1m.png>]
+Overfull \hbox (32.9244pt too wide) in paragraph at lines 59--72
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--115
+ []\T1/ppl/m/sc/10 Tabla 4.5. |\T1/ppl/m/n/10 Sen-si-bi-li-dad de pa-rá-me-tros
+ (co-rre-la-ción con 
+ []
+
+
+Overfull \hbox (45.60384pt too wide) in paragraph at lines 116--128
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Info: Redefining \. on input line 132.
+LaTeX Info: Redefining \% on input line 132.
+[32 <./Figures/bars-vs-1m.png>]
+Overfull \hbox (59.10155pt too wide) in paragraph at lines 140--141
+\T1/ppl/m/n/10.95 de-los de la fa-mi-lia ARI-MA. Al ana-li-zar el \T1/pcr/m/n/1
+0.95 ARIMAClassifier\T1/ppl/m/n/10.95 , el \T1/pcr/m/n/10.95 ARIMAXGARCHClassif
+ier
+ []
+
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
+[33]
+Overfull \hbox (15.23615pt too wide) in paragraph at lines 172--184
+ [][] 
+ []
+
+
+Overfull \hbox (56.45872pt too wide) in paragraph at lines 190--202
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Info: Redefining \. on input line 205.
+LaTeX Info: Redefining \% on input line 205.
+[34])
+LaTeX Info: Redefining \. on input line 113.
+LaTeX Info: Redefining \% on input line 113.
+ [35]
 \openout2 = `Chapters/Chapter5.aux'.
 
- (./Chapters/Chapter5.tex [30
+ (./Chapters/Chapter5.tex [36
 
 
 
@@ -1384,7 +1450,7 @@ Cap\'{\i }tulo 4.
 Cap\'{\i }tulo 5.
 )
 1: section
-[31] [32
+[37] [38
 
 
 
@@ -1419,7 +1485,7 @@ Overfull \hbox (3.26604pt too wide) in paragraph at lines 132--132
  []
 
 1: section
-[33]
+[39]
 Overfull \hbox (0.25111pt too wide) in paragraph at lines 132--132
 \T1/ppl/m/n/10.95 Car-lo Ro-dri-gues Le-les. Dis-ser-ta-tion of Mas-ter of Scie
 n-ce. São Jos'e dos Cam-
@@ -1427,7 +1493,7 @@ n-ce. São Jos'e dos Cam-
 
 LaTeX Info: Redefining \. on input line 134.
 LaTeX Info: Redefining \% on input line 134.
-[34] (./memorianueva.aux (./portada.aux)
+[40] (./memorianueva.aux (./portada.aux)
 LaTeX Info: Redefining \sptext on input line 27.
 LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
@@ -1437,8 +1503,11 @@ LaTeX Info: Redefining \% on input line 27.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `memorianueva.out' has not changed.
-(rerunfilecheck)             Checksum: E572F0BBA3D5B27F52AF68B99789C0FB;8415.
+(rerunfilecheck)             Checksum: FDC243F665DCBABE53BB4C0A56C06FA8;9152.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                memorianueva
@@ -1449,11 +1518,11 @@ Package logreq Info: Writing requests to 'memorianueva.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30411 strings out of 477967
- 648439 string characters out of 5838625
- 1871388 words of memory out of 6000000
- 50050 multiletter control sequences out of 15000+600000
- 570723 words of font info for 99 fonts, out of 8000000 for 9000
+ 30494 strings out of 477967
+ 649790 string characters out of 5838625
+ 1874388 words of memory out of 6000000
+ 50109 multiletter control sequences out of 15000+600000
+ 571654 words of font info for 100 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  95i,20n,92p,1969b,2827s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
@@ -1463,18 +1532,19 @@ pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helv
-etic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on memorianueva.pdf (44 pages, 6584133 bytes).
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhv
+r8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/palatino/uplri8a.pfb>
+Output written on memorianueva.pdf (50 pages, 6876213 bytes).
 PDF statistics:
- 703 PDF objects out of 1000 (max. 8388607)
- 601 compressed objects within 7 object streams
- 152 named destinations out of 1000 (max. 500000)
- 423 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 791 PDF objects out of 1000 (max. 8388607)
+ 677 compressed objects within 7 object streams
+ 172 named destinations out of 1000 (max. 500000)
+ 457 words of extra memory for PDF output out of 10000 (max. 10000000)
 

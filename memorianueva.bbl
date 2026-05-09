@@ -659,5 +659,12 @@
     \field{type}{Dissertation of Master of Science}
     \field{year}{2023}
   \endentry
+
+  \entry{optuna:url}{misc}{}{}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://optuna.org/}}
+    \field{note}{Visitado el 9-05-2026}
+    \field{title}{Optuna}
+  \endentry
 \enddatalist
 \endinput

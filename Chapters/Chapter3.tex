@@ -1,3 +1,4 @@
+
 \chapter{Diseño e implementación} % Main chapter title
 
 \label{Chapter3}
@@ -68,18 +69,19 @@ Finalmente, antes del entrenamiento, se aplican transformaciones estándar como 
 
 En síntesis, el preprocesamiento representa un pipeline sofisticado que transforma los datos brutos de precios en un formato estructurado, estacionario y etiquetado de manera robusta, listo para ser utilizado por los modelos de aprendizaje de máquina. La figura \ref{fig:preprocessing_pipeline} ilustra este proceso.
 
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{"Figures/preprocessing_pipeline.png"}
   \caption{Diagrama del pipeline de preprocesamiento de datos.}
   \label{fig:preprocessing_pipeline}
 \end{figure}
 
+%% \clearpage
 \subsection{Ingeniería de características y análisis de importancia}
 
 Una vez estructuradas las barras, se procede con la ingeniería de características, donde se construye un conjunto extenso de atributos para los modelos. Esto incluye indicadores técnicos.
 
-Para la ingeniería de características, se generó una extensa lista de indicadores técnicos clásicos como el RSI, el Oscilador Asombroso (AO), Williams \%R y ROC para momentum; MACD, ADX, Aroon, CCI y Vortex para tendencia; y las Bandas de Bollinger, Canales de Keltner y Canales de Donchian para volatilidad y fluctuación. Adicionalmente, se incorporan características basadas en retornos porcentuales (\texttt{pct\_change}) y sus retardos. En el pipeline específico de Chronos, el modelo se utiliza para generar embeddings a partir de ventanas de la serie de precios. Estos *embeddings*, que encapsulan patrones complejos, sirven como características adicionales para un modelo tabular, como XGBoost. Adicionalmente, se hizo uso de técnicas de reducción de dimensionalidad como el análisis de componentes principales (PCA). Para determinar las características más relevantes para el modelo final, se realizó un análisis de importancia en el cual se utilizó un conjunto de métricas, entre ellas: la disminución media de impureza (MDI), la disminución media de exactitud (MDA) y la importancia de característica individual (SFI). También se analizaron las funciones de autocorrelación (ACF) y autocorrelación parcial (PACF) de los componentes principales para identificar dependencias temporales.
+Para la ingeniería de características, se generó una extensa lista de indicadores técnicos clásicos como el RSI, el Oscilador Asombroso (AO), Williams \%R y ROC para momentum; MACD, ADX, Aroon, CCI y Vortex para tendencia; y las Bandas de Bollinger, Canales de Keltner y Canales de Donchian para volatilidad y fluctuación. Adicionalmente, se incorporan características basadas en retornos porcentuales (\texttt{pct\_change}) y sus retardos. En el pipeline específico de Chronos, el modelo se utiliza para generar embeddings a partir de ventanas de la serie de precios. Estos embeddings, que encapsulan patrones complejos, sirven como características adicionales para un modelo tabular, como XGBoost. Adicionalmente, se hizo uso de técnicas de reducción de dimensionalidad como el análisis de componentes principales (PCA). Para determinar las características más relevantes para el modelo final, se realizó un análisis de importancia en el cual se utilizó un conjunto de métricas, entre ellas: la disminución media de impureza (MDI), la disminución media de exactitud (MDA) y la importancia de característica individual (SFI). También se analizaron las funciones de autocorrelación (ACF) y autocorrelación parcial (PACF) de los componentes principales para identificar dependencias temporales.
 
 \section{Estrategias de referencia}
 
@@ -90,7 +92,7 @@ Los elementos metodológicos que se incorporaron de dicho trabajo son los siguie
     \item Muestreo basado en volumen: se adoptó la técnica de agrupar los datos en barras de volumen constante en lugar de intervalos de tiempo fijos. Este enfoque mitiga problemas comunes en las series de tiempo financieras, como la heterocedasticidad, y mejora la calidad de los datos para el entrenamiento de modelos.
     \item Formulación como clasificación: al igual que en el trabajo de referencia, el problema se formuló como una tarea de clasificación para predecir la dirección del movimiento del precio (alza o baja), en lugar de intentar predecir el valor exacto del precio.
     \item Inspiración en el etiquetado dinámico: la estrategia de etiquetado se inspiró en el enfoque de Palazzo de no utilizar horizontes de tiempo fijos. En este trabajo, dicha idea se implementó a través del método de la barrera triple, que se adapta dinámicamente a la volatilidad del mercado.
-    \item Validación de modelos basados en árboles: el éxito de XGBoost en el trabajo de referencia sirvió como validación para su uso como un componente eficaz en nuestra arquitectura final, en conjunto con los embeddings generados por Chronos.
+    \item Validación de modelos basados en árboles: el éxito de XGBoost en el trabajo de referencia sirvió como validación para su uso como un componente eficaz en la arquitectura final, en conjunto con los embeddings generados por Chronos.
 \end{itemize}
 
 Al integrar estos componentes, se asegura que la evaluación del rendimiento del modelo Transformer se realice contra una estrategia de referencia competitiva y bien fundamentada en el estado del arte.
@@ -112,8 +114,11 @@ Esta estrategia de dos pasos permite combinar el poder de los modelos fundaciona
 \section{Estrategia de etiquetado}
 
 Para definir el objetivo de predicción del modelo, se evaluaron varias técnicas de etiquetado. Tras analizar los métodos de horizonte fijo y etiquetado dinámico, se adoptó el método de la barrera triple (Triple-Barrier Method). Esta técnica, recomendada en la literatura para mercados financieros, ofrece un enfoque más adaptativo y robusto al definir las etiquetas en función de la volatilidad del activo, con barreras para ganancias, pérdidas y tiempo de expiración.
-Para etiquetar un punto se puede elegir una etiqueta independiente para la barrera vertical o agruparla con las barreras horizontales según si el punto final es mayor o menor que el inicial, si es menor se agrupa con la etiqueta correspondiente a la barrera inferior y, si es mayor, con la superior. Esta alternativa permite mantener las clases a predecir balanceadas con lo cual fue la elegida.
-\begin{figure}[ht]
+Para etiquetar un punto se puede elegir una etiqueta independiente para la barrera vertical o agruparla con las barreras horizontales según si el punto final es mayor o menor que el inicial, si es menor se agrupa con la etiqueta correspondiente a la barrera inferior y, si es mayor, con la superior. Esta alternativa permite mantener las clases a predecir balanceadas con lo cual fue la seleccionada.
+
+En la figura \ref{fig:triple_barrier}  se ve como a partir de un punto de Incepción (inicio de la operación), se definen tres límites: una barrera de ganancia superior (púrpura) y una barrera de pérdida inferior (cian) que determinan si la operación se clasifica como positiva o negativa si el precio las toca, y una barrera de tiempo vertical (negra) que sirve de vencimiento, etiqueta la posición por su rendimiento hasta ese momento si ninguna barrera horizontal fue alcanzada previamente
+
+\begin{figure}[H]
   \centering
   \includegraphics[width=	\textwidth]{"Figures/triple-barrier.png"}
   \caption{Esta imagen ilustra la aplicación del método de etiquetado de triple barrera sobre un gráfico de precios.\protect}
@@ -121,11 +126,9 @@ Para etiquetar un punto se puede elegir una etiqueta independiente para la barre
 \end{figure}
 %% \footnotetext{}
 
-En la figura \ref{fig:triple_barrier}  se ve como a partir de un punto de Incepción (inicio de la operación), se definen tres límites: una barrera de ganancia superior (púrpura) y una barrera de pérdida inferior (cian) que determinan si la operación se clasifica como positiva o negativa si el precio las toca, y una barrera de tiempo vertical (negra) que sirve de vencimiento, etiqueta la posición por su rendimiento hasta ese momento si ninguna barrera horizontal fue alcanzada previamente
-
 \section{Framework de backtesting y evaluación}
 
-Para asegurar una evaluación rigurosa y libre de sesgos, se implementó un motor de backtesting a medida en Python. Esta decisión se tomó debido a la necesidad de utilizar metodologías avanzadas como la validación cruzada combinatoria con purga y embargo (Combinatorially Purged Cross-Validation). Este método es esencial para prevenir la fuga de información y el sobreajuste al evaluar modelos en series de tiempo financieras, lo que garantiza que el rendimiento medido sea una estimación realista del comportamiento del modelo en datos futuros.
+Para asegurar una evaluación rigurosa y libre de sesgos, se implementó un motor de backtesting a medida en Python. Esta decisión se tomó debido a la necesidad de utilizar metodologías avanzadas como la validación cruzada combinatoria con purga y embargo (\textit{Combinatorially Purged Cross-Validation}). Este método es esencial para prevenir la fuga de información y el sobreajuste al evaluar modelos en series de tiempo financieras, lo que garantiza que el rendimiento medido sea una estimación realista del comportamiento del modelo en datos futuros.
 
 \subsection{Optimización de hiperparámetros: búsqueda bayesiana con Optuna}
 
@@ -135,20 +138,20 @@ Para evitar esto, la búsqueda de hiperparámetros se realizó  únicamente con 
 
 Al tratarse de un problema de clasificación, y por el desbalance de clases inherente a las señales de trading, se utilizó la métrica F1 ponderada por clase para evaluar el desempeño. Esta métrica proporciona una medida balanceada entre la precisión y la exhaustividad del modelo, ajustada a la frecuencia de cada clase, lo que la hace más representativa que la exactitud simple.
 
-Para llevar a cabo la búsqueda de manera eficiente, se utilizó la librería Optuna. En lugar de recurrir a métodos de fuerza bruta como la búsqueda en grilla (Grid Search) o a la ineficiente búsqueda aleatoria (Random Search), Optuna implementa un enfoque de optimización Bayesiana.
+Para llevar a cabo la búsqueda de manera eficiente, se utilizó la biblioteca Optuna \cite{optuna:url}. En lugar de recurrir a métodos de fuerza bruta como la búsqueda en grilla (Grid Search) o a la ineficiente búsqueda aleatoria (Random Search), Optuna implementa un enfoque de optimización Bayesiana.
 
-Cada prueba individual dentro del estudio de Optuna consistía en un proceso completo y computacionalmente intensivo:
+Cada prueba individual dentro del estudio de Optuna consistió en un proceso completo y computacionalmente intensivo:
 
 \begin{enumerate}
-   \item Sugerencia de hiperparámetros: Optuna proponía una nueva combinación de hiperparámetros (ej. \texttt{volume\_threshold}, \texttt{tau}, \texttt{n\_estimators}, \texttt{max\_depth}, etc.).
-   \item Ejecución del pipeline completo: con estos hiperparámetros, se ejecutaba el pipeline desde cero sobre el conjunto de entrenamiento:
+   \item Sugerencia de hiperparámetros: Optuna propone una nueva combinación de hiperparámetros (ej. \texttt{volume\_threshold}, \texttt{tau}, \texttt{n\_estimators}, etc.).
+   \item Ejecución del pipeline completo: con estos hiperparámetros, se ejecuta el pipeline desde cero sobre el conjunto de entrenamiento:
      \begin{enumerate}
-       \item Se estructuraban los datos en barras de volumen.
-       \item Se generaban las características (features).
-       \item Se creaban las etiquetas (labels) según el método definido.
-       \item Se ejecutaba el proceso completo de purged k-fold cross-validation de n folds.
+       \item Se estructuran los datos en barras de volumen.
+       \item Se generan las características (features).
+       \item Se crean las etiquetas (labels) según el método definido.
+       \item Se ejecuta el proceso completo de purged k-fold cross-validation de n folds.
      \end{enumerate}
-   \item Cálculo de la métrica objetivo: se calculaba el F1-Score ponderado para cada una de las validaciones cruzadas.
+   \item Cálculo de la métrica objetivo: se calcula el F1-Score ponderado para cada una de las validaciones cruzadas.
 \end{enumerate}
 
 La figura \ref{fig:hyperparameter_pipeline} ilustra este proceso iterativo.
@@ -161,9 +164,9 @@ La figura \ref{fig:hyperparameter_pipeline} ilustra este proceso iterativo.
 \end{figure}
 
 
-Este procedimiento aseguraba que la evaluación de cada conjunto de hiperparámetros fuera robusta y no dependiera de una única partición de datos.
+Este procedimiento asegura que la evaluación de cada conjunto de hiperparámetros fuera robusta y no dependiera de una única partición de datos.
 
-Una vez que Optuna finaliza todas las pruebas, se identificaba el ``mejor trial'', es decir, la combinación de hiperparámetros que produjo el F1-Score promedio más alto. Estos hiperparámetros se consideraron óptimos.
+Una vez que Optuna finaliza todas las pruebas, se identifica el ``mejor trial'', es decir, la combinación de hiperparámetros que produjo el F1-Score promedio más alto. Estos hiperparámetros se consideraron óptimos.
 
 Finalmente, se entrenó un único modelo con estos hiperparámetros óptimos sobre la totalidad del conjunto de entrenamiento. Este modelo final y definitivo fue el que se evaluó, por única vez, en el conjunto de prueba (hold-out) para obtener una estimación realista y sin sesgos de su rendimiento esperado en datos no vistos.
 
@@ -178,7 +181,7 @@ Inicialmente, se evaluaron estrategias de trading clásicas basadas en indicador
 
 Posteriormente, se probaron modelos estadísticos tradicionales para series temporales, incluyendo ARIMA, SARIMA, y variantes más complejas como ARIMAX con GARCH como variable exógena y Prophet de Facebook. Estos modelos, aunque más sofisticados, lucharon por capturar las dinámicas no lineales y no estacionarias del precio de Bitcoin y no superaron a un desempeño aleatorio.
 
-Luego, se exploraron modelos que sean ``drop in replacements'' al marco presentado por \cite{Palazzo:2023}. Para seguir con la recomendación de López de Prado sobre la idoneidad de los modelos basados en árboles tipo random forest para datos financieros. Además, se exploraron alternativas a XGBoost. Se utilizó la biblioteca AutoGluon, que permite entrenar y comparar de forma automática un conjunto de modelos tabulares de última generación, incluyendo diferentes configuraciones de redes neuronales y ensambles, para encontrar un posible reemplazo al modelo de Palazzo.
+Luego, se exploraron modelos que sean \texttt{drop in replacements} al marco presentado por \cite{Palazzo:2023}. Para seguir con la recomendación de López de Prado sobre la idoneidad de los modelos basados en árboles tipo random forest para datos financieros. Además, se exploraron alternativas a XGBoost. Se utilizó la biblioteca AutoGluon, que permite entrenar y comparar de forma automática un conjunto de modelos tabulares de última generación, incluyendo diferentes configuraciones de redes neuronales y ensambles, para encontrar un posible reemplazo al modelo de Palazzo.
 
 Finalmente, en cuanto a la arquitectura principal de Chronos, se experimentó con diferentes tamaños del modelo T5 (small, base y large) para analizar el compromiso entre el rendimiento predictivo y el costo computacional, se busca el equilibrio óptimo para una implementación práctica.
 
@@ -190,7 +193,7 @@ El bot de trading se diseñó con una arquitectura modular para facilitar su con
     \item Orquestador: es el punto de entrada de la aplicación. Su función es instanciar, configurar y conectar los demás componentes. Inicia el ciclo de operación del bot.
     \item Motor del bot: contiene el bucle principal de ejecución. En cada iteración, orquesta el flujo de trabajo: solicita los datos más recientes del mercado al módulo de intercambio, pasa estos datos al módulo de estrategia para obtener una señal de trading y, si la señal lo indica, instruye al módulo de intercambio para que ejecute la orden correspondiente.
     \item Módulo de exchange: abstrae toda la comunicación con la API del exchange de criptomonedas. Es responsable de obtener datos de mercado (precios, volúmenes) y de ejecutar órdenes (compra, venta). Su diseño intercambiable permite adaptar el bot a diferentes plataformas (por ejemplo, Binance, KuCoin) con mínimas modificaciones.
-    \item Módulo de estrategia: carga el modelo de machine learning pre-entrenado (en este caso, el ensamble de Chronos y XGBoost) y lo utiliza para procesar los datos de mercado y generar una señal de trading: comprar, vender o mantener.
+    \item Módulo de estrategia: carga el modelo de machine learning pre-entrenado (en este caso, el ensamble de Chronos y XGBoost) y lo se utiliza para procesar los datos de mercado y generar una señal de trading: comprar, vender o mantener.
 \end{enumerate}
 
 En esencia, el bot opera en un ciclo continuo: recolecta datos, predice una señal con el modelo y actúa sobre esa predicción. Esta separación de responsabilidades garantiza que la lógica de la estrategia de trading esté completamente aislada de los detalles de implementación de la comunicación con el mercado.
@@ -201,91 +204,104 @@ A continuación se proporciona una descripción y vista técnica y exhaustiva de
 
 Esta fase inicializa el sistema y demuestra el rol del orquestador como punto de entrada de la aplicación, encargándose de instanciar y conectar las piezas. Véase la figura \ref{fig:bot-seq-startup}.
 
-
-Con la interacción inicial del usuario: el proceso comienza cuando el usuario introduce el comando bot \texttt{start --port 5000} a través de la interfaz de línea de comandos (cli), alojada en main.py.\\
-
-Creación del servidor en segundo plano: la cli no ejecuta el bot de forma bloqueante. En su lugar, delega la tarea al módulo subprocess para levantar un servidor (\texttt{run\_server}) en el puerto 5000.\\
-
-Confirmación de inicio: la cli devuelve inmediatamente un mensaje al usuario y confirma que el servidor ha iniciado y proporciona el identificador del proceso (pid). Así libera la terminal.\\
-
-Inicialización de servicios concurrentes: dentro del subproceso del servidor, se activan dos componentes críticos de manera paralela. En primer lugar se levanta una aplicación flask (app.run) que servirá para la comunicación y monitoreo externo. En segundo, se inicia un hilo dedicado al bot (botthread) mediante \texttt{thread(start\_bot\_thread).start()}, con esto separa la ejecución web de la lógica de trading.\\
-Carga de configuraciones: el botthread invoca a \texttt{load\_config(``config.yaml'')}, la función encargada de leer los parámetros operativos y de devolver un diccionario de configuración.\\
-
-Instanciación del módulo de exchange: con su diseño intercambiable, el bot evalúa la configuración recién cargada. Si existe un archivo mock (\texttt{mock\_file}), se instancia un cliente de prueba (mockbinanceclient) para simulaciones. De lo contrario, asume un entorno de producción o testnet y crea un cliente real de binance (binanceclient) con las claves api proporcionadas.\\
-
-Instanciación del módulo de estrategia: el hilo delega la creación del modelo analítico a una fábrica de estrategias (strategyfactory). Dependiendo del nombre en la configuración, la fábrica instancia la clase correspondiente, y carga los parámetros y el modelo subyacente.\\
-
-Arranque del motor del bot: finalmente, el botthread inyecta la configuración, el cliente de exchange y la estrategia recién creados dentro de la instancia principal del bot (el motor) y ejecuta su método principal: bot.run().\\
-
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{"Figures/seq_1_startup.png"}
   \caption{Diagrama del proceso de inicialización del bot.}
   \label{fig:bot-seq-startup}
 \end{figure}
 
+\begin{itemize}
+
+\item Con la interacción inicial del usuario: el proceso comienza cuando el usuario introduce el comando bot \texttt{start --port 5000} a través de la interfaz de línea de comandos (cli), alojada en main.py.\\
+
+\item  Creación del servidor en segundo plano: la cli no ejecuta el bot de forma bloqueante. En su lugar, delega la tarea al módulo subprocess para levantar un servidor (\texttt{run\_server}) en el puerto 5000.\\
+
+\item  Confirmación de inicio: la cli devuelve inmediatamente un mensaje al usuario y confirma que el servidor ha iniciado y proporciona el identificador del proceso (pid). Así libera la terminal.\\
+
+\item  Inicialización de servicios concurrentes: dentro del subproceso del servidor, se activan dos componentes críticos de manera paralela. En primer lugar se levanta una aplicación flask (app.run) que servirá para la comunicación y monitoreo externo. En segundo, se inicia un hilo dedicado al bot (botthread) mediante \texttt{thread(start\_bot\_thread).start()}, con esto separa la ejecución web de la lógica de trading.\\
+  Carga de configuraciones: el botthread invoca a la función encargada de leer los parámetros operativos \texttt{load\_config(``config.yaml'')},  y de devolver un diccionario de configuración.\\
+
+\item  Instanciación del módulo de exchange: con su diseño intercambiable, el bot evalúa la configuración recién cargada. Si existe un archivo mock (\texttt{mock\_file}), se instancia un cliente de prueba (mockbinanceclient) para simulaciones. De lo contrario, asume un entorno de producción o testnet y crea un cliente real de binance (binanceclient) con las claves api proporcionadas.\\
+
+\item  Instanciación del módulo de estrategia: el hilo delega la creación del modelo analítico a una fábrica de estrategias (strategyfactory). Dependiendo del nombre en la configuración, la fábrica instancia la clase correspondiente, y carga los parámetros y el modelo subyacente.\\
+
+\item  Arranque del motor del bot: finalmente, el botthread inyecta la configuración, el cliente de exchange y la estrategia recién creados dentro de la instancia principal del bot (el motor) y ejecuta su método principal: bot.run().\\
+
+ \end{itemize}
+
+
 \subsubsection{Fase de ejecución continua}
 
 Esta es la fase central operada por el motor del bot, caracterizada por un bucle principal que se repite periódicamente cada tick\_interval segundos mientras el flag bot.running sea verdadera. Refleja el ciclo de ``recolectar, predecir y actuar'' ilustrado en la figura \ref{fig:bot-seq-loop}.
 
-Recolección de datos: en cada iteración, el bot solicita al exchange los datos históricos del mercado con una invocación a \texttt{get\_historical\_klines} con parámetros de símbolo, marco temporal límite (timeframe). El exchange devuelve una lista de velas (klines).
-
-Procesamiento de datos: el bot toma la lista cruda de velas y construye un dataframe, asegurándose de castear correctamente los tipos de datos para que puedan ser consumidos por el modelo matemático.
-
-Gestión de riesgos (stop-loss): antes de buscar nuevas señales, el sistema verifica si existe una posición abierta en el mercado. Si es así, el bot calcula internamente el porcentaje de pérdidas y ganancias (pnl).
-
-Para control de riesgo, si el rendimiento es inferior al umbral de riesgo permitido, el bot ejecuta inmediatamente una orden de venta (\texttt{execute\_sell()}), registra que se activó el stop-loss y finaliza la iteración actual. Después salta directamente al siguiente tick sin consultar a la estrategia.
-
-Predicción de señal: si el stop-loss no se activa, el bot pasa el dataframe procesado al módulo de estrategia mediante la función \texttt{get\_signal(df)}. Tras evaluar los datos, la estrategia devuelve un veredicto direccional estricto: ``buy'' (comprar), ``sell'' (vender) o ``hold'' (mantener).
-
-Ejecución de órdenes de mercado: el bot evalúa la señal de la estrategia cruzada con su estado actual:
-
-Flujo de compra: si la señal es ``buy'' y no hay ninguna posición abierta, el bot le consulta a la estrategia el tamaño de la orden (\texttt{get\_order\_size()}). Tras recibir la cantidad, ejecuta la orden de compra (\texttt{execute\_buy(latest\_price)}) a través del módulo de exchange y actualiza sus balances y estado de posición internamente.
-
-Flujo de venta: si la señal es ``sell'' y el bot ya posee una posición abierta, procede a ejecutar la venta (\texttt{execute\_sell()}) e igualmente actualiza el balance de la cuenta y su estado de posición.
-
-Pausa táctica: al finalizar la lógica operativa, el bot suspende su ejecución mediante \texttt{sleep(tick\_interval)} para evitar saturar las apis del exchange y esperar a la formación de nuevos datos de mercado antes de reiniciar el bucle.
-
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{"Figures/seq_2_trading_loop.png"}
   \caption{Diagrama del bucle de principal del bot de trading.}
   \label{fig:bot-seq-loop}
 \end{figure}
 
+\begin{itemize}
+\item  Recolección de datos: en cada iteración, el bot solicita al exchange los datos históricos del mercado con una invocación a \texttt{get\_historical\_klines} con parámetros de símbolo, marco temporal límite (timeframe). El exchange devuelve una lista de velas (klines).
+
+\item  Procesamiento de datos: el bot toma la lista cruda de velas y construye un dataframe, asegurándose de castear correctamente los tipos de datos para que puedan ser consumidos por el modelo matemático.
+
+\item
+  Gestión de riesgos (stop-loss): antes de buscar nuevas señales, el sistema verifica si existe una posición abierta en el mercado. Si es así, el bot calcula internamente el porcentaje de pérdidas y ganancias (pnl).
+
+\item Control de riesgo: si el rendimiento es inferior al umbral de riesgo permitido, el bot ejecuta inmediatamente una orden de venta (\texttt{execute\_sell()}), registra que se activó el stop-loss y finaliza la iteración actual. Después salta directamente al siguiente tick sin consultar a la estrategia.
+
+\item  Predicción de señal: si el stop-loss no se activa, el bot pasa el dataframe procesado al módulo de estrategia mediante la función \texttt{get\_signal(df)}. Tras evaluar los datos, la estrategia devuelve un veredicto direccional estricto: ``buy'' (comprar), ``sell'' (vender) o ``hold'' (mantener).
+
+\item  Ejecución de órdenes de mercado: el bot evalúa la señal de la estrategia cruzada con su estado actual:
+
+\item  Flujo de compra: si la señal es ``buy'' y no hay ninguna posición abierta, el bot le consulta a la estrategia el tamaño de la orden (\texttt{get\_order\_size()}). Tras recibir la cantidad, se ejecuta la orden de compra \\(\texttt{execute\_buy(latest\_price)}) a través del módulo de exchange y actualiza sus balances y estado de posición internamente.
+
+\item  Flujo de venta: si la señal es ``sell'' y el bot ya posee una posición abierta, procede a ejecutar la venta (\texttt{execute\_sell()}) e igualmente actualiza el balance de la cuenta y su estado de posición.
+
+\item  Pausa táctica: al finalizar la lógica operativa, el bot suspende su ejecución mediante \texttt{sleep(tick\_interval)} para evitar saturar las apis del exchange y esperar a la formación de nuevos datos de mercado antes de reiniciar el bucle.
+
+\end{itemize}
+
 \subsubsection{Fase de monitoreo remoto}
 
-El diseño, como se puede ver en la figura \ref{fig:seq-3-monitoring}, permite auditar el estado del bot en tiempo real sin interrumpir el bucle de trading, gracias a la aplicación web paralela.
+El diseño, como se puede ver en la figura \ref{fig:bot-seq-monitoring}, permite auditar el estado del bot en tiempo real sin interrumpir el bucle de trading, gracias a la aplicación web paralela.
 
-Petición de estado: el usuario ejecuta bot \texttt{status --port 5000} en la cli.
-
-Consulta http: la cli transforma este comando en una petición get dirigida a la ruta /status expuesta por la aplicación flask.
-
-Lectura interna: el servidor flask interactúa con el espacio de memoria del bot, leyendo variables críticas de estado en tiempo real como bot.running (si está activo), la posición actual en el mercado y el balance de la cuenta.
-
-Respuesta al usuario: el bot transfiere este diccionario de estado a flask, que a su vez lo serializa en formato json (conteniendo estatus, posición y balance) y lo envía de regreso a la cli. Finalmente, la cli imprime esta información de forma legible para el usuario.
-
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{"Figures/seq_3_monitoring.png"}
   \caption{Diagrama del proceso de monitoreo del bot de trading.}
   \label{fig:bot-seq-monitoring}
 \end{figure}
 
+\begin{itemize}
+
+\item  Petición de estado: el usuario ejecuta bot \texttt{status --port 5000} en la cli.
+
+\item  Consulta http: la cli transforma este comando en una petición get dirigida a la ruta /status expuesta por la aplicación flask.
+
+\item  Lectura interna: el servidor flask interactúa con el espacio de memoria del bot, leyendo variables críticas de estado en tiempo real como bot.running (si está activo), la posición actual en el mercado y el balance de la cuenta.
+
+\item  Respuesta al usuario: el bot transfiere este diccionario de estado a flask, que a su vez lo serializa en formato json (conteniendo estatus, posición y balance) y lo envía de regreso a la cli. Finalmente, la cli imprime esta información de forma legible para el usuario.
+
+\end{itemize}
+
 \subsubsection{Fase de apagado}
 
 El sistema contempla mecanismos robustos para finalizar el proceso del bot de manera segura. El diagrama \ref{fig:bot-seq-shutdown} expone dos vías para detener la operación:
-
-Apagado forzado por cli: el usuario emite el comando bot stop. La cli lee el archivo que contiene el identificador del proceso (bot.pid) e interactúa directamente con el sistema operativo mediante el envió de una señal de terminación (os.kill(pid, sigterm)) al servidor para que aborte la ejecución.
-
-Apagado elegante vía api: como método alternativo anotado en el diagrama, se puede enviar una petición post a la ruta /shutdown a través de flask. En este escenario, flask se comunica con el bot con una llamada al método bot.stop(), el cual cambia internamente la variable self.running a false. Esto permite que el bucle principal finalice su iteración actual de manera limpia, con la lubricación de los hilos y el cierre del servidor de forma orquestada y sin corrupción de estado.
-
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{"Figures/seq_4_shutdown.png"}
   \caption{Diagrama del proceso de apagado del bot de trading.}
   \label{fig:bot-seq-shutdown}
 \end{figure}
+
+\begin{itemize}
+\item  Apagado forzado por cli: el usuario emite el comando bot stop. La cli lee el archivo que contiene el identificador del proceso (bot.pid) e interactúa directamente con el sistema operativo mediante el envió de una señal de terminación (\texttt{os.kill(pid, sigterm)}) al servidor para que aborte la ejecución.
+
+\item  Apagado elegante vía api: como método alternativo anotado en el diagrama, se puede enviar una petición post a la ruta /shutdown a través de flask. En este escenario, flask se comunica con el bot con una llamada al método bot.stop(), el cual cambia internamente la variable self.running a false. Esto permite que el bucle principal finalice su iteración actual de manera limpia, con la lubricación de los hilos y el cierre del servidor de forma orquestada y sin corrupción de estado.
+\end{itemize}
 
 \section{Diseño del sistema}
 \label{subsec:bot-design}
@@ -294,7 +310,7 @@ El sistema esta estructurado siguiendo las tematica de pipeline de investigació
 \item \texttt{data\_analysis}: este directorio implementa el paso de curación de datos y de análisis de característica, aquí se proveen rutinas para recopilar, limpiar, indexar, almacenar, y ajustar los datos para entregarlos en un formato útil para el resto de la cadena de producción y también para transformar datos brutos en señales informativas con valor predictivo. En particular se implementan, en el paquete \texttt{bar\_aggregation},  funciones para agregar barras de tiempo en barras de volumen. Estas incluyen estrategias por volumen de USDT o de BTC. También se encuentran otras utilidades para el preprocesamiento de datos, en el subpaquete \texttt{data\_analysis}, como ser la diferenciación fraccionaria, operadores de medias móviles. Aquí se encuentran los mas de 25 indicadores de trading usados en este trabajo, como ser momentum, relative strenght index, MACD, entre otros. Las funciones para el etiquetado, descriptas anteriormente, como son, por horizonte fijo, por horizonte ajustado por volatilidad, y de barrera triple, se hacen disponible en el subpaquete \texttt{labeling}.
 
 \item \texttt{modeling}: en este paquete viven los algoritmos de inversión que utilizan los datos provistos por las subrutinas encontradas en el paquete de \texttt{data\_analysis} así también como las subrutinas para procesar dichos datos y transformarlos en variables independientes para los modelos.  Para los propósitos de este trabajo aquí es donde se encuentran las cuatro categorías de estrategias que se desarrollaron: modelos basados en indicadores de trading, modelos basados en modelos estadísticos tradicionales, modelos basados en predictores clásicos de machine learning, y modelos basados en deep learning, en particular, utiliza la arquitectura de transformers.
-  Para su evaluación aquí también se implementa el algoritmo de k-fold purged cross validation  ya descripto anteriormente. En adición a esto también se encuentran utilidades para la reutilización de código dedicado a la interacción con la librería mlflow dedicado a guardar los resultados obtenidos en los experimentos realizados.
+  Para su evaluación aquí también se implementa el algoritmo de k-fold purged cross validation  ya descripto anteriormente. En adición a esto también se encuentran utilidades para la reutilización de código dedicado a la interacción con la biblioteca mlflow dedicado a guardar los resultados obtenidos en los experimentos realizados.
   Con el objetivo de coordinar las interacciones previamente mencionadas y de estandarizar como se alimentan los algoritmos con datos, como se processan y se orquestaran para su evaluación. Centralizar y reutilizar esta lógica asegura que siempre se van a tomar las mismas medidas y con el mismo criterio para todos los algoritmos estudiados. Va a evitar que, al reescribir código similar, se introduzcan variantes o errores conceptuales a la hora de separar los datos de entrenamiento y de prueba. Como contrapartida, esto obliga a, sin incurrir en una complejidad excesiva, destilar  una interfaz lo suficientemente flexible como para ser utilizada por diversas categorías de modelos con distintos requerimientos en lo que respecta a los dominios de estructurado de datos, etiquetado, e ingeniería de características.
 \item \texttt{backtesting}:  aquí se evalúa la rentabilidad de la estrategia bajo diversos escenarios simulados y estiman la probabilidad de sobreajuste del backtest teniendo en cuenta el número de ensayos y errores realizados. Los principales subpaquetes a nombrar son \texttt{cpcv} y \texttt{cpcv\_runner}. En el primero se implementan las funciones puras que calculan los splits combinatorios, la lógica de embargo, y la reconstrucción de caminos para el algoritmo de combinatorially purged cross validation. En el segundo se implementan funciones que unifican la lógica par aplicar CPCV a los modelos existentes.
 
@@ -327,16 +343,18 @@ Con esta estructura de base se pudo evaluar los distintos modelos y estrategias 
 
 \section{Estructura de pruebas realizadas con Chronos}
 
-Se aprovecho la flexibilidad brindada por la estructura de clases descripta en la sección \ref{subsec:ml-pipeline} (véase figura \ref{fig:ml-pipeline-chronos}) para realizar una serie de pruebas centradas en la familia de modelos Chronos. Se pueden dividir conceptualmente en dos grandes categorías: las que usan chronos para realizar la predicción y las que usan chronos para hacer transfer learning.
+Se aprovecha la flexibilidad brindada por la estructura de clases descripta en la sección \ref{subsec:ml-pipeline} (véase figura \ref{fig:ml-pipeline-chronos}) para realizar una serie de pruebas centradas en la familia de modelos Chronos. Se pueden dividir conceptualmente en dos grandes categorías: las que usan chronos para realizar la predicción y las que usan chronos para hacer transfer learning.
 
-En la primera categoría se utiliza el modelo chronos como regresor o como clasificador. En forma de regresor tenemos las clases PalazzoChronosPipeline que trata de predecir el precio directamente. Del lado de los clasificadores tenemos PalazzoChronosClassificationPipeline que realiza una regresión sobre el precio de cierre pero luego solo se toma si es mayor o menor al cierre anterior, en efecto transformándolo en un clasificador; y PalazzoChronosBinaryClassificationPipeline al cual, en vez de alimentarlo con los precios de cierre se le proveen directamente las etiquetas +1 y -1 que indican si el precio sera mayor o menor que el anterior.
-
-En la categoría de transfer learning tenemos a la familia de los ChronosFeaturePipelines que modifican el pipeline de inspirado en el trabajo de Palazzo, que usamos como linea de base, para agregar los embeddings de chronos como características para que sean usadas por un modelo tabular.
-
-En ambas categorías se realizan pruebas con inferencia de zero-shot y también luego de hacer fine-tuning. Para este ultimo se utilizo una estrategia de low rank adaptation lo cual hizo factible la tarea en el hardware disponible.
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=1.0 \textwidth]{"Figures/ml-pipeline-flow-chronos-pipeline.drawio.png"}
   \caption{Estructura jerárquica de herencia de clase para los experimentos realizados con Chronos.}
   \label{fig:ml-pipeline-chronos}
 \end{figure}
+
+En la primera categoría se utiliza el modelo chronos como regresor o como clasificador. En forma de regresor tenemos las clases \texttt{PalazzoChronosPipeline} que trata de predecir el precio directamente. Del lado de los clasificadores tenemos \texttt{PalazzoChronosClassificationPipeline} que realiza una regresión sobre el precio de cierre pero luego solo se toma si es mayor o menor al cierre anterior, en efecto transformándolo en un clasificador; y \\\texttt{PalazzoChronosBinaryClassificationPipeline} al cual, en vez de alimentarlo con los precios de cierre se le proveen directamente las etiquetas +1 y -1 que indican si el precio sera mayor o menor que el anterior.
+
+En la categoría de transfer learning tenemos a la familia de los \\ \texttt{ChronosFeaturePipelines} que modifican el pipeline de inspirado en el trabajo de Palazzo, que se usó como linea de base, para agregar los embeddings de chronos como características para que sean usadas por un modelo tabular.
+
+En ambas categorías se realizaron pruebas con inferencia de zero-shot y también luego de hacer fine-tuning. Para este ultimo se utilizo una estrategia de low rank adaptation lo cual hizo factible la tarea en el hardware disponible.
+
