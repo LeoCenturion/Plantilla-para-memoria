@@ -320,12 +320,12 @@ El sistema esta estructurado siguiendo las tematica de pipeline de investigació
 
 \section{Pipeline de modelos}
 \label{subsec:ml-pipeline}
-La abstracción central utilizada en el desarrollo de las pruebas para la optimización fue el concepto de pipeline. Como ya se dijo, este fue con el objetivo de centralizar la coordinación de las áreas principales que componen la investigación de estrategias de inversión según López de Prado. En la figura \ref{fig:ml-pipeline-flow-abstract} se ve conceptualmente el flujo de datos pasar a través del pipeline.
+La abstracción central utilizada en el desarrollo de las pruebas para la optimización fue el concepto de pipeline. Como ya se dijo, este fue con el objetivo de centralizar la coordinación de las áreas principales que componen la investigación de estrategias de inversión según López de Prado. En la figura \ref{fig:ml-pipeline-flow} se ve conceptualmente el flujo de datos pasar a través del pipeline.
 Describe dos fases. La fase inicial transforma datos crudos en un formato tabular. El proceso comienza con el estructurado de datos, que genera barras de información. Estas barras alimentan dos procesos paralelos: la ingeniería de características, que crea variables predictivas, y el etiquetado y ponderación, que define las variables objetivo. Luego, ambas ramas convergen en el paso de alineamiento: lo que garantiza que todas las matrices compartan los mismos índices temporales para formar el dataset final.
 
 La segunda fase utiliza este dataset para modelar y validar la estrategia. Los datos ingresan al módulo para dividir folds: aplica una validación cruzada purgada para evitar filtraciones de información. Este proceso inicia un ciclo repetitivo de n folds. Dentro de cada iteración secuencial ocurren cuatro pasos: el escalado ajusta los datos, la reducción de dimensiones extrae la información relevante, el entrenamiento y predicción ajusta el algoritmo para generar pronósticos, y finalmente la evaluación mide el rendimiento frente a datos reales. Así se conecta el procesamiento analítico con una validación rigurosa del modelo.
 
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=1.0 \textwidth]{"Figures/ml-pipeline-flow.drawio.png"}
   \caption{Flujo de datos en distintas etapas de procesamiento del pipeline.}
@@ -333,7 +333,7 @@ La segunda fase utiliza este dataset para modelar y validar la estrategia. Los d
 \end{figure}
 
 Con esta estructura de base se pudo evaluar los distintos modelos y estrategias de forma consistente mediante el uso de herencia como se ve en la figura \ref{fig:ml-pipeline-flow-abstract}. 
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{"Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png"}
   \caption{Estructura jerárquica de herencia de clase para AbstractMLPipeline.}
