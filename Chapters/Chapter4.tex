@@ -3,7 +3,7 @@
 \chapter{Ensayos y resultados} % Main chapter title
 
 \label{Chapter4} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
-En este capitulo se exponen los datos con los que se trabajo y se expande sobre los resultados obtenidos en base a los experimentos comentados en el capítulo anterior. Se los exponen en el formato en que se investigaron, de más simple a más complejo. Se finaliza con el objetivo principal de este trabajo que son los modelos de transformers.
+En este capítulo se exponen los datos con los que se trabajó y se expande sobre los resultados obtenidos en base a los experimentos comentados en el capítulo anterior. Se los exponen en el formato en que se investigaron, de más simple a más complejo. Se finaliza con el objetivo principal de este trabajo que son los modelos de transformers.
 
 \section{Datos utilizados}
 
@@ -25,7 +25,7 @@ Como ya se mencionó antes, en este trabajo se utilizaron precios de cierre de B
   \label{tab:buy_and_hold}
 \end{table}
 
-También se ilustra como las barras de volumen afectan a la serie de tiempo original (figura \ref{fig:bars-vs-1m}). Se aprecia como la forma general sigue presente pero, en cierta manera, un poco mas suavizada. Se pueden ver que los movimientos pequeños se condensan en un solo punto.
+También se ilustra como las barras de volumen afectan a la serie de tiempo original (figura \ref{fig:bars-vs-1m}). Se aprecia como la forma general sigue presente pero, en cierta manera, un poco más suavizada. Se pueden ver que los movimientos pequeños se condensan en un solo punto.
 
 \begin{figure}[H]
   \centering
@@ -50,11 +50,11 @@ Tienen la misma cantidad de puntos (seis) pero el segundo período cubre el dobl
 
 \section{Pruebas con algoritmos de trading}
 \label{sec:pruebasTrading}
-En esta sección se hizo un análisis sobre las estrategias basadas en algoritmos de trading. Esto es, se codificaron reglas fijas basadas en distintos indicadores y, en base a ellas, se determinó una señal de compra o venta para la occisión actual.
+En esta sección se hizo un análisis sobre las estrategias basadas en algoritmos de trading. Esto es, se codificaron reglas fijas basadas en distintos indicadores y, en base a ellas, se determinó una señal de compra o venta para la ocasión actual.
 
 Configuración: CV purgado de 5 pliegues con 1\% de embargo, 0.1\% de comisión, optimización Optuna en datos de 1 minuto de BTCUSDT.
 
-Como se observa en la tabla \ref{tab:sharpe_dist}, el \texttt{RSIDivergenceClassifier} es la estrategia más confiable. Presenta el Sharpe medio más alto y una varianza extremadamente baja. Por otro lado, la tabla \ref{tab:optimizacion_f1} muestra que \texttt{BollingerBandsClassifier} tiene el techo de rendimiento más alto, aunque con mayor riesgo.
+Como se observa en la tabla \ref{tab:optimizacion_f1}, el \texttt{BollingerBandsClassifier} tiene el techo de rendimiento más alto. Por otro lado, la tabla \ref{tab:sharpe_dist} muestra que el \texttt{RSIDivergenceClassifier} es la estrategia más confiable: presenta el Sharpe medio más alto y una varianza extremadamente baja.
 
 
 
@@ -98,6 +98,8 @@ Como se observa en la tabla \ref{tab:sharpe_dist}, el \texttt{RSIDivergenceClass
     \label{tab:sharpe_dist}
 \end{table}
 
+La tabla \ref{tab:consistencia} cuantifica esta consistencia y muestra el porcentaje de pruebas que supera distintos umbrales de Sharpe.
+
 % --- TABLA 3 ---
 \begin{table}[h]
     \centering
@@ -116,6 +118,8 @@ Como se observa en la tabla \ref{tab:sharpe_dist}, el \texttt{RSIDivergenceClass
     \end{tabular}
     \label{tab:consistencia}
 \end{table}
+
+La tabla \ref{tab:sensibilidad} resume la sensibilidad de los parámetros clave para cada clasificador.
 
 % --- TABLA 4 ---
 \begin{table}[h]
@@ -143,7 +147,7 @@ En esta sección se hizo un análisis sobre las estrategias basadas en algoritmo
 
 Configuración: CV purgado de 3 pliegues, 1\% de embargo, datos de 1h de BTCUSDT desde 2020-01-01. Se evaluaron 5 familias de modelos.
 
-Como se detalla en la tabla \ref{tab:mejores_modelos}, el \texttt{ARIMAClassifier} es el mejor modelo estadístico evaluado, alcanzando un F1 máximo de 0,5004. Sin embargo, su alta varianza ($\text{std} = 0,118$) y sus modos de falla catastróficos lo hacen poco confiable en la práctica, como se evidencia en la tabla \ref{tab:distribucion_f1}.
+Como se detalla en la tabla \ref{tab:mejores_modelos}, el \texttt{ARIMAClassifier} es el mejor modelo estadístico evaluado: alcanza un F1 máximo de 0,5004. Sin embargo, su alta varianza ($\text{std} = 0,118$) y sus modos de falla catastróficos lo hacen poco confiable en la práctica, como se evidencia en la tabla \ref{tab:distribucion_f1}.
 \begin{table}[H]
   \centering
   \caption[Resultados de Optimización]{Mejor resultado de optimización por familia de modelo basado en el promedio de F1 en validación cruzada ($avg\_cv\_f1$).}
@@ -161,8 +165,6 @@ Como se detalla en la tabla \ref{tab:mejores_modelos}, el \texttt{ARIMAClassifie
 \end{table}
 
 Los modelos de series temporales muestran una inestabilidad estructural. La tabla \ref{tab:sensibilidad_estadistica} revela que el parámetro threshold es el factor determinante: las familias ARIMA solo funcionan cuando se configuran para predecir retornos esperados extremadamente pequeños (umbral $\sim 1e-6$).
-
-%% Por otro lado, como se observa en el análisis de sensibilidad de la tabla \ref{tab:sensibilidad_estadistica}, el umbral (threshold) se revela como el hiperparámetro de mayor impacto para los modelos de la familia ARIMA. Al analizar el \texttt{ARIMAClassifier},\\ el \texttt{ARIMAXGARCHClassifier} y el \texttt{KalmanARIMAClassifier}, el umbral muestra de manera consistente correlaciones negativas muy fuertes con la métrica F1, oscilando entre -0,92 y -0,99. Estos modelos estadísticos solo logran funcionar cuando predicen retornos esperados extremadamente pequeños (con un umbral configurado entre $\sim 1\text{e-}6$ y $1\text{e-}4$). Cuando se emplean umbrales más altos,  su rendimiento se degrada por completo, y registran valores mínimos de F1 de 0,02 para ARIMA y de apenas 0,009 para Kalman.
 
 Además de esta limitación, los modelos ARIMA presentan modos de falla catastróficos. Las altas desviaciones estándar reportadas en la tabla \ref{tab:distribucion_f1} (0,118 para ARIMA, 0,116 para GARCH y 0,165 para Kalman) son un claro indicador de  inestabilidad. Las combinaciones deficientes de parámetros producen puntuaciones F1 cercanas a cero, lo que los hace poco confiables para aplicaciones prácticas. Como evidencia de esto, ARIMA solo logra un F1 $\geq 0,48$ en el 47\% de las pruebas, mientras que Kalman nunca logra alcanzar esa marca.
 
@@ -200,13 +202,13 @@ Queda en evidencia que, en este contexto, añadir complejidad perjudica el rendi
   \label{tab:sensibilidad_estadistica}
 \end{table}
 
-En cuanto a la parametrización, la mejor configuración de ARIMA converge de manera muy ajustada. Las cinco mejores pruebas de este modelo comparten exactamente los mismos valores de base ($p=4$, $d=0$, $q=1$, $\text{refit}=720\text{h}$, $\text{lookback}=720\text{h}$), variando únicamente el umbral. Esto sugiere que el orden autorregresivo y de media móvil de ARIMA está bien identificado para este activo, pero que el espacio de búsqueda inicial para el umbral fue demasiado amplio. 
+En cuanto a la parametrización, la mejor configuración de ARIMA converge de manera muy ajustada. Las cinco mejores pruebas de este modelo comparten exactamente los mismos valores de base ($p=4$, $d=0$, $q=1$, $\text{refit}=720\text{h}$, $\text{lookback}=720\text{h}$), y difieren únicamente en el umbral. Esto sugiere que el orden autorregresivo y de media móvil de ARIMA está bien identificado para este activo, pero que el espacio de búsqueda inicial para el umbral fue demasiado amplio. 
 
 \vspace{1em}
 
-Conclusión: podemos afirmar con seguridad que se logro un resultado subóptimo aunque esperable. Los algoritmos estadisticos no supieron diferenciar la escasa señal del preponderante ruido presente en los mercados financieros. En resultados concretos el mejor f1 no pudo superar el de un intento aleatorio y en sharpe ratio quedo muy por debajo de la base del buy and hold.
+Conclusión: podemos afirmar con seguridad que se logró un resultado subóptimo aunque esperable. Los algoritmos estadísticos no supieron diferenciar la escasa señal del preponderante ruido presente en los mercados financieros. En resultados concretos el mejor f1 no pudo superar el de un intento aleatorio y en sharpe ratio quedó muy por debajo de la base del buy and hold.
 
-Viendo el detalle de los modelos estudiados, todos los algoritmos estadísticos de series temporales (ARIMA, GARCH y Kalman) resultan estructuralmente inestables para este conjunto de datos. Exigen una calibración del umbral extremadamente precisa e, incluso en el mejor de los escenarios (\texttt{ARIMAClassifier} con $p=4$, $d=0$, $q=1$), apenas logran superar el rendimiento de un clasificador aleatorio.
+En el detalle de los modelos estudiados, todos los algoritmos estadísticos de series temporales (ARIMA, GARCH y Kalman) resultan estructuralmente inestables para este conjunto de datos. Exigen una calibración del umbral extremadamente precisa e, incluso en el mejor de los escenarios (\texttt{ARIMAClassifier} con $p=4$, $d=0$, $q=1$), apenas logran superar el rendimiento de un clasificador aleatorio.
 
 \section{Pruebas con algoritmos de machine learning}
 
