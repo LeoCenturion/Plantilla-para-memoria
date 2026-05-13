@@ -143,7 +143,7 @@ En esta sección se hizo un análisis sobre las estrategias basadas en algoritmo
 
 Configuración: CV purgado de 3 pliegues, 1\% de embargo, datos de 1h de BTCUSDT desde 2020-01-01. Se evaluaron 5 familias de modelos.
 
-Como se detalla en la tabla \ref{tab:mejores_modelos}, el \texttt{SMAClassifier} domina el análisis con una consistencia notable. Este modelo alcanza el mayor F1 máximo (0,5036) y, de manera crítica, logra mantenerlo a lo largo del 80\% de sus 30 pruebas con una varianza prácticamente nula ($\text{std} = 0,0025$), tal como se evidencia en la tabla \ref{tab:distribucion_f1}. Su peor ejecución arroja un resultado (0,4921) que supera la mediana de todos los demás clasificadores evaluados. En definitiva, un cruce simple de medias móviles (SMA) de apenas dos parámetros sobre datos de 1 hora supera a todos los modelos complejos de series temporales.
+Como se detalla en la tabla \ref{tab:mejores_modelos}, el \texttt{ARIMAClassifier} es el mejor modelo estadístico evaluado, alcanzando un F1 máximo de 0,5004. Sin embargo, su alta varianza ($\text{std} = 0,118$) y sus modos de falla catastróficos lo hacen poco confiable en la práctica, como se evidencia en la tabla \ref{tab:distribucion_f1}.
 \begin{table}[H]
   \centering
   \caption[Resultados de Optimización]{Mejor resultado de optimización por familia de modelo basado en el promedio de F1 en validación cruzada ($avg\_cv\_f1$).}
@@ -151,11 +151,10 @@ Como se detalla en la tabla \ref{tab:mejores_modelos}, el \texttt{SMAClassifier}
     \toprule
     \textbf{Rank} & \textbf{Clasificador} & \textbf{Mejor F1} & \textbf{n\_trials}\\
     \midrule
-    1 & SMAClassifier          & 0.5036 & 30  \\
-    2 & ARIMAClassifier        & 0.5004 & 30  \\
-    3 & ARIMAXGARCHClassifier  & 0.4954 & 10  \\
-    4 & SARIMAClassifier       & $\sim$0.4862 & 4 \\
-    5 & KalmanARIMAClassifier  & 0.4184 & 10  \\
+    1 & ARIMAClassifier        & 0.5004 & 30  \\
+    2 & ARIMAXGARCHClassifier  & 0.4954 & 10  \\
+    3 & SARIMAClassifier       & $\sim$0.4862 & 4 \\
+    4 & KalmanARIMAClassifier  & 0.4184 & 10  \\
     \bottomrule
   \end{tabular}
   \label{tab:mejores_modelos}
@@ -183,7 +182,7 @@ Además de esta limitación, los modelos ARIMA presentan modos de falla catastr�
   \label{tab:distribucion_f1}
 \end{table}
 
-Queda en evidencia que, en este contexto, añadir complejidad perjudica el rendimiento. Al contrastar los resultados de la tabla \ref{tab:mejores_modelos}, un modelo SMA simple (2 parámetros) resulta superior a un ARIMA (6 parámetros), el cual a su vez supera a los más complejos ARIMAX-GARCH (8 parámetros) y Kalman-ARIMA (6 parámetros). Cada nueva capa de complejidad reduce el F1 promedio y aumenta la varianza de los resultados. El filtro de Kalman, en particular, parece degradar la señal original del modelo ARIMA en lugar de potenciarla.
+Queda en evidencia que, en este contexto, añadir complejidad perjudica el rendimiento. Al contrastar los resultados de la tabla \ref{tab:mejores_modelos}, un modelo ARIMA (6 parámetros) supera a los más complejos ARIMAX-GARCH (8 parámetros) y Kalman-ARIMA (6 parámetros). Cada nueva capa de complejidad reduce el F1 promedio y aumenta la varianza de los resultados. El filtro de Kalman, en particular, parece degradar la señal original del modelo ARIMA en lugar de potenciarla.
 
 \begin{table}[H]
   \centering
@@ -207,7 +206,7 @@ En cuanto a la parametrización, la mejor configuración de ARIMA converge de ma
 
 Conclusión: podemos afirmar con seguridad que se logro un resultado subóptimo aunque esperable. Los algoritmos estadisticos no supieron diferenciar la escasa señal del preponderante ruido presente en los mercados financieros. En resultados concretos el mejor f1 no pudo superar el de un intento aleatorio y en sharpe ratio quedo muy por debajo de la base del buy and hold.
 
-Viendo el detalle de los modelos estudiados, el SMAClassifier ($n_1 \approx 40$, $n_2 \approx 110\text{--}120$) es simultáneamente el modelo de mejor rendimiento y el más confiable. Los modelos estadísticos de series temporales (ARIMA, GARCH y Kalman) resultan estructuralmente inestables para este conjunto de datos, ya que exigen una calibración del umbral extremadamente precisa e, incluso en el mejor de los escenarios, apenas logran igualar la línea base establecida por el cruce de medias móviles.
+Viendo el detalle de los modelos estudiados, todos los algoritmos estadísticos de series temporales (ARIMA, GARCH y Kalman) resultan estructuralmente inestables para este conjunto de datos. Exigen una calibración del umbral extremadamente precisa e, incluso en el mejor de los escenarios (\texttt{ARIMAClassifier} con $p=4$, $d=0$, $q=1$), apenas logran superar el rendimiento de un clasificador aleatorio.
 
 \section{Pruebas con algoritmos de machine learning}
 
