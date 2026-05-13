@@ -3,11 +3,11 @@
 \chapter{Ensayos y resultados} % Main chapter title
 
 \label{Chapter4} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
-En este capitulo se exponen los datos con los que se trabajo y expande sobre los resultados obtenidos en base a los experimentos comentados en el capítulo anterior. Se los exponen en el formato en que se investigaron, de más simple a más complejo. Se finaliza con el objetivo principal de este trabajo que son los modelos de transformers.
+En este capitulo se exponen los datos con los que se trabajo y se expande sobre los resultados obtenidos en base a los experimentos comentados en el capítulo anterior. Se los exponen en el formato en que se investigaron, de más simple a más complejo. Se finaliza con el objetivo principal de este trabajo que son los modelos de transformers.
 
 \section{Datos utilizados}
 
-Como ya se menciono antes, en este trabajo se utilizaron precios de cierre de Bitcoin en relación a USDT entre 2020-01-01 y 2025-11-07. En la tabla \ref{tab:buy_and_hold} se ve el rendimiento de bitcoin durante el periodo analizado.
+Como ya se mencionó antes, en este trabajo se utilizaron precios de cierre de Bitcoin en relación a USDT entre 2020-01-01 y 2025-11-07. En la tabla \ref{tab:buy_and_hold} se ve el rendimiento de bitcoin durante el periodo analizado.
 
 \begin{table}[h]
   \centering
@@ -16,16 +16,16 @@ Como ya se menciono antes, en este trabajo se utilizaron precios de cierre de Bi
     \toprule
     \textbf{Métrica} & \textbf{Valor} \\
     \midrule
-    Retorno Total & 31995.25\% \\
-    Volatilidad anualizada & 70.72\% \\
-    Ratio de Sharpe & 1.16 \\
-    Drawdown máximo & -83.27\% \\
+    Retorno Total & 31995,25\% \\
+    Volatilidad anualizada & 70,72\% \\
+    Ratio de Sharpe & 1,16 \\
+    Drawdown máximo & -83,27\% \\
     \bottomrule
   \end{tabular}
   \label{tab:buy_and_hold}
 \end{table}
 
-También se ilustra como las barras de volumen afectan a la serie de tiempo original (figura \ref{fig:bars-vs-1m}. Se aprecia como la forma general sigue presente pero, en cierta manera, un poco mas suavizada. Se pueden ver que los movimientos pequeños se condensan en un solo punto.
+También se ilustra como las barras de volumen afectan a la serie de tiempo original (figura \ref{fig:bars-vs-1m}). Se aprecia como la forma general sigue presente pero, en cierta manera, un poco mas suavizada. Se pueden ver que los movimientos pequeños se condensan en un solo punto.
 
 \begin{figure}[H]
   \centering
@@ -35,8 +35,8 @@ También se ilustra como las barras de volumen afectan a la serie de tiempo orig
 \end{figure}
 
 
-La figura \ref{fig:bars-volume-1m} ilustra, además, como el agregado por barras de volumen cambia la velocidad de muestreo con respecto un incremento en la varianza. Esto se ejemplifica bien si se compara el periodo que va del  9 de enero y al 13 de enero, con el que va del 13 al 21 del mismo mes.
-Tienen la misma cantidad de puntos (seis) pero el segundo perdió cubre el doble de tiempo.
+La figura \ref{fig:bars-volume-1m} ilustra, además, cómo el agregado por barras de volumen cambia la velocidad de muestreo con respecto un incremento en la varianza. Esto se ejemplifica bien si se compara el periodo que va del  9 de enero y al 13 de enero, con el que va del 13 al 21 del mismo mes.
+Tienen la misma cantidad de puntos (seis) pero el segundo período cubre el doble de tiempo.
 
 
 
@@ -55,8 +55,6 @@ En esta sección se hizo un análisis sobre las estrategias basadas en algoritmo
 Configuración: CV purgado de 5 pliegues con 1\% de embargo, 0.1\% de comisión, optimización Optuna en datos de 1 minuto de BTCUSDT.
 
 Como se observa en la tabla \ref{tab:sharpe_dist}, el \texttt{RSIDivergenceClassifier} es la estrategia más confiable. Presenta el Sharpe medio más alto y una varianza extremadamente baja. Por otro lado, la tabla \ref{tab:optimizacion_f1} muestra que \texttt{BollingerBandsClassifier} tiene el techo de rendimiento más alto, aunque con mayor riesgo.
-
-El modelo \texttt{SMAClassifier} domina el análisis con una consistencia notable, como se detalla en la tabla \ref{tab:distribucion_f1}. Alcanza un F1 máximo de 0.5036 y mantiene un rendimiento superior a 0.50 en el 80\% de sus pruebas, con una desviación estándar mínima ($0.0025$).
 
 
 
@@ -176,7 +174,6 @@ Además de esta limitación, los modelos ARIMA presentan modos de falla catastr�
     \toprule
     \textbf{Clasificador} & \textbf{Media} & \textbf{Std} & \textbf{Min} & \textbf{Median} & \textbf{Max} & \textbf{$\ge$0.50} \\
     \midrule
-    SMAClassifier          & 0.5008 & 0.0025 & 0.4921 & 0.5014 & 0.5036 & 80\% \\
     SARIMAClassifier       & 0.4605 & 0.0457 & 0.3922 & 0.4819 & 0.4862 & 0\% \\
     ARIMAClassifier        & 0.4382 & 0.1183 & 0.0214 & 0.4768 & 0.5004 & 3\% \\
     ARIMAXGARCHClassifier  & 0.3855 & 0.1159 & 0.1880 & 0.4062 & 0.4954 & 0\% \\
@@ -199,7 +196,6 @@ Queda en evidencia que, en este contexto, añadir complejidad perjudica el rendi
     ARIMAXGARCH         & threshold       & -0.99 & Umbrales altos degradan el modelo. \\
     ARIMAClassifier     & lookback\_len   & -0.37 & Se prefiere historial corto (720h). \\
     ARIMAXGARCH         & $q$ (ARIMA MA)  & +0.85 & Orden MA alto es significativamente mejor. \\
-    SMAClassifier       & $n1$ (fast SMA) & +0.67 & Ventana rápida más larga (35-45) mejor. \\
     \bottomrule
   \end{tabular}
   \label{tab:sensibilidad_estadistica}
