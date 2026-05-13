@@ -38,10 +38,11 @@
 \contentsline {section}{\numberline {3.9}Pipeline de modelos}{27}{section.3.9}%
 \contentsline {section}{\numberline {3.10}Estructura de pruebas realizadas con Chronos}{29}{section.3.10}%
 \contentsline {chapter}{\numberline {4}Ensayos y resultados}{31}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Pruebas con algoritmos de trading}{31}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Pruebas con algoritmos estadísticos clásicos}{33}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Pruebas con algoritmos de machine learning}{35}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Pruebas con Chronos}{35}{section.4.4}%
+\contentsline {section}{\numberline {4.1}Datos utilizados}{31}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Pruebas con algoritmos de trading}{32}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Pruebas con algoritmos estadísticos clásicos}{34}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Pruebas con algoritmos de machine learning}{36}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Pruebas con Chronos}{36}{section.4.5}%
 \contentsline {chapter}{\numberline {5}Conclusiones}{37}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Conclusiones generales }{37}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Próximos pasos}{37}{section.5.2}%

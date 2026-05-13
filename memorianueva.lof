@@ -6,7 +6,7 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Representación de alto nivel de Chronos. Fase de tokenización (izquierda), entrenamiento (centro), e infrencia (derecha).\relax }}{9}{figure.caption.7}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Diagrama del pipeline de preprocesamiento de datos.\relax }}{15}{figure.caption.8}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Esta imagen ilustra la aplicación del método de etiquetado de triple barrera sobre un gráfico de precios.\relax }}{17}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Aplicación del método de etiquetado de triple barrera sobre un gráfico de precios.\relax }}{17}{figure.caption.9}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama del proceso de optimización de hiperparámetros con Optuna.\relax }}{19}{figure.caption.10}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Diagrama del proceso de inicialización del bot.\relax }}{21}{figure.caption.12}%
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Diagrama del bucle de principal del bot de trading.\relax }}{23}{figure.caption.14}%
@@ -16,6 +16,6 @@
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Estructura jerárquica de herencia de clase para AbstractMLPipeline.\relax }}{28}{figure.caption.20}%
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Estructura jerárquica de herencia de clase para los experimentos realizados con Chronos.\relax }}{29}{figure.caption.21}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Superposición de precio de cierre cada 1m, barras de volumen a 50 000 unidades de BTC, y volumen de BTC.\relax }}{31}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Comparativa de barras de volumen y precio de cierre con frecuencia de 1m.\relax }}{32}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Comparativa de barras de volumen y precio de cierre con frecuencia de 1m.\relax }}{32}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Superposición de precio de cierre cada 1m, barras de volumen a 50 000 unidades de BTC, y volumen de BTC.\relax }}{32}{figure.caption.24}%
 \addvspace {10\p@ }
