@@ -40,10 +40,13 @@
 \contentsline {chapter}{\numberline {4}Ensayos y resultados}{33}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Datos utilizados}{33}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Pruebas con algoritmos de trading}{34}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Pruebas con algoritmos estadísticos clásicos}{36}{section.4.3}%
+\contentsline {section}{\numberline {4.3}Pruebas con algoritmos estadísticos clásicos}{35}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Pruebas con algoritmos de machine learning}{37}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Distribución de F1 por algoritmo}{38}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Hallazgos principales}{38}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Mejores configuraciones encontradas}{39}{subsection.4.4.3}%
 \contentsline {section}{\numberline {4.5}Pruebas con Chronos}{39}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{43}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones generales }{43}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Próximos pasos}{43}{section.5.2}%
-\contentsline {chapter}{Bibliografía}{45}{appendix*.43}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{41}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones generales }{41}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Próximos pasos}{41}{section.5.2}%
+\contentsline {chapter}{Bibliografía}{43}{appendix*.39}%
