@@ -31,19 +31,19 @@
 \contentsline {section}{\numberline {3.6}Modelos explorados}{19}{section.3.6}%
 \contentsline {section}{\numberline {3.7}Diseño del bot}{20}{section.3.7}%
 \contentsline {subsubsection}{Fase de inicio y orquestación}{21}{section*.11}%
-\contentsline {subsubsection}{Fase de ejecución continua}{22}{section*.13}%
-\contentsline {subsubsection}{Fase de monitoreo remoto}{24}{section*.15}%
-\contentsline {subsubsection}{Fase de apagado}{25}{section*.17}%
-\contentsline {section}{\numberline {3.8}Diseño del sistema}{26}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Pipeline de modelos}{27}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Estructura de pruebas realizadas con Chronos}{29}{section.3.10}%
-\contentsline {chapter}{\numberline {4}Ensayos y resultados}{31}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Datos utilizados}{31}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Pruebas con algoritmos de trading}{32}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Pruebas con algoritmos estadísticos clásicos}{34}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Pruebas con algoritmos de machine learning}{36}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Pruebas con Chronos}{36}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{37}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones generales }{37}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Próximos pasos}{37}{section.5.2}%
-\contentsline {chapter}{Bibliografía}{39}{appendix*.33}%
+\contentsline {subsubsection}{Fase de ejecución continua}{23}{section*.15}%
+\contentsline {subsubsection}{Fase de monitoreo remoto}{25}{section*.17}%
+\contentsline {subsubsection}{Fase de apagado}{26}{section*.19}%
+\contentsline {section}{\numberline {3.8}Diseño del sistema}{27}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Pipeline de modelos}{28}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Estructura de pruebas realizadas con Chronos}{30}{section.3.10}%
+\contentsline {chapter}{\numberline {4}Ensayos y resultados}{33}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Datos utilizados}{33}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Pruebas con algoritmos de trading}{34}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Pruebas con algoritmos estadísticos clásicos}{36}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Pruebas con algoritmos de machine learning}{37}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Pruebas con Chronos}{39}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{43}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones generales }{43}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Próximos pasos}{43}{section.5.2}%
+\contentsline {chapter}{Bibliografía}{45}{appendix*.43}%

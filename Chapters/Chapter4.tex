@@ -140,7 +140,7 @@ La tabla \ref{tab:sensibilidad} resume la sensibilidad de los parámetros clave 
 \end{table}
 
 
-\textbf{Conclusión:} RSIDivergence y BollingerBands son los dos mejores exponentes. El primero es la opción segura para implementación por su baja varianza (ver tabla \ref{tab:consistencia}), mientras que las bandas de Bollinger ofrecen mayor recompensa a cambio de un riesgo superior.
+Conclusión: RSIDivergence y BollingerBands son los dos mejores exponentes. El primero es la opción segura para implementación por su baja varianza (ver tabla \ref{tab:consistencia}), mientras que las bandas de Bollinger ofrecen mayor recompensa a cambio de un riesgo superior.
 
 \section{Pruebas con algoritmos estadísticos clásicos}
 En esta sección se hizo un análisis sobre las estrategias basadas en algoritmos tradicionales de series de tiempo.
@@ -214,9 +214,111 @@ En el detalle de los modelos estudiados, todos los algoritmos estadísticos de s
 
 Aquí es donde empezamos a realizar las primeras tareas significativas de ingeniería de características y de etiquetado  ya que, previamente, las estrategias recibían solamente el precio de cierre. También en esta etapa es donde se definió nuestra estrategia de baseline, la inspirada en el trabajo de Palazzo.
 
-%% random forest
-%% palazzo xgboost
-%% palazzo autogluon (baseline)
+Se evaluaron tres configuraciones de pipeline (tabla \ref{tab:ml_experiments} sobre klines de BTCUSDT en velas de 1 minuto (enero 2020 -- octubre 2025, 3.033.173 filas). El etiquetado es común a todos los pipelines: barrera triple binaria sobre barras de volumen, con la condición $\text{bar\_return}[t+1] \geq \text{bar\_return}[t] + \text{intra\_bar\_std}[t] \times \tau$, agregadas a partir de ticks de 1 minuto. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0.01}); la métrica principal es el F1 macro promedio entre pliegues (\texttt{avg\_cv\_f1}).
+
+\begin{table}[H]
+    \centering
+    \caption[Experimentos de optimización ML]{Experimentos de optimización de machine learning.}
+    \begin{tabular}{l l l l}
+        \toprule
+        \textbf{ID} & \textbf{Experimento} & \textbf{Modelo} & \textbf{Datos} \\
+        \midrule
+        59 & \texttt{Palazzo\_XGBoost\_Optimization}    & XGBoost (CUDA) & 1-min consolidado \\
+        61 & \texttt{AutoGluon\_Palazzo\_Optimization}  & AutoGluon      & 1-min consolidado \\
+        62 & \texttt{Palazzo\_XGBoost\_PR\_Optimization} & XGBoost (CUDA) & 1-min consolidado \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:ml_experiments}
+\end{table}
+
+\subsection{Distribución de F1 por algoritmo}
+
+\begin{table}[H]
+    \centering
+    \caption[Distribución F1 ML]{Distribución del F1 macro promedio por algoritmo (optimización con Optuna).}
+    \begin{tabular}{l c c c c c c c}
+        \toprule
+        \textbf{Algoritmo} & \textbf{$n$} & \textbf{mín} & \textbf{p25} & \textbf{mediana} & \textbf{p75} & \textbf{máx} & \textbf{std} \\
+        \midrule
+        XGBoost PR       & 30 & 0.569 & 0.609 & 0.624 & 0.637 & \textbf{0.650} & 0.019 \\
+        XGBoost Palazzo  & 60 & 0.584 & 0.606 & 0.612 & 0.623 & \textbf{0.647} & 0.015 \\
+        AutoGluon Palazzo & 20 & 0.561 & 0.606 & 0.616 & 0.618 & \textbf{0.639} & 0.016 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:ml_f1_dist}
+\end{table}
+
+\subsection{Hallazgos principales}
+
+\textbf{XGBoost PR y XGBoost Palazzo son estadísticamente indistinguibles.} Agregar características de reversión de precio a la variante PR produce +0.003 sobre el mejor trial y +0.008 sobre la mediana. Ambas diferencias están dentro de una desviación estándar, por lo que la ingeniería de características adicional no genera una mejora confiable.
+
+\textbf{AutoGluon iguala a XGBoost con un costo computacional diez veces mayor.} AutoGluon Palazzo (20 trials, mejor F1=0.639) se ubica a 0.008 del mejor XGBoost Palazzo (0.647). El mejor modelo seleccionado por AutoGluon fue \texttt{LightGBMXT\_BAG\_L1}. Dado que cada trial de AutoGluon insume aproximadamente diez veces más tiempo, XGBoost resulta la opción práctica para esta escala de datos.
+
+\textbf{La reducción de dimensionalidad por PCA no aporta beneficio.} Ningún experimento se benefició de PCA; todas las optimizaciones convergieron a \texttt{use\_pca=False}. La compresión PCA elimina señal discriminativa en este conjunto de características.
+
+\textbf{\texttt{tau} y \texttt{volume\_threshold} convergen consistentemente.} Todos los pipelines convergen a $\tau > 0.98$, lo que corresponde a barreras amplias y etiquetas menos frecuentes pero de mayor calidad. El umbral de volumen varía considerablemente entre experimentos (28.522--62.855), lo que sugiere que la calidad del etiquetado es sensible a la granularidad de las barras.
+
+\begin{table}[H]
+    \centering
+    \caption[Parámetros de etiquetado óptimos]{Parámetros de etiquetado óptimos por pipeline.}
+    \begin{tabular}{l c c}
+        \toprule
+        \textbf{Pipeline} & \textbf{\texttt{tau} óptimo} & \textbf{\texttt{volume\_threshold} óptimo} \\
+        \midrule
+        XGBoost PR        & 1.289 & 62.855 \\
+        XGBoost Palazzo   & 1.261 & 28.522 \\
+        AutoGluon Palazzo & 0.980 & 32.034 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:ml_label_params}
+\end{table}
+
+\textbf{Patrones de hiperparámetros de XGBoost.} La profundidad de árboles difiere según el conjunto de características: árboles poco profundos (\texttt{max\_depth=4}) funcionan mejor sobre las características Palazzo, mientras que las características adicionales de la variante PR permiten divisiones más profundas (\texttt{max\_depth=19}). Ambas variantes convergen a tasas de aprendizaje muy bajas (0.003--0.004), coherente con un conjunto de datos de más de 3 millones de filas que requiere alta regularización.
+
+\begin{table}[H]
+    \centering
+    \caption[Hiperparámetros óptimos XGBoost]{Hiperparámetros óptimos de XGBoost por variante.}
+    \begin{tabular}{l c c}
+        \toprule
+        \textbf{Parámetro} & \textbf{XGBoost Palazzo} & \textbf{XGBoost PR} \\
+        \midrule
+        \texttt{max\_depth}     & 4      & 19     \\
+        \texttt{learning\_rate} & 0.00328 & 0.00364 \\
+        \texttt{n\_estimators}  & 373    & 278    \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:ml_xgb_params}
+\end{table}
+
+\subsection{Mejores configuraciones encontradas}
+
+\textbf{XGBoost PR -- F1: 0.650}
+
+\begin{verbatim}
+tau=1.289          volume_threshold=62855     use_pca=False
+n_estimators=278   max_depth=19               learning_rate=0.00364
+colsample_bytree=0.841  subsample=0.813       gamma=0.0289
+min_child_weight=7      objective=binary:logistic
+device=cuda             tree_method=hist
+\end{verbatim}
+
+\textbf{XGBoost Palazzo -- F1: 0.647}
+
+\begin{verbatim}
+tau=1.261          volume_threshold=28522     use_pca=False
+n_estimators=373   max_depth=4                learning_rate=0.00328
+colsample_bytree=0.543  subsample=0.910       gamma=0.00567
+min_child_weight=3      objective=binary:logistic
+device=cuda             tree_method=hist
+\end{verbatim}
+
+\textbf{AutoGluon Palazzo -- F1: 0.639}
+
+\begin{verbatim}
+tau=0.980          volume_threshold=32034     use_pca=False
+best_model=LightGBMXT_BAG_L1  presets=best_quality  time_limit=600s
+eval_metric=f1_weighted
+\end{verbatim}
 
 \section{Pruebas con Chronos}
 
