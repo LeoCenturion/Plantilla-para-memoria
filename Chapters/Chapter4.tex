@@ -423,3 +423,64 @@ La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipel
 
 
 \section{Selección del mejor modelo}
+
+A lo largo de las etapas anteriores se evaluaron decenas de configuraciones y pipelines distintos mediante validación cruzada purgada. Seleccionar el modelo con mejor métrica en validación cruzada sin un paso adicional de verificación introduce un riesgo conocido como sobreajuste al proceso de selección: cuanto más configuraciones se prueban, mayor es la probabilidad de que el ganador sea simplemente el que tuvo mejor suerte en los pliegues de validación y no el que generalice mejor a datos nuevos.
+
+Para cuantificar y controlar este riesgo se utiliza la \textbf{validación cruzada combinatoria simétrica} (combinatorially symmetric cross-validation, \textit{CSCV}), propuesta por Bailey et al.\ e integrada en el marco de Marcos López de Prado. El objetivo de CSCV no es medir el rendimiento de un modelo en particular, sino estimar la probabilidad de sobreajuste del backtest} (brobability of backtest overfitting}, \textit{PBO}): la probabilidad de que el modelo seleccionado como óptimo sobre datos pasados se desempeñe peor que la mediana de los modelos descartados sobre datos no vistos.
+
+\subsection{Construcción de la matriz de rendimiento}
+
+El proceso comienza agrupando el rendimiento de todos los trials evaluados. Se forma una matriz $\mathbf{M}$ de tamaño $(T \times N)$, donde cada columna representa la serie de rendimientos (PnL) de uno de los $N$ modelos o configuraciones y cada fila representa una observación temporal. Para que la matriz sea válida todos los trials deben estar sincronizados en el mismo índice temporal; si operan a distintas frecuencias se aplica un submuestreo a un índice común $t = 1, \dots, T$.
+
+La serie de rendimientos de cada modelo se obtiene ensamblando las predicciones fuera de muestra producidas por la validación cruzada purgada. En un CV purgado estándar cada observación pertenece al conjunto de prueba en exactamente un pliegue, por lo que el modelo genera exactamente una predicción fuera de muestra por punto de la historia. Alineando cronológicamente estos fragmentos se obtiene la serie continua de posiciones $w_t \in \{-1, 0, +1\}$, y el rendimiento de la estrategia en cada período es:
+
+\begin{equation}
+    R_t = w_{t-1} \, r_t - C \, |w_t - w_{t-1}|
+    \label{eq:pnl}
+\end{equation}
+
+donde $r_t$ es el retorno del activo subyacente en el período $t$ y $C$ es el costo de transacción fijo por cambio de posición.
+
+\subsection{Partición de los datos}
+
+La matriz $\mathbf{M}$ de tamaño $(T \times N)$ se divide horizontalmente (sobre el eje temporal) en un número par $S$ de sub-matrices no superpuestas de igual dimensión. Cada sub-matriz representa un bloque cronológico de datos de tamaño $(T/S \times N)$.
+
+\subsection{Divisiones combinatorias}
+
+En lugar de realizar una simple partición entrenamiento-prueba, CSCV forma todas las combinaciones posibles eligiendo las sub-matrices en grupos de tamaño $S/2$. El número de combinaciones posibles crece según:
+
+\begin{equation}
+    \binom{S}{S/2}
+    \label{eq:combinaciones}
+\end{equation}
+
+Por ejemplo, con $S = 16$ particiones el algoritmo genera 12.870 combinaciones únicas de conjuntos de entrenamiento y prueba.
+
+\subsection{Evaluación dentro y fuera de muestra}
+
+Para cada combinación $c$ se ejecuta la siguiente rutina:
+
+\begin{enumerate}
+    \item \textbf{Ensamblado de conjuntos.} Las $S/2$ sub-matrices de la combinación forman el conjunto de entrenamiento (\textit{in-sample}, $J$); las $S/2$ restantes forman el conjunto de prueba (\textit{out-of-sample}, $\bar{J}$).
+    \item \textbf{Selección in-sample.} Se calcula la métrica de rendimiento (por ejemplo, el ratio de Sharpe) para los $N$ modelos en $J$. El modelo con el valor más alto se designa ganador $n^*$.
+    \item \textbf{Verificación out-of-sample.} Se calcula el rendimiento de los $N$ modelos en $\bar{J}$.
+    \item \textbf{Rango relativo.} Se determina el rango relativo $\bar{\omega}_c$ del ganador $n^*$ dentro del conjunto de prueba respecto al resto de los modelos.
+    \item \textbf{Transformación logit.} El rango se transforma mediante la función logit:
+    \begin{equation}
+        \lambda_c = \log\!\left[\frac{\bar{\omega}_c}{1 - \bar{\omega}_c}\right]
+        \label{eq:logit}
+    \end{equation}
+    Un valor de $\lambda_c > 0$ indica que el ganador in-sample supera a la mediana fuera de muestra; $\lambda_c = 0$ indica rendimiento idéntico a la mediana; $\lambda_c < 0$ indica sobreajuste.
+\end{enumerate}
+
+\subsection{Estimación de la PBO}
+
+Tras evaluar todas las combinaciones, los valores $\lambda_c$ forman una distribución empírica $f(\lambda)$ que representa los rangos relativos fuera de muestra. La PBO se calcula como el área bajo esta distribución donde los valores son negativos:
+
+\begin{equation}
+    \text{PBO} = \int_{-\infty}^{0} f(\lambda)\, d\lambda
+    \label{eq:pbo}
+\end{equation}
+
+Este valor representa directamente la probabilidad de que el modelo seleccionado como óptimo sobre datos pasados termine rindiendo peor que la mediana de los modelos descartados al enfrentarse a datos nuevos. Una PBO baja (cercana a 0) indica que el proceso de selección es robusto; una PBO alta (cercana a 0.5 o superior) indica que el ganador fue probablemente producto del azar.
+
