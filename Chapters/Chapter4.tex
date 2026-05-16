@@ -294,6 +294,132 @@ La tabla \ref{tab:ml_f1_dist} resume la distribución del F1 macro promedio para
 
 En esta sección se describen las pruebas realizadas con nuestro modelo transformer de elección, Chronos. Como ya se dijo se eligió este modelo por ser la destilación estado del arte actual en series de tiempo y por su fácil acceso a través de librerías como AutoGluon.
 
-%% feature pipeline chrons, chronos bolt, chronos2
-%% zero shot classification, regression, classification through regression
-%% fine tune classification, regression, classification through regression
+Se exploraron tres familias arquitectónicas de pipelines basadas en Chronos, enumeradas en la tabla \ref{tab:chronos_experiments}. Todos los experimentos utilizan los mismos datos que la etapa anterior (enero 2020 -- octubre 2025, 3.033.173 filas) con barras de volumen fijas en \texttt{volume\_threshold=50.000} BTC y $\tau=0.7$. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0.01}) para las familias de embeddings, y \texttt{pct\_embargo=0.05} para predicción directa.
+
+\begin{table}[H]
+    \centering
+    \caption[Experimentos Chronos]{Experimentos con pipelines Chronos organizados por familia arquitectónica.}
+    \begin{tabular}{l l l c}
+        \toprule
+        \textbf{Exp} & \textbf{Pipeline} & \textbf{Familia} & \textbf{Trials} \\
+        \midrule
+        73 & \texttt{ChronosFeaturePipeline}             & Embedding + clasificador & 10 \\
+        71 & \texttt{ChronosBoltFeaturePipeline}         & Embedding + clasificador & 10 \\
+        65 & \texttt{Chronos2FeaturePipeline}            & Embedding + clasificador & 10 \\
+        67 & \texttt{FinetunedChronosFeaturePipeline}    & Embedding + clasificador & 10 \\
+        69 & \texttt{PalazzoChronosBinaryClassificationPipeline} & Predicción directa & 5 \\
+        22 & \texttt{ChronosMetaLabelingPipeline}        & Meta-etiquetado          & 8  \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:chronos_experiments}
+\end{table}
+
+\subsection{Familia 1: embeddings como características}
+
+Cada pipeline de esta familia extrae representaciones densas de una ventana de precios de cierre recientes mediante un encoder de Chronos, luego concatena esos embeddings con las características tabulares de \texttt{PalazzoXGBoostPipeline} y clasifica la matriz combinada con AutoGluon. La métrica principal es \texttt{avg\_cv\_f1} (F1 macro promedio entre pliegues).
+
+La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipeline a lo largo de los trials de optimización. \texttt{ChronosFeaturePipeline} (T5) presenta la mediana y el máximo más altos, aunque con mayor varianza. \texttt{ChronosBoltFeaturePipeline} muestra la varianza más baja de todas (std=0.008), lo que refleja mayor estabilidad en los embeddings de BOLT.
+
+\begin{table}[H]
+    \centering
+    \caption[Distribución F1 Chronos embeddings]{Distribución del F1 macro promedio por pipeline de embeddings (optimización con Optuna).}
+    \begin{tabular}{l c c c c c c c}
+        \toprule
+        \textbf{Pipeline} & \textbf{$n$} & \textbf{mín} & \textbf{p25} & \textbf{mediana} & \textbf{p75} & \textbf{máx} & \textbf{std} \\
+        \midrule
+        \texttt{ChronosFeaturePipeline} (T5)     & 10 & 0.573 & 0.579 & 0.605 & 0.624 & \textbf{0.633} & 0.022 \\
+        \texttt{ChronosBoltFeaturePipeline}       & 10 & 0.598 & 0.607 & 0.609 & 0.613 & \textbf{0.628} & 0.008 \\
+        \texttt{Chronos2FeaturePipeline}          &  3 & 0.604 & 0.610 & 0.615 & 0.618 & \textbf{0.621} & 0.007 \\
+        \texttt{FinetunedChronosFeaturePipeline}  &  4 & 0.598 & 0.599 & 0.604 & 0.610 & \textbf{0.611} & 0.005 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:chronos_f1_dist}
+\end{table}
+
+\subsection{Familia 2: predicción directa}
+
+\texttt{PalazzoChronosBinaryClassificationPipeline} (exp 69) afina Chronos-2-small sobre etiquetas $\{+1, -1\}$ y convierte la salida continua en señal binaria por umbral en cero. La optimización con Optuna (5 trials, métrica \texttt{avg\_cv\_score}) arrojó los resultados de la tabla \ref{tab:chronos_direct}.
+
+\begin{table}[H]
+    \centering
+    \caption[Resultados predicción directa Chronos]{Resultados de optimización de \texttt{PalazzoChronosBinaryClassificationPipeline} (exp 69).}
+    \begin{tabular}{c c c c c}
+        \toprule
+        \textbf{Trial} & \textbf{avg\_cv\_score} & \textbf{test\_macro\_f1} & \textbf{tau} & \textbf{volume\_threshold} \\
+        \midrule
+        1 (mejor) & \textbf{0.818} & \textbf{0.819} & 0.910 & 45.988 \\
+        3         & 0.816          & 0.819          & 1.002 & 50.565 \\
+        0         & 0.813          & 0.814          & 0.871 & 50.817 \\
+        2         & 0.807          & 0.809          & 1.218 & 45.718 \\
+        4         & 0.803          & 0.804          & 1.134 & 53.145 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:chronos_direct}
+\end{table}
+
+\subsection{Familia 3: meta-etiquetado}
+
+\texttt{ChronosMetaLabelingPipeline} (exp 22) entrena un modelo primario con embeddings T5-tiny más características tabulares y luego un meta-modelo sobre si el primario acertará. En 8 corridas con \texttt{amazon/chronos-t5-tiny} el modelo primario obtuvo \texttt{baseline\_f1\_weighted=0.655} de forma consistente. Sin embargo, el meta-filtro produjo valores de \texttt{metalabeling\_f1\_weighted} entre 0.571 y 0.657: en 6 de las 8 corridas degradó el F1 del modelo primario.
+
+\subsection{Hallazgos principales}
+
+\begin{itemize}
+
+\item El fine-tuning directo con Chronos-2 es el mejor resultado obtenido: \texttt{PalazzoChronosBinaryClassificationPipeline} alcanza \texttt{avg\_cv\_score=0.818}, significativamente por encima de todos los pipelines de embeddings (0.611--0.633) y del meta-etiquetado (0.655 en F1 ponderado).
+
+\item T5 tiene el mayor potencial dentro de los embeddings: \texttt{ChronosFeaturePipeline} obtiene el F1 más alto (0.633 en exp 73) y también la mayor varianza (std=0.022), lo que indica mayor sensibilidad a los hiperparámetros. El modelo ganador en la optimización fue \texttt{CatBoost\_BAG\_L1\_FULL} con \texttt{chronos-t5-small}, ventana de 96 y preset \texttt{high\_quality}.
+
+\item BOLT es estable pero con techo inferior: \texttt{ChronosBoltFeaturePipeline} muestra std=0.008, la varianza más baja de todos los pipelines evaluados. Su máximo (0.628) queda por debajo de T5. Dentro de la familia BOLT, bolt-small supera a bolt-mini con presupuestos de tiempo cortos.
+
+\item Chronos-2 y el fine-tuning por pliegue no superan a T5 ni a BOLT: \texttt{Chronos2FeaturePipeline} alcanza F1=0.621 y \texttt{FinetunedChronosFeaturePipeline} apenas 0.611, pese al costo computacional significativo del ajuste fino por pliegue. La señal binaria sobre barras de volumen resulta demasiado ruidosa para mejorar las representaciones pre-entrenadas en 300 segundos.
+
+\item El meta-filtro no mejora al modelo primario: agregar un meta-modelo de AutoGluon sobre las predicciones del clasificador primario no produce una mejora consistente. La arquitectura de meta-etiquetado impone un compromiso precisión-recall que perjudica el F1 macro en el conjunto de prueba más frecuentemente de lo que lo beneficia.
+
+\end{itemize}
+
+%% \subsection{Mejores configuraciones encontradas}
+
+%% A continuación se detallan los hiperparámetros completos del mejor trial de cada pipeline. La familia de embeddings emplea \texttt{avg\_cv\_f1} como métrica; la predicción directa emplea \texttt{avg\_cv\_score}: ambas no son directamente comparables.
+
+%% \textbf{ChronosFeaturePipeline (T5) -- F1: 0.633} (exp 73, trial 8)
+
+%% \begin{verbatim}
+%% chronos_model_name=amazon/chronos-t5-small   window_size=96   stride=1
+%% tau=0.7 (fijo)   volume_threshold=50000   use_pca=False
+%% AutoGluon: presets=high_quality  time_limit=600s
+%% best_model=CatBoost_BAG_L1_FULL
+%% \end{verbatim}
+
+%% \textbf{ChronosBoltFeaturePipeline -- F1: 0.628} (exp 71, trial 9)
+
+%% \begin{verbatim}
+%% chronos_model_name=amazon/chronos-bolt-mini   window_size=32   stride=1
+%% tau=0.7 (fijo)   volume_threshold=50000   use_pca=False
+%% AutoGluon: presets=medium_quality  time_limit=600s
+%% \end{verbatim}
+
+%% \textbf{Chronos2FeaturePipeline -- F1: 0.621} (exp 65, trial 0)
+
+%% \begin{verbatim}
+%% chronos_model_name=autogluon/chronos-2-small   window_size=96   stride=1
+%% tau=0.7 (fijo)   volume_threshold=50000   use_pca=False
+%% AutoGluon: presets=best_quality  time_limit=600s
+%% \end{verbatim}
+
+%% \textbf{FinetunedChronosFeaturePipeline -- F1: 0.611} (exp 67, trial 7)
+
+%% \begin{verbatim}
+%% chronos_model_name=amazon/chronos-t5-tiny   window_size=160   stride=1
+%% tau=0.7 (fijo)   volume_threshold=50000
+%% AutoGluon: presets=medium_quality  time_limit=600s
+%% \end{verbatim}
+
+%% \textbf{PalazzoChronosBinaryClassificationPipeline -- avg\_cv\_score: 0.818} (exp 69, trial 1)
+
+%% \begin{verbatim}
+%% chronos_model_name=autogluon/chronos-2-small
+%% tau=0.910   volume_threshold=45988
+%% \end{verbatim}
+
+
+\section{Selección del mejor modelo}
