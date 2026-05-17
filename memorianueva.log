@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  17 MAY 2026 11:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  17 MAY 2026 12:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -878,65 +878,111 @@ LaTeX Info: Redefining \Relbar on input line 971.
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
-Package hyperref Info: Option `unicode' set `true' on input line 43.
-Package hyperref Info: Option `colorlinks' set `true' on input line 43.
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks32
+\XKV@tempa@toks=\toks33
+)
+\XKV@depth=\count458
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+
+(/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box74
+)
+\tc@llx=\dimen256
+\tc@lly=\dimen257
+\tc@urx=\dimen258
+\tc@ury=\dimen259
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen260
+\adjbox@Height=\dimen261
+\adjbox@Depth=\dimen262
+\adjbox@Totalheight=\dimen263
+\adjbox@pwidth=\dimen264
+\adjbox@pheight=\dimen265
+\adjbox@pdepth=\dimen266
+\adjbox@ptotalheight=\dimen267
+
+(/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count459
+)
+(/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box75
+\sift@deathcycles=\count460
+\@vwid@loff=\dimen268
+\@vwid@roff=\dimen269
+))
+Package hyperref Info: Option `unicode' set `true' on input line 44.
+Package hyperref Info: Option `colorlinks' set `true' on input line 44.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 
 (./memorianueva.aux (./portada.aux)
-LaTeX Info: Redefining \. on input line 27.
-LaTeX Info: Redefining \% on input line 27.
+LaTeX Info: Redefining \. on input line 28.
+LaTeX Info: Redefining \% on input line 28.
  (./Chapters/Chapter1.aux)
 (./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux)
 (./Chapters/Chapter5.aux))
 \openout1 = `memorianueva.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Info: Redefining \. on input line 65.
-LaTeX Info: Redefining \% on input line 65.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 66.
+LaTeX Info: Redefining \. on input line 66.
+LaTeX Info: Redefining \% on input line 66.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count458
-\scratchdimen=\dimen256
-\scratchbox=\box74
-\nofMPsegments=\count459
-\nofMParguments=\count460
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count461
-\MPscratchDim=\dimen257
-\MPnumerator=\count462
-\makeMPintoPDFobject=\count463
-\everyMPtoPDFconversion=\toks33
+\scratchcounter=\count461
+\scratchdimen=\dimen270
+\scratchbox=\box76
+\nofMPsegments=\count462
+\nofMParguments=\count463
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count464
+\MPscratchDim=\dimen271
+\MPnumerator=\count465
+\makeMPintoPDFobject=\count466
+\everyMPtoPDFconversion=\toks35
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-
-(/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
@@ -947,8 +993,8 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count464
-Package scrhack Info: undefining \float@addtolists on input line 65.
+\c@lstlisting=\count467
+Package scrhack Info: undefining \float@addtolists on input line 66.
 Package biblatex Info: Trying to load language 'spanish'...
 Package biblatex Info: ... file 'spanish.lbx' found.
 
@@ -1003,44 +1049,44 @@ Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                - Invalid format of field 'month'.
 
 )
-Package biblatex Info: Reference section=0 on input line 65.
-Package biblatex Info: Reference segment=0 on input line 65.
-Package hyperref Info: Link coloring ON on input line 65.
+Package biblatex Info: Reference section=0 on input line 66.
+Package biblatex Info: Reference segment=0 on input line 66.
+Package hyperref Info: Link coloring ON on input line 66.
  (./memorianueva.out) (./memorianueva.out)
 \@outlinefile=\write4
 \openout4 = `memorianueva.out'.
 
-LaTeX Info: Redefining \sptext on input line 65.
-LaTeX Info: Redefining \lsc on input line 65.
-LaTeX Info: Redefining \. on input line 65.
-LaTeX Info: Redefining \% on input line 65.
-LaTeX Info: Redefining \dotlessi on input line 65.
-Package scrbase Info: activating spanish \lstlistingname on input line 65.
-LaTeX Info: Redefining \sptext on input line 65.
-LaTeX Info: Redefining \lsc on input line 65.
-LaTeX Info: Redefining \. on input line 65.
-LaTeX Info: Redefining \% on input line 65.
-LaTeX Info: Redefining \dotlessi on input line 65.
-Package scrbase Info: activating spanish \acknowledgementname on input line 65.
+LaTeX Info: Redefining \sptext on input line 66.
+LaTeX Info: Redefining \lsc on input line 66.
+LaTeX Info: Redefining \. on input line 66.
+LaTeX Info: Redefining \% on input line 66.
+LaTeX Info: Redefining \dotlessi on input line 66.
+Package scrbase Info: activating spanish \lstlistingname on input line 66.
+LaTeX Info: Redefining \sptext on input line 66.
+LaTeX Info: Redefining \lsc on input line 66.
+LaTeX Info: Redefining \. on input line 66.
+LaTeX Info: Redefining \% on input line 66.
+LaTeX Info: Redefining \dotlessi on input line 66.
+Package scrbase Info: activating spanish \acknowledgementname on input line 66.
 
-LaTeX Info: Redefining \sptext on input line 65.
-LaTeX Info: Redefining \lsc on input line 65.
-LaTeX Info: Redefining \. on input line 65.
-LaTeX Info: Redefining \% on input line 65.
-LaTeX Info: Redefining \dotlessi on input line 65.
-Package scrbase Info: activating spanish \authorshipname on input line 65.
-LaTeX Info: Redefining \sptext on input line 65.
-LaTeX Info: Redefining \lsc on input line 65.
-LaTeX Info: Redefining \. on input line 65.
-LaTeX Info: Redefining \% on input line 65.
-LaTeX Info: Redefining \dotlessi on input line 65.
-Package scrbase Info: activating spanish \abbrevname on input line 65.
-LaTeX Info: Redefining \sptext on input line 65.
-LaTeX Info: Redefining \lsc on input line 65.
-LaTeX Info: Redefining \. on input line 65.
-LaTeX Info: Redefining \% on input line 65.
-LaTeX Info: Redefining \dotlessi on input line 65.
-Package scrbase Info: activating spanish \byname on input line 65.
+LaTeX Info: Redefining \sptext on input line 66.
+LaTeX Info: Redefining \lsc on input line 66.
+LaTeX Info: Redefining \. on input line 66.
+LaTeX Info: Redefining \% on input line 66.
+LaTeX Info: Redefining \dotlessi on input line 66.
+Package scrbase Info: activating spanish \authorshipname on input line 66.
+LaTeX Info: Redefining \sptext on input line 66.
+LaTeX Info: Redefining \lsc on input line 66.
+LaTeX Info: Redefining \. on input line 66.
+LaTeX Info: Redefining \% on input line 66.
+LaTeX Info: Redefining \dotlessi on input line 66.
+Package scrbase Info: activating spanish \abbrevname on input line 66.
+LaTeX Info: Redefining \sptext on input line 66.
+LaTeX Info: Redefining \lsc on input line 66.
+LaTeX Info: Redefining \. on input line 66.
+LaTeX Info: Redefining \% on input line 66.
+LaTeX Info: Redefining \dotlessi on input line 66.
+Package scrbase Info: activating spanish \byname on input line 66.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1202,11 +1248,11 @@ Package pdftex.def Info: Figures/bloques-tp-final.drawio.png  used on input lin
 e 68.
 (pdftex.def)             Requested size: 389.80269pt x 301.2178pt.
 )
-LaTeX Info: Redefining \. on input line 111.
-LaTeX Info: Redefining \% on input line 111.
+LaTeX Info: Redefining \. on input line 112.
+LaTeX Info: Redefining \% on input line 112.
  [4]
-LaTeX Info: Redefining \. on input line 111.
-LaTeX Info: Redefining \% on input line 111.
+LaTeX Info: Redefining \. on input line 112.
+LaTeX Info: Redefining \% on input line 112.
  [5 <./Figures/bloques-tp-final.drawio.png>]
 \openout2 = `Chapters/Chapter2.aux'.
 
@@ -1236,8 +1282,8 @@ LaTeX Info: Redefining \% on input line 95.
 LaTeX Info: Redefining \. on input line 120.
 LaTeX Info: Redefining \% on input line 120.
  [11])
-LaTeX Info: Redefining \. on input line 112.
-LaTeX Info: Redefining \% on input line 112.
+LaTeX Info: Redefining \. on input line 113.
+LaTeX Info: Redefining \% on input line 113.
  [12]
 \openout2 = `Chapters/Chapter3.aux'.
 
@@ -1418,11 +1464,12 @@ e png)
 <use Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png>
 Package pdftex.def Info: Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.pn
 g  used on input line 358.
-(pdftex.def)             Requested size: 389.80269pt x 223.96759pt.
-LaTeX Info: Redefining \. on input line 362.
-LaTeX Info: Redefining \% on input line 362.
- [29 <./Figures/ml-pipeline-flow.drawio.png>]
-<Figures/ml-pipeline-flow-chronos-pipeline.drawio.png, id=695, 1120.185pt x 620
+(pdftex.def)             Requested size: 311.84334pt x 179.17021pt.
+LaTeX Info: Redefining \. on input line 367.
+LaTeX Info: Redefining \% on input line 367.
+ [29 <./Figures/ml-pipeline-flow.drawio.png> <./Figures/ml-pipeline-flow-abstra
+ct-mlpipeline.drawio.png>]
+<Figures/ml-pipeline-flow-chronos-pipeline.drawio.png, id=696, 1120.185pt x 620
 .3175pt>
 File: Figures/ml-pipeline-flow-chronos-pipeline.drawio.png Graphic file (type p
 ng)
@@ -1430,172 +1477,129 @@ ng)
 Package pdftex.def Info: Figures/ml-pipeline-flow-chronos-pipeline.drawio.png  
 used on input line 370.
 (pdftex.def)             Requested size: 389.80269pt x 215.8555pt.
-LaTeX Info: Redefining \. on input line 376.
-LaTeX Info: Redefining \% on input line 376.
- [30 <./Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png> <./Figures/ml-
-pipeline-flow-chronos-pipeline.drawio.png>])
-LaTeX Info: Redefining \. on input line 113.
-LaTeX Info: Redefining \% on input line 113.
- [31]
+)
+LaTeX Info: Redefining \. on input line 114.
+LaTeX Info: Redefining \% on input line 114.
+ [30 <./Figures/ml-pipeline-flow-chronos-pipeline.drawio.png>]
 \openout2 = `Chapters/Chapter4.aux'.
 
- (./Chapters/Chapter4.tex [32
+ (./Chapters/Chapter4.tex
+Cap\'{\i }tulo 4.
+<Figures/bars-vs-1m.png, id=704, 2104.86375pt x 834.11626pt>
+File: Figures/bars-vs-1m.png Graphic file (type png)
+<use Figures/bars-vs-1m.png>
+Package pdftex.def Info: Figures/bars-vs-1m.png  used on input line 35.
+(pdftex.def)             Requested size: 389.80269pt x 154.46182pt.
+1: section
+[31
 
 
 
 
 ]
-Cap\'{\i }tulo 4.
-<Figures/bars-vs-1m.png, id=712, 2104.86375pt x 834.11626pt>
-File: Figures/bars-vs-1m.png Graphic file (type png)
-<use Figures/bars-vs-1m.png>
-Package pdftex.def Info: Figures/bars-vs-1m.png  used on input line 32.
-(pdftex.def)             Requested size: 389.80269pt x 154.46182pt.
-1: section
-[33]
-<Figures/bars-volume-1m.png, id=719, 1564.84625pt x 782.925pt>
+<Figures/bars-volume-1m.png, id=710, 1564.84625pt x 782.925pt>
 File: Figures/bars-volume-1m.png Graphic file (type png)
 <use Figures/bars-volume-1m.png>
-Package pdftex.def Info: Figures/bars-volume-1m.png  used on input line 45.
+Package pdftex.def Info: Figures/bars-volume-1m.png  used on input line 48.
 (pdftex.def)             Requested size: 389.80269pt x 195.02592pt.
 
-Overfull \hbox (73.36142pt too wide) in paragraph at lines 57--58
+Overfull \hbox (73.36142pt too wide) in paragraph at lines 60--61
 \T1/ppl/m/n/10.95 de ren-di-mien-to más al-to. Por otro la-do, la ta-bla [][]4.
 3[][] mues-tra que el \T1/pcr/m/n/10.95 RSIDivergenceClassifier
  []
 
-LaTeX Info: Redefining \. on input line 62.
-LaTeX Info: Redefining \% on input line 62.
-[34 <./Figures/bars-vs-1m.png> <./Figures/bars-volume-1m.png>]
-Overfull \hbox (32.9244pt too wide) in paragraph at lines 67--80
- [][] 
+LaTeX Info: Redefining \. on input line 65.
+LaTeX Info: Redefining \% on input line 65.
+[32 <./Figures/bars-vs-1m.png> <./Figures/bars-volume-1m.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 69--69
+ []\T1/ppl/m/sc/10 Tabla 4.2. |\T1/ppl/m/n/10 Re-sul-ta-dos de la me-jor op-ti-
+mi-za-ción ba-sa- 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--127
+Underfull \hbox (badness 3579) in paragraph at lines 69--69
+ \T1/ppl/m/n/10 dos en el pro-me-dio pe-sa-do de F1 en va-li-da-ción cru-za-da 
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
+[]|\T1/ppl/m/n/10 rsi_window=9, di-ver-gen-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
  []\T1/ppl/m/sc/10 Tabla 4.5. |\T1/ppl/m/n/10 Sen-si-bi-li-dad de pa-rá-me-tros
  (co-rre-la-ción con 
  []
 
 
-Overfull \hbox (45.60384pt too wide) in paragraph at lines 128--140
- [][] 
- []
-
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
-[35]
-Overfull \hbox (15.23615pt too wide) in paragraph at lines 174--185
- [][] 
- []
-
-LaTeX Info: Redefining \. on input line 188.
-LaTeX Info: Redefining \% on input line 188.
-[36]
-Overfull \hbox (56.45872pt too wide) in paragraph at lines 192--203
- [][] 
- []
-
-
-Overfull \hbox (44.63155pt too wide) in paragraph at lines 222--231
- [][] 
- []
-
-LaTeX Info: Redefining \. on input line 232.
-LaTeX Info: Redefining \% on input line 232.
-[37]
-LaTeX Info: Redefining \. on input line 275.
-LaTeX Info: Redefining \% on input line 275.
- [38]
-Overfull \hbox (105.07571pt too wide) in paragraph at lines 302--315
- [][] 
- []
-
-
-Overfull \hbox (87.191pt too wide) in paragraph at lines 326--337
- [][] 
- []
-
-LaTeX Info: Redefining \. on input line 337.
-LaTeX Info: Redefining \% on input line 337.
-[39]
-Overfull \hbox (5.02216pt too wide) in paragraph at lines 341--342
+LaTeX Info: Redefining \. on input line 165.
+LaTeX Info: Redefining \% on input line 165.
+[33]
+LaTeX Info: Redefining \. on input line 209.
+LaTeX Info: Redefining \% on input line 209.
+ [34]
+LaTeX Info: Redefining \. on input line 258.
+LaTeX Info: Redefining \% on input line 258.
+ [35]
+LaTeX Info: Redefining \. on input line 308.
+LaTeX Info: Redefining \% on input line 308.
+ [36]
+LaTeX Info: Redefining \. on input line 380.
+LaTeX Info: Redefining \% on input line 380.
+ [37]
+Overfull \hbox (5.02216pt too wide) in paragraph at lines 383--384
 \T1/ppl/m/n/10.95 por um-bral en ce-ro. La op-ti-mi-za-ción con Op-tu-na (5 tri
 als, mé-tri-ca \T1/pcr/m/n/10.95 avg_cv_score\T1/ppl/m/n/10.95 )
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 387--387
  []\T1/ppl/m/sc/10 Tabla 4.15. |\T1/ppl/m/n/10 Re-sul-ta-dos de op-ti-mi-za-ció
 n de 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 387--387
  \T1/pcr/m/n/10 PalazzoChronosBinaryClassificationPipeline \T1/ppl/m/n/10 (exp 
 
  []
 
-
-Overfull \hbox (236.94028pt too wide) in paragraph at lines 368--369
-[]\T1/ppl/m/n/10.95 El fine-tuning di-rec-to con Chronos-2 es el me-jor re-sul-
-ta-do ob-te-ni-do: \T1/pcr/m/n/10.95 PalazzoChronosBinaryClassificationPipeline
-
+LaTeX Info: Redefining \. on input line 418.
+LaTeX Info: Redefining \% on input line 418.
+[38]
+Overfull \hbox (85.91913pt too wide) in paragraph at lines 419--420
+\T1/pcr/m/n/10.95 Chronos2FeaturePipeline \T1/ppl/m/n/10.95 al-can-za F1=0.621 
+y \T1/pcr/m/n/10.95 FinetunedChronosFeaturePipeline
  []
 
-
-Overfull \hbox (41.41794pt too wide) in paragraph at lines 370--371
-[]\T1/ppl/m/n/10.95 T5 tie-ne el ma-yor po-ten-cial den-tro de los em-bed-dings
-: \T1/pcr/m/n/10.95 ChronosFeaturePipeline
- []
-
-
-Overfull \hbox (16.351pt too wide) in paragraph at lines 370--371
-\T1/ppl/m/n/10.95 ob-tie-ne el F1 más al-to (0.633 en exp 73) y tam-bién la ma-
-yor va-rian-za (std=0.022),
- []
-
-
-Overfull \hbox (5.8183pt too wide) in paragraph at lines 370--371
-\T1/ppl/m/n/10.95 en la op-ti-mi-za-ción fue \T1/pcr/m/n/10.95 CatBoost_BAG_L1_
-FULL \T1/ppl/m/n/10.95 con \T1/pcr/m/n/10.95 chronos-t5-small\T1/ppl/m/n/10.95 
-,
- []
-
-LaTeX Info: Redefining \. on input line 373.
-LaTeX Info: Redefining \% on input line 373.
-[40]
-Overfull \hbox (102.0239pt too wide) in paragraph at lines 374--375
-[]\T1/ppl/m/n/10.95 Chronos-2 y el fine-tuning por plie-gue no su-pe-ran a T5 n
-i a BOLT: \T1/pcr/m/n/10.95 Chronos2FeaturePipeline
- []
-
-LaTeX Info: Redefining \. on input line 457.
-LaTeX Info: Redefining \% on input line 457.
-[41]
-Overfull \hbox (36.43501pt too wide) in paragraph at lines 490--491
+LaTeX Info: Redefining \. on input line 505.
+LaTeX Info: Redefining \% on input line 505.
+[39]
+Overfull \hbox (36.43501pt too wide) in paragraph at lines 541--542
 []\T1/ppl/m/n/10.95 El mo-de-lo fi-nal se-lec-cio-na-do es \T1/pcr/m/n/10.95 Pa
 lazzoChronosBinaryClassificationPipeline
  []
 
-LaTeX Info: Redefining \. on input line 497.
-LaTeX Info: Redefining \% on input line 497.
-[42]
-Overfull \hbox (110.34601pt too wide) in paragraph at lines 497--498
-[]\T1/ppl/m/n/10.95 Se apli-có CPCV so-bre el mo-de-lo se-lec-cio-na-do (\T1/pc
-r/m/n/10.95 PalazzoChronosBinaryClassificationPipeline\T1/ppl/m/n/10.95 ,
+LaTeX Info: Redefining \. on input line 548.
+LaTeX Info: Redefining \% on input line 548.
+[40]
+Overfull \hbox (15.55511pt too wide) in paragraph at lines 548--549
+\T1/ppl/m/n/10.95 (\T1/pcr/m/n/10.95 PalazzoChronosBinaryClassificationPipeline
+\T1/ppl/m/n/10.95 , \T1/pcr/m/n/10.95 chronos-2-small\T1/ppl/m/n/10.95 , $\OML/
+cmm/m/it/10.95 ^^\ \OT1/cmr/m/n/10.95 =
  []
 
 )
-LaTeX Info: Redefining \. on input line 114.
-LaTeX Info: Redefining \% on input line 114.
- [43]
+LaTeX Info: Redefining \. on input line 115.
+LaTeX Info: Redefining \% on input line 115.
+ [41]
 \openout2 = `Chapters/Chapter5.aux'.
 
- (./Chapters/Chapter5.tex [44
+ (./Chapters/Chapter5.tex [42
 
 
 
@@ -1603,56 +1607,56 @@ LaTeX Info: Redefining \% on input line 114.
 ]
 Cap\'{\i }tulo 5.
 1: section
-[45])
-LaTeX Info: Redefining \. on input line 115.
-LaTeX Info: Redefining \% on input line 115.
- [46]
-Overfull \hbox (18.52867pt too wide) in paragraph at lines 133--133
+[43])
+LaTeX Info: Redefining \. on input line 116.
+LaTeX Info: Redefining \% on input line 116.
+ [44]
+Overfull \hbox (18.52867pt too wide) in paragraph at lines 134--134
 \T1/ppl/m/it/10.95 ren-ce on AI in Fi-nan-ce\T1/ppl/m/n/10.95 . ICAIF '24. New 
 York, NY, USA: ACM, 2024, págs. 822[]830.
  []
 
 
-Overfull \hbox (14.55104pt too wide) in paragraph at lines 133--133
+Overfull \hbox (14.55104pt too wide) in paragraph at lines 134--134
 []\T1/ppl/m/n/10.95 José Fran-cis-co Ló-pez. \T1/ppl/m/it/10.95 Teo-ría de Dow\
 T1/ppl/m/n/10.95 . [][]$https : / / economipedia . com / de^^\niciones /
  []
 
 
-Overfull \hbox (3.81999pt too wide) in paragraph at lines 133--133
+Overfull \hbox (3.81999pt too wide) in paragraph at lines 134--134
 []\T1/ppl/m/n/10.95 Stefan Jan-sen. \T1/ppl/m/it/10.95 Ma-chi-ne Lear-ning for 
 Al-go-rith-mic Tra-ding - Se-cond Edi-tion\T1/ppl/m/n/10.95 . Packt,
  []
 
 
-Overfull \hbox (1.03105pt too wide) in paragraph at lines 133--133
+Overfull \hbox (1.03105pt too wide) in paragraph at lines 134--134
 \T1/ppl/m/it/10.95 ting\T1/ppl/m/n/10.95 . [][]$https : / / www . pluralsight .
  com / guides / ensemble -[] methods -[]:-[] bagging -[]
  []
 
 
-Overfull \hbox (3.26604pt too wide) in paragraph at lines 133--133
+Overfull \hbox (3.26604pt too wide) in paragraph at lines 134--134
 []\T1/ppl/m/n/10.95 Ashish Vas-wa-ni et al. ^^S  At-ten-tion Is All You Need^^T
 . En: \T1/ppl/m/it/10.95 CoRR \T1/ppl/m/n/10.95 ab-s/1706.03762
  []
 
 1: section
-[47
+[45
 
 
 
 ]
-Overfull \hbox (0.25111pt too wide) in paragraph at lines 133--133
+Overfull \hbox (0.25111pt too wide) in paragraph at lines 134--134
 \T1/ppl/m/n/10.95 Car-lo Ro-dri-gues Le-les. Dis-ser-ta-tion of Mas-ter of Scie
 n-ce. São Jos'e dos Cam-
  []
 
-LaTeX Info: Redefining \. on input line 135.
-LaTeX Info: Redefining \% on input line 135.
-[48] (./memorianueva.aux (./portada.aux)
-LaTeX Info: Redefining \sptext on input line 27.
-LaTeX Info: Redefining \. on input line 27.
-LaTeX Info: Redefining \% on input line 27.
+LaTeX Info: Redefining \. on input line 136.
+LaTeX Info: Redefining \% on input line 136.
+[46] (./memorianueva.aux (./portada.aux)
+LaTeX Info: Redefining \sptext on input line 28.
+LaTeX Info: Redefining \. on input line 28.
+LaTeX Info: Redefining \% on input line 28.
  (./Chapters/Chapter1.aux)
 (./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux)
 (./Chapters/Chapter5.aux))
@@ -1671,13 +1675,13 @@ Package logreq Info: Writing requests to 'memorianueva.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31250 strings out of 477967
- 660198 string characters out of 5838625
- 1876388 words of memory out of 6000000
- 50811 multiletter control sequences out of 15000+600000
- 574249 words of font info for 110 fonts, out of 8000000 for 9000
+ 32340 strings out of 477967
+ 679847 string characters out of 5838625
+ 1877388 words of memory out of 6000000
+ 51872 multiletter control sequences out of 15000+600000
+ 575698 words of font info for 112 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
- 95i,20n,92p,1969b,2833s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 95i,20n,92p,1969b,2835s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
@@ -1695,10 +1699,10 @@ xlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pal
 atino/uplri8a.pfb>
-Output written on memorianueva.pdf (58 pages, 6946183 bytes).
+Output written on memorianueva.pdf (56 pages, 6944646 bytes).
 PDF statistics:
- 942 PDF objects out of 1000 (max. 8388607)
- 814 compressed objects within 9 object streams
- 205 named destinations out of 1000 (max. 500000)
+ 933 PDF objects out of 1000 (max. 8388607)
+ 807 compressed objects within 9 object streams
+ 203 named destinations out of 1000 (max. 500000)
  563 words of extra memory for PDF output out of 10000 (max. 10000000)
 

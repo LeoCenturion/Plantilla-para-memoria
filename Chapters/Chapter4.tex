@@ -57,7 +57,7 @@ En esta sección se hizo un análisis sobre las estrategias basadas en algoritmo
 
 Configuración: CV purgado de 5 pliegues con 1\% de embargo, 0.1\% de comisión, optimización Optuna en datos de 1 minuto de BTCUSDT.
 
-Como se observa en la tabla \ref{tab:optimizacion_f1}, el \texttt{BollingerBandsClassifier} tiene el techo de rendimiento más alto. Por otro lado, la tabla \ref{tab:sharpe_dist} muestra que el \texttt{RSIDivergenceClassifier} es la estrategia más confiable: presenta el Sharpe medio más alto y una varianza extremadamente baja.
+Como se observa en la tabla \ref{tab:optimizacion_f1}, el \texttt{BollingerBandsClassifier} tiene el techo de rendimiento más alto. Por otro lado, la tabla \ref{tab:sharpe_dist} muestra que el \\ \texttt{RSIDivergenceClassifier} es la estrategia más confiable: presenta el Sharpe medio más alto y una varianza extremadamente baja.
 
 
 
@@ -226,7 +226,7 @@ Queda en evidencia que, en este contexto, añadir complejidad perjudica el rendi
   \label{tab:sensibilidad_estadistica}
 \end{table}
 
-En cuanto a la parametrización, la mejor configuración de ARIMA converge de manera muy ajustada. Las cinco mejores pruebas de este modelo comparten exactamente los mismos valores de base ($p=4$, $d=0$, $q=1$, $\text{refit}=720\text{h}$, $\text{lookback}=720\text{h}$), y difieren únicamente en el umbral. Esto sugiere que el orden autorregresivo y de media móvil de ARIMA está bien identificado para este activo, pero que el espacio de búsqueda inicial para el umbral fue demasiado amplio. 
+En cuanto a la parametrización, la mejor configuración de ARIMA converge de manera muy ajustada. Las cinco mejores pruebas de este modelo comparten exactamente los mismos valores de base ($p=4$, $d=0$, $q=1$, $\text{refit}=720\text{h}$, $\text{lookback}=720\text{h}$), y difieren únicamente en el umbral. Esto sugiere que el orden autorregresivo y de media móvil de ARIMA está bien identificado para este activo, pero que el espacio de búsqueda inicial para el umbral fue demasiado amplio.
 
 \vspace{1em}
 
@@ -410,13 +410,13 @@ La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipel
 
 \begin{itemize}
 
-\item El fine-tuning directo con Chronos-2 es el mejor resultado obtenido: \\ \texttt{PalazzoChronosBinaryClassificationPipeline} alcanza \texttt{avg\_cv\_score=0.818}, significativamente por encima de todos los pipelines de embeddings (0.611--0.633) y del meta-etiquetado (0.655 en F1 ponderado).
+\item El fine-tuning directo con Chronos-2 es el mejor resultado obtenido: \\ \texttt{PalazzoChronosBinaryClassificationPipeline} alcanza \\ \texttt{avg\_cv\_score=0.818}, significativamente por encima de todos los pipelines de embeddings (0.611--0.633) y del meta-etiquetado (0.655 en F1 ponderado).
 
-\item T5 tiene el mayor potencial dentro de los embeddings: \\ \texttt{ChronosFeaturePipeline} obtiene el F1 más alto (0.633 en exp 73) y también la mayor varianza (std=0.022), lo que indica mayor sensibilidad a los hiperparámetros. El modelo ganador en la optimización fue \texttt{CatBoost\_BAG\_L1\_FULL} con \texttt{chronos-t5-small}, ventana de 96 y preset \texttt{high\_quality}.
+\item T5 tiene el mayor potencial dentro de los embeddings: \\ \texttt{ChronosFeaturePipeline} obtiene el F1 más alto (0.633 en exp 73) y también la mayor varianza (std=0.022), lo que indica mayor sensibilidad a los hiperparámetros. El modelo ganador en la optimización fue \\\texttt{CatBoost\_BAG\_L1\_FULL} con \texttt{chronos-t5-small}, ventana de 96 y preset \texttt{high\_quality}.
 
 \item BOLT es estable pero con techo inferior: \\\texttt{ChronosBoltFeaturePipeline} muestra std=0.008, la varianza más baja de todos los pipelines evaluados. Su máximo (0.628) queda por debajo de T5. Dentro de la familia BOLT, bolt-small supera a bolt-mini con presupuestos de tiempo cortos.
 
-\item Chronos-2 y el fine-tuning por pliegue no superan a T5 ni a BOLT: \texttt{Chronos2FeaturePipeline} alcanza F1=0.621 y \texttt{FinetunedChronosFeaturePipeline} apenas 0.611, pese al costo computacional significativo del ajuste fino por pliegue. La señal binaria sobre barras de volumen resulta demasiado ruidosa para mejorar las representaciones pre-entrenadas en 300 segundos.
+\item Chronos-2 y el fine-tuning por pliegue no superan a T5 ni a BOLT: \\\texttt{Chronos2FeaturePipeline} alcanza F1=0.621 y \\\texttt{FinetunedChronosFeaturePipeline} apenas 0.611, pese al costo computacional significativo del ajuste fino por pliegue. La señal binaria sobre barras de volumen resulta demasiado ruidosa para mejorar las representaciones pre-entrenadas en 300 segundos.
 
 \item El meta-filtro no mejora al modelo primario: agregar un meta-modelo de AutoGluon sobre las predicciones del clasificador primario no produce una mejora consistente. La arquitectura de meta-etiquetado impone un compromiso precisión-recall que perjudica el F1 macro en el conjunto de prueba más frecuentemente de lo que lo beneficia.
 
@@ -469,7 +469,7 @@ La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipel
 
 \section{Selección del mejor modelo}
 
-La \textbf{Validación Cruzada Combinatoria Simétrica} (CSCV) es el procedimiento utilizado para seleccionar el modelo final entre todos los trials evaluados. A partir de las series de rendimiento fuera de muestra de cada trial, CSCV estima la \textbf{Probabilidad de Sobreajuste del Backtest} (PBO): qué tan probable es que el modelo ganador en entrenamiento rinda peor que la mediana de los descartados sobre datos no vistos. Una PBO cercana a 0 indica que la selección es robusta; una PBO cercana a 0.5 o superior indica que el ganador fue producto del azar. Se utilizaron $C=70$ combinaciones por experimento.
+La validación cruzada combinatoria simétrica (CSCV) es el procedimiento utilizado para seleccionar el modelo final entre todos los trials evaluados. A partir de las series de rendimiento fuera de muestra de cada trial, CSCV estima la probabilidad de sobreajuste del backtest (PBO): qué tan probable es que el modelo ganador en entrenamiento rinda peor que la mediana de los descartados sobre datos no vistos. Una PBO cercana a 0 indica que la selección es robusta; una PBO cercana a 0.5 o superior indica que el ganador fue producto del azar. Se utilizaron $C=70$ combinaciones por experimento.
 
 \subsection{Resultados por experimento}
 
@@ -543,9 +543,9 @@ El modelo final seleccionado es \texttt{PalazzoChronosBinaryClassificationPipeli
 
 \subsection{CPCV para el modelo elegido}
 
-La Validación Cruzada Combinatoria Purgada (\textit{CPCV}) proporciona una estimación sin sesgo de la distribución de rendimientos del modelo final sobre caminos de backtest disjuntos. A diferencia de un único holdout, CPCV reconstruye $\bar{N}$ caminos temporales completos a partir de los $\binom{N}{k}$ pliegues combinatorios, lo que permite estimar la varianza del rendimiento OOS y no solo su valor medio.
+La validación cruzada combinatoria purgada (\textit{CPCV}) proporciona una estimación sin sesgo de la distribución de rendimientos del modelo final sobre caminos de backtest disjuntos. A diferencia de un único holdout, CPCV reconstruye $\bar{N}$ caminos temporales completos a partir de los $\binom{N}{k}$ pliegues combinatorios, lo que permite estimar la varianza del rendimiento OOS y no solo su valor medio.
 
-Se aplicó CPCV sobre el modelo seleccionado (\texttt{PalazzoChronosBinaryClassificationPipeline}, \texttt{chronos-2-small}, $\tau=0.910$, \texttt{volume\_threshold}=45.988) con la configuración de la tabla \ref{tab:cpcv_config}.
+Se aplicó CPCV sobre el modelo seleccionado \\(\texttt{PalazzoChronosBinaryClassificationPipeline}, \texttt{chronos-2-small}, $\tau=0.910$, \texttt{volume\_threshold}=45.988) con la configuración de la tabla \ref{tab:cpcv_config}.
 
 \begin{table}[H]
     \centering
