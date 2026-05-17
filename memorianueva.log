@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  17 MAY 2026 12:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  17 MAY 2026 12:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1502,15 +1502,9 @@ File: Figures/bars-volume-1m.png Graphic file (type png)
 <use Figures/bars-volume-1m.png>
 Package pdftex.def Info: Figures/bars-volume-1m.png  used on input line 48.
 (pdftex.def)             Requested size: 389.80269pt x 195.02592pt.
-
-Overfull \hbox (73.36142pt too wide) in paragraph at lines 60--61
-\T1/ppl/m/n/10.95 de ren-di-mien-to más al-to. Por otro la-do, la ta-bla [][]4.
-3[][] mues-tra que el \T1/pcr/m/n/10.95 RSIDivergenceClassifier
- []
-
 LaTeX Info: Redefining \. on input line 65.
 LaTeX Info: Redefining \% on input line 65.
-[32 <./Figures/bars-vs-1m.png> <./Figures/bars-volume-1m.png>]
+ [32 <./Figures/bars-vs-1m.png> <./Figures/bars-volume-1m.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 69--69
  []\T1/ppl/m/sc/10 Tabla 4.2. |\T1/ppl/m/n/10 Re-sul-ta-dos de la me-jor op-ti-
 mi-za-ción ba-sa- 
@@ -1571,21 +1565,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 387--387
 LaTeX Info: Redefining \. on input line 418.
 LaTeX Info: Redefining \% on input line 418.
 [38]
-Overfull \hbox (85.91913pt too wide) in paragraph at lines 419--420
-\T1/pcr/m/n/10.95 Chronos2FeaturePipeline \T1/ppl/m/n/10.95 al-can-za F1=0.621 
-y \T1/pcr/m/n/10.95 FinetunedChronosFeaturePipeline
+Overfull \hbox (7.63737pt too wide) in paragraph at lines 419--420
+\T1/pcr/m/n/10.95 FinetunedChronosFeaturePipeline \T1/ppl/m/n/10.95 ape-nas 0.6
+11, pe-se al cos-to compu-
  []
 
 LaTeX Info: Redefining \. on input line 505.
 LaTeX Info: Redefining \% on input line 505.
 [39]
-Overfull \hbox (36.43501pt too wide) in paragraph at lines 541--542
-[]\T1/ppl/m/n/10.95 El mo-de-lo fi-nal se-lec-cio-na-do es \T1/pcr/m/n/10.95 Pa
-lazzoChronosBinaryClassificationPipeline
+Overfull \hbox (6.06107pt too wide) in paragraph at lines 541--542
+\T1/pcr/m/n/10.95 PalazzoChronosBinaryClassificationPipeline \T1/ppl/m/n/10.95 
+con \T1/pcr/m/n/10.95 chronos-2-small 
  []
 
-LaTeX Info: Redefining \. on input line 548.
-LaTeX Info: Redefining \% on input line 548.
+LaTeX Info: Redefining \. on input line 547.
+LaTeX Info: Redefining \% on input line 547.
 [40]
 Overfull \hbox (15.55511pt too wide) in paragraph at lines 548--549
 \T1/ppl/m/n/10.95 (\T1/pcr/m/n/10.95 PalazzoChronosBinaryClassificationPipeline
@@ -1699,7 +1693,7 @@ xlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pal
 atino/uplri8a.pfb>
-Output written on memorianueva.pdf (56 pages, 6944646 bytes).
+Output written on memorianueva.pdf (56 pages, 6944895 bytes).
 PDF statistics:
  933 PDF objects out of 1000 (max. 8388607)
  807 compressed objects within 9 object streams

@@ -28,7 +28,7 @@ Como ya se mencionó antes, en este trabajo se utilizaron precios de cierre de B
   \label{tab:buy_and_hold}
 \end{table}
 
-También se ilustra como las barras de volumen afectan a la serie de tiempo original (figura \ref{fig:bars-vs-1m}). Se aprecia como la forma general sigue presente pero, en cierta manera, un poco más suavizada. Se pueden ver que los movimientos pequeños se condensan en un solo punto.
+También se ilustra cómo las barras de volumen afectan a la serie de tiempo original (figura \ref{fig:bars-vs-1m}). Se aprecia cómo la forma general sigue presente pero, en cierta manera, un poco más suavizada. Se pueden ver que los movimientos pequeños se condensan en un solo punto, y se filtra el ruido temporal. Por el contrario, los picos de alta volatilidad capturan un mayor nivel de detalle, se redistribuye el eje horizontal para reflejar el flujo real de transacciones y la estructura del mercado en lugar del simple paso cronológico del tiempo.
 
 \begin{figure}[H]
   \centering
@@ -38,7 +38,7 @@ También se ilustra como las barras de volumen afectan a la serie de tiempo orig
 \end{figure}
 
 
-La figura \ref{fig:bars-volume-1m} ilustra, además, cómo el agregado por barras de volumen cambia la velocidad de muestreo con respecto un incremento en la varianza. Esto se ejemplifica bien si se compara el periodo que va del  9 de enero y al 13 de enero, con el que va del 13 al 21 del mismo mes.
+La figura \ref{fig:bars-volume-1m} ilustra, además, cómo el agregado por barras de volumen cambia la velocidad de muestreo con respecto a un incremento en la varianza. Esto se ejemplifica bien si se compara el periodo que va del 9 de enero al 13 de enero, con el que va del 13 al 21 del mismo mes.
 Tienen la misma cantidad de puntos (seis) pero el segundo período cubre el doble de tiempo.
 
 
@@ -230,13 +230,13 @@ En cuanto a la parametrización, la mejor configuración de ARIMA converge de ma
 
 \vspace{1em}
 
-Conclusión: se puede afirmar con seguridad que se logró un resultado subóptimo aunque esperable. Los algoritmos estadísticos no supieron diferenciar la escasa señal del preponderante ruido presente en los mercados financieros. En resultados concretos el mejor f1 no pudo superar el de un intento aleatorio y en sharpe ratio quedó muy por debajo de la base del buy and hold.
+Conclusión: se puede afirmar con seguridad que se logró un resultado subóptimo aunque esperable. Los algoritmos estadísticos no supieron diferenciar la escasa señal del preponderante ruido presente en los mercados financieros. En resultados concretos el mejor F1 no pudo superar el de un intento aleatorio y en Sharpe ratio quedó muy por debajo de la base del buy and hold.
 
 En el detalle de los modelos estudiados, todos los algoritmos estadísticos de series temporales (ARIMA, GARCH y Kalman) resultan estructuralmente inestables para este conjunto de datos. Exigen una calibración del umbral extremadamente precisa e, incluso en el mejor de los escenarios (\texttt{ARIMAClassifier} con $p=4$, $d=0$, $q=1$), apenas logran superar el rendimiento de un clasificador aleatorio.
 
 \section{Pruebas con algoritmos de machine learning}
 
-Aquí es se realizaron las primeras tareas significativas de ingeniería de características y de etiquetado  ya que, previamente, las estrategias recibían solamente el precio de cierre. También en esta etapa es donde se definió la estrategia de baseline, la inspirada en el trabajo de Palazzo.
+Aquí se realizaron las primeras tareas significativas de ingeniería de características y de etiquetado  ya que, previamente, las estrategias recibían solamente el precio de cierre. También en esta etapa es donde se definió la estrategia de baseline, la inspirada en el trabajo de Palazzo.
 
 Se evaluaron dos configuraciones de pipeline sobre klines de BTCUSDT en velas de 1 minuto (enero 2020 -- octubre 2025, 3.033.173 filas), resumidas en la tabla \ref{tab:ml_experiments}. El etiquetado es común a todos los pipelines: barrera triple binaria sobre barras de volumen, con la condición $\text{bar\_return}[t+1] \geq \text{bar\_return}[t] + \text{intra\_bar\_std}[t] \times \tau$, agregadas a partir de ticks de 1 minuto. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0.01}); la métrica principal es el F1 macro promedio entre pliegues (\texttt{avg\_cv\_f1}).
 
@@ -328,7 +328,7 @@ La tabla \ref{tab:ml_f1_dist} resume la distribución del F1 macro promedio para
 
 \section{Pruebas con Chronos}
 
-En esta sección se describen las pruebas realizadas con nuestro modelo transformer de elección, Chronos. Como ya se dijo se eligió este modelo por ser la destilación estado del arte actual en series de tiempo y por su fácil acceso a través de librerías como AutoGluon.
+En esta sección se describen las pruebas realizadas con el modelo transformer de elección, Chronos. Como ya se dijo, se eligió este modelo por ser la destilación estado del arte actual en series de tiempo y por su fácil acceso a través de librerías como AutoGluon.
 
 Se exploraron tres familias arquitectónicas de pipelines basadas en Chronos, enumeradas en la tabla \ref{tab:chronos_experiments}. Todos los experimentos utilizan los mismos datos que la etapa anterior (enero 2020 -- octubre 2025, 3.033.173 filas) con barras de volumen fijas en \texttt{volume\_threshold=50.000} BTC y $\tau=0.7$. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0.01}) para las familias de embeddings, y \texttt{pct\_embargo=0.05} para predicción directa.
 
@@ -531,14 +531,14 @@ Para determinar cuál experimento domina globalmente, se aplicó CSCV sobre el c
 
 \item Los algoritmos de trading son los más robustos por PBO, pero con métrica incomparable: RSIDivergence, BollingerBands y MaCrossover alcanzan PBO$<$0.06 con $T=50.560$, el mayor de todos los experimentos. Sin embargo, su métrica es Sharpe y no es directamente comparable con el F1 de los demás.
 
-\item \texttt{Finetuned\_Chronos} tiene la peor fiabilidad de selección:  PBO=0.771 con solo 4 trials y $T=622$. El ajuste fino por pliegue produce alta varianza entre trials in-sample que no se refleja fuera de muestra, haciendo la selección de hiperparámetros poco confiable.
+\item \texttt{Finetuned\_Chronos} tiene la peor fiabilidad de selección:  PBO=0.771 con solo 4 trials y $T=622$. El ajuste fino por pliegue produce alta varianza entre trials in-sample que no se refleja fuera de muestra, lo que hace que la selección de hiperparámetros sea poco confiable.
 
 \item Los modelos estadísticos no están sobreajustados, simplemente no predicen:  PBO=0.000 para ARIMA y ARIMA-GARCH refleja consistencia — pero con F1 OOS $\approx$ 0.5, esa consistencia es en torno al nivel del azar.
 
 
 \end{itemize}
 
-El modelo final seleccionado es \texttt{PalazzoChronosBinaryClassificationPipeline} con \texttt{chronos-2-small} ($\tau=0.910$, \texttt{volume\_threshold=45.988}), avalado por un F1 OOS de 0.815 y un dominio del 98.6\% en el CSCV cruzado sin degradación entre in-sample y out-of-sample.
+El modelo final seleccionado es \\ \texttt{PalazzoChronosBinaryClassificationPipeline} con \texttt{chronos-2-small} \\($\tau=0.910$, \texttt{volume\_threshold=45.988}), avalado por un F1 OOS de 0.815 y un dominio del 98.6\% en el CSCV cruzado sin degradación entre in-sample y out-of-sample.
 
 
 \subsection{CPCV para el modelo elegido}
