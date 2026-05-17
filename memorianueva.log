@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  17 MAY 2026 12:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  17 MAY 2026 14:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1222,7 +1222,7 @@ l.15
 
 
 ]
-<Figures/Screenshot From 2026-03-17 21-57-54.png, id=453, 2044.63875pt x 789.95
+<Figures/Screenshot From 2026-03-17 21-57-54.png, id=455, 2044.63875pt x 789.95
 125pt>
 File: Figures/Screenshot From 2026-03-17 21-57-54.png Graphic file (type png)
 <use Figures/Screenshot From 2026-03-17 21-57-54.png>
@@ -1241,7 +1241,7 @@ l.33
 LaTeX Info: Redefining \. on input line 48.
 LaTeX Info: Redefining \% on input line 48.
  [3]
-<Figures/bloques-tp-final.drawio.png, id=482, 507.8975pt x 392.46625pt>
+<Figures/bloques-tp-final.drawio.png, id=484, 507.8975pt x 392.46625pt>
 File: Figures/bloques-tp-final.drawio.png Graphic file (type png)
 <use Figures/bloques-tp-final.drawio.png>
 Package pdftex.def Info: Figures/bloques-tp-final.drawio.png  used on input lin
@@ -1268,7 +1268,7 @@ Cap\'{\i }tulo 2.
 LaTeX Info: Redefining \. on input line 52.
 LaTeX Info: Redefining \% on input line 52.
  [8]
-<Figures/chronos.png, id=534, 3165.8275pt x 1316.92pt>
+<Figures/chronos.png, id=536, 3165.8275pt x 1316.92pt>
 File: Figures/chronos.png Graphic file (type png)
 <use Figures/chronos.png>
 Package pdftex.def Info: Figures/chronos.png  used on input line 57.
@@ -1307,7 +1307,7 @@ LaTeX Font Info:    Trying to load font information for T1+pcr on input line 68
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-<Figures/preprocessing_pipeline.png, id=575, 571.13374pt x 357.335pt>
+<Figures/preprocessing_pipeline.png, id=577, 571.13374pt x 357.335pt>
 File: Figures/preprocessing_pipeline.png Graphic file (type png)
 <use Figures/preprocessing_pipeline.png>
 Package pdftex.def Info: Figures/preprocessing_pipeline.png  used on input line
@@ -1322,7 +1322,7 @@ LaTeX Info: Redefining \% on input line 90.
 LaTeX Info: Redefining \. on input line 113.
 LaTeX Info: Redefining \% on input line 113.
  [16]
-<Figures/triple-barrier.png, id=597, 2274.4975pt x 1327.96124pt>
+<Figures/triple-barrier.png, id=599, 2274.4975pt x 1327.96124pt>
 File: Figures/triple-barrier.png Graphic file (type png)
 <use Figures/triple-barrier.png>
 Package pdftex.def Info: Figures/triple-barrier.png  used on input line 123.
@@ -1330,7 +1330,7 @@ Package pdftex.def Info: Figures/triple-barrier.png  used on input line 123.
 LaTeX Info: Redefining \. on input line 132.
 LaTeX Info: Redefining \% on input line 132.
  [17 <./Figures/triple-barrier.png>]
-<Figures/hyperparameter_pipeline.png, id=605, 705.63625pt x 691.58376pt>
+<Figures/hyperparameter_pipeline.png, id=607, 705.63625pt x 691.58376pt>
 File: Figures/hyperparameter_pipeline.png Graphic file (type png)
 <use Figures/hyperparameter_pipeline.png>
 Package pdftex.def Info: Figures/hyperparameter_pipeline.png  used on input lin
@@ -1350,17 +1350,17 @@ LaTeX Info: Redefining \% on input line 202.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 203.
 
-<Figures/seq_1_startup.png, id=636, 580.1675pt x 332.24126pt>
+<Figures/seq_1_startup.png, id=638, 580.1675pt x 332.24126pt>
 File: Figures/seq_1_startup.png Graphic file (type png)
 <use Figures/seq_1_startup.png>
 Package pdftex.def Info: Figures/seq_1_startup.png  used on input line 209.
 (pdftex.def)             Requested size: 389.80269pt x 223.2291pt.
-<Figures/seq_1b_startup.png, id=637, 690.58pt x 385.44pt>
+<Figures/seq_1b_startup.png, id=639, 690.58pt x 385.44pt>
 File: Figures/seq_1b_startup.png Graphic file (type png)
 <use Figures/seq_1b_startup.png>
 Package pdftex.def Info: Figures/seq_1b_startup.png  used on input line 215.
 (pdftex.def)             Requested size: 389.80269pt x 217.56816pt.
-<Figures/seq_1c_init.png, id=638, 1389.19pt x 738.76pt>
+<Figures/seq_1c_init.png, id=640, 1389.19pt x 738.76pt>
 File: Figures/seq_1c_init.png Graphic file (type png)
 <use Figures/seq_1c_init.png>
 Package pdftex.def Info: Figures/seq_1c_init.png  used on input line 221.
@@ -1416,76 +1416,81 @@ Underfull \hbox (badness 10000) in paragraph at lines 243--244
 
  []
 
-<Figures/seq_2_trading_loop.png, id=649, 528.97626pt x 792.9625pt>
-File: Figures/seq_2_trading_loop.png Graphic file (type png)
-<use Figures/seq_2_trading_loop.png>
-Package pdftex.def Info: Figures/seq_2_trading_loop.png  used on input line 254
-.
-(pdftex.def)             Requested size: 389.80269pt x 584.33894pt.
-LaTeX Info: Redefining \. on input line 258.
-LaTeX Info: Redefining \% on input line 258.
-[23]
-LaTeX Info: Redefining \. on input line 264.
-LaTeX Info: Redefining \% on input line 264.
- [24 <./Figures/seq_2_trading_loop.png (PNG copy)>]
-<Figures/seq_3_monitoring.png, id=659, 720.6925pt x 377.41pt>
+<Figures/seq_2a_trading_loop_data.png, id=652, 439.6425pt x 444.66125pt>
+File: Figures/seq_2a_trading_loop_data.png Graphic file (type png)
+<use Figures/seq_2a_trading_loop_data.png>
+Package pdftex.def Info: Figures/seq_2a_trading_loop_data.png  used on input li
+ne 254.
+(pdftex.def)             Requested size: 311.84334pt x 315.41315pt.
+<Figures/seq_2b_trading_loop_signals.png, id=653, 328.22626pt x 477.785pt>
+File: Figures/seq_2b_trading_loop_signals.png Graphic file (type png)
+<use Figures/seq_2b_trading_loop_signals.png>
+Package pdftex.def Info: Figures/seq_2b_trading_loop_signals.png  used on input
+ line 261.
+(pdftex.def)             Requested size: 311.84334pt x 453.9442pt.
+LaTeX Info: Redefining \. on input line 265.
+LaTeX Info: Redefining \% on input line 265.
+[23 <./Figures/seq_2a_trading_loop_data.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 277.
+LaTeX Info: Redefining \% on input line 277.
+ [24 <./Figures/seq_2b_trading_loop_signals.png (PNG copy)>]
+<Figures/seq_3_monitoring.png, id=663, 720.6925pt x 377.41pt>
 File: Figures/seq_3_monitoring.png Graphic file (type png)
 <use Figures/seq_3_monitoring.png>
-Package pdftex.def Info: Figures/seq_3_monitoring.png  used on input line 289.
+Package pdftex.def Info: Figures/seq_3_monitoring.png  used on input line 296.
 (pdftex.def)             Requested size: 389.80269pt x 204.1266pt.
-LaTeX Info: Redefining \. on input line 293.
-LaTeX Info: Redefining \% on input line 293.
- [25]
-<Figures/seq_4_shutdown.png, id=665, 994.71625pt x 591.20876pt>
+LaTeX Info: Redefining \. on input line 307.
+LaTeX Info: Redefining \% on input line 307.
+ [25 <./Figures/seq_3_monitoring.png (PNG copy)>]
+<Figures/seq_4_shutdown.png, id=669, 994.71625pt x 591.20876pt>
 File: Figures/seq_4_shutdown.png Graphic file (type png)
 <use Figures/seq_4_shutdown.png>
-Package pdftex.def Info: Figures/seq_4_shutdown.png  used on input line 313.
+Package pdftex.def Info: Figures/seq_4_shutdown.png  used on input line 320.
 (pdftex.def)             Requested size: 389.80269pt x 231.68008pt.
-LaTeX Info: Redefining \. on input line 317.
-LaTeX Info: Redefining \% on input line 317.
- [26 <./Figures/seq_3_monitoring.png (PNG copy)>]
 LaTeX Info: Redefining \. on input line 331.
 LaTeX Info: Redefining \% on input line 331.
- [27 <./Figures/seq_4_shutdown.png (PNG copy)>]
-LaTeX Info: Redefining \. on input line 345.
-LaTeX Info: Redefining \% on input line 345.
-
-[28]
-<Figures/ml-pipeline-flow.drawio.png, id=685, 774.895pt x 305.14pt>
+ [26 <./Figures/seq_4_shutdown.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 343.
+LaTeX Info: Redefining \% on input line 343.
+ [27]
+<Figures/ml-pipeline-flow.drawio.png, id=684, 774.895pt x 305.14pt>
 File: Figures/ml-pipeline-flow.drawio.png Graphic file (type png)
 <use Figures/ml-pipeline-flow.drawio.png>
 Package pdftex.def Info: Figures/ml-pipeline-flow.drawio.png  used on input lin
-e 350.
+e 357.
 (pdftex.def)             Requested size: 389.80269pt x 153.50082pt.
-<Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png, id=687, 733.74126pt x
+<Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png, id=686, 733.74126pt x
  421.575pt>
 File: Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png Graphic file (typ
 e png)
 <use Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png>
 Package pdftex.def Info: Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.pn
-g  used on input line 358.
+g  used on input line 365.
 (pdftex.def)             Requested size: 311.84334pt x 179.17021pt.
-LaTeX Info: Redefining \. on input line 367.
-LaTeX Info: Redefining \% on input line 367.
- [29 <./Figures/ml-pipeline-flow.drawio.png> <./Figures/ml-pipeline-flow-abstra
-ct-mlpipeline.drawio.png>]
-<Figures/ml-pipeline-flow-chronos-pipeline.drawio.png, id=696, 1120.185pt x 620
+LaTeX Info: Redefining \. on input line 368.
+LaTeX Info: Redefining \% on input line 368.
+ [28 <./Figures/ml-pipeline-flow.drawio.png>]
+<Figures/ml-pipeline-flow-chronos-pipeline.drawio.png, id=695, 1120.185pt x 620
 .3175pt>
 File: Figures/ml-pipeline-flow-chronos-pipeline.drawio.png Graphic file (type p
 ng)
 <use Figures/ml-pipeline-flow-chronos-pipeline.drawio.png>
 Package pdftex.def Info: Figures/ml-pipeline-flow-chronos-pipeline.drawio.png  
-used on input line 370.
+used on input line 377.
 (pdftex.def)             Requested size: 389.80269pt x 215.8555pt.
-)
+LaTeX Info: Redefining \. on input line 383.
+LaTeX Info: Redefining \% on input line 383.
+ [29 <./Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png> <./Figures/ml-
+pipeline-flow-chronos-pipeline.drawio.png>])
 LaTeX Info: Redefining \. on input line 114.
 LaTeX Info: Redefining \% on input line 114.
- [30 <./Figures/ml-pipeline-flow-chronos-pipeline.drawio.png>]
+ [30]
 \openout2 = `Chapters/Chapter4.aux'.
 
- (./Chapters/Chapter4.tex
+
+(./Chapters/Chapter4.tex
 Cap\'{\i }tulo 4.
-<Figures/bars-vs-1m.png, id=704, 2104.86375pt x 834.11626pt>
+<Figures/bars-vs-1m.png, id=708, 2104.86375pt x 834.11626pt>
 File: Figures/bars-vs-1m.png Graphic file (type png)
 <use Figures/bars-vs-1m.png>
 Package pdftex.def Info: Figures/bars-vs-1m.png  used on input line 35.
@@ -1497,7 +1502,7 @@ Package pdftex.def Info: Figures/bars-vs-1m.png  used on input line 35.
 
 
 ]
-<Figures/bars-volume-1m.png, id=710, 1564.84625pt x 782.925pt>
+<Figures/bars-volume-1m.png, id=714, 1564.84625pt x 782.925pt>
 File: Figures/bars-volume-1m.png Graphic file (type png)
 <use Figures/bars-volume-1m.png>
 Package pdftex.def Info: Figures/bars-volume-1m.png  used on input line 48.
@@ -1658,7 +1663,7 @@ LaTeX Info: Redefining \% on input line 28.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `memorianueva.out' has not changed.
-(rerunfilecheck)             Checksum: 1EBB575FF3AA3436ED9BC57C15E7C787;11571.
+(rerunfilecheck)             Checksum: 405D205998AE48BE49E76A0861AEE2C3;11571.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                memorianueva
@@ -1669,10 +1674,10 @@ Package logreq Info: Writing requests to 'memorianueva.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32340 strings out of 477967
- 679847 string characters out of 5838625
+ 32350 strings out of 477967
+ 680283 string characters out of 5838625
  1877388 words of memory out of 6000000
- 51872 multiletter control sequences out of 15000+600000
+ 51880 multiletter control sequences out of 15000+600000
  575698 words of font info for 112 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  95i,20n,92p,1969b,2835s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1693,10 +1698,10 @@ xlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pal
 atino/uplri8a.pfb>
-Output written on memorianueva.pdf (56 pages, 6944895 bytes).
+Output written on memorianueva.pdf (56 pages, 6946705 bytes).
 PDF statistics:
- 933 PDF objects out of 1000 (max. 8388607)
- 807 compressed objects within 9 object streams
- 203 named destinations out of 1000 (max. 500000)
- 563 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 937 PDF objects out of 1000 (max. 8388607)
+ 810 compressed objects within 9 object streams
+ 204 named destinations out of 1000 (max. 500000)
+ 568 words of extra memory for PDF output out of 10000 (max. 10000000)
 
