@@ -15,4 +15,11 @@
 \contentsline {table}{\numberline {4.10}{\ignorespaces Distribución F1 ML}}{38}{table.caption.35}%
 \contentsline {table}{\numberline {4.11}{\ignorespaces Parámetros de etiquetado óptimos}}{38}{table.caption.36}%
 \contentsline {table}{\numberline {4.12}{\ignorespaces Hiperparámetros óptimos XGBoost}}{39}{table.caption.37}%
+\contentsline {table}{\numberline {4.13}{\ignorespaces Experimentos Chronos}}{39}{table.caption.38}%
+\contentsline {table}{\numberline {4.14}{\ignorespaces Distribución F1 Chronos embeddings}}{40}{table.caption.39}%
+\contentsline {table}{\numberline {4.15}{\ignorespaces Resultados predicción directa Chronos}}{40}{table.caption.40}%
+\contentsline {table}{\numberline {4.16}{\ignorespaces Resultados CSCV por experimento}}{41}{table.caption.41}%
+\contentsline {table}{\numberline {4.17}{\ignorespaces CSCV cruzado entre experimentos}}{42}{table.caption.42}%
+\contentsline {table}{\numberline {4.18}{\ignorespaces Configuración CPCV}}{43}{table.caption.43}%
+\contentsline {table}{\numberline {4.19}{\ignorespaces F1 por camino CPCV}}{43}{table.caption.44}%
 \addvspace {10\p@ }

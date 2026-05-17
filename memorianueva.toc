@@ -44,9 +44,17 @@
 \contentsline {section}{\numberline {4.4}Pruebas con algoritmos de machine learning}{37}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Distribución de F1 por algoritmo}{38}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Hallazgos principales}{38}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Mejores configuraciones encontradas}{39}{subsection.4.4.3}%
 \contentsline {section}{\numberline {4.5}Pruebas con Chronos}{39}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{41}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones generales }{41}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Próximos pasos}{41}{section.5.2}%
-\contentsline {chapter}{Bibliografía}{43}{appendix*.39}%
+\contentsline {subsection}{\numberline {4.5.1}Familia 1: embeddings como características}{39}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Familia 2: predicción directa}{40}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Familia 3: meta-etiquetado}{40}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}Hallazgos principales}{40}{subsection.4.5.4}%
+\contentsline {section}{\numberline {4.6}Selección del mejor modelo}{41}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Resultados por experimento}{41}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}CSCV cruzado entre experimentos}{42}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Hallazgos principales}{42}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}CPCV para el modelo elegido}{42}{subsection.4.6.4}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{45}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones generales }{45}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Próximos pasos}{45}{section.5.2}%
+\contentsline {chapter}{Bibliografía}{47}{appendix*.46}%

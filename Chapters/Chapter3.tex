@@ -65,7 +65,7 @@ Para el preprocesamiento de los datos, se aplicaron diversas estrategias con el 
     \item Agrupación por volumen: se exploraron formas de agrupar los datos no por intervalos de tiempo fijos, sino por volumen en unidades constantes tanto de BTC como de USDT. Adicionalmente, se probaron las volume imbalance bars y las tick imbalance bars. Las volume imbalance bars se construyen cuando se alcanza un volumen neto desequilibrado entre compras y ventas, y las tick imbalance bars se forman con un desequilibrio neto en el número de ticks (cambios de precio). Después de una investigación exhaustiva de la literatura y pruebas empíricas, se decidió continuar con la agrupación de barras por volumen fijo. Esta elección se fundamentó en que las barras de volumen aportan una mejora notable en las propiedades estadísticas de la distribución del precio de Bitcoin, ya que reducen la autocorrelación y la heterocedasticidad, lo que las hace más adecuadas para el entrenamiento de modelos de machine learning. Se adoptó un límite de volumen de 50.000 uBTC, que proporcionó un equilibrio satisfactorio entre la cantidad de puntos de datos obtenidos y la reducción de la varianza correspondiente a cada barra.
 \end{itemize}
 
-Finalmente, antes del entrenamiento, se aplican transformaciones estándar como el escalado y la reducción de dimensionalidad. El escalado, específicamente \texttt{StandardScaler}, estandariza las características a una media de 0 y varianza de 1, crucial para modelos sensibles a la escala (como SVM o redes neuronales), lo que asegura  que el escalador se ajuste únicamente en los datos de entrenamiento para evitar fugas de información. Opcionalmente, mediante un hiperparametro,  se utiliza el análisis de componentes principales (PCA) para reducir la dimensionalidad y ortogonalizar las características, lo que puede beneficiar a algunos modelos y mejorar la interpretabilidad.
+Finalmente, antes del entrenamiento, se aplican transformaciones estándar como el escalado y la reducción de dimensionalidad. El escalado, específicamente \texttt{StandardScaler}, estandariza las características a una media de 0 y varianza de 1, crucial para modelos sensibles a la escala (como SVM o redes neuronales), lo que asegura  que el escalador se ajuste únicamente en los datos de entrenamiento para evitar fugas de información. Opcionalmente, mediante un hiperparámetro,  se utiliza el análisis de componentes principales (PCA) para reducir la dimensionalidad y ortogonalizar las características, lo que puede beneficiar a algunos modelos y mejorar la interpretabilidad.
 
 En síntesis, el preprocesamiento representa un pipeline sofisticado que transforma los datos brutos de precios en un formato estructurado, estacionario y etiquetado de manera robusta, listo para ser utilizado por los modelos de aprendizaje de máquina. La figura \ref{fig:preprocessing_pipeline} ilustra este proceso.
 
@@ -202,24 +202,24 @@ A continuación se proporciona una descripción y vista técnica y exhaustiva de
 
 \subsubsection{Fase de inicio y orquestación}
 
-Esta fase inicializa el sistema y demuestra el rol del orquestador como punto de entrada de la aplicación, encargándose de instanciar y conectar las piezas. Véase la figura \ref{fig:bot-seq-startup1}, \ref{fig:bot-seq-startup2}, y \ref{fig:bot-seq-startup3}.
+Esta fase inicializa el sistema y demuestra el rol del orquestador como punto de entrada de la aplicación, encargándose de instanciar y conectar las piezas. Véanse la figura \ref{fig:bot-seq-startup1}, \ref{fig:bot-seq-startup2}, y \ref{fig:bot-seq-startup3}.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{"Figures/seq_1_startup.png"}
-  \caption{Diagrama del proceso de inicialización del bot.}
+  \caption{Diagrama del proceso de inicialización del bot - parte 1.}
   \label{fig:bot-seq-startup1}
 \end{figure}
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{"Figures/seq_1b_startup.png"}
-  \caption{Diagrama del proceso de inicialización del bot.}
+  \caption{Diagrama del proceso de inicialización del bot - parte 2.}
   \label{fig:bot-seq-startup2}
 \end{figure}
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{"Figures/seq_1c_init.png"}
-  \caption{Diagrama del proceso de inicialización del bot.}
+  \caption{Diagrama del proceso de inicialización del bot - parte 3.}
   \label{fig:bot-seq-startup3}
 \end{figure}
 
@@ -256,7 +256,7 @@ Esta es la fase central operada por el motor del bot, caracterizada por un bucle
   \label{fig:bot-seq-loop}
 \end{figure}
 
-Como vemos en la figura, la ejecución continua consiste en los siguientes pasos:
+Como se ve en la figura, la ejecución continua consiste en los siguientes pasos:
 
 \begin{itemize}
 \item  Recolección de datos: en cada iteración, el bot solicita al exchange los datos históricos del mercado con una invocación a \texttt{get\_historical\_klines} con parámetros de símbolo, marco temporal límite (timeframe). El exchange devuelve una lista de velas (klines).
@@ -355,7 +355,7 @@ La segunda fase utiliza este dataset para modelar y validar la estrategia. Los d
 Con esta estructura de base se pudieron evaluar los distintos modelos y estrategias de forma consistente mediante el uso de herencia como se ve en la figura \ref{fig:ml-pipeline-flow-abstract}. 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=1.0\textwidth]{"Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png"}
+  \includegraphics[width=0.8\textwidth]{"Figures/ml-pipeline-flow-abstract-mlpipeline.drawio.png"}
   \caption{Estructura jerárquica de herencia de clase para AbstractMLPipeline.}
   \label{fig:ml-pipeline-flow-abstract}
 \end{figure}
@@ -376,5 +376,5 @@ En la primera categoría se utiliza el modelo chronos como regresor o como clasi
 
 En la categoría de transfer learning se tiene a la familia de los \\ \texttt{ChronosFeaturePipelines} que modifican el pipeline de inspirado en el trabajo de Palazzo, que se usó como línea de base, para agregar los embeddings de chronos como características para que sean usadas por un modelo tabular.
 
-En ambas categorías se realizaron pruebas con inferencia de zero-shot y también luego de hacer fine-tuning. Para éste último se utilizó una estrategia de low rank adaptation lo que hizo factible la tarea en el hardware disponible.
+En ambas categorías se realizaron pruebas con inferencia de zero-shot y también luego de hacer fine-tuning. Para este último se utilizó una estrategia de low rank adaptation lo que hizo factible la tarea en el hardware disponible.
 
