@@ -22,6 +22,7 @@ Algunas preguntas que pueden servir para completar este capítulo:
 
 \begin{itemize}
 \item ¿Cuál es el grado de cumplimiento de los requerimientos?
+
 \item ¿Cuán fielmente se puedo seguir la planificación original (cronograma incluido)?
 \item ¿Se manifestó algunos de los riesgos identificados en la planificación? ¿Fue efectivo el plan de mitigación? ¿Se debió aplicar alguna otra acción no contemplada previamente?
 \item Si se debieron hacer modificaciones a lo planificado ¿Cuáles fueron las causas y los efectos?
@@ -34,4 +35,19 @@ Algunas preguntas que pueden servir para completar este capítulo:
 %----------------------------------------------------------------------------------------
 \section{Próximos pasos}
 
-Acá se indica cómo se podría continuar el trabajo más adelante.
+Como continuacion de este trabajo se puede avanzar con:
+\begin{itemize}
+
+\item Aplicar bet sizing: para todas las etrategias que emiten señales se tomo 1 (buy) como compra con todo el capital que tengas y 0 como vende todo lo que tengas o bien adopta una posicion short con todo el capital que tengas. Una primera mejora natural es cambiar esto para, gradualmente, cambiar la posicion. 
+
+\item Ensamble de estrategias: otro siguiente paso natural seria la de, ya sea con las estrategias analizadas o con nuevas, generar un ensamble para usar como modelo. Esto puede interpretarse como un ensamble que vota para tomar una decision o asignar una porcion del capital a cada uno y que sean independientes entre si.
+
+\item Análisis de riegso: se debe calcular el riesgo de la estrategia, es decir, el umbral minimo de precision para la cual se obtiene un sharpe ratio objetivo.
+
+\item Asignación de activos: si se opta por tener entre múltiples estrategias o criptomonedas se debe resolver el problema de asignacion de activos. Para esto se pueden utilizar el metodo clasico de Markowitz o metodos mas modernos como hierarchical risk parity o modelos de redes neuronales.
+
+\item Aplicacion de características financieras mas avanzadas: en este trabajos no se exploraron en detalle rupturas estructurales (CUSUM y variantes, explosiveness test), características de entropia para estimar el contenido de información de una serie de tiempo, ni características de microestructura.
+
+\item Entrenamiento con datos sinteticos: con el objetivo de hacer al backtest mas robusto se pueden agregar datos sinteticos que cumplan con la misma distribución de los ya analizados.
+
+\end{itemize}

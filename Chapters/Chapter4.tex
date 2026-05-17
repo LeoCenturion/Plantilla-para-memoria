@@ -424,63 +424,70 @@ La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipel
 
 \section{Selección del mejor modelo}
 
-A lo largo de las etapas anteriores se evaluaron decenas de configuraciones y pipelines distintos mediante validación cruzada purgada. Seleccionar el modelo con mejor métrica en validación cruzada sin un paso adicional de verificación introduce un riesgo conocido como sobreajuste al proceso de selección: cuanto más configuraciones se prueban, mayor es la probabilidad de que el ganador sea simplemente el que tuvo mejor suerte en los pliegues de validación y no el que generalice mejor a datos nuevos.
+La \textbf{Validación Cruzada Combinatoria Simétrica} (CSCV) es el procedimiento utilizado para seleccionar el modelo final entre todos los trials evaluados. A partir de las series de rendimiento fuera de muestra de cada trial, CSCV estima la \textbf{Probabilidad de Sobreajuste del Backtest} (PBO): qué tan probable es que el modelo ganador en entrenamiento rinda peor que la mediana de los descartados sobre datos no vistos. Una PBO cercana a 0 indica que la selección es robusta; una PBO cercana a 0.5 o superior indica que el ganador fue producto del azar. Se utilizaron $C=70$ combinaciones por experimento.
 
-Para cuantificar y controlar este riesgo se utiliza la \textbf{validación cruzada combinatoria simétrica} (combinatorially symmetric cross-validation, \textit{CSCV}), propuesta por Bailey et al.\ e integrada en el marco de Marcos López de Prado. El objetivo de CSCV no es medir el rendimiento de un modelo en particular, sino estimar la probabilidad de sobreajuste del backtest} (brobability of backtest overfitting}, \textit{PBO}): la probabilidad de que el modelo seleccionado como óptimo sobre datos pasados se desempeñe peor que la mediana de los modelos descartados sobre datos no vistos.
+\subsection{Resultados por experimento}
 
-\subsection{Construcción de la matriz de rendimiento}
+La tabla \ref{tab:cscv_results} resume los resultados de CSCV para cada experimento. La columna \textit{F1 OOS ganador} es el F1 fuera de muestra del trial seleccionado como mejor in-sample.
 
-El proceso comienza agrupando el rendimiento de todos los trials evaluados. Se forma una matriz $\mathbf{M}$ de tamaño $(T \times N)$, donde cada columna representa la serie de rendimientos (PnL) de uno de los $N$ modelos o configuraciones y cada fila representa una observación temporal. Para que la matriz sea válida todos los trials deben estar sincronizados en el mismo índice temporal; si operan a distintas frecuencias se aplica un submuestreo a un índice común $t = 1, \dots, T$.
+\begin{table}[H]
+    \centering
+    \caption[Resultados CSCV por experimento]{Resultados de CSCV por experimento ($C=70$ combinaciones).}
+    \begin{tabular}{l c c c c}
+        \toprule
+        \textbf{Experimento} & \textbf{N} & \textbf{PBO} & \textbf{Mediana OOS} & \textbf{F1 OOS ganador} \\
+        \midrule
+        Trading\_Strategy        & 185 & \textbf{0.029} & 0.733\textsuperscript{*} & 3.281\textsuperscript{*} \\
+        Statistical\_Models      &  81 & \textbf{0.000} & 0.493          & 0.504 \\
+        Palazzo\_XGBoost         &  90 & 0.486          & 0.626          & 0.656 \\
+        Chronos\_Feature         &  10 & \textbf{0.000} & 0.626          & 0.651 \\
+        Chronos2\_Feature        &   3 & 0.271          & 0.636          & 0.638 \\
+        Chronos\_Bolt\_Feature   &  10 & 0.271          & 0.631          & 0.645 \\
+        Finetuned\_Chronos       &   4 & 0.771          & 0.617          & 0.624 \\
+        Chronos\_FinetuneToClass &   5 & 0.514          & 0.815          & 0.815 \\
+        \bottomrule
+    \end{tabular}
+    \footnotesize\textsuperscript{*}Métrica Sharpe, no comparable con F1 de los demás experimentos.
+    \label{tab:cscv_results}
+\end{table}
 
-La serie de rendimientos de cada modelo se obtiene ensamblando las predicciones fuera de muestra producidas por la validación cruzada purgada. En un CV purgado estándar cada observación pertenece al conjunto de prueba en exactamente un pliegue, por lo que el modelo genera exactamente una predicción fuera de muestra por punto de la historia. Alineando cronológicamente estos fragmentos se obtiene la serie continua de posiciones $w_t \in \{-1, 0, +1\}$, y el rendimiento de la estrategia en cada período es:
+\subsection{CSCV cruzado entre experimentos}
 
-\begin{equation}
-    R_t = w_{t-1} \, r_t - C \, |w_t - w_{t-1}|
-    \label{eq:pnl}
-\end{equation}
+Para determinar cuál experimento domina globalmente, se aplicó CSCV sobre el conjunto combinado de todos los experimentos no-trading ($N=203$ trials). La tabla \ref{tab:cscv_cross} muestra el ranking resultante.
 
-donde $r_t$ es el retorno del activo subyacente en el período $t$ y $C$ es el costo de transacción fijo por cambio de posición.
+\begin{table}[H]
+    \centering
+    \caption[CSCV cruzado entre experimentos]{Ranking global por CSCV cruzado (PBO=0.000, $N=203$).}
+    \begin{tabular}{l c c c c}
+        \toprule
+        \textbf{Rank} & \textbf{Experimento} & \textbf{Victorias IS} & \textbf{IS \%} & \textbf{OOS \%} \\
+        \midrule
+        1 & \texttt{Chronos\_FinetuneToClass} & 69 & \textbf{98.6\%} & \textbf{98.6\%} \\
+        2 & \texttt{Finetuned\_Chronos\_Feature}   &  1 & 1.4\% & 1.4\% \\
+        3--7 & Resto de experimentos               &  0 & 0\%   & 0\%   \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:cscv_cross}
+\end{table}
 
-\subsection{Partición de los datos}
+\subsection{Hallazgos principales}
 
-La matriz $\mathbf{M}$ de tamaño $(T \times N)$ se divide horizontalmente (sobre el eje temporal) en un número par $S$ de sub-matrices no superpuestas de igual dimensión. Cada sub-matriz representa un bloque cronológico de datos de tamaño $(T/S \times N)$.
+\begin{itemize}
 
-\subsection{Divisiones combinatorias}
+\item \texttt{Chronos\_FinetuneToClass} es el experimento dominante:  gana el 98.6\% de las combinaciones tanto in-sample como out-of-sample en el CSCV cruzado, con F1 OOS en el rango 0.804--0.819. La brecha respecto al segundo mejor experimento (\texttt{Chronos\_Feature}, F1=0.651) es de aproximadamente 0.16 puntos, muy superior a cualquier diferencia dentro de una misma familia.
 
-En lugar de realizar una simple partición entrenamiento-prueba, CSCV forma todas las combinaciones posibles eligiendo las sub-matrices en grupos de tamaño $S/2$. El número de combinaciones posibles crece según:
+\item \texttt{Chronos\_Feature} es la selección más fiable dentro de los embeddings:  PBO=0.000 con $T=2.959$ lo convierte en el experimento estadísticamente más robusto entre los transformers de embeddings. El trial ganador (trial\_8) se sostiene fuera de muestra en el 65.7\% de las combinaciones.
 
-\begin{equation}
-    \binom{S}{S/2}
-    \label{eq:combinaciones}
-\end{equation}
+\item Los algoritmos de trading son los más robustos por PBO, pero con métrica incomparable: RSIDivergence, BollingerBands y MaCrossover alcanzan PBO$<$0.06 con $T=50.560$, el mayor de todos los experimentos. Sin embargo, su métrica es Sharpe y no es directamente comparable con el F1 de los demás.
 
-Por ejemplo, con $S = 16$ particiones el algoritmo genera 12.870 combinaciones únicas de conjuntos de entrenamiento y prueba.
+\item \texttt{Finetuned\_Chronos} tiene la peor fiabilidad de selección:  PBO=0.771 con solo 4 trials y $T=622$. El ajuste fino por pliegue produce alta varianza entre trials in-sample que no se refleja fuera de muestra, haciendo la selección de hiperparámetros poco confiable.
 
-\subsection{Evaluación dentro y fuera de muestra}
+\item Los modelos estadísticos no están sobreajustados, simplemente no predicen:  PBO=0.000 para ARIMA y ARIMA-GARCH refleja consistencia — pero con F1 OOS $\approx$ 0.5, esa consistencia es en torno al nivel del azar.
 
-Para cada combinación $c$ se ejecuta la siguiente rutina:
 
-\begin{enumerate}
-    \item \textbf{Ensamblado de conjuntos.} Las $S/2$ sub-matrices de la combinación forman el conjunto de entrenamiento (\textit{in-sample}, $J$); las $S/2$ restantes forman el conjunto de prueba (\textit{out-of-sample}, $\bar{J}$).
-    \item \textbf{Selección in-sample.} Se calcula la métrica de rendimiento (por ejemplo, el ratio de Sharpe) para los $N$ modelos en $J$. El modelo con el valor más alto se designa ganador $n^*$.
-    \item \textbf{Verificación out-of-sample.} Se calcula el rendimiento de los $N$ modelos en $\bar{J}$.
-    \item \textbf{Rango relativo.} Se determina el rango relativo $\bar{\omega}_c$ del ganador $n^*$ dentro del conjunto de prueba respecto al resto de los modelos.
-    \item \textbf{Transformación logit.} El rango se transforma mediante la función logit:
-    \begin{equation}
-        \lambda_c = \log\!\left[\frac{\bar{\omega}_c}{1 - \bar{\omega}_c}\right]
-        \label{eq:logit}
-    \end{equation}
-    Un valor de $\lambda_c > 0$ indica que el ganador in-sample supera a la mediana fuera de muestra; $\lambda_c = 0$ indica rendimiento idéntico a la mediana; $\lambda_c < 0$ indica sobreajuste.
-\end{enumerate}
+\end{itemize}
 
-\subsection{Estimación de la PBO}
+El modelo final seleccionado es \texttt{PalazzoChronosBinaryClassificationPipeline} con \texttt{chronos-2-small} ($\tau=0.910$, \texttt{volume\_threshold=45.988}), avalado por un F1 OOS de 0.815 y un dominio del 98.6\% en el CSCV cruzado sin degradación entre in-sample y out-of-sample.
 
-Tras evaluar todas las combinaciones, los valores $\lambda_c$ forman una distribución empírica $f(\lambda)$ que representa los rangos relativos fuera de muestra. La PBO se calcula como el área bajo esta distribución donde los valores son negativos:
 
-\begin{equation}
-    \text{PBO} = \int_{-\infty}^{0} f(\lambda)\, d\lambda
-    \label{eq:pbo}
-\end{equation}
-
-Este valor representa directamente la probabilidad de que el modelo seleccionado como óptimo sobre datos pasados termine rindiendo peor que la mediana de los modelos descartados al enfrentarse a datos nuevos. Una PBO baja (cercana a 0) indica que el proceso de selección es robusto; una PBO alta (cercana a 0.5 o superior) indica que el ganador fue probablemente producto del azar.
-
+\subsection{CPCV para el modelo elegido}
