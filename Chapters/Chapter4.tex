@@ -3,11 +3,11 @@
 \chapter{Ensayos y resultados} % Main chapter title
 
 \label{Chapter4} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
-En este capítulo se exponen los datos con los que se trabajó y se expande sobre los resultados obtenidos en base a los experimentos comentados en el capítulo anterior. Se los exponen en el formato en que se investigaron, de más simple a más complejo. Se finaliza con el objetivo principal de este trabajo que son los modelos de transformers.
+En este capítulo se exponen los datos con los que se trabajó y se expande sobre los resultados obtenidos con base en los experimentos comentados en el capítulo anterior. Se presentan en el formato en que se investigaron, de más simple a más complejo. Se finaliza con el objetivo principal de este trabajo que son los modelos de transformers.
 
 \section{Datos utilizados}
 
-Como ya se mencionó antes, en este trabajo se utilizaron precios de cierre de Bitcoin en relación a USDT entre 2020-01-01 y 2025-11-07. En la tabla \ref{tab:buy_and_hold} se ve el rendimiento de bitcoin durante el periodo analizado.
+Como ya se mencionó antes, en este trabajo se utilizaron precios de cierre de Bitcoin en relación a USDT entre 2020-01-01 y 2025-11-07. En la tabla \ref{tab:buy_and_hold} se ve el rendimiento de Bitcoin durante el periodo analizado.
 
 \begin{table}[h]
   \centering
@@ -53,7 +53,7 @@ Tienen la misma cantidad de puntos (seis) pero el segundo período cubre el dobl
 
 \section{Pruebas con algoritmos de trading}
 \label{sec:pruebasTrading}
-En esta sección se hizo un análisis sobre las estrategias basadas en algoritmos de trading. Esto es, se codificaron reglas fijas basadas en distintos indicadores y, en base a ellas, se determinó una señal de compra o venta para la ocasión actual.
+En esta sección se hizo un análisis sobre las estrategias basadas en algoritmos de trading. Esto es, se codificaron reglas fijas basadas en distintos indicadores y, a partir de ellas, se determinó una señal de compra o venta para la ocasión actual.
 
 Configuración: CV purgado de 5 pliegues con 1\% de embargo, 0.1\% de comisión, optimización Optuna en datos de 1 minuto de BTCUSDT.
 
@@ -184,7 +184,7 @@ Como se detalla en la tabla \ref{tab:mejores_modelos}, el \texttt{ARIMAClassifie
 
 Los modelos de series temporales muestran una inestabilidad estructural. La tabla \ref{tab:sensibilidad_estadistica} revela que el parámetro threshold es el factor determinante: las familias ARIMA solo funcionan cuando se configuran para predecir retornos esperados extremadamente pequeños (umbral $\sim 1e-6$).
 
-Además de esta limitación, los modelos ARIMA presentan modos de falla catastróficos. Las altas desviaciones estándar reportadas en la tabla \ref{tab:distribucion_f1} (0,118 para ARIMA, 0,116 para GARCH y 0,165 para Kalman) son un claro indicador de  inestabilidad. Las combinaciones deficientes de parámetros producen puntuaciones F1 cercanas a cero, lo que los hace poco confiables para aplicaciones prácticas. Como evidencia de esto, ARIMA solo logra un F1 $\geq 0,48$ en el 47\% de las pruebas, mientras que Kalman nunca logra alcanzar esa marca.
+Además de esta limitación, los modelos ARIMA presentan modos de falla catastróficos. Las altas desviaciones estándar reportadas en la tabla \ref{tab:distribucion_f1} (0,118 para ARIMA, 0,116 para GARCH y 0,165 para Kalman) son un claro indicador de inestabilidad. Las combinaciones deficientes de parámetros producen puntuaciones F1 cercanas a cero, lo que los hace poco confiables para aplicaciones prácticas. Como evidencia de esto, ARIMA solo logra un F1 $\geq 0,48$ en el 47\% de las pruebas, mientras que Kalman nunca logra alcanzar esa marca.
 
 \begin{table}[H]
   \centering
@@ -328,7 +328,7 @@ La tabla \ref{tab:ml_f1_dist} resume la distribución del F1 macro promedio para
 
 \section{Pruebas con Chronos}
 
-En esta sección se describen las pruebas realizadas con el modelo transformer de elección, Chronos. Como ya se dijo, se eligió este modelo por ser la destilación estado del arte actual en series de tiempo y por su fácil acceso a través de librerías como AutoGluon.
+En esta sección se describen las pruebas realizadas con el modelo transformer de elección, Chronos. Como ya se dijo, se eligió este modelo por ser la destilación del estado del arte actual en series de tiempo y por su fácil acceso a través de librerías como AutoGluon.
 
 Se exploraron tres familias arquitectónicas de pipelines basadas en Chronos, enumeradas en la tabla \ref{tab:chronos_experiments}. Todos los experimentos utilizan los mismos datos que la etapa anterior (enero 2020 -- octubre 2025, 3.033.173 filas) con barras de volumen fijas en \texttt{volume\_threshold=50.000} BTC y $\tau=0.7$. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0.01}) para las familias de embeddings, y \texttt{pct\_embargo=0.05} para predicción directa.
 
