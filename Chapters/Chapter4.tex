@@ -285,7 +285,7 @@ Entre los hallazgos principales de las pruebas realizadas con algoritmos de mach
 
 \item La reducción de dimensionalidad por PCA no aporta beneficio: ningún experimento se benefició de PCA; todas las optimizaciones convergieron a \texttt{use\_pca=False}. La compresión PCA elimina señal discriminativa en este conjunto de características.
 
-\item \texttt{tau} y \texttt{volume\_threshold} convergen consistentemente: como se observa en la tabla \ref{tab:ml_label_params}, todos los pipelines convergen a $\tau > 0,98$, lo que corresponde a barreras amplias y etiquetas menos frecuentes pero de mayor calidad. El umbral de volumen varía considerablemente entre experimentos (28,522--62,855), lo que sugiere que la calidad del etiquetado es sensible a la granularidad de las barras.
+\item \texttt{tau} y \texttt{volume\_threshold} convergen consistentemente: como se observa en la tabla \ref{tab:ml_label_params}, todos los pipelines convergen a $\tau > 0,98$, lo que corresponde a barreras amplias y etiquetas menos frecuentes pero de mayor calidad. El umbral de volumen varía considerablemente entre experimentos (28 522--62 855), lo que sugiere que la calidad del etiquetado es sensible a la granularidad de las barras.
 
 \begin{table}[H]
     \centering
@@ -330,7 +330,7 @@ Entre los hallazgos principales de las pruebas realizadas con algoritmos de mach
 
 En esta sección se describen las pruebas realizadas con el modelo transformer de elección, Chronos. Como ya se dijo, se eligió este modelo por ser la destilación del estado del arte actual en series de tiempo y por su fácil acceso a través de bibliotecas como AutoGluon.
 
-Se exploraron tres familias arquitectónicas de pipelines basadas en Chronos, enumeradas en la tabla \ref{tab:chronos_experiments}. Todos los experimentos utilizan los mismos datos que la etapa anterior (enero 2020 -- octubre 2025, 3 033 173 filas) con barras de volumen fijas en \texttt{volume\_threshold=50,000} BTC y $\tau=0,7$. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0,01}) para las familias de embeddings, y \texttt{pct\_embargo=0,05} para predicción directa.
+Se exploraron tres familias arquitectónicas de pipelines basadas en Chronos, enumeradas en la tabla \ref{tab:chronos_experiments}. Todos los experimentos utilizan los mismos datos que la etapa anterior (enero 2020 -- octubre 2025, 3 033 173 filas) con barras de volumen fijas en \texttt{volume\_threshold=50 000} BTC y $\tau=0,7$. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0,01}) para las familias de embeddings, y \texttt{pct\_embargo=0,05} para predicción directa.
 
 \begin{table}[H]
     \centering
@@ -391,11 +391,11 @@ La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipel
         \toprule
         \textbf{Trial} & \textbf{avg\_cv\_score} & \textbf{test\_macro\_f1} & \textbf{tau} & \textbf{volume\_threshold} \\
         \midrule
-        1 (mejor) & \textbf{0,818} & \textbf{0,819} & 0,910 & 45.988 \\
-        3         & 0,816          & 0,819          & 1,002 & 50,565 \\
-        0         & 0,813          & 0,814          & 0,871 & 50,817 \\
-        2         & 0,807          & 0,809          & 1,218 & 45.718 \\
-        4         & 0,803          & 0,804          & 1,134 & 53.145 \\
+        1 (mejor) & \textbf{0,818} & \textbf{0,819} & 0,910 & 45 988 \\
+        3         & 0,816          & 0,819          & 1,002 & 50 565 \\
+        0         & 0,813          & 0,814          & 0,871 & 50 817 \\
+        2         & 0,807          & 0,809          & 1,218 & 45 718 \\
+        4         & 0,803          & 0,804          & 1,134 & 53 145 \\
         \bottomrule
     \end{tabular}
     \end{adjustbox}
@@ -527,9 +527,9 @@ Para determinar cuál experimento domina globalmente, se aplicó CSCV sobre el c
 
 \item \texttt{Chronos\_FinetuneToClass} es el experimento dominante:  gana el 98,6\% de las combinaciones tanto in-sample como out-of-sample en el CSCV cruzado, con F1 OOS en el rango 0,804--0,819. La brecha respecto al segundo mejor experimento (\texttt{Chronos\_Feature}, F1=0,651) es de aproximadamente 0,16 puntos, muy superior a cualquier diferencia dentro de una misma familia.
 
-\item \texttt{Chronos\_Feature} es la selección más fiable dentro de los embeddings:  PBO=0,000 con $T=2,959$ lo convierte en el experimento estadísticamente más robusto entre los transformers de embeddings. El trial ganador (trial\_8) se sostiene fuera de muestra en el 65,7\% de las combinaciones.
+\item \texttt{Chronos\_Feature} es la selección más fiable dentro de los embeddings:  PBO=0,000 con $T=2 959$ lo convierte en el experimento estadísticamente más robusto entre los transformers de embeddings. El trial ganador (trial\_8) se sostiene fuera de muestra en el 65,7\% de las combinaciones.
 
-\item Los algoritmos de trading son los más robustos por PBO, pero con métrica incomparable: RSIDivergence, BollingerBands y MaCrossover alcanzan PBO$<$0,06 con $T=50,560$, el mayor de todos los experimentos. Sin embargo, su métrica es Sharpe y no es directamente comparable con el F1 de los demás.
+\item Los algoritmos de trading son los más robustos por PBO, pero con métrica incomparable: RSIDivergence, BollingerBands y MaCrossover alcanzan PBO$<$0,06 con $T=50 560$, el mayor de todos los experimentos. Sin embargo, su métrica es Sharpe y no es directamente comparable con el F1 de los demás.
 
 \item \texttt{Finetuned\_Chronos} tiene la peor fiabilidad de selección:  PBO=0,771 con solo 4 trials y $T=622$. El ajuste fino por pliegue produce alta varianza entre trials in-sample que no se refleja fuera de muestra, lo que hace que la selección de hiperparámetros sea poco confiable.
 
@@ -545,7 +545,7 @@ El modelo final seleccionado es \\ \texttt{PalazzoChronosBinaryClassificationPip
 
 La validación cruzada combinatoria purgada (\textit{CPCV}) proporciona una estimación sin sesgo de la distribución de rendimientos del modelo final sobre caminos de backtest disjuntos. A diferencia de un único holdout, CPCV reconstruye $M$ caminos temporales completos a partir de los $\binom{N}{k}$ pliegues combinatorios, lo que permite estimar la varianza del rendimiento OOS y no solo su valor medio.
 
-Se aplicó CPCV sobre el modelo seleccionado \\(\texttt{PalazzoChronosBinaryClassificationPipeline}, \texttt{chronos-2-small},\\ $\tau=0,910$, \texttt{volume\_threshold}=45.988) con la configuración de la tabla \ref{tab:cpcv_config}.
+Se aplicó CPCV sobre el modelo seleccionado \\(\texttt{PalazzoChronosBinaryClassificationPipeline}, \texttt{chronos-2-small},\\ $\tau=0,910$, \texttt{volume\_threshold}=45 988) con la configuración de la tabla \ref{tab:cpcv_config}.
 
 \begin{table}[H]
     \centering
@@ -559,7 +559,7 @@ Se aplicó CPCV sobre el modelo seleccionado \\(\texttt{PalazzoChronosBinaryClas
         \texttt{n\_groups}            & 6    \\
         \texttt{k\_test\_groups}      & 2    \\
         Combinaciones totales         & 15   \\
-        Caminos disjuntos ($\bar{N}$) & 5    \\
+        Caminos disjuntos (M) & 5    \\
         \texttt{pct\_embargo}         & 0,05 \\
         \texttt{prediction\_length}   & 2    \\
         \bottomrule

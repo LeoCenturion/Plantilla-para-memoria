@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  20 MAY 2026 21:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  21 MAY 2026 08:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1564,8 +1564,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 387--387
 
  []
 
-LaTeX Info: Redefining \. on input line 414.
-LaTeX Info: Redefining \% on input line 414.
+LaTeX Info: Redefining \. on input line 413.
+LaTeX Info: Redefining \% on input line 413.
 [38]
 Overfull \hbox (7.63737pt too wide) in paragraph at lines 419--420
 \T1/pcr/m/n/10.95 FinetunedChronosFeaturePipeline \T1/ppl/m/n/10.95 ape-nas 0,6
@@ -1667,10 +1667,10 @@ Package logreq Info: Writing requests to 'memorianueva.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32350 strings out of 477967
- 680283 string characters out of 5838625
+ 32347 strings out of 477967
+ 680247 string characters out of 5838625
  1876388 words of memory out of 6000000
- 51880 multiletter control sequences out of 15000+600000
+ 51877 multiletter control sequences out of 15000+600000
  575698 words of font info for 112 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  95i,20n,92p,1969b,2835s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1691,7 +1691,7 @@ xlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pal
 atino/uplri8a.pfb>
-Output written on memorianueva.pdf (56 pages, 6947919 bytes).
+Output written on memorianueva.pdf (56 pages, 6948274 bytes).
 PDF statistics:
  937 PDF objects out of 1000 (max. 8388607)
  810 compressed objects within 9 object streams
