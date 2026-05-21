@@ -46,7 +46,7 @@ Tienen la misma cantidad de puntos (seis) pero el segundo período cubre el dobl
 \begin{figure}[H]
   \centering
   \includegraphics[width=1.0\textwidth]{"Figures/bars-volume-1m.png"}
-  \caption{Superposición de precio de cierre cada 1m, barras de volumen a 50 000 unidades de BTC, y volumen de BTC.}
+  \caption{Superposición de precio de cierre cada 1m, barras de volumen a 50\,000 unidades de BTC, y volumen de BTC.}
   \label{fig:bars-volume-1m}
 \end{figure}
 
@@ -238,7 +238,7 @@ En el detalle de los modelos estudiados, todos los algoritmos estadísticos de s
 
 Con los algoritmos de machine learning se realizaron las primeras tareas significativas de ingeniería de características y de etiquetado  ya que, previamente, las estrategias recibían solamente el precio de cierre. También en esta etapa es donde se definió la estrategia de baseline, la inspirada en el trabajo de Palazzo.
 
-Se evaluaron dos configuraciones de pipeline sobre klines de BTCUSDT en velas de 1 minuto (enero 2020 -- octubre 2025, 3 033 173 filas), resumidas en la tabla \ref{tab:ml_experiments}. El etiquetado es común a todos los pipelines: barrera triple binaria sobre barras de volumen, con la condición $\text{bar\_return}[t+1] \geq \text{bar\_return}[t] + \text{intra\_bar\_std}[t] \times \tau$, agregadas a partir de ticks de 1 minuto. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0,01}); la métrica principal es el F1 macro promedio entre pliegues (\texttt{avg\_cv\_f1}).
+Se evaluaron dos configuraciones de pipeline sobre klines de BTCUSDT en velas de 1 minuto (enero 2020 -- octubre 2025, 3\,033\,173 filas), resumidas en la tabla \ref{tab:ml_experiments}. El etiquetado es común a todos los pipelines: barrera triple binaria sobre barras de volumen, con la condición $\text{bar\_return}[t+1] \geq \text{bar\_return}[t] + \text{intra\_bar\_std}[t] \times \tau$, agregadas a partir de ticks de 1 minuto. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0,01}); la métrica principal es el F1 macro promedio entre pliegues (\texttt{avg\_cv\_f1}).
 
 \begin{table}[H]
     \centering
@@ -285,7 +285,7 @@ Entre los hallazgos principales de las pruebas realizadas con algoritmos de mach
 
 \item La reducción de dimensionalidad por PCA no aporta beneficio: ningún experimento se benefició de PCA; todas las optimizaciones convergieron a \texttt{use\_pca=False}. La compresión PCA elimina señal discriminativa en este conjunto de características.
 
-\item \texttt{tau} y \texttt{volume\_threshold} convergen consistentemente: como se observa en la tabla \ref{tab:ml_label_params}, todos los pipelines convergen a $\tau > 0,98$, lo que corresponde a barreras amplias y etiquetas menos frecuentes pero de mayor calidad. El umbral de volumen varía considerablemente entre experimentos (28 522--62 855), lo que sugiere que la calidad del etiquetado es sensible a la granularidad de las barras.
+\item \texttt{tau} y \texttt{volume\_threshold} convergen consistentemente: como se observa en la tabla \ref{tab:ml_label_params}, todos los pipelines convergen a $\tau > 0,98$, lo que corresponde a barreras amplias y etiquetas menos frecuentes pero de mayor calidad. El umbral de volumen varía considerablemente entre experimentos (28\,522--62\,855), lo que sugiere que la calidad del etiquetado es sensible a la granularidad de las barras.
 
 \begin{table}[H]
     \centering
@@ -296,8 +296,8 @@ Entre los hallazgos principales de las pruebas realizadas con algoritmos de mach
         \toprule
         \textbf{Pipeline} & \textbf{\texttt{tau} óptimo} & \textbf{\texttt{volume\_threshold} óptimo} \\
         \midrule
-        XGBoost Palazzo   & 1,261 & 28,522 \\
-        AutoGluon Palazzo & 0,980 & 32,034 \\
+        XGBoost Palazzo   & 1,261 & 28\,522 \\
+        AutoGluon Palazzo & 0,980 & 32\,034 \\
         \bottomrule
     \end{tabular}
     \end{adjustbox}
@@ -330,7 +330,7 @@ Entre los hallazgos principales de las pruebas realizadas con algoritmos de mach
 
 En esta sección se describen las pruebas realizadas con el modelo transformer de elección, Chronos. Como ya se dijo, se eligió este modelo por ser la destilación del estado del arte actual en series de tiempo y por su fácil acceso a través de bibliotecas como AutoGluon.
 
-Se exploraron tres familias arquitectónicas de pipelines basadas en Chronos, enumeradas en la tabla \ref{tab:chronos_experiments}. Todos los experimentos utilizan los mismos datos que la etapa anterior (enero 2020 -- octubre 2025, 3 033 173 filas) con barras de volumen fijas en \texttt{volume\_threshold=50 000} BTC y $\tau=0,7$. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0,01}) para las familias de embeddings, y \texttt{pct\_embargo=0,05} para predicción directa.
+Se exploraron tres familias arquitectónicas de pipelines basadas en Chronos, enumeradas en la tabla \ref{tab:chronos_experiments}. Todos los experimentos utilizan los mismos datos que la etapa anterior (enero 2020 -- octubre 2025, 3\,033\,173 filas) con barras de volumen fijas en \texttt{volume\_threshold=50\,000} BTC y $\tau=0,7$. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0,01}) para las familias de embeddings, y \texttt{pct\_embargo=0,05} para predicción directa.
 
 \begin{table}[H]
     \centering
@@ -391,11 +391,11 @@ La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipel
         \toprule
         \textbf{Trial} & \textbf{avg\_cv\_score} & \textbf{test\_macro\_f1} & \textbf{tau} & \textbf{volume\_threshold} \\
         \midrule
-        1 (mejor) & \textbf{0,818} & \textbf{0,819} & 0,910 & 45 988 \\
-        3         & 0,816          & 0,819          & 1,002 & 50 565 \\
-        0         & 0,813          & 0,814          & 0,871 & 50 817 \\
-        2         & 0,807          & 0,809          & 1,218 & 45 718 \\
-        4         & 0,803          & 0,804          & 1,134 & 53 145 \\
+        1 (mejor) & 0,818 & 0,819 & 0,910 & 45\,988 \\
+        3         & 0,816          & 0,819          & 1,002 & 50\,565 \\
+        0         & 0,813          & 0,814          & 0,871 & 50\,817 \\
+        2         & 0,807          & 0,809          & 1,218 & 45\,718 \\
+        4         & 0,803          & 0,804          & 1,134 & 53\,145 \\
         \bottomrule
     \end{tabular}
     \end{adjustbox}
@@ -407,7 +407,7 @@ La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipel
 \texttt{ChronosMetaLabelingPipeline} (exp 22) entrena un modelo primario con embeddings T5-tiny más características tabulares y luego un meta-modelo sobre si el primario acertará. En 8 corridas con \texttt{amazon/chronos-t5-tiny} el modelo primario obtuvo \texttt{baseline\_f1\_weighted=0,655} de forma consistente. Sin embargo, el meta-filtro produjo valores de \texttt{metalabeling\_f1\_weighted} entre 0,571 y 0,657: en 6 de las 8 corridas degradó el F1 del modelo primario.
 
 \subsection{Hallazgos principales}
-Entre los hallazgos principales de las pruebas realizadas con algoritmos de machine learning encontramos:
+Entre los hallazgos principales de las pruebas realizadas con Chronos se destacan:
 \begin{itemize}
 
 \item El fine-tuning directo con Chronos-2 es el mejor resultado obtenido: \\ \texttt{PalazzoChronosBinaryClassificationPipeline} alcanza \\ \texttt{avg\_cv\_score=0,818}, significativamente por encima de todos los pipelines de embeddings (0,611--0,633) y del meta-etiquetado (0,655 en F1 ponderado).
@@ -523,13 +523,15 @@ Para determinar cuál experimento domina globalmente, se aplicó CSCV sobre el c
 
 \subsection{Hallazgos principales}
 
+A continuación se resumen los hallazgos más relevantes del análisis CSCV:
+
 \begin{itemize}
 
 \item \texttt{Chronos\_FinetuneToClass} es el experimento dominante:  gana el 98,6\% de las combinaciones tanto in-sample como out-of-sample en el CSCV cruzado, con F1 OOS en el rango 0,804--0,819. La brecha respecto al segundo mejor experimento (\texttt{Chronos\_Feature}, F1=0,651) es de aproximadamente 0,16 puntos, muy superior a cualquier diferencia dentro de una misma familia.
 
-\item \texttt{Chronos\_Feature} es la selección más fiable dentro de los embeddings:  PBO=0,000 con $T=2 959$ lo convierte en el experimento estadísticamente más robusto entre los transformers de embeddings. El trial ganador (trial\_8) se sostiene fuera de muestra en el 65,7\% de las combinaciones.
+\item \texttt{Chronos\_Feature} es la selección más fiable dentro de los embeddings:  PBO=0,000 con $T=2\,959$ lo convierte en el experimento estadísticamente más robusto entre los transformers de embeddings. El trial ganador (trial\_8) se sostiene fuera de muestra en el 65,7\% de las combinaciones.
 
-\item Los algoritmos de trading son los más robustos por PBO, pero con métrica incomparable: RSIDivergence, BollingerBands y MaCrossover alcanzan PBO$<$0,06 con $T=50 560$, el mayor de todos los experimentos. Sin embargo, su métrica es Sharpe y no es directamente comparable con el F1 de los demás.
+\item Los algoritmos de trading son los más robustos por PBO, pero con métrica incomparable: RSIDivergence, BollingerBands y MaCrossover alcanzan PBO$<$0,06 con $T=50\,560$, el mayor de todos los experimentos. Sin embargo, su métrica es Sharpe y no es directamente comparable con el F1 de los demás.
 
 \item \texttt{Finetuned\_Chronos} tiene la peor fiabilidad de selección:  PBO=0,771 con solo 4 trials y $T=622$. El ajuste fino por pliegue produce alta varianza entre trials in-sample que no se refleja fuera de muestra, lo que hace que la selección de hiperparámetros sea poco confiable.
 
@@ -538,14 +540,14 @@ Para determinar cuál experimento domina globalmente, se aplicó CSCV sobre el c
 
 \end{itemize}
 
-El modelo final seleccionado es \\ \texttt{PalazzoChronosBinaryClassificationPipeline} con \texttt{chronos-2-small} \\($\tau=0,910$, \texttt{volume\_threshold=45.988}), avalado por un F1 OOS de 0,815 y un dominio del 98,6\% en el CSCV cruzado sin degradación entre in-sample y out-of-sample.
+El modelo final seleccionado es \\ \texttt{PalazzoChronosBinaryClassificationPipeline} con \texttt{chronos-2-small} \\($\tau=0,910$, \texttt{volume\_threshold}=45\,988), avalado por un F1 OOS de 0,815 y un dominio del 98,6\% en el CSCV cruzado sin degradación entre in-sample y out-of-sample.
 
 
 \subsection{CPCV para el modelo elegido}
 
 La validación cruzada combinatoria purgada (\textit{CPCV}) proporciona una estimación sin sesgo de la distribución de rendimientos del modelo final sobre caminos de backtest disjuntos. A diferencia de un único holdout, CPCV reconstruye $M$ caminos temporales completos a partir de los $\binom{N}{k}$ pliegues combinatorios, lo que permite estimar la varianza del rendimiento OOS y no solo su valor medio.
 
-Se aplicó CPCV sobre el modelo seleccionado \\(\texttt{PalazzoChronosBinaryClassificationPipeline}, \texttt{chronos-2-small},\\ $\tau=0,910$, \texttt{volume\_threshold}=45 988) con la configuración de la tabla \ref{tab:cpcv_config}.
+Se aplicó CPCV sobre el modelo seleccionado \\(\texttt{PalazzoChronosBinaryClassificationPipeline}, \texttt{chronos-2-small},\\ $\tau=0,910$, \texttt{volume\_threshold}=45\,988) con la configuración de la tabla \ref{tab:cpcv_config}.
 
 \begin{table}[H]
     \centering
@@ -568,7 +570,7 @@ Se aplicó CPCV sobre el modelo seleccionado \\(\texttt{PalazzoChronosBinaryClas
     \label{tab:cpcv_config}
 \end{table}
 
-La tabla \ref{tab:cpcv_paths} reporta el F1 ponderado para cada uno de los 5 caminos de backtest construidos a partir de las 15 combinaciones de pliegues (17.330 predicciones en total).
+La tabla \ref{tab:cpcv_paths} reporta el F1 ponderado para cada uno de los 5 caminos de backtest construidos a partir de las 15 combinaciones de pliegues (17\,330 predicciones en total).
 
 \begin{table}[H]
     \centering
@@ -585,7 +587,7 @@ La tabla \ref{tab:cpcv_paths} reporta el F1 ponderado para cada uno de los 5 cam
         4 & 0,8303 \\
         5 & 0,8277 \\
         \midrule
-        \textbf{Media $\pm$ Std} & $0,8251 \pm 0,0033$ \\
+        Media $\pm$ Std & $0,8251 \pm 0,0033$ \\
         \bottomrule
     \end{tabular}
     \end{adjustbox}

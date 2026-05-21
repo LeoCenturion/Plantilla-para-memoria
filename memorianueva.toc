@@ -48,7 +48,7 @@
 \contentsline {subsection}{\numberline {4.5.1}Familia 1: embeddings como características}{38}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}Familia 2: predicción directa}{38}{subsection.4.5.2}%
 \contentsline {subsection}{\numberline {4.5.3}Familia 3: meta-etiquetado}{38}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}Hallazgos principales}{39}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.5.4}Hallazgos principales}{38}{subsection.4.5.4}%
 \contentsline {section}{\numberline {4.6}Selección del mejor modelo}{39}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}Resultados por experimento}{39}{subsection.4.6.1}%
 \contentsline {subsection}{\numberline {4.6.2}CSCV cruzado entre experimentos}{40}{subsection.4.6.2}%

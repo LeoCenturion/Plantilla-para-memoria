@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  21 MAY 2026 08:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  21 MAY 2026 09:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1564,8 +1564,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 387--387
 
  []
 
-LaTeX Info: Redefining \. on input line 413.
-LaTeX Info: Redefining \% on input line 413.
+LaTeX Info: Redefining \. on input line 414.
+LaTeX Info: Redefining \% on input line 414.
 [38]
 Overfull \hbox (7.63737pt too wide) in paragraph at lines 419--420
 \T1/pcr/m/n/10.95 FinetunedChronosFeaturePipeline \T1/ppl/m/n/10.95 ape-nas 0,6
@@ -1575,16 +1575,16 @@ Overfull \hbox (7.63737pt too wide) in paragraph at lines 419--420
 LaTeX Info: Redefining \. on input line 501.
 LaTeX Info: Redefining \% on input line 501.
 [39]
-LaTeX Info: Redefining \. on input line 537.
-LaTeX Info: Redefining \% on input line 537.
+LaTeX Info: Redefining \. on input line 539.
+LaTeX Info: Redefining \% on input line 539.
  [40]
-Overfull \hbox (6.06107pt too wide) in paragraph at lines 541--542
+Overfull \hbox (6.06107pt too wide) in paragraph at lines 543--544
 \T1/pcr/m/n/10.95 PalazzoChronosBinaryClassificationPipeline \T1/ppl/m/n/10.95 
 con \T1/pcr/m/n/10.95 chronos-2-small 
  []
 
-LaTeX Info: Redefining \. on input line 601.
-LaTeX Info: Redefining \% on input line 601.
+LaTeX Info: Redefining \. on input line 603.
+LaTeX Info: Redefining \% on input line 603.
 [41])
 LaTeX Info: Redefining \. on input line 115.
 LaTeX Info: Redefining \% on input line 115.
@@ -1691,10 +1691,10 @@ xlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pal
 atino/uplri8a.pfb>
-Output written on memorianueva.pdf (56 pages, 6948274 bytes).
+Output written on memorianueva.pdf (56 pages, 6948204 bytes).
 PDF statistics:
- 937 PDF objects out of 1000 (max. 8388607)
- 810 compressed objects within 9 object streams
+ 938 PDF objects out of 1000 (max. 8388607)
+ 811 compressed objects within 9 object streams
  204 named destinations out of 1000 (max. 500000)
  568 words of extra memory for PDF output out of 10000 (max. 10000000)
 
