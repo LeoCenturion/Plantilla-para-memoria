@@ -55,7 +55,7 @@ Tienen la misma cantidad de puntos (seis) pero el segundo período cubre el dobl
 \label{sec:pruebasTrading}
 En esta sección se hizo un análisis sobre las estrategias basadas en algoritmos de trading. Esto es, se codificaron reglas fijas basadas en distintos indicadores y, a partir de ellas, se determinó una señal de compra o venta para la ocasión actual.
 
-Configuración: CV purgado de 5 pliegues con 1\% de embargo, 0.1\% de comisión, optimización Optuna en datos de 1 minuto de BTCUSDT.
+Configuración: CV purgado de 5 pliegues con 1\% de embargo, 0,1\% de comisión, optimización Optuna en datos de 1 minuto de BTCUSDT.
 
 Como se observa en la tabla \ref{tab:optimizacion_f1}, el \texttt{BollingerBandsClassifier} tiene el techo de rendimiento más alto. Por otro lado, la tabla \ref{tab:sharpe_dist} muestra que el \\ \texttt{RSIDivergenceClassifier} es la estrategia más confiable: presenta el Sharpe medio más alto y una varianza extremadamente baja.
 
@@ -64,7 +64,7 @@ Como se observa en la tabla \ref{tab:optimizacion_f1}, el \texttt{BollingerBands
 \vspace{1em}
 
 % --- TABLA 1 ---
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption[Resultados de Optimización]{Resultados de la mejor optimización basados en el promedio pesado de F1 en validación cruzada (\texttt{avg\_cv\_weighted\_f1}).}
     \small
@@ -73,12 +73,12 @@ Como se observa en la tabla \ref{tab:optimizacion_f1}, el \texttt{BollingerBands
         \toprule
         \textbf{Rank} & \textbf{Clasificador} & \textbf{Mejor F1} & \textbf{Mejores parámetros} \\
         \midrule
-        1 & BollingerBandsClassifier & 0.5108 & bb\_window=21, bb\_std=1.77 \\
-        2 & RSIDivergenceClassifier  & 0.5079 & rsi\_window=9, divergence\_period=23 \\
-        3 & MaCrossoverClassifier    & 0.5012 & short=6, long=7 \\
-        4 & MultiIndicatorClassifier & 0.4986 & fast\_sma=42, slow\_sma=227, ... \\
-        5 & MACDClassifier           & 0.4985 & fast=5, slow=6, signal=17 \\
-        6 & SmaCrossClassifier       & 0.4981 & n1=47, n2=199 \\
+        1 & BollingerBandsClassifier & 0,5108 & bb\_window=21, bb\_std=1,77 \\
+        2 & RSIDivergenceClassifier  & 0,5079 & rsi\_window=9, divergence\_period=23 \\
+        3 & MaCrossoverClassifier    & 0,5012 & short=6, long=7 \\
+        4 & MultiIndicatorClassifier & 0,4986 & fast\_sma=42, slow\_sma=227, ... \\
+        5 & MACDClassifier           & 0,4985 & fast=5, slow=6, signal=17 \\
+        6 & SmaCrossClassifier       & 0,4981 & n1=47, n2=199 \\
         \bottomrule
     \end{tabular}
     \end{adjustbox}
@@ -86,7 +86,7 @@ Como se observa en la tabla \ref{tab:optimizacion_f1}, el \texttt{BollingerBands
 \end{table}
 
 % --- TABLA 2 ---
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption[Distribución de Sharpe]{Distribución del ratio de Sharpe a nivel de prueba (184 pruebas totales).}
     \small
@@ -95,12 +95,12 @@ Como se observa en la tabla \ref{tab:optimizacion_f1}, el \texttt{BollingerBands
         \toprule
         \textbf{Clasificador} & \textbf{N} & \textbf{Media} & \textbf{Std} & \textbf{Min} & \textbf{Median} & \textbf{Max} \\
         \midrule
-        RSIDivergenceClassifier  & 32 & 0.5072 & 0.0008 & 0.5051 & 0.5077 & 0.5079 \\
-        BollingerBandsClassifier & 30 & 0.5043 & 0.0221 & 0.3882 & 0.5093 & 0.5108 \\
-        SmaCrossClassifier       & 30 & 0.4963 & 0.0019 & 0.4909 & 0.4968 & 0.4981 \\
-        MACDClassifier           & 41 & 0.4957 & 0.0019 & 0.4924 & 0.4957 & 0.4985 \\
-        MaCrossoverClassifier    & 30 & 0.4956 & 0.0024 & 0.4919 & 0.4950 & 0.5012 \\
-        MultiIndicatorClassifier & 21 & 0.4899 & 0.0270 & 0.3731 & 0.4973 & 0.4986 \\
+        RSIDivergenceClassifier  & 32 & 0,5072 & 0,0008 & 0,5051 & 0,5077 & 0,5079 \\
+        BollingerBandsClassifier & 30 & 0,5043 & 0,0221 & 0,3882 & 0,5093 & 0,5108 \\
+        SmaCrossClassifier       & 30 & 0,4963 & 0,0019 & 0,4909 & 0,4968 & 0,4981 \\
+        MACDClassifier           & 41 & 0,4957 & 0,0019 & 0,4924 & 0,4957 & 0,4985 \\
+        MaCrossoverClassifier    & 30 & 0,4956 & 0,0024 & 0,4919 & 0,4950 & 0,5012 \\
+        MultiIndicatorClassifier & 21 & 0,4899 & 0,0270 & 0,3731 & 0,4973 & 0,4986 \\
         \bottomrule
     \end{tabular}
     \end{adjustbox}
@@ -110,14 +110,14 @@ Como se observa en la tabla \ref{tab:optimizacion_f1}, el \texttt{BollingerBands
 La tabla \ref{tab:consistencia} cuantifica esta consistencia y muestra el porcentaje de pruebas que supera distintos umbrales de Sharpe.
 
 % --- TABLA 3 ---
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption[Consistencia Sharpe]{Consistencia: porcentaje de pruebas que superan los umbrales de Sharpe establecidos.}
     \small
     \begin{adjustbox}{max width=\textwidth}
     \begin{tabular}{l c c c c c}
         \toprule
-        \textbf{Clasificador} & \textbf{$>$0.49} & \textbf{$>$0.495} & \textbf{$>$0.500} & \textbf{$>$0.505} & \textbf{$>$0.510} \\
+        \textbf{Clasificador} & \textbf{$>$0,49} & \textbf{$>$0,495} & \textbf{$>$0,500} & \textbf{$>$0,505} & \textbf{$>$0,510} \\
         \midrule
         RSIDivergenceClassifier  & 100\% & 100\% & 100\% & 100\% & 0\% \\
         BollingerBandsClassifier & 97\%  & 97\%  & 97\%  & 77\%  & 37\% \\
@@ -134,7 +134,7 @@ La tabla \ref{tab:consistencia} cuantifica esta consistencia y muestra el porcen
 La tabla \ref{tab:sensibilidad} resume la sensibilidad de los parámetros clave para cada clasificador.
 
 % --- TABLA 4 ---
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption[Sensibilidad de Parámetros]{Sensibilidad de parámetros (correlación con \texttt{avg\_cv\_sharpe}).}
     \small
@@ -143,11 +143,11 @@ La tabla \ref{tab:sensibilidad} resume la sensibilidad de los parámetros clave 
         \toprule
         \textbf{Clasificador} & \textbf{Parámetro} & \textbf{Corr} & \textbf{Interpretación} \\
         \midrule
-        SmaCrossClassifier       & n1 & +0.89 & Ventana lenta más larga $\rightarrow$ mejor \\
-        MaCrossoverClassifier    & long\_window & -0.58 & Ventanas cortas funcionan mejor \\
-        BollingerBandsClassifier & bb\_std & -0.40 & Se prefieren bandas estrechas \\
-        MACDClassifier           & slow\_span & -0.92 & Spans cortos fuertemente preferidos \\
-        RSIDivergenceClassifier  & rsi\_window & -0.76 & Ventana RSI corta es mejor (best: 9) \\
+        SmaCrossClassifier       & n1 & +0,89 & Ventana lenta más larga $\rightarrow$ mejor \\
+        MaCrossoverClassifier    & long\_window & -0,58 & Ventanas cortas funcionan mejor \\
+        BollingerBandsClassifier & bb\_std & -0,40 & Se prefieren bandas estrechas \\
+        MACDClassifier           & slow\_span & -0,92 & Spans cortos fuertemente preferidos \\
+        RSIDivergenceClassifier  & rsi\_window & -0,76 & Ventana RSI corta es mejor (best: 9) \\
         \bottomrule
     \end{tabular}
     \end{adjustbox}
@@ -172,10 +172,10 @@ Como se detalla en la tabla \ref{tab:mejores_modelos}, el \texttt{ARIMAClassifie
     \toprule
     \textbf{Rank} & \textbf{Clasificador} & \textbf{Mejor F1} & \textbf{n\_trials}\\
     \midrule
-    1 & ARIMAClassifier        & 0.5004 & 30  \\
-    2 & ARIMAXGARCHClassifier  & 0.4954 & 10  \\
-    3 & SARIMAClassifier       & $\sim$0.4862 & 4 \\
-    4 & KalmanARIMAClassifier  & 0.4184 & 10  \\
+    1 & ARIMAClassifier        & 0,5004 & 30  \\
+    2 & ARIMAXGARCHClassifier  & 0,4954 & 10  \\
+    3 & SARIMAClassifier       & $\sim$0,4862 & 4 \\
+    4 & KalmanARIMAClassifier  & 0,4184 & 10  \\
     \bottomrule
   \end{tabular}
   \end{adjustbox}
@@ -193,12 +193,12 @@ Además de esta limitación, los modelos ARIMA presentan modos de falla catastr�
   \begin{adjustbox}{max width=\textwidth}
   \begin{tabular}{l c c c c c c}
     \toprule
-    \textbf{Clasificador} & \textbf{Media} & \textbf{Std} & \textbf{Min} & \textbf{Median} & \textbf{Max} & \textbf{$\ge$0.50} \\
+    \textbf{Clasificador} & \textbf{Media} & \textbf{Std} & \textbf{Min} & \textbf{Median} & \textbf{Max} & \textbf{$\ge$0,50} \\
     \midrule
-    SARIMAClassifier       & 0.4605 & 0.0457 & 0.3922 & 0.4819 & 0.4862 & 0\% \\
-    ARIMAClassifier        & 0.4382 & 0.1183 & 0.0214 & 0.4768 & 0.5004 & 3\% \\
-    ARIMAXGARCHClassifier  & 0.3855 & 0.1159 & 0.1880 & 0.4062 & 0.4954 & 0\% \\
-    KalmanARIMAClassifier  & 0.2476 & 0.1653 & 0.0094 & 0.3117 & 0.4184 & 0\% \\
+    SARIMAClassifier       & 0,4605 & 0,0457 & 0,3922 & 0,4819 & 0,4862 & 0\% \\
+    ARIMAClassifier        & 0,4382 & 0,1183 & 0,0214 & 0,4768 & 0,5004 & 3\% \\
+    ARIMAXGARCHClassifier  & 0,3855 & 0,1159 & 0,1880 & 0,4062 & 0,4954 & 0\% \\
+    KalmanARIMAClassifier  & 0,2476 & 0,1653 & 0,0094 & 0,3117 & 0,4184 & 0\% \\
     \bottomrule
   \end{tabular}
   \end{adjustbox}
@@ -216,10 +216,10 @@ Queda en evidencia que, en este contexto, añadir complejidad perjudica el rendi
     \toprule
     \textbf{Modelo} & \textbf{Parámetro} & \textbf{Corr} & \textbf{Interpretación} \\
     \midrule
-    ARIMA-family        & threshold       & -0.93 & El umbral cercano a cero es crítico. \\
-    ARIMAXGARCH         & threshold       & -0.99 & Umbrales altos degradan el modelo. \\
-    ARIMAClassifier     & lookback\_len   & -0.37 & Se prefiere historial corto (720 h). \\
-    ARIMAXGARCH         & $q$ (ARIMA MA)  & +0.85 & Orden MA alto es significativamente mejor. \\
+    ARIMA-family        & threshold       & -0,93 & El umbral cercano a cero es crítico. \\
+    ARIMAXGARCH         & threshold       & -0,99 & Umbrales altos degradan el modelo. \\
+    ARIMAClassifier     & lookback\_len   & -0,37 & Se prefiere historial corto (720 h). \\
+    ARIMAXGARCH         & $q$ (ARIMA MA)  & +0,85 & Orden MA alto es significativamente mejor. \\
     \bottomrule
   \end{tabular}
   \end{adjustbox}
@@ -230,15 +230,15 @@ En cuanto a la parametrización, la mejor configuración de ARIMA converge de ma
 
 \vspace{1em}
 
-Conclusión: se puede afirmar con seguridad que se logró un resultado subóptimo aunque esperable. Los algoritmos estadísticos no supieron diferenciar la escasa señal del preponderante ruido presente en los mercados financieros. En resultados concretos el mejor F1 no pudo superar el de un intento aleatorio y en Sharpe ratio quedó muy por debajo de la base del buy and hold.
+Conclusión: se puede afirmar con seguridad que se logró un resultado subóptimo aunque predecible debido a su simpleza. Los algoritmos estadísticos no supieron diferenciar la escasa señal del preponderante ruido presente en los mercados financieros. En resultados concretos el mejor F1 no pudo superar el de un intento aleatorio y en Sharpe ratio quedó muy por debajo de la base del buy and hold.
 
 En el detalle de los modelos estudiados, todos los algoritmos estadísticos de series temporales (ARIMA, GARCH y Kalman) resultan estructuralmente inestables para este conjunto de datos. Exigen una calibración del umbral extremadamente precisa e, incluso en el mejor de los escenarios (\texttt{ARIMAClassifier} con $p=4$, $d=0$, $q=1$), apenas logran superar el rendimiento de un clasificador aleatorio.
 
 \section{Pruebas con algoritmos de machine learning}
 
-Aquí se realizaron las primeras tareas significativas de ingeniería de características y de etiquetado  ya que, previamente, las estrategias recibían solamente el precio de cierre. También en esta etapa es donde se definió la estrategia de baseline, la inspirada en el trabajo de Palazzo.
+Con los algoritmos de machine learning se realizaron las primeras tareas significativas de ingeniería de características y de etiquetado  ya que, previamente, las estrategias recibían solamente el precio de cierre. También en esta etapa es donde se definió la estrategia de baseline, la inspirada en el trabajo de Palazzo.
 
-Se evaluaron dos configuraciones de pipeline sobre klines de BTCUSDT en velas de 1 minuto (enero 2020 -- octubre 2025, 3.033.173 filas), resumidas en la tabla \ref{tab:ml_experiments}. El etiquetado es común a todos los pipelines: barrera triple binaria sobre barras de volumen, con la condición $\text{bar\_return}[t+1] \geq \text{bar\_return}[t] + \text{intra\_bar\_std}[t] \times \tau$, agregadas a partir de ticks de 1 minuto. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0.01}); la métrica principal es el F1 macro promedio entre pliegues (\texttt{avg\_cv\_f1}).
+Se evaluaron dos configuraciones de pipeline sobre klines de BTCUSDT en velas de 1 minuto (enero 2020 -- octubre 2025, 3 033 173 filas), resumidas en la tabla \ref{tab:ml_experiments}. El etiquetado es común a todos los pipelines: barrera triple binaria sobre barras de volumen, con la condición $\text{bar\_return}[t+1] \geq \text{bar\_return}[t] + \text{intra\_bar\_std}[t] \times \tau$, agregadas a partir de ticks de 1 minuto. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0,01}); la métrica principal es el F1 macro promedio entre pliegues (\texttt{avg\_cv\_f1}).
 
 \begin{table}[H]
     \centering
@@ -270,8 +270,8 @@ La tabla \ref{tab:ml_f1_dist} resume la distribución del F1 macro promedio para
         \toprule
         \textbf{Algoritmo} & \textbf{$n$} & \textbf{mín} & \textbf{p25} & \textbf{mediana} & \textbf{p75} & \textbf{máx} & \textbf{std} \\
         \midrule
-        XGBoost Palazzo  & 60 & 0.584 & 0.606 & 0.612 & 0.623 & \textbf{0.647} & 0.015 \\
-        AutoGluon Palazzo & 20 & 0.561 & 0.606 & 0.616 & 0.618 & \textbf{0.639} & 0.016 \\
+        XGBoost Palazzo  & 60 & 0,584 & 0,606 & 0,612 & 0,623 & 0,647 & 0,015 \\
+        AutoGluon Palazzo & 20 & 0,561 & 0,606 & 0,616 & 0,618 & 0,639 & 0,016 \\
         \bottomrule
     \end{tabular}
     \end{adjustbox}
@@ -279,13 +279,13 @@ La tabla \ref{tab:ml_f1_dist} resume la distribución del F1 macro promedio para
 \end{table}
 
 \subsection{Hallazgos principales}
-
+Entre los hallazgos principales de las pruebas realizadas con algoritmos de machine learning encontramos:
 \begin{itemize}
-\item AutoGluon iguala a XGBoost con un costo computacional diez veces mayor: AutoGluon Palazzo (20 trials, mejor F1=0.639) se ubica a 0.008 del mejor XGBoost Palazzo (0.647). El mejor modelo seleccionado por AutoGluon fue \texttt{LightGBMXT\_BAG\_L1}. Dado que cada trial de AutoGluon insume aproximadamente diez veces más tiempo, XGBoost resulta la opción práctica para esta escala de datos.
+\item AutoGluon iguala a XGBoost con un costo computacional diez veces mayor: AutoGluon Palazzo (20 trials, mejor F1=0,639) se ubica a 0,008 del mejor XGBoost Palazzo (0,647). El mejor modelo seleccionado por AutoGluon fue \texttt{LightGBMXT\_BAG\_L1}. Dado que cada trial de AutoGluon insume aproximadamente diez veces más tiempo, XGBoost resulta la opción práctica para esta escala de datos.
 
 \item La reducción de dimensionalidad por PCA no aporta beneficio: ningún experimento se benefició de PCA; todas las optimizaciones convergieron a \texttt{use\_pca=False}. La compresión PCA elimina señal discriminativa en este conjunto de características.
 
-\item \texttt{tau} y \texttt{volume\_threshold} convergen consistentemente: como se observa en la tabla \ref{tab:ml_label_params}, todos los pipelines convergen a $\tau > 0.98$, lo que corresponde a barreras amplias y etiquetas menos frecuentes pero de mayor calidad. El umbral de volumen varía considerablemente entre experimentos (28.522--62.855), lo que sugiere que la calidad del etiquetado es sensible a la granularidad de las barras.
+\item \texttt{tau} y \texttt{volume\_threshold} convergen consistentemente: como se observa en la tabla \ref{tab:ml_label_params}, todos los pipelines convergen a $\tau > 0,98$, lo que corresponde a barreras amplias y etiquetas menos frecuentes pero de mayor calidad. El umbral de volumen varía considerablemente entre experimentos (28,522--62,855), lo que sugiere que la calidad del etiquetado es sensible a la granularidad de las barras.
 
 \begin{table}[H]
     \centering
@@ -296,15 +296,15 @@ La tabla \ref{tab:ml_f1_dist} resume la distribución del F1 macro promedio para
         \toprule
         \textbf{Pipeline} & \textbf{\texttt{tau} óptimo} & \textbf{\texttt{volume\_threshold} óptimo} \\
         \midrule
-        XGBoost Palazzo   & 1.261 & 28.522 \\
-        AutoGluon Palazzo & 0.980 & 32.034 \\
+        XGBoost Palazzo   & 1,261 & 28,522 \\
+        AutoGluon Palazzo & 0,980 & 32,034 \\
         \bottomrule
     \end{tabular}
     \end{adjustbox}
     \label{tab:ml_label_params}
 \end{table}
 
-\item Hiperparámetros de XGBoost Palazzo: la tabla \ref{tab:ml_xgb_params} muestra los principales hiperparámetros del mejor trial. El modelo converge a árboles poco profundos (\texttt{max\_depth=4}) y a una tasa de aprendizaje muy baja (0.00328), coherente con un conjunto de datos de más de 3 millones de filas que requiere alta regularización.
+\item Hiperparámetros de XGBoost Palazzo: la tabla \ref{tab:ml_xgb_params} muestra los principales hiperparámetros del mejor trial. El modelo converge a árboles poco profundos (\texttt{max\_depth=4}) y a una tasa de aprendizaje muy baja (0,00328), coherente con un conjunto de datos de más de 3 millones de filas que requiere alta regularización.
 
 \end{itemize}
 
@@ -318,7 +318,7 @@ La tabla \ref{tab:ml_f1_dist} resume la distribución del F1 macro promedio para
         \textbf{Parámetro} & \textbf{XGBoost Palazzo} \\
         \midrule
         \texttt{max\_depth}     & 4       \\
-        \texttt{learning\_rate} & 0.00328 \\
+        \texttt{learning\_rate} & 0,00328 \\
         \texttt{n\_estimators}  & 373     \\
         \bottomrule
     \end{tabular}
@@ -328,9 +328,9 @@ La tabla \ref{tab:ml_f1_dist} resume la distribución del F1 macro promedio para
 
 \section{Pruebas con Chronos}
 
-En esta sección se describen las pruebas realizadas con el modelo transformer de elección, Chronos. Como ya se dijo, se eligió este modelo por ser la destilación del estado del arte actual en series de tiempo y por su fácil acceso a través de librerías como AutoGluon.
+En esta sección se describen las pruebas realizadas con el modelo transformer de elección, Chronos. Como ya se dijo, se eligió este modelo por ser la destilación del estado del arte actual en series de tiempo y por su fácil acceso a través de bibliotecas como AutoGluon.
 
-Se exploraron tres familias arquitectónicas de pipelines basadas en Chronos, enumeradas en la tabla \ref{tab:chronos_experiments}. Todos los experimentos utilizan los mismos datos que la etapa anterior (enero 2020 -- octubre 2025, 3.033.173 filas) con barras de volumen fijas en \texttt{volume\_threshold=50.000} BTC y $\tau=0.7$. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0.01}) para las familias de embeddings, y \texttt{pct\_embargo=0.05} para predicción directa.
+Se exploraron tres familias arquitectónicas de pipelines basadas en Chronos, enumeradas en la tabla \ref{tab:chronos_experiments}. Todos los experimentos utilizan los mismos datos que la etapa anterior (enero 2020 -- octubre 2025, 3 033 173 filas) con barras de volumen fijas en \texttt{volume\_threshold=50,000} BTC y $\tau=0,7$. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0,01}) para las familias de embeddings, y \texttt{pct\_embargo=0,05} para predicción directa.
 
 \begin{table}[H]
     \centering
@@ -357,7 +357,7 @@ Se exploraron tres familias arquitectónicas de pipelines basadas en Chronos, en
 
 Cada pipeline de esta familia extrae representaciones densas de una ventana de precios de cierre recientes mediante un encoder de Chronos, luego concatena esos embeddings con las características tabulares de \texttt{PalazzoXGBoostPipeline} y clasifica la matriz combinada con AutoGluon. La métrica principal es \texttt{avg\_cv\_f1} (F1 macro promedio entre pliegues).
 
-La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipeline a lo largo de los trials de optimización. \texttt{ChronosFeaturePipeline} (T5) presenta la mediana y el máximo más altos, aunque con mayor varianza. \texttt{ChronosBoltFeaturePipeline} muestra la varianza más baja de todas (std=0.008), lo que refleja mayor estabilidad en los embeddings de BOLT.
+La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipeline a lo largo de los trials de optimización. \texttt{ChronosFeaturePipeline} (T5) presenta la mediana y el máximo más altos, aunque con mayor varianza. \texttt{ChronosBoltFeaturePipeline} muestra la varianza más baja de todas (std=0,008), lo que refleja mayor estabilidad en los embeddings de BOLT.
 
 \begin{table}[H]
     \centering
@@ -368,10 +368,10 @@ La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipel
         \toprule
         \textbf{Pipeline} & \textbf{$n$} & \textbf{mín} & \textbf{p25} & \textbf{mediana} & \textbf{p75} & \textbf{máx} & \textbf{std} \\
         \midrule
-        \texttt{ChronosFeaturePipeline} (T5)     & 10 & 0.573 & 0.579 & 0.605 & 0.624 & \textbf{0.633} & 0.022 \\
-        \texttt{ChronosBoltFeaturePipeline}       & 10 & 0.598 & 0.607 & 0.609 & 0.613 & \textbf{0.628} & 0.008 \\
-        \texttt{Chronos2FeaturePipeline}          &  3 & 0.604 & 0.610 & 0.615 & 0.618 & \textbf{0.621} & 0.007 \\
-        \texttt{FinetunedChronosFeaturePipeline}  &  4 & 0.598 & 0.599 & 0.604 & 0.610 & \textbf{0.611} & 0.005 \\
+        \texttt{ChronosFeaturePipeline} (T5)     & 10 & 0,573 & 0,579 & 0,605 & 0,624 & 0,633 & 0,022 \\
+        \texttt{ChronosBoltFeaturePipeline}       & 10 & 0,598 & 0,607 & 0,609 & 0,613 & 0,628 & 0,008 \\
+        \texttt{Chronos2FeaturePipeline}          &  3 & 0,604 & 0,610 & 0,615 & 0,618 & 0,621 & 0,007 \\
+        \texttt{FinetunedChronosFeaturePipeline}  &  4 & 0,598 & 0,599 & 0,604 & 0,610 & 0,611 & 0,005 \\
         \bottomrule
     \end{tabular}
     \end{adjustbox}
@@ -391,11 +391,11 @@ La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipel
         \toprule
         \textbf{Trial} & \textbf{avg\_cv\_score} & \textbf{test\_macro\_f1} & \textbf{tau} & \textbf{volume\_threshold} \\
         \midrule
-        1 (mejor) & \textbf{0.818} & \textbf{0.819} & 0.910 & 45.988 \\
-        3         & 0.816          & 0.819          & 1.002 & 50.565 \\
-        0         & 0.813          & 0.814          & 0.871 & 50.817 \\
-        2         & 0.807          & 0.809          & 1.218 & 45.718 \\
-        4         & 0.803          & 0.804          & 1.134 & 53.145 \\
+        1 (mejor) & \textbf{0,818} & \textbf{0,819} & 0,910 & 45.988 \\
+        3         & 0,816          & 0,819          & 1,002 & 50,565 \\
+        0         & 0,813          & 0,814          & 0,871 & 50,817 \\
+        2         & 0,807          & 0,809          & 1,218 & 45.718 \\
+        4         & 0,803          & 0,804          & 1,134 & 53.145 \\
         \bottomrule
     \end{tabular}
     \end{adjustbox}
@@ -404,19 +404,19 @@ La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipel
 
 \subsection{Familia 3: meta-etiquetado}
 
-\texttt{ChronosMetaLabelingPipeline} (exp 22) entrena un modelo primario con embeddings T5-tiny más características tabulares y luego un meta-modelo sobre si el primario acertará. En 8 corridas con \texttt{amazon/chronos-t5-tiny} el modelo primario obtuvo \texttt{baseline\_f1\_weighted=0.655} de forma consistente. Sin embargo, el meta-filtro produjo valores de \texttt{metalabeling\_f1\_weighted} entre 0.571 y 0.657: en 6 de las 8 corridas degradó el F1 del modelo primario.
+\texttt{ChronosMetaLabelingPipeline} (exp 22) entrena un modelo primario con embeddings T5-tiny más características tabulares y luego un meta-modelo sobre si el primario acertará. En 8 corridas con \texttt{amazon/chronos-t5-tiny} el modelo primario obtuvo \texttt{baseline\_f1\_weighted=0,655} de forma consistente. Sin embargo, el meta-filtro produjo valores de \texttt{metalabeling\_f1\_weighted} entre 0,571 y 0,657: en 6 de las 8 corridas degradó el F1 del modelo primario.
 
 \subsection{Hallazgos principales}
-
+Entre los hallazgos principales de las pruebas realizadas con algoritmos de machine learning encontramos:
 \begin{itemize}
 
-\item El fine-tuning directo con Chronos-2 es el mejor resultado obtenido: \\ \texttt{PalazzoChronosBinaryClassificationPipeline} alcanza \\ \texttt{avg\_cv\_score=0.818}, significativamente por encima de todos los pipelines de embeddings (0.611--0.633) y del meta-etiquetado (0.655 en F1 ponderado).
+\item El fine-tuning directo con Chronos-2 es el mejor resultado obtenido: \\ \texttt{PalazzoChronosBinaryClassificationPipeline} alcanza \\ \texttt{avg\_cv\_score=0,818}, significativamente por encima de todos los pipelines de embeddings (0,611--0,633) y del meta-etiquetado (0,655 en F1 ponderado).
 
-\item T5 tiene el mayor potencial dentro de los embeddings: \\ \texttt{ChronosFeaturePipeline} obtiene el F1 más alto (0.633 en exp 73) y también la mayor varianza (std=0.022), lo que indica mayor sensibilidad a los hiperparámetros. El modelo ganador en la optimización fue \\\texttt{CatBoost\_BAG\_L1\_FULL} con \texttt{chronos-t5-small}, ventana de 96 y preset \texttt{high\_quality}.
+\item T5 tiene el mayor potencial dentro de los embeddings: \\ \texttt{ChronosFeaturePipeline} obtiene el F1 más alto (0,633 en exp 73) y también la mayor varianza (std=0,022), lo que indica mayor sensibilidad a los hiperparámetros. El modelo ganador en la optimización fue \\\texttt{CatBoost\_BAG\_L1\_FULL} con \texttt{chronos-t5-small}, ventana de 96 y preset \texttt{high\_quality}.
 
-\item BOLT es estable pero con techo inferior: \\\texttt{ChronosBoltFeaturePipeline} muestra std=0.008, la varianza más baja de todos los pipelines evaluados. Su máximo (0.628) queda por debajo de T5. Dentro de la familia BOLT, bolt-small supera a bolt-mini con presupuestos de tiempo cortos.
+\item BOLT es estable pero con techo inferior: \\\texttt{ChronosBoltFeaturePipeline} muestra std=0,008, la varianza más baja de todos los pipelines evaluados. Su máximo (0,628) queda por debajo de T5. Dentro de la familia BOLT, bolt-small supera a bolt-mini con presupuestos de tiempo cortos.
 
-\item Chronos-2 y el fine-tuning por pliegue no superan a T5 ni a BOLT: \\\texttt{Chronos2FeaturePipeline} alcanza F1=0.621 y \\\texttt{FinetunedChronosFeaturePipeline} apenas 0.611, pese al costo computacional significativo del ajuste fino por pliegue. La señal binaria sobre barras de volumen resulta demasiado ruidosa para mejorar las representaciones pre-entrenadas en 300 segundos.
+\item Chronos-2 y el fine-tuning por pliegue no superan a T5 ni a BOLT: \\\texttt{Chronos2FeaturePipeline} alcanza F1=0,621 y \\\texttt{FinetunedChronosFeaturePipeline} apenas 0,611, pese al costo computacional significativo del ajuste fino por pliegue. La señal binaria sobre barras de volumen resulta demasiado ruidosa para mejorar las representaciones pre-entrenadas en 300 segundos.
 
 \item El meta-filtro no mejora al modelo primario: agregar un meta-modelo de AutoGluon sobre las predicciones del clasificador primario no produce una mejora consistente. La arquitectura de meta-etiquetado impone un compromiso precisión-recall que perjudica el F1 macro en el conjunto de prueba más frecuentemente de lo que lo beneficia.
 
@@ -426,7 +426,7 @@ La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipel
 
 %% A continuación se detallan los hiperparámetros completos del mejor trial de cada pipeline. La familia de embeddings emplea \texttt{avg\_cv\_f1} como métrica; la predicción directa emplea \texttt{avg\_cv\_score}: ambas no son directamente comparables.
 
-%% \textbf{ChronosFeaturePipeline (T5) -- F1: 0.633} (exp 73, trial 8)
+%% \textbf{ChronosFeaturePipeline (T5) -- F1: 0,633} (exp 73, trial 8)
 
 %% \begin{verbatim}
 %% chronos_model_name=amazon/chronos-t5-small   window_size=96   stride=1
@@ -469,7 +469,7 @@ La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipel
 
 \section{Selección del mejor modelo}
 
-La validación cruzada combinatoria simétrica (CSCV) es el procedimiento utilizado para seleccionar el modelo final entre todos los trials evaluados. A partir de las series de rendimiento fuera de muestra de cada trial, CSCV estima la probabilidad de sobreajuste del backtest (PBO): qué tan probable es que el modelo ganador en entrenamiento rinda peor que la mediana de los descartados sobre datos no vistos. Una PBO cercana a 0 indica que la selección es robusta; una PBO cercana a 0.5 o superior indica que el ganador fue producto del azar. Se utilizaron $C=70$ combinaciones por experimento.
+La validación cruzada combinatoria simétrica (CSCV) es el procedimiento utilizado para seleccionar el modelo final entre todos los trials evaluados. A partir de las series de rendimiento fuera de muestra de cada trial, CSCV estima la probabilidad de sobreajuste del backtest (PBO): qué tan probable es que el modelo ganador en entrenamiento rinda peor que la mediana de los descartados sobre datos no vistos. Una PBO cercana a 0 indica que la selección es robusta; una PBO cercana a 0,5 o superior indica que el ganador fue producto del azar. Se utilizaron $C=70$ combinaciones por experimento.
 
 \subsection{Resultados por experimento}
 
@@ -484,14 +484,14 @@ La tabla \ref{tab:cscv_results} resume los resultados de CSCV para cada experime
         \toprule
         \textbf{Experimento} & \textbf{N} & \textbf{PBO} & \textbf{Mediana OOS} & \textbf{F1 OOS ganador} \\
         \midrule
-        Trading\_Strategy        & 185 & \textbf{0.029} & 0.733\textsuperscript{*} & 3.281\textsuperscript{*} \\
-        Statistical\_Models      &  81 & \textbf{0.000} & 0.493          & 0.504 \\
-        Palazzo\_XGBoost         &  90 & 0.486          & 0.626          & 0.656 \\
-        Chronos\_Feature         &  10 & \textbf{0.000} & 0.626          & 0.651 \\
-        Chronos2\_Feature        &   3 & 0.271          & 0.636          & 0.638 \\
-        Chronos\_Bolt\_Feature   &  10 & 0.271          & 0.631          & 0.645 \\
-        Finetuned\_Chronos       &   4 & 0.771          & 0.617          & 0.624 \\
-        Chronos\_FinetuneToClass &   5 & 0.514          & 0.815          & 0.815 \\
+        Trading\_Strategy        & 185 & 0,029 & 0,733\textsuperscript{*} & 3,281\textsuperscript{*} \\
+        Statistical\_Models      &  81 & 0,000 & 0,493          & 0,504 \\
+        Palazzo\_XGBoost         &  90 & 0,486          & 0,626          & 0,656 \\
+        Chronos\_Feature         &  10 & 0,000 & 0,626          & 0,651 \\
+        Chronos2\_Feature        &   3 & 0,271          & 0,636          & 0,638 \\
+        Chronos\_Bolt\_Feature   &  10 & 0,271          & 0,631          & 0,645 \\
+        Finetuned\_Chronos       &   4 & 0,771          & 0,617          & 0,624 \\
+        Chronos\_FinetuneToClass &   5 & 0,514          & 0,815          & 0,815 \\
         \bottomrule
     \end{tabular}
     \end{adjustbox}
@@ -505,15 +505,15 @@ Para determinar cuál experimento domina globalmente, se aplicó CSCV sobre el c
 
 \begin{table}[H]
     \centering
-    \caption[CSCV cruzado entre experimentos]{Ranking global por CSCV cruzado (PBO=0.000, $N=203$).}
+    \caption[CSCV cruzado entre experimentos]{Ranking global por CSCV cruzado (PBO=0,000, $N=203$).}
     \small
     \begin{adjustbox}{max width=\textwidth}
     \begin{tabular}{l c c c c}
         \toprule
         \textbf{Rank} & \textbf{Experimento} & \textbf{Victorias IS} & \textbf{IS \%} & \textbf{OOS \%} \\
         \midrule
-        1 & \texttt{Chronos\_FinetuneToClass} & 69 & \textbf{98.6\%} & \textbf{98.6\%} \\
-        2 & \texttt{Finetuned\_Chronos\_Feature}   &  1 & 1.4\% & 1.4\% \\
+        1 & \texttt{Chronos\_FinetuneToClass} & 69 & 98,6\% & 98,6\% \\
+        2 & \texttt{Finetuned\_Chronos\_Feature}   &  1 & 1,4\% & 1,4\% \\
         3--7 & Resto de experimentos               &  0 & 0\%   & 0\%   \\
         \bottomrule
     \end{tabular}
@@ -525,27 +525,27 @@ Para determinar cuál experimento domina globalmente, se aplicó CSCV sobre el c
 
 \begin{itemize}
 
-\item \texttt{Chronos\_FinetuneToClass} es el experimento dominante:  gana el 98.6\% de las combinaciones tanto in-sample como out-of-sample en el CSCV cruzado, con F1 OOS en el rango 0.804--0.819. La brecha respecto al segundo mejor experimento (\texttt{Chronos\_Feature}, F1=0.651) es de aproximadamente 0.16 puntos, muy superior a cualquier diferencia dentro de una misma familia.
+\item \texttt{Chronos\_FinetuneToClass} es el experimento dominante:  gana el 98,6\% de las combinaciones tanto in-sample como out-of-sample en el CSCV cruzado, con F1 OOS en el rango 0,804--0,819. La brecha respecto al segundo mejor experimento (\texttt{Chronos\_Feature}, F1=0,651) es de aproximadamente 0,16 puntos, muy superior a cualquier diferencia dentro de una misma familia.
 
-\item \texttt{Chronos\_Feature} es la selección más fiable dentro de los embeddings:  PBO=0.000 con $T=2.959$ lo convierte en el experimento estadísticamente más robusto entre los transformers de embeddings. El trial ganador (trial\_8) se sostiene fuera de muestra en el 65.7\% de las combinaciones.
+\item \texttt{Chronos\_Feature} es la selección más fiable dentro de los embeddings:  PBO=0,000 con $T=2,959$ lo convierte en el experimento estadísticamente más robusto entre los transformers de embeddings. El trial ganador (trial\_8) se sostiene fuera de muestra en el 65,7\% de las combinaciones.
 
-\item Los algoritmos de trading son los más robustos por PBO, pero con métrica incomparable: RSIDivergence, BollingerBands y MaCrossover alcanzan PBO$<$0.06 con $T=50.560$, el mayor de todos los experimentos. Sin embargo, su métrica es Sharpe y no es directamente comparable con el F1 de los demás.
+\item Los algoritmos de trading son los más robustos por PBO, pero con métrica incomparable: RSIDivergence, BollingerBands y MaCrossover alcanzan PBO$<$0,06 con $T=50,560$, el mayor de todos los experimentos. Sin embargo, su métrica es Sharpe y no es directamente comparable con el F1 de los demás.
 
-\item \texttt{Finetuned\_Chronos} tiene la peor fiabilidad de selección:  PBO=0.771 con solo 4 trials y $T=622$. El ajuste fino por pliegue produce alta varianza entre trials in-sample que no se refleja fuera de muestra, lo que hace que la selección de hiperparámetros sea poco confiable.
+\item \texttt{Finetuned\_Chronos} tiene la peor fiabilidad de selección:  PBO=0,771 con solo 4 trials y $T=622$. El ajuste fino por pliegue produce alta varianza entre trials in-sample que no se refleja fuera de muestra, lo que hace que la selección de hiperparámetros sea poco confiable.
 
-\item Los modelos estadísticos no están sobreajustados, simplemente no predicen:  PBO=0.000 para ARIMA y ARIMA-GARCH refleja consistencia — pero con F1 OOS $\approx$ 0.5, esa consistencia es en torno al nivel del azar.
+\item Los modelos estadísticos no están sobreajustados, simplemente no predicen:  PBO=0,000 para ARIMA y ARIMA-GARCH refleja consistencia — pero con F1 OOS $\approx$ 0,5, esa consistencia es en torno al nivel del azar.
 
 
 \end{itemize}
 
-El modelo final seleccionado es \\ \texttt{PalazzoChronosBinaryClassificationPipeline} con \texttt{chronos-2-small} \\($\tau=0.910$, \texttt{volume\_threshold=45.988}), avalado por un F1 OOS de 0.815 y un dominio del 98.6\% en el CSCV cruzado sin degradación entre in-sample y out-of-sample.
+El modelo final seleccionado es \\ \texttt{PalazzoChronosBinaryClassificationPipeline} con \texttt{chronos-2-small} \\($\tau=0,910$, \texttt{volume\_threshold=45.988}), avalado por un F1 OOS de 0,815 y un dominio del 98,6\% en el CSCV cruzado sin degradación entre in-sample y out-of-sample.
 
 
 \subsection{CPCV para el modelo elegido}
 
-La validación cruzada combinatoria purgada (\textit{CPCV}) proporciona una estimación sin sesgo de la distribución de rendimientos del modelo final sobre caminos de backtest disjuntos. A diferencia de un único holdout, CPCV reconstruye $\bar{N}$ caminos temporales completos a partir de los $\binom{N}{k}$ pliegues combinatorios, lo que permite estimar la varianza del rendimiento OOS y no solo su valor medio.
+La validación cruzada combinatoria purgada (\textit{CPCV}) proporciona una estimación sin sesgo de la distribución de rendimientos del modelo final sobre caminos de backtest disjuntos. A diferencia de un único holdout, CPCV reconstruye $M$ caminos temporales completos a partir de los $\binom{N}{k}$ pliegues combinatorios, lo que permite estimar la varianza del rendimiento OOS y no solo su valor medio.
 
-Se aplicó CPCV sobre el modelo seleccionado \\(\texttt{PalazzoChronosBinaryClassificationPipeline}, \texttt{chronos-2-small}, $\tau=0.910$, \texttt{volume\_threshold}=45.988) con la configuración de la tabla \ref{tab:cpcv_config}.
+Se aplicó CPCV sobre el modelo seleccionado \\(\texttt{PalazzoChronosBinaryClassificationPipeline}, \texttt{chronos-2-small},\\ $\tau=0,910$, \texttt{volume\_threshold}=45.988) con la configuración de la tabla \ref{tab:cpcv_config}.
 
 \begin{table}[H]
     \centering
@@ -560,7 +560,7 @@ Se aplicó CPCV sobre el modelo seleccionado \\(\texttt{PalazzoChronosBinaryClas
         \texttt{k\_test\_groups}      & 2    \\
         Combinaciones totales         & 15   \\
         Caminos disjuntos ($\bar{N}$) & 5    \\
-        \texttt{pct\_embargo}         & 0.05 \\
+        \texttt{pct\_embargo}         & 0,05 \\
         \texttt{prediction\_length}   & 2    \\
         \bottomrule
     \end{tabular}
@@ -579,13 +579,13 @@ La tabla \ref{tab:cpcv_paths} reporta el F1 ponderado para cada uno de los 5 cam
         \toprule
         \textbf{Camino} & \textbf{F1 ponderado} \\
         \midrule
-        1 & 0.8219 \\
-        2 & 0.8235 \\
-        3 & 0.8221 \\
-        4 & \textbf{0.8303} \\
-        5 & 0.8277 \\
+        1 & 0,8219 \\
+        2 & 0,8235 \\
+        3 & 0,8221 \\
+        4 & 0,8303 \\
+        5 & 0,8277 \\
         \midrule
-        \textbf{Media $\pm$ Std} & $0.8251 \pm 0.0033$ \\
+        \textbf{Media $\pm$ Std} & $0,8251 \pm 0,0033$ \\
         \bottomrule
     \end{tabular}
     \end{adjustbox}
@@ -596,10 +596,10 @@ Los resultados confirman la robustez del modelo seleccionado:
 
 \begin{itemize}
 
-\item Consistencia entre caminos: la desviación estándar de F1 entre los 5 caminos es de 0.0033, lo que indica que el rendimiento OOS es estable independientemente del segmento temporal evaluado. El rango completo de 0.008 puntos (0.8219--0.8303) es muy reducido para un modelo de clasificación sobre series financieras.
+\item Consistencia entre caminos: la desviación estándar de F1 entre los 5 caminos es de 0,0033, lo que indica que el rendimiento OOS es estable independientemente del segmento temporal evaluado. El rango completo de 0,008 puntos (0,8219--0,8303) es muy reducido para un modelo de clasificación sobre series financieras.
 
-\item Concordancia con la estimación Optuna: el F1 medio CPCV (0.8251) supera el valor obtenido durante la búsqueda bayesiana (0.8177), lo que indica que el sobreajuste en la optimización de hiperparámetros es mínimo y que la estimación de rendimiento en producción es realista.
+\item Concordancia con la estimación Optuna: el F1 medio CPCV (0,8251) supera el valor obtenido durante la búsqueda bayesiana (0,8177), lo que indica que el sobreajuste en la optimización de hiperparámetros es mínimo y que la estimación de rendimiento en producción es realista.
 
-\item Ausencia de degradación temporal: los caminos que incluyen los pliegues más recientes (caminos 4 y 5, F1 de 0.8303 y 0.8277) no muestran caída de rendimiento respecto a los anteriores, lo que sugiere que el modelo mantiene su capacidad predictiva a lo largo de todo el período evaluado.
+\item Ausencia de degradación temporal: los caminos que incluyen los pliegues más recientes (caminos 4 y 5, F1 de 0,8303 y 0,8277) no muestran caída de rendimiento respecto a los anteriores, lo que sugiere que el modelo mantiene su capacidad predictiva a lo largo de todo el período evaluado.
 
 \end{itemize}

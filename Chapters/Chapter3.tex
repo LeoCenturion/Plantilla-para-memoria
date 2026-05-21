@@ -202,7 +202,7 @@ A continuación se proporciona una descripción y vista técnica y exhaustiva de
 
 \subsubsection{Fase de inicio y orquestación}
 
-Esta fase inicializa el sistema y demuestra el rol del orquestador como punto de entrada de la aplicación, encargándose de instanciar y conectar las piezas. Véanse la figura \ref{fig:bot-seq-startup1}, \ref{fig:bot-seq-startup2}, y \ref{fig:bot-seq-startup3}.
+Esta fase inicializa el sistema y demuestra el rol del orquestador como punto de entrada de la aplicación, encargándose de instanciar y conectar las piezas. Véanse las figuras \ref{fig:bot-seq-startup1}, \ref{fig:bot-seq-startup2}, y \ref{fig:bot-seq-startup3}.
 
 \begin{figure}[H]
   \centering
@@ -263,7 +263,7 @@ Esta es la fase central operada por el motor del bot, caracterizada por un bucle
   \label{fig:bot-seq-loop-2}
 \end{figure}
 
-Como se ve en la figura, la ejecución continua consiste en los siguientes pasos:
+Como se ve en las figuras, la ejecución continua consiste en los siguientes pasos:
 
 \begin{itemize}
 \item  Recolección de datos: en cada iteración, el bot solicita al exchange los datos históricos del mercado con una invocación a \texttt{get\_historical\_klines} con parámetros de símbolo, marco temporal límite (timeframe). El exchange devuelve una lista de velas (klines).

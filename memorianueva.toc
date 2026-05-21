@@ -40,21 +40,21 @@
 \contentsline {chapter}{\numberline {4}Ensayos y resultados}{31}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Datos utilizados}{31}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Pruebas con algoritmos de trading}{32}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Pruebas con algoritmos estadísticos clásicos}{33}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Pruebas con algoritmos de machine learning}{35}{section.4.4}%
+\contentsline {section}{\numberline {4.3}Pruebas con algoritmos estadísticos clásicos}{34}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Pruebas con algoritmos de machine learning}{36}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Distribución de F1 por algoritmo}{36}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Hallazgos principales}{36}{subsection.4.4.2}%
 \contentsline {section}{\numberline {4.5}Pruebas con Chronos}{37}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Familia 1: embeddings como características}{37}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.1}Familia 1: embeddings como características}{38}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}Familia 2: predicción directa}{38}{subsection.4.5.2}%
 \contentsline {subsection}{\numberline {4.5.3}Familia 3: meta-etiquetado}{38}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}Hallazgos principales}{38}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.5.4}Hallazgos principales}{39}{subsection.4.5.4}%
 \contentsline {section}{\numberline {4.6}Selección del mejor modelo}{39}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}Resultados por experimento}{39}{subsection.4.6.1}%
 \contentsline {subsection}{\numberline {4.6.2}CSCV cruzado entre experimentos}{40}{subsection.4.6.2}%
 \contentsline {subsection}{\numberline {4.6.3}Hallazgos principales}{40}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}CPCV para el modelo elegido}{40}{subsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.6.4}CPCV para el modelo elegido}{41}{subsection.4.6.4}%
 \contentsline {chapter}{\numberline {5}Conclusiones}{43}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Conclusiones generales }{43}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Próximos pasos}{43}{section.5.2}%
+\contentsline {section}{\numberline {5.2}Próximos pasos}{44}{section.5.2}%
 \contentsline {chapter}{Bibliografía}{45}{appendix*.47}%

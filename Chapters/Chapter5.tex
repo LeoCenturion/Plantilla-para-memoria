@@ -23,13 +23,13 @@ No se manifestó ninguno de los riesgos planteados en la planificación original
 Los principales logros de este trabajo son:
 
 \begin{itemize}
-  \item Se construyó un pipeline completo de datos financieros sobre 3.033.173 filas de BTC/USDT (enero 2020 -- noviembre 2025), con barras de volumen, diferenciación fraccionaria y etiquetado de barrera triple adaptado a volatilidad dinámica.
+  \item Se construyó un pipeline completo de datos financieros sobre 3 033 173 filas de BTC/USDT (enero 2020 -- noviembre 2025), con barras de volumen, diferenciación fraccionaria y etiquetado de barrera triple adaptado a volatilidad dinámica.
   \item Se realizó una comparativa sistemática entre cuatro familias de modelos: algoritmos de trading clásicos, modelos estadísticos de series temporales, modelos de machine learning y la arquitectura Transformer (Chronos), lo que permitió identificar las fortalezas y limitaciones de cada enfoque para este dominio.
-  \item Se demostró que los modelos estadísticos (ARIMA, GARCH, Kalman) y los algoritmos de trading clásicos no superan el nivel aleatorio en este activo, con F1 OOS $\approx 0.5$.
-  \item Se identificó al Transformer Chronos con fine-tuning directo a clasificación (\texttt{Chronos\_FinetuneToClass}) como el enfoque dominante, con F1 OOS 0.804--0.819 y una brecha de $+0.16$ puntos sobre el segundo mejor experimento.
-  \item Se validó estadísticamente el modelo final mediante CSCV (70 combinaciones, estimación de PBO) y CPCV (5 caminos disjuntos, F1 medio $= 0.8251 \pm 0.0033$), sin evidencia de degradación temporal ni sobreajuste.
+  \item Se demostró que los modelos estadísticos (ARIMA, GARCH, Kalman) y los algoritmos de trading clásicos no superan el nivel aleatorio en este activo, con F1 OOS $\approx 0,5$.
+  \item Se identificó al Transformer Chronos con fine-tuning directo a clasificación (\texttt{Chronos\_FinetuneToClass}) como el enfoque dominante, con F1 OOS 0,804--0,819 y una brecha de $+0,16$ puntos sobre el segundo mejor experimento.
+  \item Se validó estadísticamente el modelo final mediante CSCV (70 combinaciones, estimación de PBO) y CPCV (5 caminos disjuntos, F1 medio $= 0,8251 \pm 0,0033$), sin evidencia de degradación temporal ni sobreajuste.
   \item Se implementó un bot de trading operativo con arquitectura modular, capaz de operar en tiempo real vía API de Binance con monitoreo remoto y stop-loss automático.
-  \item Se desarrolló un framework reutilizable de investigación (\texttt{AbstractMLPipeline}) que estandariza preprocesamiento, etiquetado, validación cruzada purgada y evaluación para cualquier estrategia.
+  \item Se desarrolló un framework reutilizable de investigación que estandariza preprocesamiento, etiquetado, validación cruzada purgada y evaluación para cualquier estrategia.
 \end{itemize}
 
 
@@ -45,9 +45,9 @@ Como continuación de este trabajo se puede avanzar con:
 
 \item Ensamble de estrategias: otro siguiente paso natural sería, ya sea con las estrategias analizadas o con nuevas, generar un ensamble para usar como modelo. Esto puede interpretarse como un ensamble que vota para tomar una decisión o como la asignación de una porción del capital a cada estrategia de manera independiente entre sí.
 
-\item Análisis de riesgo: se debe calcular el riesgo de la estrategia, es decir, el umbral mínimo de precisión para el cual se obtiene un Sharpe ratio objetivo.
+\item Análisis de riesgo: se debe calcular el riesgo de la estrategia, es decir, el umbral mínimo de precisión que permite obtener un Sharpe ratio objetivo.
 
-\item Asignación de activos: si se opta por operar con múltiples estrategias o criptomonedas se debe resolver el problema de asignación de activos. Para esto se pueden utilizar el método clásico de Markowitz o métodos más modernos como hierarchical risk parity o modelos de redes neuronales.
+\item Asignación de activos: si se opta por operar con múltiples estrategias o criptomonedas se debe resolver el problema de asignación de activos. Para esto se pueden utilizar el método clásico de Markowitz o métodos más modernos como Hierarchical Risk Parity o modelos de redes neuronales.
 
 \item Aplicación de características financieras más avanzadas: en este trabajo no se exploraron en detalle rupturas estructurales (CUSUM y variantes, explosiveness test), características de entropía para estimar el contenido de información de una serie de tiempo, ni características de microestructura.
 

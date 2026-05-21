@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  17 MAY 2026 14:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.11)  20 MAY 2026 21:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1532,23 +1532,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 139--139
  (co-rre-la-ción con 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-LaTeX Info: Redefining \. on input line 165.
-LaTeX Info: Redefining \% on input line 165.
+LaTeX Info: Redefining \. on input line 156.
+LaTeX Info: Redefining \% on input line 156.
 [33]
-LaTeX Info: Redefining \. on input line 209.
-LaTeX Info: Redefining \% on input line 209.
+LaTeX Info: Redefining \. on input line 207.
+LaTeX Info: Redefining \% on input line 207.
  [34]
-LaTeX Info: Redefining \. on input line 258.
-LaTeX Info: Redefining \% on input line 258.
+LaTeX Info: Redefining \. on input line 240.
+LaTeX Info: Redefining \% on input line 240.
  [35]
-LaTeX Info: Redefining \. on input line 308.
-LaTeX Info: Redefining \% on input line 308.
+LaTeX Info: Redefining \. on input line 289.
+LaTeX Info: Redefining \% on input line 289.
  [36]
-LaTeX Info: Redefining \. on input line 380.
-LaTeX Info: Redefining \% on input line 380.
+LaTeX Info: Redefining \. on input line 359.
+LaTeX Info: Redefining \% on input line 359.
  [37]
 Overfull \hbox (5.02216pt too wide) in paragraph at lines 383--384
 \T1/ppl/m/n/10.95 por um-bral en ce-ro. La op-ti-mi-za-ción con Op-tu-na (5 tri
@@ -1567,46 +1564,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 387--387
 
  []
 
-LaTeX Info: Redefining \. on input line 418.
-LaTeX Info: Redefining \% on input line 418.
+LaTeX Info: Redefining \. on input line 414.
+LaTeX Info: Redefining \% on input line 414.
 [38]
 Overfull \hbox (7.63737pt too wide) in paragraph at lines 419--420
-\T1/pcr/m/n/10.95 FinetunedChronosFeaturePipeline \T1/ppl/m/n/10.95 ape-nas 0.6
+\T1/pcr/m/n/10.95 FinetunedChronosFeaturePipeline \T1/ppl/m/n/10.95 ape-nas 0,6
 11, pe-se al cos-to compu-
  []
 
-LaTeX Info: Redefining \. on input line 505.
-LaTeX Info: Redefining \% on input line 505.
+LaTeX Info: Redefining \. on input line 501.
+LaTeX Info: Redefining \% on input line 501.
 [39]
+LaTeX Info: Redefining \. on input line 537.
+LaTeX Info: Redefining \% on input line 537.
+ [40]
 Overfull \hbox (6.06107pt too wide) in paragraph at lines 541--542
 \T1/pcr/m/n/10.95 PalazzoChronosBinaryClassificationPipeline \T1/ppl/m/n/10.95 
 con \T1/pcr/m/n/10.95 chronos-2-small 
  []
 
-LaTeX Info: Redefining \. on input line 547.
-LaTeX Info: Redefining \% on input line 547.
-[40]
-Overfull \hbox (15.55511pt too wide) in paragraph at lines 548--549
-\T1/ppl/m/n/10.95 (\T1/pcr/m/n/10.95 PalazzoChronosBinaryClassificationPipeline
-\T1/ppl/m/n/10.95 , \T1/pcr/m/n/10.95 chronos-2-small\T1/ppl/m/n/10.95 , $\OML/
-cmm/m/it/10.95 ^^\ \OT1/cmr/m/n/10.95 =
- []
-
-)
+LaTeX Info: Redefining \. on input line 601.
+LaTeX Info: Redefining \% on input line 601.
+[41])
 LaTeX Info: Redefining \. on input line 115.
 LaTeX Info: Redefining \% on input line 115.
- [41]
+ [42]
 \openout2 = `Chapters/Chapter5.aux'.
 
- (./Chapters/Chapter5.tex [42
-
-
-
-
-]
+ (./Chapters/Chapter5.tex
 Cap\'{\i }tulo 5.
 1: section
-[43])
+[43
+
+
+
+
+])
 LaTeX Info: Redefining \. on input line 116.
 LaTeX Info: Redefining \% on input line 116.
  [44]
@@ -1676,7 +1669,7 @@ Package logreq Info: Writing requests to 'memorianueva.run.xml'.
 Here is how much of TeX's memory you used:
  32350 strings out of 477967
  680283 string characters out of 5838625
- 1877388 words of memory out of 6000000
+ 1876388 words of memory out of 6000000
  51880 multiletter control sequences out of 15000+600000
  575698 words of font info for 112 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
@@ -1698,7 +1691,7 @@ xlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pal
 atino/uplri8a.pfb>
-Output written on memorianueva.pdf (56 pages, 6946705 bytes).
+Output written on memorianueva.pdf (56 pages, 6947919 bytes).
 PDF statistics:
  937 PDF objects out of 1000 (max. 8388607)
  810 compressed objects within 9 object streams
