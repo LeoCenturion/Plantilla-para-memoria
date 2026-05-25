@@ -28,6 +28,8 @@ Como ya se mencionó antes, en este trabajo se utilizaron precios de cierre de B
   \label{tab:buy_and_hold}
 \end{table}
 
+El intervalo temporal seleccionado es de particular interés para el análisis debido a la densidad de eventos macroeconómicos y a la superposición de múltiples ciclos completos del mercado de criptoactivos. Esta ventana de aproximadamente seis años captura la transición desde la volatilidad extrema provocada por la crisis del COVID-19 y la subsiguiente inyección de liquidez global en 2020 y 2021. Se atraviesa por el severo mercado bajista o ``criptoinvierno'' de 2022 marcado por crisis de apalancamiento y colapsos institucionales en el sector. Finalmente se llega a la fase de maduración e integración financiera con la aprobación de los fondos cotizados al contado.
+
 También se ilustra cómo las barras de volumen afectan a la serie de tiempo original (figura \ref{fig:bars-vs-1m}). Se aprecia cómo la forma general sigue presente pero, en cierta manera, un poco más suavizada. Se pueden ver que los movimientos pequeños se condensan en un solo punto, y se filtra el ruido temporal. Por el contrario, los picos de alta volatilidad capturan un mayor nivel de detalle, se redistribuye el eje horizontal para reflejar el flujo real de transacciones y la estructura del mercado en lugar del simple paso cronológico del tiempo.
 
 \begin{figure}[H]
@@ -146,7 +148,7 @@ La tabla \ref{tab:sensibilidad} resume la sensibilidad de los parámetros clave 
         SmaCrossClassifier       & n1 & +0,89 & Ventana lenta más larga $\rightarrow$ mejor \\
         MaCrossoverClassifier    & long\_window & -0,58 & Ventanas cortas funcionan mejor \\
         BollingerBandsClassifier & bb\_std & -0,40 & Se prefieren bandas estrechas \\
-        MACDClassifier           & slow\_span & -0,92 & Spans cortos fuertemente preferidos \\
+        MACDClassifier           & slow\_span & -0,92 & Spans cortos preferidos \\
         RSIDivergenceClassifier  & rsi\_window & -0,76 & Ventana RSI corta es mejor (best: 9) \\
         \bottomrule
     \end{tabular}
@@ -162,7 +164,8 @@ En esta sección se hizo un análisis sobre las estrategias basadas en algoritmo
 
 Configuración: CV purgado de 3 pliegues, 1\% de embargo, datos de 1h de BTCUSDT desde 2020-01-01. Se evaluaron 5 familias de modelos.
 
-Como se detalla en la tabla \ref{tab:mejores_modelos}, el \texttt{ARIMAClassifier} es el mejor modelo estadístico evaluado: alcanza un F1 máximo de 0,5004. Sin embargo, su alta varianza ($\text{std} = 0,118$) y sus modos de falla catastróficos lo hacen poco confiable en la práctica, como se evidencia en la tabla \ref{tab:distribucion_f1}.
+Como se detalla en la tabla \ref{tab:mejores_modelos}, el \texttt{ARIMAClassifier} es el mejor modelo estadístico evaluado: alcanza un F1 máximo de 0,5004. 
+
 \begin{table}[H]
   \centering
   \caption[Resultados de Optimización]{Mejor resultado de optimización por familia de modelo basado en el promedio de F1 en validación cruzada ($avg\_cv\_f1$).}
@@ -184,8 +187,28 @@ Como se detalla en la tabla \ref{tab:mejores_modelos}, el \texttt{ARIMAClassifie
 
 Los modelos de series temporales muestran una inestabilidad estructural. La tabla \ref{tab:sensibilidad_estadistica} revela que el parámetro threshold es el factor determinante: las familias ARIMA solo funcionan cuando se configuran para predecir retornos esperados extremadamente pequeños (umbral $\sim 1e-6$).
 
+\begin{table}[H]
+  \centering
+  \caption[Sensibilidad de Parámetros]{Análisis de sensibilidad: correlación entre hiperparámetros clave y el rendimiento (F1).}
+  \small
+  \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{l l c p{5.5cm}}
+      \toprule
+      \textbf{Modelo} & \textbf{Parámetro} & \textbf{Corr} & \textbf{Interpretación} \\
+      \midrule
+      ARIMA-family        & threshold       & -0,93 & El umbral cercano a cero es crítico. \\
+      ARIMAXGARCH         & threshold       & -0,99 & Umbrales altos degradan el modelo. \\
+      ARIMAClassifier     & lookback\_len   & -0,37 & Se prefiere historial corto (720 h). \\
+      ARIMAXGARCH         & $q$ (ARIMA MA)  & +0,85 & Orden MA alto es significativamente mejor. \\
+      \bottomrule
+    \end{tabular}
+  \end{adjustbox}
+  \label{tab:sensibilidad_estadistica}
+\end{table}
+
 Además de esta limitación, los modelos ARIMA presentan modos de falla catastróficos. Las altas desviaciones estándar reportadas en la tabla \ref{tab:distribucion_f1} (0,118 para ARIMA, 0,116 para GARCH y 0,165 para Kalman) son un claro indicador de inestabilidad. Las combinaciones deficientes de parámetros producen puntuaciones F1 cercanas a cero, lo que los hace poco confiables para aplicaciones prácticas. Como evidencia de esto, ARIMA solo logra un F1 $\geq 0,48$ en el 47\% de las pruebas, mientras que Kalman nunca logra alcanzar esa marca.
 
+Si bien \texttt{ARIMAClassifier} es el mejor clasificador, su alta varianza ($\text{std} = 0,118$) y sus modos de falla catastróficos lo hacen poco confiable en la práctica, como se evidencia en la tabla \ref{tab:distribucion_f1}.
 \begin{table}[H]
   \centering
   \caption[Distribución de F1]{Distribución de la métrica F1 a través de todas las pruebas realizadas por clasificador.}
@@ -207,30 +230,10 @@ Además de esta limitación, los modelos ARIMA presentan modos de falla catastr�
 
 Queda en evidencia que, en este contexto, añadir complejidad perjudica el rendimiento. Al contrastar los resultados de la tabla \ref{tab:mejores_modelos}, un modelo ARIMA (6 parámetros) supera a los más complejos ARIMAX-GARCH (8 parámetros) y Kalman-ARIMA (6 parámetros). Cada nueva capa de complejidad reduce el F1 promedio y aumenta la varianza de los resultados. El filtro de Kalman, en particular, parece degradar la señal original del modelo ARIMA en lugar de potenciarla.
 
-\begin{table}[H]
-  \centering
-  \caption[Sensibilidad de Parámetros]{Análisis de sensibilidad: Correlación entre hiperparámetros clave y el rendimiento (F1).}
-  \small
-  \begin{adjustbox}{max width=\textwidth}
-  \begin{tabular}{l l c p{5.5cm}}
-    \toprule
-    \textbf{Modelo} & \textbf{Parámetro} & \textbf{Corr} & \textbf{Interpretación} \\
-    \midrule
-    ARIMA-family        & threshold       & -0,93 & El umbral cercano a cero es crítico. \\
-    ARIMAXGARCH         & threshold       & -0,99 & Umbrales altos degradan el modelo. \\
-    ARIMAClassifier     & lookback\_len   & -0,37 & Se prefiere historial corto (720 h). \\
-    ARIMAXGARCH         & $q$ (ARIMA MA)  & +0,85 & Orden MA alto es significativamente mejor. \\
-    \bottomrule
-  \end{tabular}
-  \end{adjustbox}
-  \label{tab:sensibilidad_estadistica}
-\end{table}
 
-En cuanto a la parametrización, la mejor configuración de ARIMA converge de manera muy ajustada. Las cinco mejores pruebas de este modelo comparten exactamente los mismos valores de base ($p=4$, $d=0$, $q=1$, $\text{refit}=720\text{h}$, $\text{lookback}=720\text{h}$), y difieren únicamente en el umbral. Esto sugiere que el orden autorregresivo y de media móvil de ARIMA está bien identificado para este activo, pero que el espacio de búsqueda inicial para el umbral fue demasiado amplio.
+En cuanto a la parametrización, la mejor configuración de ARIMA converge de manera muy ajustada. Las cinco mejores pruebas de este modelo comparten exactamente los mismos valores de base ($p=4$, $d=0$, $q=1$, $\text{refit}=720\ \text{h}$, $\text{lookback}=720\ \text{h}$), y difieren únicamente en el umbral. Esto sugiere que el orden autorregresivo y de media móvil de ARIMA está bien identificado para este activo, pero que el espacio de búsqueda inicial para el umbral fue demasiado amplio.
 
-\vspace{1em}
-
-Conclusión: se puede afirmar con seguridad que se logró un resultado subóptimo aunque predecible debido a su simpleza. Los algoritmos estadísticos no supieron diferenciar la escasa señal del preponderante ruido presente en los mercados financieros. En resultados concretos el mejor F1 no pudo superar el de un intento aleatorio y en Sharpe ratio quedó muy por debajo de la base del buy and hold.
+Se puede afirmar con seguridad que se logró un resultado subóptimo aunque predecible debido a su simpleza. Los algoritmos estadísticos no supieron diferenciar la escasa señal del preponderante ruido presente en los mercados financieros. En resultados concretos el mejor F1 no pudo superar el de un intento aleatorio y en Sharpe ratio quedó muy por debajo de la base del buy and hold.
 
 En el detalle de los modelos estudiados, todos los algoritmos estadísticos de series temporales (ARIMA, GARCH y Kalman) resultan estructuralmente inestables para este conjunto de datos. Exigen una calibración del umbral extremadamente precisa e, incluso en el mejor de los escenarios (\texttt{ARIMAClassifier} con $p=4$, $d=0$, $q=1$), apenas logran superar el rendimiento de un clasificador aleatorio.
 
@@ -279,7 +282,7 @@ La tabla \ref{tab:ml_f1_dist} resume la distribución del F1 macro promedio para
 \end{table}
 
 \subsection{Hallazgos principales}
-Entre los hallazgos principales de las pruebas realizadas con algoritmos de machine learning encontramos:
+Entre los hallazgos principales de las pruebas realizadas con algoritmos de machine learning se encontraron:
 \begin{itemize}
 \item AutoGluon iguala a XGBoost con un costo computacional diez veces mayor: AutoGluon Palazzo (20 trials, mejor F1=0,639) se ubica a 0,008 del mejor XGBoost Palazzo (0,647). El mejor modelo seleccionado por AutoGluon fue \texttt{LightGBMXT\_BAG\_L1}. Dado que cada trial de AutoGluon insume aproximadamente diez veces más tiempo, XGBoost resulta la opción práctica para esta escala de datos.
 
@@ -328,7 +331,7 @@ Entre los hallazgos principales de las pruebas realizadas con algoritmos de mach
 
 \section{Pruebas con Chronos}
 
-En esta sección se describen las pruebas realizadas con el modelo transformer de elección, Chronos. Como ya se dijo, se eligió este modelo por ser la destilación del estado del arte actual en series de tiempo y por su fácil acceso a través de bibliotecas como AutoGluon.
+En esta sección se describen las pruebas realizadas con el modelo transformer de elección, Chronos. Como ya se mencionó, se eligió este modelo por ser la destilación del estado del arte actual en series de tiempo y por su fácil acceso a través de bibliotecas como AutoGluon.
 
 Se exploraron tres familias arquitectónicas de pipelines basadas en Chronos, enumeradas en la tabla \ref{tab:chronos_experiments}. Todos los experimentos utilizan los mismos datos que la etapa anterior (enero 2020 -- octubre 2025, 3\,033\,173 filas) con barras de volumen fijas en \texttt{volume\_threshold=50\,000} BTC y $\tau=0,7$. La validación cruzada empleó Purged K-Fold con embargo (\texttt{n\_splits=3}, \texttt{pct\_embargo=0,01}) para las familias de embeddings, y \texttt{pct\_embargo=0,05} para predicción directa.
 
@@ -410,13 +413,13 @@ La tabla \ref{tab:chronos_f1_dist} resume la distribución de F1 para cada pipel
 Entre los hallazgos principales de las pruebas realizadas con Chronos se destacan:
 \begin{itemize}
 
-\item El fine-tuning directo con Chronos-2 es el mejor resultado obtenido: \\ \texttt{PalazzoChronosBinaryClassificationPipeline} alcanza \\ \texttt{avg\_cv\_score=0,818}, significativamente por encima de todos los pipelines de embeddings (0,611--0,633) y del meta-etiquetado (0,655 en F1 ponderado).
+\item El fine-tuning directo con Chronos-2 es el mejor resultado obtenido: \texttt{Palazzo} \\ \texttt{ChronosBinaryClassificationPipeline} alcanza \texttt{avg\_cv\_score}\\\texttt{=0,818}, significativamente por encima de todos los pipelines de embeddings (0,611--0,633) y del meta-etiquetado (0,655 en F1 ponderado).
 
-\item T5 tiene el mayor potencial dentro de los embeddings: \\ \texttt{ChronosFeaturePipeline} obtiene el F1 más alto (0,633 en exp 73) y también la mayor varianza (std=0,022), lo que indica mayor sensibilidad a los hiperparámetros. El modelo ganador en la optimización fue \\\texttt{CatBoost\_BAG\_L1\_FULL} con \texttt{chronos-t5-small}, ventana de 96 y preset \texttt{high\_quality}.
+\item T5 tiene el mayor potencial dentro de los embeddings: \texttt{ChronosFeature} \\ \texttt{Pipeline} obtiene el F1 más alto (0,633 en exp 73) y también la mayor varianza (std=0,022), lo que indica mayor sensibilidad a los hiperparámetros. El modelo ganador en la optimización fue \\\texttt{CatBoost\_BAG\_L1\_FULL} con \texttt{chronos-t5-small}, ventana de 96 y preset \texttt{high\_quality}.
 
-\item BOLT es estable pero con techo inferior: \\\texttt{ChronosBoltFeaturePipeline} muestra std=0,008, la varianza más baja de todos los pipelines evaluados. Su máximo (0,628) queda por debajo de T5. Dentro de la familia BOLT, bolt-small supera a bolt-mini con presupuestos de tiempo cortos.
+\item BOLT es estable pero con techo inferior: \texttt{ChronosBolt} \\ \texttt{FeaturePipeline} muestra std=0,008, la varianza más baja de todos los pipelines evaluados. Su máximo (0,628) queda por debajo de T5. Dentro de la familia BOLT, bolt-small supera a bolt-mini con presupuestos de tiempo cortos.
 
-\item Chronos-2 y el fine-tuning por pliegue no superan a T5 ni a BOLT: \\\texttt{Chronos2FeaturePipeline} alcanza F1=0,621 y \\\texttt{FinetunedChronosFeaturePipeline} apenas 0,611, pese al costo computacional significativo del ajuste fino por pliegue. La señal binaria sobre barras de volumen resulta demasiado ruidosa para mejorar las representaciones pre-entrenadas en 300 segundos.
+\item Chronos-2 y el fine-tuning por pliegue no superan a T5 ni a BOLT: \texttt{Chronos2} \\\texttt{FeaturePipeline} alcanza F1=0,621 y \texttt{FinetunedChronos} \\\texttt{FeaturePipeline} apenas 0,611, pese al costo computacional significativo del ajuste fino por pliegue. La señal binaria sobre barras de volumen resulta demasiado ruidosa para mejorar las representaciones pre-entrenadas en 300 segundos.
 
 \item El meta-filtro no mejora al modelo primario: agregar un meta-modelo de AutoGluon sobre las predicciones del clasificador primario no produce una mejora consistente. La arquitectura de meta-etiquetado impone un compromiso precisión-recall que perjudica el F1 macro en el conjunto de prueba más frecuentemente de lo que lo beneficia.
 
@@ -540,14 +543,14 @@ A continuación se resumen los hallazgos más relevantes del análisis CSCV:
 
 \end{itemize}
 
-El modelo final seleccionado es \\ \texttt{PalazzoChronosBinaryClassificationPipeline} con \texttt{chronos-2-small} \\($\tau=0,910$, \texttt{volume\_threshold}=45\,988), avalado por un F1 OOS de 0,815 y un dominio del 98,6\% en el CSCV cruzado sin degradación entre in-sample y out-of-sample.
+El modelo final seleccionado es  \texttt{PalazzoChronosBinaryClassification}\\\texttt{Pipeline} con \texttt{chronos-2-small} ($\tau=0,910$, \texttt{volume\_threshold}=45\,988), avalado por un F1 OOS de 0,815 y un dominio del 98,6\% en el CSCV cruzado sin degradación entre in-sample y out-of-sample.
 
 
 \subsection{CPCV para el modelo elegido}
 
 La validación cruzada combinatoria purgada (\textit{CPCV}) proporciona una estimación sin sesgo de la distribución de rendimientos del modelo final sobre caminos de backtest disjuntos. A diferencia de un único holdout, CPCV reconstruye $M$ caminos temporales completos a partir de los $\binom{N}{k}$ pliegues combinatorios, lo que permite estimar la varianza del rendimiento OOS y no solo su valor medio.
 
-Se aplicó CPCV sobre el modelo seleccionado \\(\texttt{PalazzoChronosBinaryClassificationPipeline}, \texttt{chronos-2-small},\\ $\tau=0,910$, \texttt{volume\_threshold}=45\,988) con la configuración de la tabla \ref{tab:cpcv_config}.
+Se aplicó CPCV sobre el modelo seleccionado (\texttt{PalazzoChronosBinary}\\\texttt{ClassificationPipeline}, \texttt{chronos-2-small}, $\tau=0,910$, \texttt{volume\_thres}\\\texttt{hold}=45\,988) con la configuración de la tabla \ref{tab:cpcv_config}.
 
 \begin{table}[H]
     \centering

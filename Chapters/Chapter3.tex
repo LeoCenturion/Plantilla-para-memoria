@@ -50,13 +50,13 @@ Esta sección describe el conjunto de datos utilizado y las estrategias de prepr
 
 El trabajo se basó en el análisis de datos del mercado spot de Bitcoin. El mercado spot se define como aquel en el que los activos financieros, en este caso Bitcoin (BTC) frente al Tether (USDT), se compran y venden para su liquidación y entrega inmediata. Las variables disponibles para este mercado incluyen el precio de apertura, el precio de cierre, el valor mínimo y máximo alcanzado, el volumen comercializado en unidades de Bitcoin y en USDT, y la hora exacta en la que se tomó cada medición.
 
-Estos datos se recopilaron desde el 1 de enero de 2020 a través de la plataforma de Binance. Inicialmente, se experimentó con una frecuencia de una hora, la cual presentó la desventaja de acotar el volumen de datos disponibles para el entrenamiento del modelo. Además, se observó que las estrategias probadas con esta frecuencia arrojaban peores resultados. Se infirió que esto se debía, posiblemente, a la menor cantidad de datos disponibles, lo que limitó la capacidad del modelo para aprender patrones robustos. Por lo anterior, se optó por utilizar una frecuencia de un minuto, lo que generó una mejora significativa en el desempeño de las estrategias estudiadas al proporcionar un conjunto de datos más denso y amplio.
+Estos datos se recopilaron desde el 1 de enero de 2020 a través de la plataforma de Binance. Inicialmente, se experimentó con una frecuencia de una hora, que presentó la desventaja de acotar el volumen de datos disponibles para el entrenamiento del modelo. Además, se observó que las estrategias probadas con esta frecuencia arrojaban peores resultados. Se infirió que esto se debía, posiblemente, a la menor cantidad de datos disponibles, lo que limitó la capacidad del modelo para aprender patrones robustos. Por lo anterior, se optó por utilizar una frecuencia de un minuto, lo que generó una mejora significativa en el desempeño de las estrategias estudiadas al proporcionar un conjunto de datos más denso y amplio.
 
 \subsection{Estrategias de preprocesamiento}
 
 A continuación, se detalla el preprocesamiento realizado, común a la mayoría de los modelos explorados y basado en las recomendaciones de Marcos López de Prado para finanzas cuantitativas.
 
-  Para asegurar la estacionariedad de las series, se aplica la diferenciación fraccional, una técnica avanzada recomendada en la literatura explorada. Dado que las series de precios financieras no son estacionarias, esta técnica busca un orden mínimo de diferenciación (d), que puede ser un número fraccionario (por ejemplo, d=0.4), para hacer la serie estacionaria (según la prueba de Dickey-Fuller aumentada) sin eliminar por completo la información de la serie original. Esto contrasta con la diferenciación clásica (d=1) que puede borrar demasiada ``memoria''.
+  Para asegurar la estacionariedad de las series, se aplica la diferenciación fraccional, una técnica avanzada recomendada en la literatura explorada. Dado que las series de precios financieras no son estacionarias, esta técnica busca un orden mínimo de diferenciación (d), que puede ser un número fraccionario (por ejemplo, d=0,4), para hacer la serie estacionaria (según la prueba de Dickey-Fuller aumentada) sin eliminar por completo la información de la serie original. Esto contrasta con la diferenciación clásica (d=1) que puede borrar demasiada ``memoria''.
 
 Para el preprocesamiento de los datos, se aplicaron diversas estrategias con el fin de optimizar su calidad y relevancia para el modelo:
 
@@ -67,7 +67,9 @@ Para el preprocesamiento de los datos, se aplicaron diversas estrategias con el 
 
 Finalmente, antes del entrenamiento, se aplican transformaciones estándar como el escalado y la reducción de dimensionalidad. El escalado, específicamente \texttt{StandardScaler}, estandariza las características a una media de 0 y varianza de 1, crucial para modelos sensibles a la escala (como SVM o redes neuronales), lo que asegura  que el escalador se ajuste únicamente en los datos de entrenamiento para evitar fugas de información. Opcionalmente, mediante un hiperparámetro,  se utiliza el análisis de componentes principales (PCA) para reducir la dimensionalidad y ortogonalizar las características, lo que puede beneficiar a algunos modelos y mejorar la interpretabilidad.
 
-En síntesis, el preprocesamiento representa un pipeline sofisticado que transforma los datos brutos de precios en un formato estructurado, estacionario y etiquetado de manera robusta, listo para ser utilizado por los modelos de aprendizaje de máquina. La figura \ref{fig:preprocessing_pipeline} ilustra este proceso.
+Para fundamentar las decisiones de preprocesamiento, se definió un proceso de evaluación sistemática sobre el conjunto de entrenamiento. El orden de diferenciación fraccional $d$ se determinó aplicando la prueba de Dickey-Fuller aumentada (ADF), seleccionando el valor mínimo que garantizara estacionariedad a un nivel de confianza del 95\%, de modo de preservar la mayor cantidad posible de memoria de la serie original. Para el umbral de volumen de las barras, se evaluaron distintos valores midiendo su impacto sobre la autocorrelación serial y la heterocedasticidad, con el objetivo de encontrar un equilibrio entre la calidad estadística de las barras resultantes y la cantidad de muestras disponibles para el entrenamiento. Por último, se verificó que tanto el \texttt{StandardScaler} como la descomposición PCA fueran ajustados exclusivamente sobre los datos de entrenamiento de cada fold, evitando así cualquier fuga de información hacia los conjuntos de validación.
+
+El preprocesamiento representa un pipeline sofisticado que transforma los datos brutos de precios en un formato estructurado, estacionario y etiquetado de manera robusta, listo para ser utilizado por los modelos de aprendizaje de máquina. La figura \ref{fig:preprocessing_pipeline} ilustra este proceso.
 
 \begin{figure}[H]
   \centering
@@ -81,7 +83,7 @@ En síntesis, el preprocesamiento representa un pipeline sofisticado que transfo
 
 Una vez estructuradas las barras, se procede con la ingeniería de características, donde se construye un conjunto extenso de atributos para los modelos. Esto incluye indicadores técnicos.
 
-Para la ingeniería de características, se generó una extensa lista de indicadores técnicos clásicos como el RSI, el Oscilador Asombroso (AO), Williams \%R y ROC para momentum; MACD, ADX, Aroon, CCI y Vortex para tendencia; y las Bandas de Bollinger, Canales de Keltner y Canales de Donchian para volatilidad y fluctuación. Adicionalmente, se incorporan características basadas en retornos porcentuales (\texttt{pct\_change}) y sus retardos. En el pipeline específico de Chronos, el modelo se utiliza para generar embeddings a partir de ventanas de la serie de precios. Estos embeddings, que encapsulan patrones complejos, sirven como características adicionales para un modelo tabular, como XGBoost. Adicionalmente, se hizo uso de técnicas de reducción de dimensionalidad como el análisis de componentes principales (PCA). Para determinar las características más relevantes para el modelo final, se realizó un análisis de importancia en el cual se utilizó un conjunto de métricas, entre ellas: la disminución media de impureza (MDI), la disminución media de exactitud (MDA) y la importancia de característica individual (SFI). También se analizaron las funciones de autocorrelación (ACF) y autocorrelación parcial (PACF) de los componentes principales para identificar dependencias temporales.
+Para la ingeniería de características, se generó una extensa lista de indicadores técnicos clásicos como el RSI, el Oscilador Asombroso (AO), Williams \%R y ROC para momentum; MACD, ADX, Aroon, CCI y Vortex para tendencia; y las Bandas de Bollinger, Canales de Keltner y Canales de Donchian para volatilidad y fluctuación. Adicionalmente, se incorporan características basadas en retornos porcentuales (\texttt{pct\_change}) y sus retardos. En el pipeline específico de Chronos, el modelo se utiliza para generar embeddings a partir de ventanas de la serie de precios. Estos embeddings, que encapsulan patrones complejos, sirven como características adicionales para un modelo tabular, como XGBoost. Adicionalmente, se hizo uso de técnicas de reducción de dimensionalidad como el análisis de componentes principales (PCA). Para determinar las características más relevantes para el modelo final, se realizó un análisis de importancia en el que se utilizó un conjunto de métricas, entre ellas: la disminución media de impureza (MDI), la disminución media de exactitud (MDA) y la importancia de característica individual (SFI). También se analizaron las funciones de autocorrelación (ACF) y autocorrelación parcial (PACF) de los componentes principales para identificar dependencias temporales.
 
 \section{Estrategias de referencia}
 
@@ -113,8 +115,8 @@ Esta estrategia de dos pasos permite combinar el poder de los modelos fundaciona
 
 \section{Estrategia de etiquetado}
 
-Para definir el objetivo de predicción del modelo, se evaluaron varias técnicas de etiquetado. Tras analizar los métodos de horizonte fijo y etiquetado dinámico, se adoptó el método de la barrera triple (Triple-Barrier Method). Esta técnica, recomendada en la literatura para mercados financieros, ofrece un enfoque más adaptativo y robusto al definir las etiquetas en función de la volatilidad del activo, con barreras para ganancias, pérdidas y tiempo de expiración.
-Para etiquetar un punto se puede elegir una etiqueta independiente para la barrera vertical o agruparla con las barreras horizontales según si el punto final es mayor o menor que el inicial, si es menor se agrupa con la etiqueta correspondiente a la barrera inferior y, si es mayor, con la superior. Esta alternativa permite mantener las clases a predecir balanceadas con lo cual fue la seleccionada.
+Para definir el objetivo de predicción del modelo, se evaluaron varias técnicas de etiquetado. Tras analizar los métodos de horizonte fijo y etiquetado dinámico, se adoptó el método de la barrera triple (Triple-Barrier Method)\cite{LoP:2018}. Esta técnica, recomendada en la literatura para mercados financieros, ofrece un enfoque más adaptativo y robusto al definir las etiquetas en función de la volatilidad del activo, con barreras para ganancias, pérdidas y tiempo de expiración.
+Para etiquetar un punto se puede elegir una etiqueta independiente para la barrera vertical o agruparla con las barreras horizontales según si el punto final es mayor o menor que el inicial. Si es menor se agrupa con la etiqueta correspondiente a la barrera inferior y, si es mayor, con la superior. Se eligió esta alternativa porque permite mantener las clases a predecir balanceadas.
 
 En la figura \ref{fig:triple_barrier}  se ve cómo a partir de un punto de Incepción (inicio de la operación), se definen tres límites: una barrera de ganancia superior (púrpura) y una barrera de pérdida inferior (cian) que determinan si la operación se clasifica como positiva o negativa si el precio las toca, y una barrera de tiempo vertical (negra) que sirve de vencimiento, etiqueta la posición por su rendimiento hasta ese momento si ninguna barrera horizontal fue alcanzada previamente.
 
@@ -128,11 +130,11 @@ En la figura \ref{fig:triple_barrier}  se ve cómo a partir de un punto de Incep
 
 \section{Framework de backtesting y evaluación}
 
-Para asegurar una evaluación rigurosa y libre de sesgos, se implementó un motor de backtesting a medida en Python. Esta decisión se tomó debido a la necesidad de utilizar metodologías avanzadas como la validación cruzada combinatoria con purga y embargo (\textit{Combinatorially Purged Cross-Validation}). Este método es esencial para prevenir la fuga de información y el sobreajuste al evaluar modelos en series de tiempo financieras, lo que garantiza que el rendimiento medido sea una estimación realista del comportamiento del modelo en datos futuros.
+Para asegurar una evaluación rigurosa y libre de sesgos, se implementó un motor de backtesting a medida en Python. Esta decisión se tomó debido a la necesidad de utilizar metodologías avanzadas como la validación cruzada combinatoria con purga y embargo (\textit{Combinatorially Purged Cross-Validation})\cite{LoP:2018}. Este método es esencial para prevenir la fuga de información y el sobreajuste al evaluar modelos en series de tiempo financieras, lo que garantiza que el rendimiento medido sea una estimación realista del comportamiento del modelo en datos futuros.
 
 \subsection{Optimización de hiperparámetros: búsqueda bayesiana con Optuna}
 
-La optimización de hiperparámetros es una de las etapas más críticas en la construcción de un modelo de machine learning robusto, especialmente en el dominio financiero donde el riesgo de sobreajuste es muy alto. El enfoque adoptado en este proyecto se centró en la eficiencia y la rigurosidad estadística, y separa estrictamente la fase de optimización de la evaluación final.
+La optimización de hiperparámetros es una de las etapas más críticas en la construcción de un modelo de machine learning robusto, especialmente en el dominio financiero donde el riesgo de sobreajuste es muy alto. El enfoque adoptado en este trabajo se centró en la eficiencia y la rigurosidad estadística, y separa estrictamente la fase de optimización de la evaluación final.
 
 Para evitar esto, la búsqueda de hiperparámetros se realizó  únicamente con el conjunto de entrenamiento, y se validó el rendimiento de cada configuración mediante purged k-fold cross-validation. El conjunto de prueba final (hold-out set) se mantuvo completamente aislado y solo se utilizó una única vez al final de todo el proceso para evaluar el modelo definitivo.
 
@@ -179,7 +181,7 @@ Durante la fase de investigación, se exploró un amplio espectro de modelos par
 
 Inicialmente, se evaluaron estrategias de trading clásicas basadas en indicadores técnicos, como el cruce de medias móviles, las bandas de Bollinger, el MACD y las divergencias en el RSI. Si bien estos métodos son populares, demostraron ser demasiado rígidos, poco adaptativos, y propensos al sobreajuste.
 
-Posteriormente, se probaron modelos estadísticos tradicionales para series temporales, incluyendo ARIMA, SARIMA, y variantes más complejas como ARIMAX con GARCH como variable exógena y Prophet de Facebook. Estos modelos, aunque más sofisticados, lucharon por capturar las dinámicas no lineales y no estacionarias del precio de Bitcoin y no superaron a un desempeño aleatorio.
+Posteriormente, se probaron modelos estadísticos tradicionales para series temporales, incluyendo ARIMA, SARIMA, y variantes más complejas como ARIMAX con GARCH \cite{tsay2010} como variable exógena y Prophet de Facebook. Estos modelos, aunque más sofisticados, lucharon por capturar las dinámicas no lineales y no estacionarias del precio de Bitcoin y no superaron a un desempeño aleatorio.
 
 Luego, se exploraron modelos que sean \texttt{drop in replacements} al marco presentado por \cite{Palazzo:2023}. Para seguir con la recomendación de López de Prado sobre la idoneidad de los modelos basados en árboles tipo random forest para datos financieros. Además, se exploraron alternativas a XGBoost. Se utilizó la biblioteca AutoGluon, que permite entrenar y comparar de forma automática un conjunto de modelos tabulares de última generación, incluyendo diferentes configuraciones de redes neuronales y ensambles, para encontrar un posible reemplazo al modelo de Palazzo.
 
@@ -258,7 +260,7 @@ Esta es la fase central operada por el motor del bot, caracterizada por un bucle
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{"Figures/seq_2b_trading_loop_signals.png"}
+  \includegraphics[width=0.65\textwidth]{"Figures/seq_2b_trading_loop_signals.png"}
   \caption{Diagrama del bucle de principal del bot de trading - 2.}
   \label{fig:bot-seq-loop-2}
 \end{figure}
@@ -302,13 +304,13 @@ A continuación se describen los pasos del proceso de monitoreo:
 
 \begin{itemize}
 
-\item  Petición de estado: el usuario ejecuta bot \texttt{status --port 5000} en la cli.
+\item  Petición de estado: el usuario ejecuta bot \texttt{status --port 5000} en la CLI.
 
-\item  Consulta http: la cli transforma este comando en una petición get dirigida a la ruta /status expuesta por la aplicación flask.
+\item  Consulta http: la CLI transforma este comando en una petición get dirigida a la ruta /status expuesta por la aplicación flask.
 
 \item  Lectura interna: el servidor flask interactúa con el espacio de memoria del bot, leyendo variables críticas de estado en tiempo real como bot.running (si está activo), la posición actual en el mercado y el balance de la cuenta.
 
-\item  Respuesta al usuario: el bot transfiere este diccionario de estado a flask, que a su vez lo serializa en formato json (conteniendo estatus, posición y balance) y lo envía de regreso a la cli. Finalmente, la cli imprime esta información de forma legible para el usuario.
+\item  Respuesta al usuario: el bot transfiere este diccionario de estado a flask, que a su vez lo serializa en formato json (conteniendo estatus, posición y balance) y lo envía de regreso a la CLI. Finalmente, la CLI imprime esta información de forma legible para el usuario.
 
 \end{itemize}
 
@@ -325,9 +327,9 @@ El sistema contempla mecanismos robustos para finalizar el proceso del bot de ma
 A continuación se describen los pasos del proceso de apagado:
 
 \begin{itemize}
-\item  Apagado forzado por cli: el usuario emite el comando bot stop. La cli lee el archivo que contiene el identificador del proceso (bot.pid) e interactúa directamente con el sistema operativo mediante el envió de una señal de terminación (\texttt{os.kill(pid, sigterm)}) al servidor para que aborte la ejecución.
+\item  Apagado forzado por CLI: el usuario emite el comando bot stop. La CLI lee el archivo que contiene el identificador del proceso (bot.pid) e interactúa directamente con el sistema operativo mediante el envió de una señal de terminación (\texttt{os.kill(pid, sigterm)}) al servidor para que aborte la ejecución.
 
-\item  Apagado elegante vía api: como método alternativo anotado en el diagrama, se puede enviar una petición post a la ruta /shutdown a través de flask. En este escenario, flask se comunica con el bot con una llamada al método bot.stop(), el cual cambia internamente la variable self.running a false. Esto permite que el bucle principal finalice su iteración actual de manera limpia, con la lubricación de los hilos y el cierre del servidor de forma orquestada y sin corrupción de estado.
+\item  Apagado elegante vía API: como método alternativo anotado en el diagrama, se puede enviar una petición post a la ruta /shutdown a través de flask. En este escenario, flask se comunica con el bot con una llamada al método \texttt{bot.stop()}, que cambia internamente la variable self.running a false. Esto permite que el bucle principal finalice su iteración actual de manera limpia, con la lubricación de los hilos y el cierre del servidor de forma orquestada y sin corrupción de estado.
 \end{itemize}
 
 \section{Diseño del sistema}
@@ -341,7 +343,7 @@ El sistema esta estructurado siguiendo la temática de pipeline de investigació
   Con el objetivo de coordinar las interacciones previamente mencionadas y de estandarizar como se alimentan los algoritmos con datos, como se procesan y se orquestaran para su evaluación. Centralizar y reutilizar esta lógica asegura que siempre se van a tomar las mismas medidas y con el mismo criterio para todos los algoritmos estudiados. Va a evitar que, al reescribir código similar, se introduzcan variantes o errores conceptuales a la hora de separar los datos de entrenamiento y de prueba. Como contrapartida, esto obliga a, sin incurrir en una complejidad excesiva, destilar  una interfaz lo suficientemente flexible como para ser utilizada por diversas categorías de modelos con distintos requerimientos en lo que respecta a los dominios de estructurado de datos, etiquetado, e ingeniería de características.
 \item \texttt{backtesting}:  aquí se evalúa la rentabilidad de la estrategia bajo diversos escenarios simulados y estiman la probabilidad de sobreajuste del backtest teniendo en cuenta el número de ensayos y errores realizados. Los principales subpaquetes a nombrar son \texttt{cpcv} y \texttt{cpcv\_runner}. En el primero se implementan las funciones puras que calculan los splits combinatorios, la lógica de embargo, y la reconstrucción de caminos para el algoritmo de combinatorially purged cross validation. En el segundo se implementan funciones que unifican la lógica par aplicar CPCV a los modelos existentes.
 
-\item \texttt{app}: en este paquete vive el bot de trading tal cual descripto en la sección \ref{subsec:bot-design}.
+\item \texttt{app}: en este paquete vive el bot de trading tal como se describió en la sección \ref{subsec:bot-design}.
 \end{enumerate}
 
 
@@ -379,9 +381,9 @@ Se aprovecha la flexibilidad brindada por la estructura de clases descripta en l
   \label{fig:ml-pipeline-chronos}
 \end{figure}
 
-En la primera categoría se utiliza el modelo chronos como regresor o como clasificador. En forma de regresor se tiene clases \texttt{PalazzoChronosPipeline} que trata de predecir el precio directamente. Del lado de los clasificadores se tienen \texttt{PalazzoChronosClassificationPipeline} que realiza una regresión sobre el precio de cierre pero luego solo se toma si es mayor o menor al cierre anterior, en efecto transformándolo en un clasificador; y \\\texttt{PalazzoChronosBinaryClassificationPipeline} al que, en vez de alimentarlo con los precios de cierre, se le proveen directamente las etiquetas +1 y -1 que indican si el precio sera mayor o menor que el anterior.
+En la primera categoría se utiliza el modelo chronos como regresor o como clasificador. En forma de regresor se tiene clases \texttt{PalazzoChronosPipeline} que trata de predecir el precio directamente. Del lado de los clasificadores se tienen \texttt{PalazzoChronos} \texttt{ClassificationPipeline} que realiza una regresión sobre el precio de cierre pero luego solo se toma si es mayor o menor al cierre anterior, en efecto transformándolo en un clasificador; y \texttt{PalazzoChronosBinary}\\\texttt{ClassificationPipeline} al que, en vez de alimentarlo con los precios de cierre, se le proveen directamente las etiquetas +1 y -1 que indican si el precio sera mayor o menor que el anterior.
 
-En la categoría de transfer learning se tiene a la familia de los \\ \texttt{ChronosFeaturePipelines} que modifican el pipeline de inspirado en el trabajo de Palazzo, que se usó como línea de base, para agregar los embeddings de chronos como características para que sean usadas por un modelo tabular.
+En la categoría de transfer learning se tiene a la familia de los \texttt{Chronos}\\\texttt{FeaturePipelines} que modifican el pipeline de inspirado en el trabajo de Palazzo, que se usó como línea de base, para agregar los embeddings de chronos como características para que sean usadas por un modelo tabular.
 
 En ambas categorías se realizaron pruebas con inferencia de zero-shot y también luego de hacer fine-tuning. Para este último se utilizó una estrategia de low rank adaptation lo que hizo factible la tarea en el hardware disponible.
 

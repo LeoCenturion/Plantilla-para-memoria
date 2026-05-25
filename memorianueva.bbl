@@ -666,5 +666,26 @@
     \field{note}{Visitado el 9-05-2026}
     \field{title}{Optuna}
   \endentry
+
+  \entry{tsay2010}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=TRS}{%
+         family={Tsay},
+         familyi={T\bibinitperiod},
+         given={Ruey\bibnamedelima S},
+         giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {John Wiley \& Sons}%
+    }
+    \strng{namehash}{TRS1}
+    \strng{fullhash}{TRS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{edition}{3rd}
+    \field{title}{Analysis of financial time series}
+    \field{year}{2010}
+  \endentry
 \enddatalist
 \endinput
