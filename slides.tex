@@ -509,6 +509,64 @@
   \end{columns}
 \end{frame}
 
+\begin{frame}{Bot de trading — Arquitectura}
+  \begin{columns}[T]
+    \begin{column}{0.47\textwidth}
+      \begin{itemize}
+        \item[\faCogs] \textbf{Orquestador}: instancia y conecta módulos
+        \item[\faRobot] \textbf{Motor}: ciclo recolectar→predecir→actuar
+        \item[\faDatabase] \textbf{Exchange}: API Binance, real o mock
+        \item[\faChartLine] \textbf{Estrategia}: Estrategia configurada → señal
+      \end{itemize}
+      \vspace{0.5em}
+      \begin{tcolorbox}[familybox=coltrans, top=2pt, bottom=2pt]
+        \small Stop-loss automático · monitoreo Flask\\
+        Operativo en producción vía API Binance
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.50\textwidth}
+      \centering
+      \begin{tikzpicture}[scale=0.85,
+        box/.style={draw, rounded corners=3pt, font=\small,
+                    inner sep=5pt, minimum width=2.8cm},
+        arr/.style={-{Stealth}, thin}
+      ]
+        %── Orquestador ───────────────────────────
+        \node[box, draw=fiubablue, fill=fiubablue!10] (orch) at (2.2, 4.2)
+          {\faCogs\ Orquestador};
+
+        %── Motor ─────────────────────────────────
+        \node[box, draw=fiubablue!60, fill=fiubablue!6] (motor) at (2.2, 3.1)
+          {\faRobot\ Motor del bot};
+        \draw[arr, fiubablue!50] (orch) -- (motor);
+
+        %── Exchange & Estrategia ─────────────────
+        \node[box, draw=colml, fill=colml!10] (exch) at (0.8, 1.9)
+          {\faDatabase\ Exchange};
+        \node[box, draw=coltrans, fill=coltrans!10] (strat) at (3.6, 1.9)
+          {\faChartLine\ Estrategia};
+        \draw[arr, fiubablue!50] (motor.south west) -- (exch.north);
+        \draw[arr, fiubablue!50] (motor.south east) -- (strat.north);
+
+        %── Market ────────────────────────────────
+        \node[box, draw=accent, fill=accent!8] (mkt) at (0.8, 0.7)
+          {BTC/USDT};
+        \draw[arr, colml!60] (exch) -- (mkt);
+        \draw[arr, accent!60, bend right=30] (mkt.east) to (exch.south);
+
+        %── Signal ────────────────────────────────
+        \node[font=\tiny, coltrans!70] at (3.6, 0.9) {buy / sell / hold};
+        \draw[arr, coltrans!50] (strat.south) -- (3.6, 0.95);
+        \draw[arr, coltrans!40, bend left=25] (3.6, 1.0) to (motor.south east);
+
+        %── Loop arrow ────────────────────────────
+        \draw[arr, fiubablue!30, dashed, bend left=60]
+          (motor.east) to node[right, font=\tiny, fiubablue!50] {loop} (motor.east |- orch.east);
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+\end{frame}
+
 %========================================================================================
 \section{Experimentos y resultados}  % 15
 %========================================================================================

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.29)  30 MAY 2026 11:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.29)  30 MAY 2026 11:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1427,92 +1427,104 @@ Overfull \vbox (13.20586pt too high) detected at line 510
 
 [16
 
- <./Figures//preprocessing_pipeline.png>] [17
+ <./Figures//preprocessing_pipeline.png>]
+Underfull \hbox (badness 3068) in paragraph at lines 568--568
+[]\T1/cmss/m/n/10.95 Stop-loss au-to-má-ti-co \TS1/cmss/m/n/10.95 · \T1/cmss/m/
+n/10.95 mo-ni-to-reo
+ []
+
+
+Overfull \vbox (46.71309pt too high) detected at line 568
+ []
+
+[17
 
 ] [18
 
+] [19
+
 ]
-Overfull \hbox (4.83908pt too wide) in paragraph at lines 579--579
+Overfull \hbox (4.83908pt too wide) in paragraph at lines 637--637
 [][] 
  []
 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5
-79.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 6
+37.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
-) [19
+) [20
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-612.
+670.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-Overfull \hbox (4.11005pt too wide) in paragraph at lines 612--612
+Overfull \hbox (4.11005pt too wide) in paragraph at lines 670--670
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 612--612
+Underfull \hbox (badness 10000) in paragraph at lines 670--670
 \T1/cmtt/m/n/10.95 max_depth=4 \TS1/cmtt/m/n/10.95 · \T1/cmtt/m/n/10.95 lr=0,00
 3 \TS1/cmtt/m/n/10.95 ·
  []
 
-[20
+[21
 
-] [21
+] [22
 
 ]
-Overfull \hbox (30.94371pt too wide) in paragraph at lines 687--687
+Overfull \hbox (30.94371pt too wide) in paragraph at lines 745--745
 [][]  
  []
 
 
-Overfull \vbox (2.72482pt too high) detected at line 687
+Overfull \vbox (2.72482pt too high) detected at line 745
  []
 
-[22
-
-] [23
+[23
 
 ] [24
 
 ] [25
 
+] [26
+
 ]
-<Figures//bloques-tp-final.drawio.png, id=223, 507.8975pt x 392.46625pt>
+<Figures//bloques-tp-final.drawio.png, id=229, 507.8975pt x 392.46625pt>
 File: Figures//bloques-tp-final.drawio.png Graphic file (type png)
 <use Figures//bloques-tp-final.drawio.png>
 Package pdftex.def Info: Figures//bloques-tp-final.drawio.png  used on input li
-ne 774.
+ne 832.
 (pdftex.def)             Requested size: 131.28299pt x 101.44594pt.
 
-Overfull \vbox (8.77872pt too high) detected at line 774
+Overfull \vbox (8.77872pt too high) detected at line 832
  []
 
-[26
+[27
 
  <./Figures//bloques-tp-final.drawio.png>]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 784.
- [27
-
-] [28
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 842.
+ [28
 
 ] [29
 
 ] [30
 
+] [31
+
 ]
-<Figures//bars-volume-1m.png, id=252, 1564.84625pt x 782.925pt>
+<Figures//bars-volume-1m.png, id=258, 1564.84625pt x 782.925pt>
 File: Figures//bars-volume-1m.png Graphic file (type png)
 <use Figures//bars-volume-1m.png>
-Package pdftex.def Info: Figures//bars-volume-1m.png  used on input line 853.
+Package pdftex.def Info: Figures//bars-volume-1m.png  used on input line 911.
 (pdftex.def)             Requested size: 187.21962pt x 93.66023pt.
- [31
+ [32
 
- <./Figures//bars-volume-1m.png>] [32
+ <./Figures//bars-volume-1m.png>] [33
 
 ]
 \tf@nav=\write6
@@ -1532,11 +1544,11 @@ Package rerunfilecheck Info: File `slides.out' has not changed.
 (rerunfilecheck)             Checksum: 5752383FE239990D2992EB7BACF9B9D1;801.
  ) 
 Here is how much of TeX's memory you used:
- 45707 strings out of 477967
- 1098760 string characters out of 5838625
+ 45783 strings out of 477967
+ 1100079 string characters out of 5838625
  1873388 words of memory out of 6000000
- 65001 multiletter control sequences out of 15000+600000
- 549532 words of font info for 129 fonts, out of 8000000 for 9000
+ 65075 multiletter control sequences out of 15000+600000
+ 549843 words of font info for 130 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  128i,16n,122p,1942b,2880s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Fr
@@ -1569,10 +1581,10 @@ b></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr
 texlive/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on slides.pdf (32 pages, 7796478 bytes).
+Output written on slides.pdf (33 pages, 7801242 bytes).
 PDF statistics:
- 444 PDF objects out of 1000 (max. 8388607)
- 312 compressed objects within 4 object streams
- 71 named destinations out of 1000 (max. 500000)
+ 451 PDF objects out of 1000 (max. 8388607)
+ 318 compressed objects within 4 object streams
+ 73 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
