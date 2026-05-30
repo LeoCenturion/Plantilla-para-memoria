@@ -182,57 +182,50 @@
         \item Cientos de indicadores técnicos disponibles
         \item ML: \textbf{pondera indicadores} de forma sistemática
         \item Transformer: \textbf{autoatención} para dependencias largas
-        \item Supera a LSTM en secuencias extensas
       \end{itemize}
     \end{column}
     \begin{column}{0.47\textwidth}
       \centering
-      \begin{tikzpicture}[scale=0.80]
-        %── LSTM row ──────────────────────────────────
-        \node[font=\small\bfseries, colstat!80!black, anchor=west]
-          at (-0.15, 4.3) {RNN / LSTM — secuencial};
-        \foreach \i/\xpos in {1/0.00, 2/0.85, 3/1.70, 4/2.55, 5/3.40} {
+      \begin{tikzpicture}[scale=0.75]
+        %── LSTM ──────────────────────────────────────
+        \node[font=\scriptsize\bfseries, colstat!80!black, anchor=west]
+          at (0,5.35) {RNN / LSTM — secuencial};
+        \foreach \i/\x in {1/0.0,2/0.9,3/1.8,4/2.7} {
           \draw[draw=colstat!60, fill=colstat!12, rounded corners=2pt]
-            (\xpos, 3.55) rectangle (\xpos+0.72, 4.00);
-          \node[font=\tiny, colstat!70!black]
-            at (\xpos+0.36, 3.77) {$h_{\i}$};
+            (\x,4.58) rectangle (\x+0.72,5.03);
+          \node[font=\tiny, colstat!80!black] at (\x+0.36,4.805) {$h_{\i}$};
         }
-        \foreach \xpos in {0.00, 0.85, 1.70, 2.55} {
-          \draw[-{Stealth}, thin, colstat!55]
-            (\xpos+0.72, 3.77) -- (\xpos+0.85, 3.77);
+        \foreach \x in {0.0,0.9,1.8} {
+          \draw[-{Stealth},thin,colstat!55] (\x+0.72,4.805)--(\x+0.9,4.805);
         }
-        % Degradation arc t1→t5
-        \draw[accent!65, dashed, -{Stealth}]
-          (0.36, 3.55) to[bend right=28] (3.76, 3.55);
-        \node[font=\tiny, accent!72!black] at (2.05, 3.05)
-          {\faTimesCircle\ memoria degradada};
+        \draw[accent!60, dashed, -{Stealth}]
+          (0.36,4.58) to[bend right=18] (3.06,4.58);
+        \node[font=\tiny, accent!75!black, anchor=west]
+          at (3.15,4.80) {\faExclamationTriangle\ degradada};
 
-        %── Transformer row ───────────────────────────
-        \node[font=\small\bfseries, coltrans!80!black, anchor=west]
-          at (-0.15, 2.65) {Transformer — autoatención};
-        \foreach \i/\xpos in {1/0.00, 2/0.85, 3/1.70, 4/2.55, 5/3.40} {
+        %── Transformer ───────────────────────────────
+        \node[font=\scriptsize\bfseries, coltrans!80!black, anchor=west]
+          at (0,3.90) {Transformer — autoatención};
+        \foreach \i/\x in {1/0.0,2/0.9,3/1.8,4/2.7} {
           \draw[draw=coltrans!65, fill=coltrans!12, rounded corners=2pt]
-            (\xpos, 1.90) rectangle (\xpos+0.72, 2.35);
-          \node[font=\tiny, coltrans!70!black]
-            at (\xpos+0.36, 2.12) {$x_{\i}$};
+            (\x,2.60) rectangle (\x+0.72,3.05);
+          \node[font=\tiny, coltrans!80!black] at (\x+0.36,2.825) {$x_{\i}$};
         }
-        % Attention arcs: long-range
-        \draw[coltrans!70, <->, thin]
-          (0.36, 2.35) to[bend left=38] (3.76, 2.35);
-        \draw[coltrans!45, <->, very thin]
-          (1.21, 2.35) to[bend left=28] (2.91, 2.35);
-        \draw[coltrans!35, <->, very thin]
-          (0.36, 2.35) to[bend left=22] (2.06, 2.35);
-        \node[font=\tiny, coltrans!72!black] at (2.05, 1.42)
-          {\faCheckCircle\ atención global: toda la secuencia};
+        \draw[coltrans!80, <->, thin]
+          (0.36,3.05) to[bend left=40] (3.06,3.05);
+        \draw[coltrans!55, <->, very thin]
+          (0.36,3.05) to[bend left=25] (1.80,3.05);
+        \draw[coltrans!40, <->, very thin]
+          (1.26,3.05) to[bend left=18] (2.16,3.05);
+        \node[font=\tiny, coltrans!75!black, anchor=west]
+          at (3.15,2.825) {\faCheckCircle\ global};
 
-        %── Bottom advantage ──────────────────────────
-        \draw[draw=coltrans!55, fill=coltrans!8, rounded corners=3pt]
-          (-0.10, 0.75) rectangle (4.50, 1.15);
-        \node[font=\tiny\bfseries, coltrans!80!black,
-              text width=4.5cm, align=center]
-          at (2.20, 0.95)
-          {Patrones distantes en el tiempo → Transformer ideal};
+        %── Summary ───────────────────────────────────
+        \node[draw=coltrans!55, fill=coltrans!8, rounded corners=3pt,
+              font=\tiny\bfseries, text=coltrans!80!black,
+              text width=3.5cm, align=center, inner sep=3pt]
+          at (1.75,1.75)
+          {Patrones distantes → Transformer ideal};
       \end{tikzpicture}
     \end{column}
   \end{columns}
@@ -306,32 +299,8 @@
 
 %--- 4 ---
 \begin{frame}{Estado del arte}
-  \begin{columns}[T]
-    \begin{column}{0.44\textwidth}
-      \begin{tabular}{ll}
-        \toprule
-        \textbf{Era} & \textbf{Enfoque} \\
-        \midrule
-        Clásico       & SVM, RF \\
-        Deep learning & RNN, LSTM \\
-        \textbf{Hoy}  & \textbf{Transformer} \textcolor{coltrans}{\faCheckCircle} \\
-        \bottomrule
-      \end{tabular}
-      \vspace{0.4em}\\
-      \famtag{coltrans}{Chronos}\;
-      \famtag{colml}{TimesFM}\;
-      \famtag{colstat}{Moirai}
-      \vspace{0.4em}\\
-      \begin{tcolorbox}[familybox=accent, top=2pt, bottom=2pt]
-        \small\textbf{EMH}: en cripto,\\
-        debate \alert{empíricamente abierto}
-      \end{tcolorbox}
-    \end{column}
-    \begin{column}{0.53\textwidth}
-      \centering
-      \includegraphics[width=\textwidth, height=0.68\textheight, keepaspectratio]{evolucion-modelos.png}
-    \end{column}
-  \end{columns}
+  \centering
+  \includegraphics[width=0.95\textwidth, height=0.82\textheight, keepaspectratio]{evolucion-modelos.png}
 \end{frame}
 
 %--- 5 ---
@@ -511,57 +480,63 @@
 
 \begin{frame}{Bot de trading — Arquitectura}
   \begin{columns}[T]
-    \begin{column}{0.47\textwidth}
+    \begin{column}{0.44\textwidth}
       \begin{itemize}
-        \item[\faCogs] \textbf{Orquestador}: instancia y conecta módulos
-        \item[\faRobot] \textbf{Motor}: ciclo recolectar→predecir→actuar
-        \item[\faDatabase] \textbf{Exchange}: API Binance, real o mock
-        \item[\faChartLine] \textbf{Estrategia}: Estrategia configurada → señal
+        \item[\faCogs] \textbf{Orquestador}: instancia módulos
+        \item[\faRobot] \textbf{Motor}: recolectar→predecir→actuar
+        \item[\faDatabase] \textbf{Exchange}: API Binance real o mock
+        \item[\faChartLine] \textbf{Estrategia}: Modelo configurado → señal
       \end{itemize}
-      \vspace{0.5em}
+      \vspace{0.4em}
       \begin{tcolorbox}[familybox=coltrans, top=2pt, bottom=2pt]
-        \small Stop-loss automático · monitoreo Flask\\
-        Operativo en producción vía API Binance
+        \footnotesize Stop-loss · monitoreo Flask\\
+        Desplegado en Binance (producción)
       \end{tcolorbox}
     \end{column}
-    \begin{column}{0.50\textwidth}
+    \begin{column}{0.53\textwidth}
       \centering
-      \begin{tikzpicture}[scale=0.85,
+      \begin{tikzpicture}[scale=0.92,
         box/.style={draw, rounded corners=3pt, font=\small,
-                    inner sep=5pt, minimum width=2.8cm},
+                    inner sep=4pt, minimum width=2.1cm, minimum height=0.50cm},
         arr/.style={-{Stealth}, thin}
       ]
         %── Orquestador ───────────────────────────
-        \node[box, draw=fiubablue, fill=fiubablue!10] (orch) at (2.2, 4.2)
+        \node[box, draw=fiubablue, fill=fiubablue!10,
+              minimum width=4.4cm] (orch) at (2.2, 4.0)
           {\faCogs\ Orquestador};
 
         %── Motor ─────────────────────────────────
-        \node[box, draw=fiubablue!60, fill=fiubablue!6] (motor) at (2.2, 3.1)
+        \node[box, draw=fiubablue!60, fill=fiubablue!6,
+              minimum width=4.4cm] (motor) at (2.2, 3.0)
           {\faRobot\ Motor del bot};
-        \draw[arr, fiubablue!50] (orch) -- (motor);
+        \draw[arr, fiubablue!55] (orch) -- (motor);
 
-        %── Exchange & Estrategia ─────────────────
-        \node[box, draw=colml, fill=colml!10] (exch) at (0.8, 1.9)
+        %── Exchange (left) ───────────────────────
+        \node[box, draw=colml, fill=colml!10] (exch) at (0.8, 1.75)
           {\faDatabase\ Exchange};
-        \node[box, draw=coltrans, fill=coltrans!10] (strat) at (3.6, 1.9)
+        % Arrow from left side of Motor bottom
+        \draw[arr, fiubablue!50]
+          ($(motor.south)+(-0.85,0)$) -- (exch.north);
+
+        %── Estrategia (right) ────────────────────
+        \node[box, draw=coltrans, fill=coltrans!10] (strat) at (3.8, 1.75)
           {\faChartLine\ Estrategia};
-        \draw[arr, fiubablue!50] (motor.south west) -- (exch.north);
-        \draw[arr, fiubablue!50] (motor.south east) -- (strat.north);
+        % Arrow from right side of Motor bottom
+        \draw[arr, fiubablue!50]
+          ($(motor.south)+(+0.85,0)$) -- (strat.north);
 
-        %── Market ────────────────────────────────
-        \node[box, draw=accent, fill=accent!8] (mkt) at (0.8, 0.7)
+        %── BTC/USDT ──────────────────────────────
+        \node[box, draw=accent, fill=accent!8] (mkt) at (0.8, 0.60)
           {BTC/USDT};
-        \draw[arr, colml!60] (exch) -- (mkt);
-        \draw[arr, accent!60, bend right=30] (mkt.east) to (exch.south);
+        \draw[arr, colml!65] (exch) -- (mkt);
+        \draw[arr, accent!50, bend right=40] (mkt) to (exch);
 
-        %── Signal ────────────────────────────────
-        \node[font=\tiny, coltrans!70] at (3.6, 0.9) {buy / sell / hold};
-        \draw[arr, coltrans!50] (strat.south) -- (3.6, 0.95);
-        \draw[arr, coltrans!40, bend left=25] (3.6, 1.0) to (motor.south east);
-
-        %── Loop arrow ────────────────────────────
-        \draw[arr, fiubablue!30, dashed, bend left=60]
-          (motor.east) to node[right, font=\tiny, fiubablue!50] {loop} (motor.east |- orch.east);
+        %── Señal: Estrategia → Motor (right side) ─
+        \draw[arr, coltrans!65]
+          (strat.north) 
+        -- ($(motor.south)+(+0.85,0)$);
+        \node[font=\small\bfseries, coltrans!75!black, anchor=west]
+          at ($(strat.east)+(0.38,0.76)$) {señal};
       \end{tikzpicture}
     \end{column}
   \end{columns}

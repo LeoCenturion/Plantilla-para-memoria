@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.29)  30 MAY 2026 11:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.29)  30 MAY 2026 14:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1336,77 +1336,77 @@ thkerncmss.
 [3
 
 ]
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree3 on i
-nput line 239.
- (/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree3.fd)
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on i
+nput line 233.
+ (/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd)
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
-nput line 239.
+nput line 233.
 (/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree0.fd)
 [4
 
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free3.enc}{/usr/
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc}{/usr/
 share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free0.enc}] [5
 
 ]
-<Figures//evolucion-modelos.png, id=83, 1931.215pt x 950.55125pt>
+<Figures//evolucion-modelos.png, id=84, 1931.215pt x 950.55125pt>
 File: Figures//evolucion-modelos.png Graphic file (type png)
 <use Figures//evolucion-modelos.png>
-Package pdftex.def Info: Figures//evolucion-modelos.png  used on input line 335
+Package pdftex.def Info: Figures//evolucion-modelos.png  used on input line 305
 .
-(pdftex.def)             Requested size: 211.10825pt x 103.90826pt.
+(pdftex.def)             Requested size: 375.56877pt x 184.85635pt.
 
 [6
 
- <./Figures//evolucion-modelos.png>]
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on i
-nput line 362.
+ <./Figures//evolucion-modelos.png>] [7
 
-(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd)
-[7
+]
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree3 on i
+nput line 344.
 
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc}]
+(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree3.fd)
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
-nput line 374.
+nput line 344.
 
 (/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree2.fd)
 [8
 
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free2.enc}]
-[9
-
-] [10
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free3.enc}{/usr/
+share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free2.enc}] [9
 
 ]
-<Figures//hyperparameter_pipeline.png, id=118, 705.63625pt x 691.58376pt>
+[10
+
+]
+<Figures//hyperparameter_pipeline.png, id=119, 705.63625pt x 691.58376pt>
 File: Figures//hyperparameter_pipeline.png Graphic file (type png)
 <use Figures//hyperparameter_pipeline.png>
 Package pdftex.def Info: Figures//hyperparameter_pipeline.png  used on input li
-ne 427.
+ne 397.
 (pdftex.def)             Requested size: 142.59984pt x 139.76001pt.
  [11
 
  <./Figures//hyperparameter_pipeline.png>]
-<Figures//chronos.png, id=125, 3165.8275pt x 1316.92pt>
+<Figures//chronos.png, id=126, 3165.8275pt x 1316.92pt>
 File: Figures//chronos.png Graphic file (type png)
 <use Figures//chronos.png>
-Package pdftex.def Info: Figures//chronos.png  used on input line 437.
+Package pdftex.def Info: Figures//chronos.png  used on input line 407.
 (pdftex.def)             Requested size: 366.45369pt x 152.43729pt.
  [12
 
  <./Figures//chronos.png>]
-<Figures//triple-barrier.png, id=133, 2274.4975pt x 1327.96124pt>
+<Figures//triple-barrier.png, id=134, 2274.4975pt x 1327.96124pt>
 File: Figures//triple-barrier.png Graphic file (type png)
 <use Figures//triple-barrier.png>
-Package pdftex.def Info: Figures//triple-barrier.png  used on input line 461.
+Package pdftex.def Info: Figures//triple-barrier.png  used on input line 431.
 (pdftex.def)             Requested size: 187.20412pt x 109.29878pt.
 
-Overfull \vbox (5.98186pt too high) detected at line 461
+Overfull \vbox (5.98186pt too high) detected at line 431
  []
 
 [13
 
  <./Figures//triple-barrier.png>]
-Underfull \hbox (badness 2150) in paragraph at lines 487--487
+Underfull \hbox (badness 2150) in paragraph at lines 457--457
 \TS1/cmss/m/n/12 ^^Y \T1/cmss/m/n/12 dis-tri-bu-ción del ren-di-mien-to
  []
 
@@ -1415,26 +1415,20 @@ Underfull \hbox (badness 2150) in paragraph at lines 487--487
 ] [15
 
 ]
-<Figures//preprocessing_pipeline.png, id=153, 571.13374pt x 357.335pt>
+<Figures//preprocessing_pipeline.png, id=154, 571.13374pt x 357.335pt>
 File: Figures//preprocessing_pipeline.png Graphic file (type png)
 <use Figures//preprocessing_pipeline.png>
 Package pdftex.def Info: Figures//preprocessing_pipeline.png  used on input lin
-e 510.
+e 480.
 (pdftex.def)             Requested size: 187.21979pt x 117.13574pt.
 
-Overfull \vbox (13.20586pt too high) detected at line 510
+Overfull \vbox (13.20586pt too high) detected at line 480
  []
 
 [16
 
  <./Figures//preprocessing_pipeline.png>]
-Underfull \hbox (badness 3068) in paragraph at lines 568--568
-[]\T1/cmss/m/n/10.95 Stop-loss au-to-má-ti-co \TS1/cmss/m/n/10.95 · \T1/cmss/m/
-n/10.95 mo-ni-to-reo
- []
-
-
-Overfull \vbox (46.71309pt too high) detected at line 568
+Overfull \vbox (14.14702pt too high) detected at line 544
  []
 
 [17
@@ -1444,29 +1438,29 @@ Overfull \vbox (46.71309pt too high) detected at line 568
 ] [19
 
 ]
-Overfull \hbox (4.83908pt too wide) in paragraph at lines 637--637
+Overfull \hbox (4.83908pt too wide) in paragraph at lines 613--613
 [][] 
  []
 
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 6
-37.
+13.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 ) [20
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-670.
+646.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-Overfull \hbox (4.11005pt too wide) in paragraph at lines 670--670
+Overfull \hbox (4.11005pt too wide) in paragraph at lines 646--646
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 670--670
+Underfull \hbox (badness 10000) in paragraph at lines 646--646
 \T1/cmtt/m/n/10.95 max_depth=4 \TS1/cmtt/m/n/10.95 · \T1/cmtt/m/n/10.95 lr=0,00
 3 \TS1/cmtt/m/n/10.95 ·
  []
@@ -1476,12 +1470,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 670--670
 ] [22
 
 ]
-Overfull \hbox (30.94371pt too wide) in paragraph at lines 745--745
+Overfull \hbox (30.94371pt too wide) in paragraph at lines 721--721
 [][]  
  []
 
 
-Overfull \vbox (2.72482pt too high) detected at line 745
+Overfull \vbox (2.72482pt too high) detected at line 721
  []
 
 [23
@@ -1493,21 +1487,21 @@ Overfull \vbox (2.72482pt too high) detected at line 745
 ] [26
 
 ]
-<Figures//bloques-tp-final.drawio.png, id=229, 507.8975pt x 392.46625pt>
+<Figures//bloques-tp-final.drawio.png, id=230, 507.8975pt x 392.46625pt>
 File: Figures//bloques-tp-final.drawio.png Graphic file (type png)
 <use Figures//bloques-tp-final.drawio.png>
 Package pdftex.def Info: Figures//bloques-tp-final.drawio.png  used on input li
-ne 832.
+ne 808.
 (pdftex.def)             Requested size: 131.28299pt x 101.44594pt.
 
-Overfull \vbox (8.77872pt too high) detected at line 832
+Overfull \vbox (8.77872pt too high) detected at line 808
  []
 
 [27
 
  <./Figures//bloques-tp-final.drawio.png>]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 842.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 818.
  [28
 
 ] [29
@@ -1517,10 +1511,10 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
 ] [31
 
 ]
-<Figures//bars-volume-1m.png, id=258, 1564.84625pt x 782.925pt>
+<Figures//bars-volume-1m.png, id=260, 1564.84625pt x 782.925pt>
 File: Figures//bars-volume-1m.png Graphic file (type png)
 <use Figures//bars-volume-1m.png>
-Package pdftex.def Info: Figures//bars-volume-1m.png  used on input line 911.
+Package pdftex.def Info: Figures//bars-volume-1m.png  used on input line 887.
 (pdftex.def)             Requested size: 187.21962pt x 93.66023pt.
  [32
 
@@ -1544,11 +1538,11 @@ Package rerunfilecheck Info: File `slides.out' has not changed.
 (rerunfilecheck)             Checksum: 5752383FE239990D2992EB7BACF9B9D1;801.
  ) 
 Here is how much of TeX's memory you used:
- 45783 strings out of 477967
- 1100079 string characters out of 5838625
+ 45769 strings out of 477967
+ 1099709 string characters out of 5838625
  1873388 words of memory out of 6000000
- 65075 multiletter control sequences out of 15000+600000
- 549843 words of font info for 130 fonts, out of 8000000 for 9000
+ 65059 multiletter control sequences out of 15000+600000
+ 550979 words of font info for 132 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  128i,16n,122p,1942b,2880s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Fr
@@ -1575,16 +1569,17 @@ s/type1/public/cm-super/sfss1200.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/cm-super/sfss1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /cm-super/sfss1728.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-sup
 er/sfsx0600.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx
-1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on slides.pdf (33 pages, 7801242 bytes).
+0800.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/cm-super/sftt1200.pfb>
+Output written on slides.pdf (33 pages, 7819177 bytes).
 PDF statistics:
- 451 PDF objects out of 1000 (max. 8388607)
- 318 compressed objects within 4 object streams
+ 459 PDF objects out of 1000 (max. 8388607)
+ 323 compressed objects within 4 object streams
  73 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
