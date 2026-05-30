@@ -2,6 +2,7 @@
 
 # Define the main LaTeX file (without the .tex extension)
 MAIN_FILE = memorianueva
+SLIDES_FILE = slides
 
 # Default target: running "make" will execute this
 all: $(MAIN_FILE).pdf
@@ -15,9 +16,16 @@ $(MAIN_FILE).pdf: $(MAIN_FILE).tex references.bib Chapters/*.tex portada.tex
 	pdflatex $(MAIN_FILE).tex
 	pdflatex $(MAIN_FILE).tex
 
+# Slides: two passes to resolve cross-references and outlines
+slides: $(SLIDES_FILE).pdf
+
+$(SLIDES_FILE).pdf: $(SLIDES_FILE).tex
+	pdflatex $(SLIDES_FILE).tex
+	pdflatex $(SLIDES_FILE).tex
+
 # Clean target: running "make clean" will remove generated files
 clean:
-	rm -f *.aux *.bbl *.blg *.log *.out *.toc *.lof *.lot *.pdf
+	rm -f *.aux *.bbl *.blg *.log *.out *.toc *.lof *.lot *.nav *.snm *.vrb *.pdf
 
 # Phony targets don't represent actual files
-.PHONY: all clean
+.PHONY: all slides clean
