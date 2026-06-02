@@ -75,7 +75,7 @@
 
 %----------------------------------------------------------------------------------------
 \title{Predicción de series de tiempo\\para trading de criptomonedas\\con Transformers}
-\subtitle{Carrera de Especialización en Inteligencia Artificial — FIUBA}
+\subtitle{Carrera de Especialización en Inteligencia Artificial}
 \author{Ing. Martín Leonardo Centurión}
 \institute{Director: Dr. Camilo Argoty}
 \date{Junio de 2026}
@@ -84,7 +84,45 @@
 \begin{document}
 %========================================================================================
 
-\maketitle  % 1
+%--- 0 — Carátula ---
+\begin{frame}[plain, noframenumbering]
+  \vspace{0.5em}
+  \begin{columns}[T]
+    \begin{column}{0.78\textwidth}
+      \begin{beamercolorbox}[wd=\textwidth]{title}
+        {\usebeamerfont{title}\inserttitle\par}
+      \end{beamercolorbox}
+      \vspace{0.3em}
+      \begin{beamercolorbox}[wd=\textwidth]{subtitle}
+        {\usebeamerfont{subtitle}\insertsubtitle\par}
+      \end{beamercolorbox}
+    \end{column}
+    \begin{column}{0.18\textwidth}
+      \centering\vspace{0.3em}
+      \includegraphics[width=\textwidth]{logoFIUBA.pdf}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.5em}
+  {\color{accent}\rule{\textwidth}{0.6pt}}
+  \vspace{0.5em}
+
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      {\footnotesize\textcolor{fiubablue!60!black}{\textbf{Alumno}}}\\[0.3em]
+      Ing. Martín Leonardo Centurión\\[0.9em]
+      {\footnotesize\textcolor{fiubablue!60!black}{\textbf{Director}}}\\[0.3em]
+      Dr. Camilo Argoty\\[1.2em]
+      {\small Junio de 2026}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      {\footnotesize\textcolor{fiubablue!60!black}{\textbf{Jurados}}}\\[0.3em]
+      Esp. Ing. Pablo M. Gomez Verdini\\[0.2em]
+      Esp. Lic. Bárbara Cocco\\[0.2em]
+      Esp. Ing. Maria Fabiana Cid
+    \end{column}
+  \end{columns}
+\end{frame}
 
 %--- 1b — Resumen del trabajo ---
 \begin{frame}{Contexto del trabajo}
@@ -377,6 +415,36 @@
   \end{columns}
 \end{frame}
 
+%--- new — Indicadores técnicos ---
+\begin{frame}{Indicadores técnicos}
+  \begin{columns}[T]
+    \begin{column}{0.54\textwidth}
+      \small
+      \begin{tabular}{ll}
+        \toprule
+        \textbf{Categoría} & \textbf{Indicadores} \\
+        \midrule
+        Momentum    & RSI, AO, Williams \%R, ROC \\
+        Tendencia   & MACD, ADX, Aroon, CCI, Vortex \\
+        Volatilidad & Bollinger, Keltner, Donchian \\
+        Retornos    & \texttt{pct\_change}, retardos \\
+        Embeddings  & Chronos → features tabulares \\
+        \bottomrule
+      \end{tabular}
+      \vspace{0.5em}\\
+      \small \textit{Selección}: MDI · MDA · SFI · ACF/PACF
+    \end{column}
+    \begin{column}{0.43\textwidth}
+      \kpi{colml}{+25}{features por barra}
+      \vspace{0.4em}
+      \begin{tcolorbox}[familybox=fiubablue, top=3pt, bottom=3pt]
+        \small \texttt{use\_pca=False}: correlaciones\\
+        entre indicadores contienen señal
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{frame}
+
 %--- 9 ---
 \begin{frame}{Aprendizaje supervisado}
   \begin{columns}[T]
@@ -474,6 +542,30 @@
     \end{column}
     \begin{column}{0.47\textwidth}
       \includegraphics[width=\textwidth, height=0.62\textheight, keepaspectratio]{preprocessing_pipeline.png}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%--- new — Barras de volumen ---
+\begin{frame}{Barras de volumen — Muestreo adaptativo}
+  \begin{columns}[T]
+    \begin{column}{0.50\textwidth}
+      \textbf{Barras de tiempo (1 min)}
+      \begin{itemize}
+        \item[$\boldsymbol{\times}$] Muestreo uniforme en el tiempo
+        \item[$\boldsymbol{\times}$] Satura en baja actividad de mercado
+      \end{itemize}
+      \vspace{0.5em}
+      \textbf{\textcolor{coltrans}{\faCheckCircle}\; Barras de volumen (50k uBTC)}
+      \begin{itemize}
+        \item Proporcional a la actividad real
+        \item Menor autocorrelación y heterocedasticidad
+        \item Mayor resolución en períodos volátiles
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.47\textwidth}
+      \centering
+      \includegraphics[width=\textwidth, height=0.72\textheight, keepaspectratio]{bars-vs-1m.png}
     \end{column}
   \end{columns}
 \end{frame}
@@ -806,21 +898,49 @@
   \end{columns}
 \end{frame}
 
-%--- 25 ---
-\begin{frame}[standout]
+%--- 25 — Demo ---
+\begin{frame}{Demostración — Bot en producción}
   \centering
+  \vspace{0.3em}
+  {\large\faRobot\;\textbf{Bot operativo en Binance}}\\[0.9em]
+  \begin{tcolorbox}[familybox=coltrans, top=8pt, bottom=8pt,
+                    left=16pt, right=16pt, halign=center]
+    {\large\ttfamily [URL DEL VIDEO]}
+  \end{tcolorbox}
+  \vspace{0.7em}
+  \begin{columns}[T]
+    \begin{column}{0.30\textwidth}
+      \centering{\Large\textcolor{fiubablue}{\faDatabase}}\\[0.3em]
+      \small Datos Binance\\en tiempo real
+    \end{column}
+    \begin{column}{0.30\textwidth}
+      \centering{\Large\textcolor{coltrans}{\faChartLine}}\\[0.3em]
+      \small Señal Chronos\\BTC \(\leftrightarrow\) USDT
+    \end{column}
+    \begin{column}{0.30\textwidth}
+      \centering{\Large\textcolor{accent}{\faBell}}\\[0.3em]
+      \small Monitoreo Flask\\+ stop-loss
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%--- 25 ---
+{\setbeamercolor{background canvas}{bg=fiubablue}
+\begin{frame}[plain]
+  \centering\vspace{2em}
+  \color{white}
   \Large\textbf{¡Gracias!}\\[1.5em]
   \normalsize
   Ing. Martín Leonardo Centurión\\[0.5em]
   \texttt{centurionm.leo@gmail.com}\\[2em]
   \large\textit{¿Preguntas?}
-\end{frame}
+\end{frame}}
 
 %========================================================================================
 \appendix
 %========================================================================================
 
-\begin{frame}{Respaldo — Hiperparámetros XGBoost Palazzo}
+\begin{frame}[noframenumbering]{Respaldo — Hiperparámetros XGBoost Palazzo}
   \begin{tabular}{ll}
     \toprule
     \textbf{Parámetro} & \textbf{Valor} \\
@@ -835,7 +955,7 @@
   \end{tabular}
 \end{frame}
 
-\begin{frame}{Respaldo — Hiperparámetros modelo final Chronos}
+\begin{frame}[noframenumbering]{Respaldo — Hiperparámetros modelo final Chronos}
   \begin{tabular}{ll}
     \toprule
     \textbf{Parámetro} & \textbf{Valor} \\
@@ -850,7 +970,7 @@
   \end{tabular}
 \end{frame}
 
-\begin{frame}{Respaldo — Sensibilidad modelos estadísticos}
+\begin{frame}[noframenumbering]{Respaldo — Sensibilidad modelos estadísticos}
   \begin{tabular}{llcp{5cm}}
     \toprule
     \textbf{Modelo} & \textbf{Parámetro} & \textbf{Corr} & \textbf{Interpretación} \\
@@ -863,7 +983,7 @@
   \end{tabular}
 \end{frame}
 
-\begin{frame}{Respaldo — Barras de volumen vs. barras temporales}
+\begin{frame}[noframenumbering]{Respaldo — Barras de volumen vs. barras temporales}
   \begin{columns}[T]
     \begin{column}{0.50\textwidth}
       \textbf{Barras de tiempo (1 min)}
@@ -885,7 +1005,7 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Respaldo — Diferenciación fraccional}
+\begin{frame}[noframenumbering]{Respaldo — Diferenciación fraccional}
   \begin{columns}[T]
     \begin{column}{0.55\textwidth}
       \begin{itemize}
