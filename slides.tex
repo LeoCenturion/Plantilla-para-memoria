@@ -271,68 +271,13 @@
 
 %--- 4 ---
 \begin{frame}{El problema}
-  \begin{columns}[T]
-    \begin{column}{0.50\textwidth}
-      \begin{itemize}
-        \item Mercados: \textbf{estocásticos y no lineales}
-        \item Análisis técnico: patrones en precios y volúmenes
-        \item Par \textbf{BTC/USDT} en Binance, mercado spot
-        \item Decisión binaria: \alert{¿BTC o USDT?} → clasificación
-        \item Objetivo: maximizar \textbf{BTC acumulado} (largo plazo)
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.47\textwidth}
-      \centering
-      \begin{tikzpicture}[scale=0.82,
-        arr/.style={-{Stealth}, thin}
-      ]
-        %── Mini price series ────────────────────────
-        \draw[draw=fiubablue!30, fill=fiubablue!5, rounded corners=3pt]
-          (0, 3.20) rectangle (4.4, 4.10);
-        \draw[accent!85, thick] plot[smooth, tension=0.7] coordinates {
-          (0.2,3.40)(0.6,3.78)(1.0,3.50)(1.5,3.95)(2.0,3.60)
-          (2.5,3.90)(3.0,3.48)(3.5,3.92)(3.9,3.65)(4.2,4.00)
-        };
-        \node[font=\tiny, fiubablue!60] at (2.2,3.28)
-          {BTC/USDT — estocástico · no lineal};
-
-        %── Decision node ────────────────────────────
-        \draw[fiubablue!55, fill=fiubablue!10, rounded corners=3pt]
-          (1.2, 2.55) rectangle (3.2, 3.05);
-        \node[font=\tiny\bfseries, fiubablue!80] at (2.2, 2.80)
-          {Clasificador en barra $t$};
-        \draw[arr, fiubablue!40] (2.2, 3.20) -- (2.2, 3.05);
-
-        %── BTC branch ───────────────────────────────
-        \draw[arr, coltrans!70] (1.55, 2.55) -- (0.72, 1.92);
-        \draw[coltrans, fill=coltrans!12, rounded corners=3pt]
-          (0.02, 1.28) rectangle (1.55, 1.90);
-        \node[font=\small\bfseries, coltrans!80] at (0.78, 1.69)
-          {\faArrowUp\ BTC};
-        \node[font=\tiny, coltrans!65] at (0.78, 1.42)
-          {Captura la suba};
-
-        %── USDT branch ──────────────────────────────
-        \draw[arr, coltrading!70] (2.85, 2.55) -- (3.68, 1.92);
-        \draw[coltrading, fill=coltrading!12, rounded corners=3pt]
-          (2.85, 1.28) rectangle (4.38, 1.90);
-        \node[font=\small\bfseries, coltrading!80] at (3.62, 1.69)
-          {= USDT};
-        \node[font=\tiny, coltrading!65] at (3.62, 1.42)
-          {Protege el capital};
-
-        %── B&H + Objective combined ─────────────────
-        \draw[fiubablue!45, fill=fiubablue!6, rounded corners=3pt]
-          (0.02, 0.10) rectangle (4.38, 0.88);
-        \node[font=\tiny, fiubablue!75, text width=4.1cm, align=center]
-          at (2.2, 0.65)
-          {\textbf{Objetivo}: maximizar BTC acumulado};
-        \node[font=\tiny, accent!72, text width=4.1cm, align=center]
-          at (2.2, 0.32)
-          {B\&H: 31\,995\% retorno \textbf{pero} drawdown \alert{$-83$\%}};
-      \end{tikzpicture}
-    \end{column}
-  \end{columns}
+  \begin{itemize}
+    \item Mercados: \textbf{estocásticos y no lineales}
+    \item Análisis técnico: patrones en precios y volúmenes
+    \item Par \textbf{BTC/USDT} en Binance, mercado spot
+    \item Decisión binaria: \alert{¿BTC o USDT?} → clasificación
+    \item Objetivo: maximizar \textbf{BTC acumulado} (largo plazo)
+  \end{itemize}
 \end{frame}
 
 %--- 4 ---
@@ -565,7 +510,7 @@
     \end{column}
     \begin{column}{0.47\textwidth}
       \centering
-      \includegraphics[width=\textwidth, height=0.72\textheight, keepaspectratio]{bars-vs-1m.png}
+      \includegraphics[width=\textwidth, height=0.72\textheight, keepaspectratio]{bars-volume-1m.png}
     \end{column}
   \end{columns}
 \end{frame}
