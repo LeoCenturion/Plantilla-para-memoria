@@ -28,33 +28,33 @@
 \contentsline {section}{\numberline {3.4}Estrategia de etiquetado}{17}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Framework de backtesting y evaluación}{18}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}Optimización de hiperparámetros: búsqueda bayesiana con Optuna}{18}{subsection.3.5.1}%
-\contentsline {section}{\numberline {3.6}Modelos explorados}{20}{section.3.6}%
+\contentsline {section}{\numberline {3.6}Modelos explorados}{19}{section.3.6}%
 \contentsline {section}{\numberline {3.7}Diseño del bot}{20}{section.3.7}%
 \contentsline {subsubsection}{Fase de inicio y orquestación}{21}{section*.11}%
-\contentsline {subsubsection}{Fase de ejecución continua}{24}{section*.15}%
-\contentsline {subsubsection}{Fase de monitoreo remoto}{26}{section*.18}%
-\contentsline {subsubsection}{Fase de apagado}{27}{section*.20}%
-\contentsline {section}{\numberline {3.8}Diseño del sistema}{28}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Pipeline de modelos}{29}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Estructura de pruebas realizadas con Chronos}{30}{section.3.10}%
-\contentsline {chapter}{\numberline {4}Ensayos y resultados}{33}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Datos utilizados}{33}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Pruebas con algoritmos de trading}{34}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Pruebas con algoritmos estadísticos clásicos}{36}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Pruebas con algoritmos de machine learning}{37}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Distribución de F1 por algoritmo}{38}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Hallazgos principales}{38}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}Pruebas con Chronos}{39}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Familia 1: embeddings como características}{39}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Familia 2: predicción directa}{40}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Familia 3: meta-etiquetado}{40}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}Hallazgos principales}{40}{subsection.4.5.4}%
-\contentsline {section}{\numberline {4.6}Selección del mejor modelo}{41}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Resultados por experimento}{41}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}CSCV cruzado entre experimentos}{42}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Hallazgos principales}{42}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}CPCV para el modelo elegido}{43}{subsection.4.6.4}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{45}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones generales }{45}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Próximos pasos}{46}{section.5.2}%
-\contentsline {chapter}{Bibliografía}{47}{appendix*.47}%
+\contentsline {subsubsection}{Fase de ejecución continua}{23}{section*.15}%
+\contentsline {subsubsection}{Fase de monitoreo remoto}{25}{section*.18}%
+\contentsline {subsubsection}{Fase de apagado}{26}{section*.20}%
+\contentsline {section}{\numberline {3.8}Diseño del sistema}{27}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Pipeline de modelos}{28}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Estructura de pruebas realizadas con Chronos}{29}{section.3.10}%
+\contentsline {chapter}{\numberline {4}Ensayos y resultados}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Datos utilizados}{31}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Pruebas con algoritmos de trading}{32}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Pruebas con algoritmos estadísticos clásicos}{34}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Pruebas con algoritmos de machine learning}{35}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Distribución de F1 por algoritmo}{36}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Hallazgos principales}{36}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Pruebas con Chronos}{37}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Familia 1: embeddings como características}{37}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Familia 2: predicción directa}{38}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Familia 3: meta-etiquetado}{38}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}Hallazgos principales}{38}{subsection.4.5.4}%
+\contentsline {section}{\numberline {4.6}Selección del mejor modelo}{39}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Resultados por experimento}{39}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}CSCV cruzado entre experimentos}{40}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Hallazgos principales}{40}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}CPCV para el modelo elegido}{41}{subsection.4.6.4}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{43}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones generales }{43}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Próximos pasos}{44}{section.5.2}%
+\contentsline {chapter}{Bibliografía}{45}{appendix*.47}%

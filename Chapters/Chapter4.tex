@@ -135,6 +135,9 @@ La tabla \ref{tab:consistencia} cuantifica esta consistencia y muestra el porcen
 
 La tabla \ref{tab:sensibilidad} resume la sensibilidad de los parámetros clave para cada clasificador.
 
+
+Conclusión: RSIDivergence y BollingerBands son los dos mejores exponentes. El primero es la opción segura para implementación por su baja varianza (ver tabla \ref{tab:consistencia}), mientras que las bandas de Bollinger ofrecen mayor recompensa a cambio de un riesgo superior.
+
 % --- TABLA 4 ---
 \begin{table}[H]
     \centering
@@ -156,8 +159,6 @@ La tabla \ref{tab:sensibilidad} resume la sensibilidad de los parámetros clave 
     \label{tab:sensibilidad}
 \end{table}
 
-
-Conclusión: RSIDivergence y BollingerBands son los dos mejores exponentes. El primero es la opción segura para implementación por su baja varianza (ver tabla \ref{tab:consistencia}), mientras que las bandas de Bollinger ofrecen mayor recompensa a cambio de un riesgo superior.
 
 \section{Pruebas con algoritmos estadísticos clásicos}
 En esta sección se hizo un análisis sobre las estrategias basadas en algoritmos tradicionales de series de tiempo.
@@ -476,11 +477,11 @@ La validación cruzada combinatoria simétrica (CSCV) es el procedimiento utiliz
 
 \subsection{Resultados por experimento}
 
-La tabla \ref{tab:cscv_results} resume los resultados de CSCV para cada experimento. La columna \textit{F1 OOS ganador} es el F1 fuera de muestra del trial seleccionado como mejor in-sample.
+La tabla \ref{tab:cscv_results} resume los resultados de CSCV para cada experimento. 
 
 \begin{table}[H]
     \centering
-    \caption[Resultados CSCV por experimento]{Resultados de CSCV por experimento ($C=70$ combinaciones).}
+    \caption[Resultados CSCV por experimento]{Resultados de CSCV por experimento ($C=70$).}
     \small
     \begin{adjustbox}{max width=\textwidth}
     \begin{tabular}{l c c c c}
@@ -501,7 +502,7 @@ La tabla \ref{tab:cscv_results} resume los resultados de CSCV para cada experime
     \footnotesize\textsuperscript{*}Métrica Sharpe, no comparable con F1 de los demás experimentos.
     \label{tab:cscv_results}
 \end{table}
-
+La columna \textit{F1 OOS ganador} es el F1 fuera de muestra del trial seleccionado como mejor in-sample.
 \subsection{CSCV cruzado entre experimentos}
 
 Para determinar cuál experimento domina globalmente, se aplicó CSCV sobre el conjunto combinado de todos los experimentos no-trading ($N=203$ trials). La tabla \ref{tab:cscv_cross} muestra el ranking resultante.

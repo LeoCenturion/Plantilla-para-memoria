@@ -20,8 +20,8 @@ $(MAIN_FILE).pdf: $(MAIN_FILE).tex references.bib Chapters/*.tex portada.tex
 slides: $(SLIDES_FILE).pdf
 
 $(SLIDES_FILE).pdf: $(SLIDES_FILE).tex
-	pdflatex $(SLIDES_FILE).tex
-	pdflatex $(SLIDES_FILE).tex
+	lualatex $(SLIDES_FILE).tex
+	lualatex $(SLIDES_FILE).tex
 
 # Clean target: running "make clean" will remove generated files
 clean:

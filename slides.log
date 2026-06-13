@@ -1,49 +1,83 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.29)  1 JUN 2026 23:03
-entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.5.29)  12 JUN 2026 20:53
+ restricted system commands enabled.
 **slides.tex
 (./slides.tex
 LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2023-02-22>
+Lua module: luaotfload 2022-10-03 3.23 Lua based OpenType font support
+Lua module: lualibs 2022-10-04 2.75 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2022-10-04 2.75 ConTeXt Lua libraries -- extended c
+ollection.
+luaotfload | conf : Root cache directory is "/home/leocenturion/.texlive2023/tex
+mf-var/luatex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2022-10-03.lua" from kpse-res
+olved path "/usr/share/texlive/texmf-dist/tex/luatex/luaotfload/fontloader-2022-
+10-03.lua".
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.120
+Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "/home/leocenturion/.texlive2023/tex
+mf-var/luatex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
+Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
+Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
+Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'. L3 programm
+ing layer <2023-02-22>
+Inserting `tracingstacklevels' in `input_level_string'.
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2023/02/20 v3.69 A class for typesetting presentations
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count185
+\etb@tempcnta=\count183
 )
 \beamer@tempbox=\box51
-\beamer@tempcount=\count186
-\c@beamerpauses=\count187
+\beamer@tempcount=\count184
+\c@beamerpauses=\count185
 
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasedecode.sty
-\beamer@slideinframe=\count188
-\beamer@minimum=\count189
+\beamer@slideinframe=\count186
+\beamer@minimum=\count187
 \beamer@decode@box=\box52
 )
 \beamer@commentbox=\box53
-\beamer@modecount=\count190
+\beamer@modecount=\count188
 )
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 )
-\headdp=\dimen140
-\footheight=\dimen141
-\sidebarheight=\dimen142
-\beamer@tempdim=\dimen143
-\beamer@finalheight=\dimen144
-\beamer@animht=\dimen145
-\beamer@animdp=\dimen146
-\beamer@animwd=\dimen147
-\beamer@leftmargin=\dimen148
-\beamer@rightmargin=\dimen149
-\beamer@leftsidebar=\dimen150
-\beamer@rightsidebar=\dimen151
-\beamer@boxsize=\dimen152
-\beamer@vboxoffset=\dimen153
-\beamer@descdefault=\dimen154
-\beamer@descriptionwidth=\dimen155
+\headdp=\dimen139
+\footheight=\dimen140
+\sidebarheight=\dimen141
+\beamer@tempdim=\dimen142
+\beamer@finalheight=\dimen143
+\beamer@animht=\dimen144
+\beamer@animdp=\dimen145
+\beamer@animwd=\dimen146
+\beamer@leftmargin=\dimen147
+\beamer@rightmargin=\dimen148
+\beamer@leftsidebar=\dimen149
+\beamer@rightsidebar=\dimen150
+\beamer@boxsize=\dimen151
+\beamer@vboxoffset=\dimen152
+\beamer@descdefault=\dimen153
+\beamer@descriptionwidth=\dimen154
 \beamer@lastskip=\skip48
 \beamer@areabox=\box54
 \beamer@animcurrent=\box55
@@ -51,26 +85,26 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \beamer@sectionbox=\box57
 \beamer@logobox=\box58
 \beamer@linebox=\box59
-\beamer@sectioncount=\count191
-\beamer@subsubsectionmax=\count192
-\beamer@subsectionmax=\count193
-\beamer@sectionmax=\count194
-\beamer@totalheads=\count195
-\beamer@headcounter=\count196
-\beamer@partstartpage=\count197
-\beamer@sectionstartpage=\count198
-\beamer@subsectionstartpage=\count199
-\beamer@animationtempa=\count266
-\beamer@animationtempb=\count267
-\beamer@xpos=\count268
-\beamer@ypos=\count269
-\beamer@ypos@offset=\count270
-\beamer@showpartnumber=\count271
-\beamer@currentsubsection=\count272
-\beamer@coveringdepth=\count273
-\beamer@sectionadjust=\count274
-\beamer@toclastsection=\count275
-\beamer@tocsectionnumber=\count276
+\beamer@sectioncount=\count189
+\beamer@subsubsectionmax=\count190
+\beamer@subsectionmax=\count191
+\beamer@sectionmax=\count192
+\beamer@totalheads=\count193
+\beamer@headcounter=\count194
+\beamer@partstartpage=\count195
+\beamer@sectionstartpage=\count196
+\beamer@subsectionstartpage=\count197
+\beamer@animationtempa=\count198
+\beamer@animationtempb=\count199
+\beamer@xpos=\count266
+\beamer@ypos=\count267
+\beamer@ypos@offset=\count268
+\beamer@showpartnumber=\count269
+\beamer@currentsubsection=\count270
+\beamer@coveringdepth=\count271
+\beamer@sectionadjust=\count272
+\beamer@toclastsection=\count273
+\beamer@tocsectionnumber=\count274
 
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
@@ -86,25 +120,25 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count277
-\Gm@cntv=\count278
-\c@Gm@tempcnt=\count279
-\Gm@bindingoffset=\dimen156
-\Gm@wd@mp=\dimen157
-\Gm@odd@mp=\dimen158
-\Gm@even@mp=\dimen159
-\Gm@layoutwidth=\dimen160
-\Gm@layoutheight=\dimen161
-\Gm@layouthoffset=\dimen162
-\Gm@layoutvoffset=\dimen163
+\Gm@cnth=\count275
+\Gm@cntv=\count276
+\c@Gm@tempcnt=\count277
+\Gm@bindingoffset=\dimen155
+\Gm@wd@mp=\dimen156
+\Gm@odd@mp=\dimen157
+\Gm@even@mp=\dimen158
+\Gm@layoutwidth=\dimen159
+\Gm@layoutheight=\dimen160
+\Gm@layouthoffset=\dimen161
+\Gm@layoutvoffset=\dimen162
 \Gm@dimlist=\toks17
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks18
-\pgfutil@tempdima=\dimen164
-\pgfutil@tempdimb=\dimen165
+\pgfutil@tempdima=\dimen163
+\pgfutil@tempdimb=\dimen164
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
 \pgfutil@abb=\box60
@@ -124,22 +158,22 @@ Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
 )))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
-\pgf@x=\dimen166
-\pgf@xa=\dimen167
-\pgf@xb=\dimen168
-\pgf@xc=\dimen169
-\pgf@y=\dimen170
-\pgf@ya=\dimen171
-\pgf@yb=\dimen172
-\pgf@yc=\dimen173
-\c@pgf@counta=\count280
-\c@pgf@countb=\count281
-\c@pgf@countc=\count282
-\c@pgf@countd=\count283
+\pgf@x=\dimen165
+\pgf@xa=\dimen166
+\pgf@xb=\dimen167
+\pgf@xc=\dimen168
+\pgf@y=\dimen169
+\pgf@ya=\dimen170
+\pgf@yb=\dimen171
+\pgf@yc=\dimen172
+\c@pgf@counta=\count278
+\c@pgf@countb=\count279
+\c@pgf@countc=\count280
+\c@pgf@countd=\count281
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen174
-\pgfmath@count=\count284
+\pgfmath@dimen=\dimen173
+\pgfmath@count=\count282
 \pgfmath@box=\box61
 \pgfmath@toks=\toks22
 \pgfmath@stack@operand=\toks23
@@ -164,11 +198,12 @@ tex)
 thmetics.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count285
+\c@pgfmathroundto@lastzeros=\count283
 )))
 (/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
-)
+luaotfload | db : Font names database loaded from /home/leocenturion/.texlive202
+3/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz)
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
@@ -182,45 +217,45 @@ Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
+Package graphics Info: Driver file: luatex.def on input line 107.
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/luatex.def
+File: luatex.def 2022/09/22 v1.2d Graphics/color driver for luatex
 ))
-\Gin@req@height=\dimen175
-\Gin@req@width=\dimen176
+\Gin@req@height=\dimen174
+\Gin@req@width=\dimen175
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
-\pgf@x=\dimen177
-\pgf@y=\dimen178
-\pgf@xa=\dimen179
-\pgf@ya=\dimen180
-\pgf@xb=\dimen181
-\pgf@yb=\dimen182
-\pgf@xc=\dimen183
-\pgf@yc=\dimen184
-\pgf@xd=\dimen185
-\pgf@yd=\dimen186
+\pgf@x=\dimen176
+\pgf@y=\dimen177
+\pgf@xa=\dimen178
+\pgf@ya=\dimen179
+\pgf@xb=\dimen180
+\pgf@yb=\dimen181
+\pgf@xc=\dimen182
+\pgf@yc=\dimen183
+\pgf@xd=\dimen184
+\pgf@yd=\dimen185
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count286
-\c@pgf@countb=\count287
-\c@pgf@countc=\count288
-\c@pgf@countd=\count289
+\c@pgf@counta=\count284
+\c@pgf@countb=\count285
+\c@pgf@countc=\count286
+\c@pgf@countd=\count287
 \t@pgf@toka=\toks25
 \t@pgf@tokb=\toks26
 \t@pgf@tokc=\toks27
-\pgf@sys@id@count=\count290
+\pgf@sys@id@count=\count288
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
-Driver file for pgf: pgfsys-pdftex.def
+Driver file for pgf: pgfsys-luatex.def
 
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
-File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-luatex.def
+File: pgfsys-luatex.def 2023-01-15 v3.1.10 (3.1.10)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
 f
@@ -229,8 +264,8 @@ File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
 tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count291
-\pgfsyssoftpath@bigbuffer@items=\count292
+\pgfsyssoftpath@smallbuffer@items=\count289
+\pgfsyssoftpath@bigbuffer@items=\count290
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
@@ -241,7 +276,7 @@ Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 227.
+Package xcolor Info: Driver file: luatex.def on input line 227.
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
@@ -261,32 +296,32 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
 x
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen187
-\pgf@picmaxx=\dimen188
-\pgf@picminy=\dimen189
-\pgf@picmaxy=\dimen190
-\pgf@pathminx=\dimen191
-\pgf@pathmaxx=\dimen192
-\pgf@pathminy=\dimen193
-\pgf@pathmaxy=\dimen194
-\pgf@xx=\dimen195
-\pgf@xy=\dimen196
-\pgf@yx=\dimen197
-\pgf@yy=\dimen198
-\pgf@zx=\dimen199
-\pgf@zy=\dimen256
+\pgf@picminx=\dimen186
+\pgf@picmaxx=\dimen187
+\pgf@picminy=\dimen188
+\pgf@picmaxy=\dimen189
+\pgf@pathminx=\dimen190
+\pgf@pathmaxx=\dimen191
+\pgf@pathminy=\dimen192
+\pgf@pathmaxy=\dimen193
+\pgf@xx=\dimen194
+\pgf@xy=\dimen195
+\pgf@yx=\dimen196
+\pgf@yy=\dimen197
+\pgf@zx=\dimen198
+\pgf@zy=\dimen199
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
 code.tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen257
-\pgf@path@lasty=\dimen258
+\pgf@path@lastx=\dimen256
+\pgf@path@lasty=\dimen257
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
 .tex
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen259
-\pgf@shorten@start@additional=\dimen260
+\pgf@shorten@end@additional=\dimen258
+\pgf@shorten@start@additional=\dimen259
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
 x
@@ -294,19 +329,19 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box62
 \pgf@hbox=\box63
 \pgf@layerbox@main=\box64
-\pgf@picture@serial@count=\count293
+\pgf@picture@serial@count=\count291
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
 ode.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen261
+\pgflinewidth=\dimen260
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
 s.code.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen262
-\pgf@pt@y=\dimen263
-\pgf@pt@temp=\dimen264
+\pgf@pt@x=\dimen261
+\pgf@pt@y=\dimen262
+\pgf@pt@temp=\dimen263
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -322,13 +357,13 @@ File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
 x
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen265
+\pgfarrowsep=\dimen264
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen266
-\pgf@sys@shading@range@num=\count294
-\pgf@shadingcount=\count295
+\pgf@max=\dimen265
+\pgf@sys@shading@range@num=\count292
+\pgf@shadingcount=\count293
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -354,8 +389,8 @@ File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty
 Package: xxcolor 2003/10/24 ver 0.1
-\XC@nummixins=\count296
-\XC@countmixins=\count297
+\XC@nummixins=\count294
+\XC@countmixins=\count295
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
@@ -377,6 +412,7 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
+\pdftexcmds@toks=\toks28
 )
 (/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
@@ -408,16 +444,14 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count298
+\c@section@level=\count296
 )
-\@linkdim=\dimen267
-\Hy@linkcounter=\count299
-\Hy@pagecounter=\count300
+\@linkdim=\dimen266
+\Hy@linkcounter=\count297
+\Hy@pagecounter=\count298
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
 )
 (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
@@ -425,12 +459,10 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count301
+\Hy@SavedSpaceFactor=\count299
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2023-02-07 v7.00v Hyperref: PDF Unicode definition (HO)
-Now handling font encoding PU ...
-... no UTF-8 mapping file for font encoding PU
 )
 Package hyperref Info: Option `bookmarks' set `true' on input line 4060.
 Package hyperref Info: Option `bookmarksopen' set `true' on input line 4060.
@@ -442,14 +474,14 @@ Package hyperref Info: Plain pages OFF on input line 4192.
 Package hyperref Info: Backreferencing OFF on input line 4197.
 Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
 Package hyperref Info: Bookmarks ON on input line 4425.
-\c@Hy@tempcnt=\count302
+\c@Hy@tempcnt=\count300
 
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4763.
-\XeTeXLinkMargin=\dimen268
+\XeTeXLinkMargin=\dimen267
 
 (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -458,9 +490,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count303
-\Field@Width=\dimen269
-\Fld@charsize=\dimen270
+\Fld@menulength=\count301
+\Field@Width=\dimen268
+\Fld@charsize=\dimen269
 Package hyperref Info: Hyper figures OFF on input line 6042.
 Package hyperref Info: Link nesting OFF on input line 6047.
 Package hyperref Info: Hyper index ON on input line 6050.
@@ -468,23 +500,27 @@ Package hyperref Info: backreferencing OFF on input line 6057.
 Package hyperref Info: Link coloring OFF on input line 6062.
 Package hyperref Info: Link coloring with OCG OFF on input line 6067.
 Package hyperref Info: PDF/A mode OFF on input line 6072.
-\Hy@abspage=\count304
+\Hy@abspage=\count302
 
 
 Package hyperref Message: Stopped early.
 
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
- (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2023-02-07 v7.00v Hyperref driver for pdfTeX
+Package hyperref Info: Driver (autodetected): hluatex.
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hluatex.def
+File: hluatex.def 2023-02-07 v7.00v Hyperref driver for luaTeX
 
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
 (/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count305
-\c@bookmark@seq@number=\count306
+\Fld@listcount=\count303
+\c@bookmark@seq@number=\count304
 
 (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
@@ -503,7 +539,7 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks28
+\@emptytoks=\toks29
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
@@ -530,43 +566,43 @@ Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasemisc.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
-\beamer@argscount=\count307
+\beamer@argscount=\count305
 \beamer@lastskipcover=\skip51
-\beamer@trivlistdepth=\count308
+\beamer@trivlistdepth=\count306
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetitle.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasesection.sty
-\c@lecture=\count309
-\c@part=\count310
-\c@section=\count311
-\c@subsection=\count312
-\c@subsubsection=\count313
+\c@lecture=\count307
+\c@part=\count308
+\c@section=\count309
+\c@subsection=\count310
+\c@subsubsection=\count311
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseframe.sty
 \beamer@framebox=\box66
 \beamer@frametitlebox=\box67
 \beamer@zoombox=\box68
-\beamer@zoomcount=\count314
-\beamer@zoomframecount=\count315
-\beamer@frametextheight=\dimen271
-\c@subsectionslide=\count316
+\beamer@zoomcount=\count312
+\beamer@zoomframecount=\count313
+\beamer@frametextheight=\dimen270
+\c@subsectionslide=\count314
 \beamer@frametopskip=\skip52
 \beamer@framebottomskip=\skip53
 \beamer@frametopskipautobreak=\skip54
 \beamer@framebottomskipautobreak=\skip55
-\beamer@envbody=\toks29
-\framewidth=\dimen272
-\c@framenumber=\count317
+\beamer@envbody=\toks30
+\framewidth=\dimen271
+\c@framenumber=\count315
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseverbatim.sty
 \beamer@verbatimfileout=\write4
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseframesize.sty
 \beamer@splitbox=\box69
-\beamer@autobreakcount=\count318
-\beamer@autobreaklastheight=\dimen273
-\beamer@frametitletoks=\toks30
-\beamer@framesubtitletoks=\toks31
+\beamer@autobreakcount=\count316
+\beamer@autobreaklastheight=\dimen272
+\beamer@frametitletoks=\toks31
+\beamer@framesubtitletoks=\toks32
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseframecomponents.sty
 \beamer@footins=\box70
@@ -577,37 +613,37 @@ Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetoc.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty
-\beamer@sbttoks=\toks32
+\beamer@sbttoks=\toks33
 
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
 \bmb@box=\box72
 \bmb@colorbox=\box73
-\bmb@boxwidth=\dimen274
-\bmb@boxheight=\dimen275
-\bmb@prevheight=\dimen276
-\bmb@temp=\dimen277
-\bmb@dima=\dimen278
-\bmb@dimb=\dimen279
-\bmb@prevheight=\dimen280
+\bmb@boxwidth=\dimen273
+\bmb@boxheight=\dimen274
+\bmb@prevheight=\dimen275
+\bmb@temp=\dimen276
+\bmb@dima=\dimen277
+\bmb@dimb=\dimen278
+\bmb@prevheight=\dimen279
 )
-\beamer@blockheadheight=\dimen281
+\beamer@blockheadheight=\dimen280
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaselocalstructure.sty
 (/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks33
+\@enLab=\toks34
 )
 \beamer@bibiconwidth=\skip56
-\c@figure=\count319
-\c@table=\count320
+\c@figure=\count317
+\c@table=\count318
 \abovecaptionskip=\skip57
 \belowcaptionskip=\skip58
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasenavigationsymbols.tex
 )
-\beamer@section@min@dim=\dimen282
+\beamer@section@min@dim=\dimen281
 ) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2022/04/08 v2.17n AMS math features
@@ -619,24 +655,24 @@ Package: amstext 2021/08/26 v2.01 AMS text
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks34
-\ex@=\dimen283
+\@emptytoks=\toks35
+\ex@=\dimen282
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen284
+\pmbraise@=\dimen283
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count321
-LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count322
-\leftroot@=\count323
+\inf@bad=\count319
+LaTeX Info: Redefining \frac on input line 236.
+\uproot@=\count320
+\leftroot@=\count321
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count324
-\DOTSCASE@=\count325
+\classnum@=\count322
+\DOTSCASE@=\count323
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -646,82 +682,194 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen285
+\big@size=\dimen284
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count326
+\macc@depth=\count324
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count327
+\c@MaxMatrixCols=\count325
 \dotsspace@=\muskip17
-\c@parentequation=\count328
-\dspbrk@lvl=\count329
-\tag@help=\toks35
-\row@=\count330
-\column@=\count331
-\maxfields@=\count332
-\andhelp@=\toks36
-\eqnshift@=\dimen286
-\alignsep@=\dimen287
-\tagshift@=\dimen288
-\tagwidth@=\dimen289
-\totwidth@=\dimen290
-\lineht@=\dimen291
-\@envbody=\toks37
+\c@parentequation=\count326
+\dspbrk@lvl=\count327
+\tag@help=\toks36
+\row@=\count328
+\column@=\count329
+\maxfields@=\count330
+\andhelp@=\toks37
+\eqnshift@=\dimen285
+\alignsep@=\dimen286
+\tagshift@=\dimen287
+\tagwidth@=\dimen288
+\totwidth@=\dimen289
+\lineht@=\dimen290
+\@envbody=\toks38
 \multlinegap=\skip60
 \multlinetaggap=\skip61
-\mathdisplay@stack=\toks38
+\mathdisplay@stack=\toks39
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks39
-\thm@bodyfont=\toks40
-\thm@headfont=\toks41
-\thm@notefont=\toks42
-\thm@headpunct=\toks43
+\thm@style=\toks40
+\thm@bodyfont=\toks41
+\thm@headfont=\toks42
+\thm@notefont=\toks43
+\thm@headpunct=\toks44
 \thm@preskip=\skip62
 \thm@postskip=\skip63
 \thm@headsep=\skip64
-\dth@everypar=\toks44
+\dth@everypar=\toks45
 )
-\c@theorem=\count333
+\c@theorem=\count331
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasethemes.sty))
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerthemedefault.sty
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemedefault.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemedefault.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
-\beamer@dima=\dimen292
-\beamer@dimb=\dimen293
+\beamer@dima=\dimen291
+\beamer@dimb=\dimen292
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty)))
-(/usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamerthememetr
-opolis.sty
-Package: beamerthememetropolis 2017/01/23 v1.2 Metropolis Beamer theme
- (/usr/share/texlive/texmf-dist/tex/latex/pgfopts/pgfopts.sty
-Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
-\pgfopts@list@add@a@toks=\toks45
-\pgfopts@list@add@b@toks=\toks46
+(./beamerthemegotham.sty
+Package: beamerthemegotham 2026-04-02 v1.2.5.a A modern, minimal-ish, versatile
+ and extendable yet robust theme for Beamer
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2023-02-22 L3 programming layer (loader) 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2023-01-16 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count332
+\l__pdf_internal_box=\box76
+))
+(./beamerfontthemegotham.sty
+Package: beamerfontthemegotham 2026-04-02 v1.2.5.a gotham font theme
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamerinnerthem
-emetropolis.sty
-Package: beamerinnerthememetropolis 2017/01/23 Metropolis inner theme
- (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+\g_gotham_fontsnotfound_int=\count333
+
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2023-02-02 L3 Experimental document command parser
+)
+Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+Lua module: fontspec 2022/01/15 2.8a Font selection for XeLaTeX and LuaLaTeX
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
+Package: fontspec-luatex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaT
+eX
+\l__fontspec_script_int=\count334
+\l__fontspec_language_int=\count335
+\l__fontspec_strnum_int=\count336
+\l__fontspec_tmp_int=\count337
+\l__fontspec_tmpa_int=\count338
+\l__fontspec_tmpb_int=\count339
+\l__fontspec_tmpc_int=\count340
+\l__fontspec_em_int=\count341
+\l__fontspec_emdef_int=\count342
+\l__fontspec_strong_int=\count343
+\l__fontspec_strongdef_int=\count344
+\l__fontspec_tmpa_dim=\dimen293
+\l__fontspec_tmpb_dim=\dimen294
+\l__fontspec_tmpc_dim=\dimen295
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+
+Package fontspec Info: Font family 'FiraSans-Light.otf(0)' created for font
+(fontspec)             'FiraSans-Light.otf' with options
+(fontspec)             [Ligatures=TeX,ItalicFont={FiraSans-LightItalic.otf},Bol
+dFont={FiraSans-Regular.otf},BoldItalicFont={FiraSans-Italic.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[FiraSans-Light.otf]:mode=node;script=latn;language=
+dflt;+tlig;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->"[FiraSans-Light.otf]:mode=node;script=latn;language=
+dflt;+tlig;+smcp;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[FiraSans-Regular.otf]:mode=node;script=latn;languag
+e=dflt;+tlig;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->"[FiraSans-Regular.otf]:mode=node;script=latn;languag
+e=dflt;+tlig;+smcp;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[FiraSans-LightItalic.otf]:mode=node;script=latn;lan
+guage=dflt;+tlig;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->"[FiraSans-LightItalic.otf]:mode=node;script=latn;lan
+guage=dflt;+tlig;+smcp;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[FiraSans-Italic.otf]:mode=node;script=latn;language
+=dflt;+tlig;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->"[FiraSans-Italic.otf]:mode=node;script=latn;language
+=dflt;+tlig;+smcp;"
+
+luaotfload | aux : font no 33 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 34 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'FiraMono-Bold.otf(0)' created for font
+(fontspec)             'FiraMono-Bold.otf' with options
+(fontspec)             [WordSpace={1,0,0},HyphenChar=None,PunctuationSpace=Word
+Space,BoldFont={FiraMono-Medium.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[FiraMono-Bold.otf]:mode=node;script=latn;language=d
+flt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[FiraMono-Medium.otf]:mode=node;script=latn;language
+=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+
+)
+(./beamercolorthemegotham.sty
+Package: beamercolorthemegotham 2026-04-02 v1.2.5.a Gotham color theme
+) (./beamerinnerthemegotham.sty
+Package: beamerinnerthemegotham 2026-04-02 v1.2.5.a gotham inner theme
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count334
-\calc@Bcount=\count335
-\calc@Adimen=\dimen294
-\calc@Bdimen=\dimen295
+\calc@Acount=\count345
+\calc@Bcount=\count346
+\calc@Adimen=\dimen296
+\calc@Bdimen=\dimen297
 \calc@Askip=\skip65
 \calc@Bskip=\skip66
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count336
+\calc@Ccount=\count347
 \calc@Cskip=\skip67
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
@@ -730,15 +878,15 @@ Package: pgf 2023-01-15 v3.1.10 (3.1.10)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box76
+\pgfnodeparttextbox=\box77
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
 .sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen296
-\pgf@nodesepend=\dimen297
+\pgf@nodesepstart=\dimen298
+\pgf@nodesepend=\dimen299
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
 .sty
@@ -746,10 +894,10 @@ Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen298
-\pgffor@skip=\dimen299
-\pgffor@stack=\toks47
-\pgffor@toks=\toks48
+\pgffor@iter=\dimen300
+\pgffor@skip=\dimen301
+\pgffor@stack=\toks46
+\pgffor@toks=\toks47
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
@@ -757,120 +905,255 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count337
-\pgfplotmarksize=\dimen300
+\pgf@plot@mark@count=\count348
+\pgfplotmarksize=\dimen302
 )
-\tikz@lastx=\dimen301
-\tikz@lasty=\dimen302
-\tikz@lastxsaved=\dimen303
-\tikz@lastysaved=\dimen304
-\tikz@lastmovetox=\dimen305
-\tikz@lastmovetoy=\dimen306
-\tikzleveldistance=\dimen307
-\tikzsiblingdistance=\dimen308
-\tikz@figbox=\box77
-\tikz@figbox@bg=\box78
-\tikz@tempbox=\box79
-\tikz@tempbox@bg=\box80
-\tikztreelevel=\count338
-\tikznumberofchildren=\count339
-\tikznumberofcurrentchild=\count340
-\tikz@fig@count=\count341
+\tikz@lastx=\dimen303
+\tikz@lasty=\dimen304
+\tikz@lastxsaved=\dimen305
+\tikz@lastysaved=\dimen306
+\tikz@lastmovetox=\dimen307
+\tikz@lastmovetoy=\dimen308
+\tikzleveldistance=\dimen309
+\tikzsiblingdistance=\dimen310
+\tikz@figbox=\box78
+\tikz@figbox@bg=\box79
+\tikz@tempbox=\box80
+\tikz@tempbox@bg=\box81
+\tikztreelevel=\count349
+\tikznumberofchildren=\count350
+\tikznumberofcurrentchild=\count351
+\tikz@fig@count=\count352
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count342
-\pgfmatrixcurrentcolumn=\count343
-\pgf@matrix@numberofcolumns=\count344
+\pgfmatrixcurrentrow=\count353
+\pgfmatrixcurrentcolumn=\count354
+\pgf@matrix@numberofcolumns=\count355
 )
-\tikz@expandcount=\count345
+\tikz@expandcount=\count356
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )))
-\metropolis@titleseparator@linewidth=\skip68
-\metropolis@progressonsectionpage=\skip69
-\metropolis@progressonsectionpage@linewidth=\skip70
-\metropolis@blocksep=\skip71
-\metropolis@blockadjust=\skip72
-\metropolis@parskip=\skip73
-)
-(/usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamerouterthem
-emetropolis.sty
-Package: beamerouterthememetropolis 2017/01/23 Metropolis outer theme
-\metropolis@frametitle@padding=\skip74
-\metropolis@progressinheadfoot=\skip75
-\metropolis@progressinheadfoot@linewidth=\skip76
-)
-(/usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamercolorthem
-emetropolis.sty
-Package: beamercolorthememetropolis 2017/01/23 Metropolis color theme
-)
-(/usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamerfonttheme
-metropolis.sty
-Package: beamerfontthememetropolis 2017/01/23 Metropolis font theme
- (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty
-Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-)
-(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty
-Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-)
+\l__gotham_titleseparator_width_dim=\dimen311
+\l__gotham_titleseparator_height_dim=\dimen312
+\l__gotham_title_width_dim=\dimen313
+\l__gotham_subtitle_width_dim=\dimen314
+\l__gotham_title_max_width_dim=\dimen315
+\gothamDividedPicTop=\skip68
+\gothamDividedPicBottomIncr=\skip69
+\gothamDividedPicTextWidth=\skip70
+\gotham@progressonsectionpage=\skip71
+\gothamProgressSectionHeight=\skip72
+\sectionhoffset=\skip73
+\gotham@blocksep=\skip74
+\gotham@blockadjust=\skip75
+\gotham@parskip=\skip76
+) (./beamerouterthemegotham.sty
+Package: beamerouterthemegotham 2026-04-02 v1.2.5.a gotham outer theme
 
-Package beamerthememetropolis Warning: You need to compile with XeLaTeX or LuaL
-aTeX to use the Fira fonts on input line 95.
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xfp/xfp.sty
+Package: xfp 2023-02-02 L3 Floating point unit
+)
+\sidebarRightHOffset=\skip77
+\sidebarLeftHOffset=\skip78
+\gothamFrametitleToppading=\skip79
+\gothamFrametitleBottompading=\skip80
+\gothamFrametitleLeftpading=\skip81
+\gothamFrametitleRightpading=\skip82
+\gothamFramesubtitleStrutend=\skip83
+\l__gotham_framesubtitle_subnewline_strutend_dim=\dimen316
+\gothamFootlineVOffset=\skip84
+\gothamFootlineHeight=\skip85
+\gothamFootlineDepth=\skip86
+\gothamFootlineHRightOffset=\skip87
+\gothamLeftFooterPadding=\skip88
+\gothamRightFooterPadding=\skip89
+\gothamFooterHOffset=\skip90
+\gothamFootlineRuleLeftPadding=\skip91
+\gothamFootlineRuleHeight=\skip92
+\gothamFootlineRuleLength=\skip93
+\gothamHposLeftRotFooter=\skip94
+\gothamHposRightRotFooter=\skip95
+\gothamVposLeftRotFooter=\skip96
+\gothamVposRightRotFooter=\skip97
+\hlenRightRotFooter=\skip98
+\hlenLeftRotFooter=\skip99
+\gothamCircleNumberingVshift=\skip100
+\gothamCircleNumberingHshift=\skip101
+\gotham@temp@heightFrametitle=\skip102
+\gotham@temp@PaperheightFrametitle=\skip103
+\gotham@temp@MiniframeSubsecDim=\skip104
+\gotham@temp@MiniframeSecDim=\skip105
+\gotham@progressinheadfoot=\skip106
+\gothamProgressHeadFootLineheight=\skip107
+\gothamProgressCircHeight=\skip108
+\gothamCounterCircleRadius=\skip109
+\gothamProgressCircBorderWidth=\skip110
+\gothamProgressCircLogoRadius=\skip111
+\gothamProgressCircLogoInnerRadius=\skip112
+\gothamProgressCircLogoOuterRadius=\skip113
+\gothamCounterRadius=\skip114
 
-)) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks49
-\inpenc@posthook=\toks50
+! Undefined control sequence.
+<argument> ...gotham_out_tmp_mfnposi_tl {none}\tl_if_eq:VnTF 
+                                                  \l__gotham_out_tmp_pbar_tl...
+l.2180 }
+      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2180 }
+      
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<argument> ...e_name_prop {headline/default}]}\tl_if_eq:VnTF 
+                                                  \l__gotham_out_tmp_pbar_tl...
+l.2180 }
+      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...e_name_prop {footline/default}]}\tl_if_eq:VnTF 
+                                                  \l__gotham_out_tmp_pbar_tl...
+l.2180 }
+      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...me_prop {sidebar left/default}]}\tl_if_eq:VnTF 
+                                                  \l__gotham_out_tmp_pbar_tl...
+l.2180 }
+      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...l__gotham_out_tmp_pbar_tl {none}\tl_if_eq:VnTF 
+                                                  \l__gotham_out_tmp_mfnposi...
+l.2180 }
+      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ..._name_prop {frametitle/default}]\tl_if_eq:VnTF 
+                                                  \l__gotham_out_tmp_mfnposi...
+l.2180 }
+      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...e_name_prop {footline/default}]}\tl_if_eq:VnTF 
+                                                  \l__gotham_out_tmp_mfnposi...
+l.2180 }
+      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...me_prop {sidebar left/default}]}\tl_if_eq:VnTF 
+                                                  \l__gotham_out_tmp_mfnposi...
+l.2180 }
+      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 )
-(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-)
-(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+\l_gotham_lookup_cnt=\count357
+) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2023/02/13 3.86 The Babel package
-\babel@savecnt=\count346
-\U@D=\dimen309
-\l@unhyphenated=\language4
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/luababel.def
 \bbl@readstream=\read3
+\l@dumylang=\language2
+Package babel Info: Non-standard hyphenation setup on input line 118.
+\l@nohyphenation=\language3
+\l@spanish=\language4
+\babelcatcodetablenum=\catcodetable12
+\bbl@pattcodes=\catcodetable13
+)
+\babel@savecnt=\count358
+\U@D=\dimen317
+\l@unhyphenated=\language5
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/luababel.def
+\bbl@attr@locale=\attribute4
+)
 LaTeX Info: Redefining \textlatin on input line 4088.
-\bbl@dirlevel=\count347
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel-spanish/spanish.ldf
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
-\es@quottoks=\toks51
-\es@quotdepth=\count348
+\es@quottoks=\toks48
+\es@quotdepth=\count359
 Package babel Info: Making " an active character on input line 570.
 Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
 Package babel Info: Making > an active character on input line 722.
-))
-(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex
+
+(/usr/share/texlive/texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-es.tex
+UTF-8 Spanish hyphenation patterns
+(/usr/share/texlive/texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-es.tex)))
+) (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex
 Package babel Info: Importing font and identification data for spanish
 (babel)             from babel-es.ini. Reported on input line 11.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen310
-\lightrulewidth=\dimen311
-\cmidrulewidth=\dimen312
-\belowrulesep=\dimen313
-\belowbottomsep=\dimen314
-\aboverulesep=\dimen315
-\abovetopsep=\dimen316
-\cmidrulesep=\dimen317
-\cmidrulekern=\dimen318
-\defaultaddspace=\dimen319
-\@cmidla=\count349
-\@cmidlb=\count350
-\@aboverulesep=\dimen320
-\@belowrulesep=\dimen321
-\@thisruleclass=\count351
-\@lastruleclass=\count352
-\@thisrulewidth=\dimen322
+\heavyrulewidth=\dimen318
+\lightrulewidth=\dimen319
+\cmidrulewidth=\dimen320
+\belowrulesep=\dimen321
+\belowbottomsep=\dimen322
+\aboverulesep=\dimen323
+\abovetopsep=\dimen324
+\cmidrulesep=\dimen325
+\cmidrulekern=\dimen326
+\defaultaddspace=\dimen327
+\@cmidla=\count360
+\@cmidlb=\count361
+\@aboverulesep=\dimen328
+\@belowrulesep=\dimen329
+\@thisruleclass=\count362
+\@lastruleclass=\count363
+\@thisrulewidth=\dimen330
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplots.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
@@ -878,12 +1161,14 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
-\t@pgfplots@toka=\toks52
-\t@pgfplots@tokb=\toks53
-\t@pgfplots@tokc=\toks54
-\pgfplots@tmpa=\dimen323
-\c@pgfplots@coordindex=\count353
-\c@pgfplots@scanlineindex=\count354
+Package pgfplots info on input line 124: Initializing with LUA version Lua 5.3
+\pgfplots@luabackend@table=\catcodetable14
+\t@pgfplots@toka=\toks49
+\t@pgfplots@tokb=\toks50
+\t@pgfplots@tokc=\toks51
+\pgfplots@tmpa=\dimen331
+\c@pgfplots@coordindex=\count364
+\c@pgfplots@scanlineindex=\count365
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code
 .tex))
@@ -894,27 +1179,35 @@ gfsupp_loader.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
 )
 Package pgfplots: loading complementary utilities for your pgf version...
-\t@pgf@toka=\toks55
-\t@pgf@tokb=\toks56
-\t@pgf@tokc=\toks57
+\t@pgf@toka=\toks52
+\t@pgf@tokb=\toks53
+\t@pgf@tokc=\toks54
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldp
-gfsupp_pgfutil-common-lists.tex))
+gfsupp_pgfutil-common-lists.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/luamath/pgflibraryluam
+ath.code.tex)
+Package pgfplots info on input line 290: luamath library shipped with pgf 3.1.1
+0 is up-to-date
+)
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+Package pgfplots info on input line 82: Found new luatex: initializing lua comm
+ands instead of write18 (shell-escape)
+
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
 tructure.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
 tructureext.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray
 .code.tex
-\c@pgfplotsarray@tmp=\count355
+\c@pgfplotsarray@tmp=\count366
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatri
 x.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshare
 d.code.tex
-\c@pgfplotstable@counta=\count356
-\t@pgfplotstable@a=\toks58
+\c@pgfplotstable@counta=\count367
+\t@pgfplotstable@a=\toks55
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque
 .code.tex)
@@ -926,10 +1219,10 @@ de.tex))
 .tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.sur
 fshading.code.tex
-\c@pgfplotslibrarysurf@no=\count357
+\c@pgfplotslibrarysurf@no=\count368
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surf
-shading.pgfsys-pdftex.def)))
+shading.pgfsys-luatex.def)))
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.
 tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex
@@ -953,16 +1246,16 @@ e.tex)
 zlibrarydecorations.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
 e.tex
-\pgfdecoratedcompleteddistance=\dimen324
-\pgfdecoratedremainingdistance=\dimen325
-\pgfdecoratedinputsegmentcompleteddistance=\dimen326
-\pgfdecoratedinputsegmentremainingdistance=\dimen327
-\pgf@decorate@distancetomove=\dimen328
-\pgf@decorate@repeatstate=\count358
-\pgfdecorationsegmentamplitude=\dimen329
-\pgfdecorationsegmentlength=\dimen330
+\pgfdecoratedcompleteddistance=\dimen332
+\pgfdecoratedremainingdistance=\dimen333
+\pgfdecoratedinputsegmentcompleteddistance=\dimen334
+\pgfdecoratedinputsegmentremainingdistance=\dimen335
+\pgf@decorate@distancetomove=\dimen336
+\pgf@decorate@repeatstate=\count369
+\pgfdecorationsegmentamplitude=\dimen337
+\pgfdecorationsegmentlength=\dimen338
 )
-\tikz@lib@dec@box=\box81
+\tikz@lib@dec@box=\box82
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarydecorations.pathmorphing.code.tex
@@ -974,13 +1267,13 @@ zlibrarydecorations.pathreplacing.code.tex
 decorations.pathreplacing.code.tex))
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.co
 ntourlua.code.tex)
-\pgfplots@numplots=\count359
-\pgfplots@xmin@reg=\dimen331
-\pgfplots@xmax@reg=\dimen332
-\pgfplots@ymin@reg=\dimen333
-\pgfplots@ymax@reg=\dimen334
-\pgfplots@zmin@reg=\dimen335
-\pgfplots@zmax@reg=\dimen336
+\pgfplots@numplots=\count370
+\pgfplots@xmin@reg=\dimen339
+\pgfplots@xmax@reg=\dimen340
+\pgfplots@ymin@reg=\dimen341
+\pgfplots@ymax@reg=\dimen342
+\pgfplots@zmin@reg=\dimen343
+\pgfplots@zmax@reg=\dimen344
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibraryplotmarks.code.tex
@@ -993,10 +1286,10 @@ File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
 code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen337
-\pgfarrowlength=\dimen338
-\pgfarrowwidth=\dimen339
-\pgfarrowlinewidth=\dimen340
+\pgfarrowinset=\dimen345
+\pgfarrowlength=\dimen346
+\pgfarrowwidth=\dimen347
+\pgfarrowlinewidth=\dimen348
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarypositioning.code.tex
@@ -1015,35 +1308,39 @@ zlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/fontawesome5.sty
-(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2023-02-22 L3 programming layer (loader) 
-
-(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count360
-\l__pdf_internal_box=\box82
-))
 Package: fontawesome5 2022/05/02 v5.15.4 Font Awesome 5
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2023-02-02 LaTeX2e option processing using LaTeX3 keys
 )
-(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2023-02-02 L3 Experimental document command parser
-)
-(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/fontawesome5-generic-help
-er.sty
-Package: fontawesome5-generic-helper 2022/05/02 v5.15.4 non-uTeX helper for fon
-tawesome5
+(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/fontawesome5-utex-helper.
+sty
+Package: fontawesome5-utex-helper 2022/05/02 v5.15.4 uTeX helper for fontawesom
+e5
+ (/usr/share/texlive/texmf-dist/tex/luatex/luatexbase/luatexbase.sty
+Package: luatexbase 2015/10/04 v1.3 luatexbase interface to LuaTeX 
 
-(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/fontawesome5-mapping.def)
-)) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+(/usr/share/texlive/texmf-dist/tex/luatex/ctablestack/ctablestack.sty
+Package: ctablestack 2015/10/01 v1.0 Catcode table stable support
+\@catcodetablestackcnt=\count371
+)
+\CatcodeTableOther=\catcodetable15
+\CatcodeTableExpl=\catcodetable16
+)
+LaTeX Font Info:    Trying to load font information for TU+fontawesomefree on i
+nput line 69.
+
+(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/tufontawesomefree.fd)
+LaTeX Font Info:    Trying to load font information for TU+fontawesomebrands on
+ input line 70.
+
+(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/tufontawesomebrands.fd))) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2023/03/17 version 6.0.3 text color boxes
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks59
-\verbatim@line=\toks60
+\every@verbatim=\toks56
+\verbatim@line=\toks57
 \verbatim@in@stream=\read4
 )
 (/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
@@ -1056,9 +1353,9 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@upperbox=\box84
 \tcb@lowerbox=\box85
 \tcb@phantombox=\box86
-\c@tcbbreakpart=\count361
-\c@tcblayer=\count362
-\c@tcolorbox@number=\count363
+\c@tcbbreakpart=\count372
+\c@tcblayer=\count373
+\c@tcolorbox@number=\count374
 \tcb@temp=\box87
 \tcb@temp=\box88
 \tcb@temp=\box89
@@ -1083,51 +1380,54 @@ Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen341
+\col@sep=\dimen349
 \ar@mcellbox=\box92
-\extrarowheight=\dimen342
-\NC@list=\toks61
-\extratabsurround=\skip77
-\backup@length=\skip78
+\extrarowheight=\dimen350
+\NC@list=\toks58
+\extratabsurround=\skip115
+\backup@length=\skip116
 \ar@cellbox=\box93
 )
-\everycr=\toks62
-\minrowclearance=\skip79
-\rownum=\count364
-)
-(/usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/pgfplotsthemeto
-l.sty
-Package: pgfplotsthemetol 2017/01/23 PGFplots colors based on Paul Tol's SRON t
-echnical note
+\everycr=\toks59
+\minrowclearance=\skip117
+\rownum=\count375
 ) (./slides.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
-\openout1 = `slides.aux'.
+\openout1 = slides.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 98.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 9
+8.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
 
 *geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
+*geometry* detected driver: luatex
 *geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
+* driver: luatex
 * paper: custom
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -1160,17 +1460,17 @@ LaTeX Font Info:    ... okay on input line 84.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count365
-\scratchdimen=\dimen343
+\scratchcounter=\count376
+\scratchdimen=\dimen351
 \scratchbox=\box94
-\nofMPsegments=\count366
-\nofMParguments=\count367
-\everyMPshowfont=\toks63
-\MPscratchCnt=\count368
-\MPscratchDim=\dimen344
-\MPnumerator=\count369
-\makeMPintoPDFobject=\count370
-\everyMPtoPDFconversion=\toks64
+\nofMPsegments=\count377
+\nofMParguments=\count378
+\everyMPshowfont=\toks60
+\MPscratchCnt=\count379
+\MPscratchDim=\dimen352
+\MPnumerator=\count380
+\makeMPintoPDFobject=\count381
+\everyMPtoPDFconversion=\toks61
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1180,69 +1480,68 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 84.
+Package hyperref Info: Link coloring OFF on input line 98.
 
 (./slides.out) (./slides.out)
 \@outlinefile=\write5
-\openout5 = `slides.out'.
 
+\openout5 = slides.out
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 84.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 98.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 84.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 98.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 84.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 84.
+(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 98.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 84.
+(Font)                  OT1/cmr/bx/n --> TU/FiraSans-Light.otf(0)/b/n on input 
+line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 84.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 84.
+(Font)                  OT1/cmr/bx/n --> TU/FiraSans-Light.otf(0)/b/n on input 
+line 98.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 84.
+(Font)                  OT1/cmss/m/n --> TU/FiraSans-Light.otf(0)/m/n on input 
+line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 84.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 84.
+(Font)                  OT1/cmss/bx/n --> TU/FiraSans-Light.otf(0)/m/n on input
+ line 98.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 84.
+(Font)                  OT1/cmr/m/it --> TU/FiraSans-Light.otf(0)/m/it on input
+ line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 84.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 84.
+(Font)                  OT1/cmr/bx/it --> TU/FiraSans-Light.otf(0)/m/it on inpu
+t line 98.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 84.
+(Font)                  OT1/cmtt/m/n --> TU/FiraMono-Bold.otf(0)/m/n on input l
+ine 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 84.
+(Font)                  OT1/cmtt/m/n --> TU/FiraMono-Bold.otf(0)/m/n on input l
+ine 98.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 84.
+(Font)                  TU/FiraSans-Light.otf(0)/m/n --> TU/FiraSans-Light.otf(
+0)/b/n on input line 98.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 84.
+(Font)                  TU/FiraSans-Light.otf(0)/m/it --> TU/FiraSans-Light.otf
+(0)/b/it on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 84.
+(Font)                  OT1/cmss/b/n --> TU/lmr/b/n on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/cmss/b/n --> T1/cmss/b/n on input line 84.
+(Font)                  TU/FiraSans-Light.otf(0)/b/n --> TU/FiraSans-Light.otf(
+0)/b/n on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 84.
+(Font)                  TU/FiraSans-Light.otf(0)/m/n --> TU/FiraSans-Light.otf(
+0)/b/n on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 84.
+(Font)                  TU/FiraSans-Light.otf(0)/m/it --> TU/FiraSans-Light.otf
+(0)/b/it on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 84.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 84.
-LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `normal' on input line 84
-.
-LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 84
-.
-LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `bold' on input line 84.
-LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 84
-.
-LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 84.
+(Font)                  TU/FiraMono-Bold.otf(0)/m/n --> TU/FiraMono-Bold.otf(0)
+/b/n on input line 98.
 
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
 -English.dict
@@ -1292,207 +1591,225 @@ Dictionary: translator-theorem-dictionary, Language: English
 ry-Spanish.dict
 Dictionary: translator-theorem-dictionary, Language: Spanish 
 )
-LaTeX Info: Redefining \. on input line 84.
-LaTeX Info: Redefining \% on input line 84.
+LaTeX Info: Redefining \. on input line 98.
+LaTeX Info: Redefining \% on input line 98.
 
-Package pgfplots notification 'compat/show suggested version=true': you might b
-enefit from \pgfplotsset{compat=1.18} (current compat level: 1.9).
+Package pgfplots notification 'compat/show suggested version=true': document ha
+s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 (./slides.nav)
-<Figures//logoFIUBA.pdf, id=37, 460.9062pt x 153.61644pt>
+<Figures//logoFIUBA.pdf, id=37, 460.90619pt x 153.61642pt>
 File: Figures//logoFIUBA.pdf Graphic file (type pdf)
 <use Figures//logoFIUBA.pdf>
-Package pdftex.def Info: Figures//logoFIUBA.pdf  used on input line 125.
-(pdftex.def)             Requested size: 71.69803pt x 23.89467pt.
+Package luatex.def Info: Figures//logoFIUBA.pdf  used on input line 139.
+(luatex.def)             Requested size: 71.69803pt x 23.89467pt.
+
+Overfull \vbox (15.46pt too high) has occurred while \output is active []
+
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
-st/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./Figures//logoFIUBA.pdf>]
-LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
-208.
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
-File: ts1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
-) [2
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}<./Figures//logoFIUBA.pdf>]
+[2
 
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 211
+]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 225
 .
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 211
+LaTeX Font Info:    Trying to load font information for U+msb on input line 225
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 211.
+) [3
 
-(/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
-File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
-thkerncmss.
-)
-[3
+] [4
+
+] [5
 
 ]
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on i
-nput line 270.
- (/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree1.fd)
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
-nput line 270.
-(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree0.fd)
-[4
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc}{/usr/
-share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free0.enc}] [5
-
-]
-<Figures//evolucion-modelos.png, id=87, 1931.215pt x 950.55125pt>
+<Figures//evolucion-modelos.png, id=73, 1931.215pt x 950.55125pt>
 File: Figures//evolucion-modelos.png Graphic file (type png)
 <use Figures//evolucion-modelos.png>
-Package pdftex.def Info: Figures//evolucion-modelos.png  used on input line 287
+Package luatex.def Info: Figures//evolucion-modelos.png  used on input line 301
 .
-(pdftex.def)             Requested size: 375.56877pt x 184.85635pt.
+(luatex.def)             Requested size: 378.39769pt x 186.24875pt.
+ [6
 
-[6
+<./Figures//evolucion-modelos.png>] [7
 
- <./Figures//evolucion-modelos.png>] [7
+] [8
 
-]
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree3 on i
-nput line 326.
+] [9
 
-(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree3.fd)
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
-nput line 326.
-
-(/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/ufontawesomefree2.fd)
-[8
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free3.enc}{/usr/
-share/texlive/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free2.enc}] [9
+] [10
 
 ]
-[10
 
-]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-91.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
-)
-Overfull \hbox (17.48874pt too wide) in paragraph at lines 391--391
+Package fontspec Info: Font family 'FiraSans-Light.otf(1)' created for font
+(fontspec)             'FiraSans-Light.otf' with options
+(fontspec)             [Ligatures=TeX,ItalicFont={FiraSans-LightItalic.otf},Bol
+dFont={FiraSans-Regular.otf},BoldItalicFont={FiraSans-Italic.otf},Numbers={Mono
+spaced}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[FiraSans-Light.otf]:mode=node;script=latn;language=
+dflt;+tlig;+tnum;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->"[FiraSans-Light.otf]:mode=node;script=latn;language=
+dflt;+tlig;+tnum;+smcp;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[FiraSans-Regular.otf]:mode=node;script=latn;languag
+e=dflt;+tlig;+tnum;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->"[FiraSans-Regular.otf]:mode=node;script=latn;languag
+e=dflt;+tlig;+tnum;+smcp;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[FiraSans-LightItalic.otf]:mode=node;script=latn;lan
+guage=dflt;+tlig;+tnum;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->"[FiraSans-LightItalic.otf]:mode=node;script=latn;lan
+guage=dflt;+tlig;+tnum;+smcp;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[FiraSans-Italic.otf]:mode=node;script=latn;language
+=dflt;+tlig;+tnum;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->"[FiraSans-Italic.otf]:mode=node;script=latn;language
+=dflt;+tlig;+tnum;+smcp;"
+
+
+Overfull \hbox (13.15016pt too wide) in paragraph at lines 405--405
 [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 405--405
+[]\TU/FiraMono-Bold.otf(0)/m/n/10.95 use_pca=False\TU/FiraSans-Light.otf(0)/m/n
+/10.95 : co-rre-la-cio-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 405--405
+\TU/FiraSans-Light.otf(0)/m/n/10.95 entre in-di-ca-do-res con-tie-nen
  []
 
 [11
 
 ]
-<Figures//hyperparameter_pipeline.png, id=130, 705.63625pt x 691.58376pt>
+<Figures//hyperparameter_pipeline.png, id=109, 705.63625pt x 691.58376pt>
 File: Figures//hyperparameter_pipeline.png Graphic file (type png)
 <use Figures//hyperparameter_pipeline.png>
-Package pdftex.def Info: Figures//hyperparameter_pipeline.png  used on input li
-ne 409.
-(pdftex.def)             Requested size: 142.59984pt x 139.76001pt.
- [12
+Package luatex.def Info: Figures//hyperparameter_pipeline.png  used on input li
+ne 424.
+(luatex.def)             Requested size: 179.9833pt x 176.399pt.
 
- <./Figures//hyperparameter_pipeline.png>]
-<Figures//chronos.png, id=137, 3165.8275pt x 1316.92pt>
+Overfull \vbox (20.16801pt too high) detected at line 424
+ []
+
+[12
+
+<./Figures//hyperparameter_pipeline.png>]
+<Figures//chronos.png, id=116, 3165.8275pt x 1316.92pt>
 File: Figures//chronos.png Graphic file (type png)
 <use Figures//chronos.png>
-Package pdftex.def Info: Figures//chronos.png  used on input line 419.
-(pdftex.def)             Requested size: 366.45369pt x 152.43729pt.
+Package luatex.def Info: Figures//chronos.png  used on input line 434.
+(luatex.def)             Requested size: 366.45369pt x 152.43729pt.
  [13
 
- <./Figures//chronos.png>]
-<Figures//triple-barrier.png, id=146, 2274.4975pt x 1327.96124pt>
+<./Figures//chronos.png>]
+<Figures//triple-barrier.png, id=123, 2274.4975pt x 1327.96124pt>
 File: Figures//triple-barrier.png Graphic file (type png)
 <use Figures//triple-barrier.png>
-Package pdftex.def Info: Figures//triple-barrier.png  used on input line 443.
-(pdftex.def)             Requested size: 187.20412pt x 109.29878pt.
+Package luatex.def Info: Figures//triple-barrier.png  used on input line 459.
+(luatex.def)             Requested size: 238.98546pt x 139.53122pt.
 
-Overfull \vbox (5.98186pt too high) detected at line 443
+Overfull \vbox (91.51538pt too high) detected at line 459
  []
 
 [14
 
- <./Figures//triple-barrier.png>]
-Underfull \hbox (badness 2150) in paragraph at lines 469--469
-\TS1/cmss/m/n/12 ^^Y \T1/cmss/m/n/12 dis-tri-bu-ción del ren-di-mien-to
- []
-
-[15
+<./Figures//triple-barrier.png>] [15
 
 ] [16
 
 ]
-<Figures//preprocessing_pipeline.png, id=165, 571.13374pt x 357.335pt>
+<Figures//preprocessing_pipeline.png, id=142, 571.13374pt x 357.335pt>
 File: Figures//preprocessing_pipeline.png Graphic file (type png)
 <use Figures//preprocessing_pipeline.png>
-Package pdftex.def Info: Figures//preprocessing_pipeline.png  used on input lin
-e 492.
-(pdftex.def)             Requested size: 187.21979pt x 117.13574pt.
+Package luatex.def Info: Figures//preprocessing_pipeline.png  used on input lin
+e 509.
+(luatex.def)             Requested size: 246.96837pt x 154.51799pt.
 
-Overfull \vbox (13.20586pt too high) detected at line 492
+Overfull \vbox (21.07861pt too high) detected at line 509
  []
 
 [17
 
- <./Figures//preprocessing_pipeline.png>]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <12> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 516.
+<./Figures//preprocessing_pipeline.png>]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 534.
 
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 516.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 534.
 
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 516.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 534.
 
-
-
-LaTeX Font Warning: Font shape `T1/cmss/b/n' undefined
-(Font)              using `T1/cmss/m/n' instead on input line 516.
-
-<Figures//bars-volume-1m.png, id=173, 1564.84625pt x 782.925pt>
+<Figures//bars-volume-1m.png, id=149, 1564.84625pt x 782.925pt>
 File: Figures//bars-volume-1m.png Graphic file (type png)
 <use Figures//bars-volume-1m.png>
-Package pdftex.def Info: Figures//bars-volume-1m.png  used on input line 516.
-(pdftex.def)             Requested size: 187.20038pt x 93.66023pt.
+Package luatex.def Info: Figures//bars-volume-1m.png  used on input line 534.
+(luatex.def)             Requested size: 238.99089pt x 119.5721pt.
+
+Overfull \vbox (11.03427pt too high) detected at line 534
+ []
+
 [18
 
- <./Figures//bars-volume-1m.png>]
-Overfull \vbox (14.14702pt too high) detected at line 580
+<./Figures//bars-volume-1m.png>]
+Underfull \hbox (badness 1558) in paragraph at lines 598--598
+\TU/FiraSans-Light.otf(0)/m/n/10 Desplegado en Bi-nan-ce (pro-duc-
+ []
+
+
+Overfull \vbox (20.31369pt too high) detected at line 598
  []
 
 [19
 
 ] [20
 
-] [21
+]
+Underfull \hbox (badness 1163) in paragraph at lines 635--635
+[]\TU/FiraSans-Light.otf(0)/b/n/12 El anÃ¡-li-sis tÃ©c-ni-co sim-ple no
+ []
+
+[21
 
 ]
-Overfull \hbox (4.83908pt too wide) in paragraph at lines 649--649
+Overfull \hbox (1.98521pt too wide) in paragraph at lines 667--667
 [][] 
  []
 
 [22
 
 ]
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-682.
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
-File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
-)
-Overfull \hbox (4.11005pt too wide) in paragraph at lines 682--682
+Overfull \hbox (7.07324pt too wide) in paragraph at lines 700--700
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 682--682
-\T1/cmtt/m/n/10.95 max_depth=4 \TS1/cmtt/m/n/10.95 · \T1/cmtt/m/n/10.95 lr=0,00
-3 \TS1/cmtt/m/n/10.95 ·
+Underfull \hbox (badness 10000) in paragraph at lines 700--700
+\TU/FiraMono-Bold.otf(0)/m/n/10.95 max_depth=4 Â· lr=0,003 Â·
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 700--700
+\TU/FiraSans-Light.otf(0)/m/n/10.95 Mejor Au-to-Gluon:
  []
 
 [23
@@ -1500,12 +1817,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 682--682
 ] [24
 
 ]
-Overfull \hbox (30.94371pt too wide) in paragraph at lines 757--757
+Overfull \hbox (31.17125pt too wide) in paragraph at lines 775--775
 [][]  
- []
-
-
-Overfull \vbox (2.72482pt too high) detected at line 757
  []
 
 [25
@@ -1517,19 +1830,21 @@ Overfull \vbox (2.72482pt too high) detected at line 757
 ] [28
 
 ]
-<Figures//bloques-tp-final.drawio.png, id=248, 507.8975pt x 392.46625pt>
+<Figures//bloques-tp-final.drawio.png, id=218, 507.8975pt x 392.46625pt>
 File: Figures//bloques-tp-final.drawio.png Graphic file (type png)
 <use Figures//bloques-tp-final.drawio.png>
-Package pdftex.def Info: Figures//bloques-tp-final.drawio.png  used on input li
-ne 844.
-(pdftex.def)             Requested size: 131.28299pt x 101.44594pt.
+Package luatex.def Info: Figures//bloques-tp-final.drawio.png  used on input li
+ne 864.
+(luatex.def)             Requested size: 167.41295pt x 129.36453pt.
+ [29
 
-Overfull \vbox (8.77872pt too high) detected at line 844
+<./Figures//bloques-tp-final.drawio.png>]
+Overfull \hbox (11.27148pt too wide) in paragraph at lines 891--891
+ [][]\TU/FiraMono-Bold.otf(0)/m/n/10.95 https://drive.google.com/file/d/1ybZkajj
+zUriHRqoBw0tH0f- 
  []
 
-[29
-
- <./Figures//bloques-tp-final.drawio.png>] [30
+[30
 
 ] [31
 
@@ -1540,80 +1855,71 @@ Overfull \vbox (8.77872pt too high) detected at line 844
 ] [34
 
 ]
-File: Figures//bars-volume-1m.png Graphic file (type png)
-<use Figures//bars-volume-1m.png>
-Package pdftex.def Info: Figures//bars-volume-1m.png  used on input line 951.
-(pdftex.def)             Requested size: 187.21962pt x 93.66023pt.
- [35
+Underfull \hbox (badness 1546) in paragraph at lines 948--948
+[]|\TU/FiraSans-Light.otf(1)/m/n/12 Um-bra-les al-tos de-gra-dan
+ []
+
+[35
 
 ]
-[36
+File: Figures//bars-volume-1m.png Graphic file (type png)
+<use Figures//bars-volume-1m.png>
+Package luatex.def Info: Figures//bars-volume-1m.png  used on input line 970.
+(luatex.def)             Requested size: 187.21962pt x 93.66023pt.
+ [36
+
+]
+Overfull \vbox (8.36882pt too high) detected at line 995
+ []
+
+[37
 
 ]
 \tf@nav=\write6
-\openout6 = `slides.nav'.
 
+\openout6 = slides.nav
 \tf@toc=\write7
-\openout7 = `slides.toc'.
 
+\openout7 = slides.toc
 \tf@snm=\write8
-\openout8 = `slides.snm'.
 
+\openout8 = slides.snm
  (./slides.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
 Package rerunfilecheck Info: File `slides.out' has not changed.
 (rerunfilecheck)             Checksum: 5752383FE239990D2992EB7BACF9B9D1;801.
- ) 
-Here is how much of TeX's memory you used:
- 45761 strings out of 477967
- 1099003 string characters out of 5838625
- 1873388 words of memory out of 6000000
- 65033 multiletter control sequences out of 15000+600000
- 557324 words of font info for 147 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 128i,16n,122p,1942b,2880s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Fr
-ee-Solid.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbs
-y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmssi17.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-sup
-er/sfsi0600.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsi
-1095.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsi1200.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsi1440.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfss0500.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/cm-super/sfss0600.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/cm-super/sfss1095.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/cm-super/sfss1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/cm-super/sfss1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-s
-uper/sfss1728.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sf
-sx0600.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx0800.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/cm-super/sftt1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/cm-super/sftt1440.pfb>
-Output written on slides.pdf (36 pages, 8232356 bytes).
-PDF statistics:
- 489 PDF objects out of 1000 (max. 8388607)
- 344 compressed objects within 4 object streams
- 79 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+)
+
+Here is how much of LuaTeX's memory you used:
+ 50403 strings out of 478285
+ 125030,1977958 words of node,token memory allocated
+ 9744 words of node memory still in use:
+   109 hlist, 12 vlist, 5 rule, 59 disc, 12 local_par, 16 math, 218 glue, 65 ker
+n, 40 penalty, 337 glyph, 722 attribute, 105 glue_spec, 363 attribute_list, 4 wr
+ite, 172 pdf_literal, 1 pdf_action, 38 pdf_colorstack nodes
+   avail lists: 2:3967,3:1667,4:404,5:382,6:69,7:1820,8:13,9:729,10:14,11:191
+ 68588 multiletter control sequences out of 65536+600000
+ 157 fonts using 36134767 bytes
+ 128i,16n,130p,2029b,2949s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/opentype/public/fira/FiraMono-Bold.otf></us
+r/share/texlive/texmf-dist/fonts/opentype/public/fontawesome5/FontAwesome5Free-S
+olid-900.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/fira/FiraSans-
+LightItalic.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/fira/FiraSa
+ns-Regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/fira/FiraSan
+s-Light.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on slides.pdf (37 pages, 7812418 bytes).
+
+PDF statistics: 335 PDF objects out of 1000 (max. 8388607)
+ 249 compressed objects within 3 object streams
+ 81 named destinations out of 1000 (max. 131072)
+ 64 words of extra memory for PDF output out of 10000 (max. 100000000)
 
